@@ -1,0 +1,47 @@
+
+> rio-static-app@1.0.0 dev
+> next dev -p 3100
+
+  ▲ Next.js 14.2.5
+  - Local:        http://localhost:3100
+
+ ✓ Starting...
+ ✓ Ready in 2.1s
+ ○ Compiling / ...
+ ✓ Compiled / in 7.6s (459 modules)
+ GET / 200 in 8383ms
+ ○ Compiling /about ...
+ ✓ Compiled /about in 5.9s (452 modules)
+ GET /about 200 in 6167ms
+ ✓ Compiled /contact in 493ms (459 modules)
+ GET /contact 200 in 630ms
+ ✓ Compiled /treatments in 388ms (466 modules)
+ GET /treatments 200 in 487ms
+ ✓ Compiled /book-appointment in 341ms (473 modules)
+ GET /book-appointment 200 in 451ms
+ ✓ Compiled /book-emergency in 323ms (480 modules)
+ GET /book-emergency 200 in 418ms
+ ✓ Compiled /services/nicu in 443ms (487 modules)
+ GET /services/nicu 200 in 546ms
+ ✓ Compiled /services/picu in 451ms (494 modules)
+ GET /services/picu 200 in 559ms
+ ✓ Compiled /services/fetal-medicine in 405ms (501 modules)
+ GET /services/fetal-medicine 200 in 515ms
+ ✓ Compiled /services/human-milk-bank in 439ms (508 modules)
+ GET /services/human-milk-bank 200 in 545ms
+ ✓ Compiled /services/emergency in 447ms (515 modules)
+ GET /services/emergency 200 in 555ms
+ ○ Compiling /services/maternity ...
+ ✓ Compiled /services/maternity in 537ms (522 modules)
+ GET /services/maternity 200 in 652ms
+ ○ Compiling /services/high-risk-pregnancy ...
+ ✓ Compiled /services/high-risk-pregnancy in 571ms (529 modules)
+ GET /services/high-risk-pregnancy 200 in 690ms
+ ✓ Compiled /services/general-paediatrics in 499ms (536 modules)
+ GET /services/general-paediatrics 200 in 610ms
+ ✓ Compiled /services/fertility-ivf in 477ms (543 modules)
+ GET /services/fertility-ivf 200 in 591ms
+ ○ Compiling /services/vaccination ...
+ ✓ Compiled /services/vaccination in 551ms (550 modules)
+ GET /services/vaccination 200 in 676ms
+[?25h
