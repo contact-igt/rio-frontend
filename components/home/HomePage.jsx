@@ -496,10 +496,16 @@ export default function HomePage() {
         .gal{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; align-items:start}
         @media (max-width:880px){.gal{grid-template-columns:repeat(2,1fr)}}
         .gal-col{display:flex; flex-direction:column; gap:20px}
-        .gal-cell{position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:0 22px 44px -30px rgba(48,53,115,.4)}
-        .gal-cell
+        .gal-cell{position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:0 12px 30px rgba(48,53,115,.1); transition:transform .45s cubic-bezier(.25,1,.5,1), box-shadow .45s cubic-bezier(.25,1,.5,1)}
+        .gal-cell::after{content:""; position:absolute; inset:0; background:linear-gradient(110deg, transparent 40%, rgba(255,255,255,.3) 50%, transparent 60%); transform:translateX(-100%); transition:none; z-index:3; pointer-events:none}
+        .gal-cell:hover{transform:translateY(-6px); box-shadow:0 22px 48px rgba(48,53,115,.22)}
+        .gal-cell:hover::after{transform:translateX(100%); transition:transform .85s ease-in-out}
+        .gal-cell .img-wrap{width:100%; height:100%; border-radius:0}
+        .gal-cell img{width:100%; height:100%; object-fit:cover; transition:transform .7s cubic-bezier(.25,1,.5,1)}
+        .gal-cell:hover img{transform:scale(1.06) rotate(0.5deg)}
         .gal-cell.h1{aspect-ratio:3/4} .gal-cell.h2{aspect-ratio:4/3} .gal-cell.h3{aspect-ratio:1/1}
-        .gal-cap{position:absolute; left:0; right:0; bottom:0; padding:32px 16px 15px; background:linear-gradient(transparent, rgba(35,39,90,.85)); color:#fff; font-weight:700; font-size:13.5px}
+        .gal-cap{position:absolute; left:0; right:0; bottom:0; padding:36px 20px 20px; background:linear-gradient(transparent, rgba(35,39,90,.9)); color:#fff; font-weight:700; font-size:15px; font-family:'Proxima Nova','Mulish',sans-serif; z-index:2; transition:transform .45s cubic-bezier(.25,1,.5,1)}
+        .gal-cell:hover .gal-cap{transform:translateY(-4px)}
 
         @media (max-width:920px){}
         @media (max-width:560px){}
