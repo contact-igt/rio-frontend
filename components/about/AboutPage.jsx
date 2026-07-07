@@ -23,10 +23,10 @@ const IMG = {
   "newborn": "/assets/about/child-newborn.png",
   "maternity": "/assets/about/women.png",
   "specialists": "/assets/about/specialist.png",
-  "specialists2": "/assets/about/clinical-team-support.png",
-  "cc1": "/assets/about/nicu-ward.png",
-  "cc2": "/assets/about/diagnostic-suite.png",
-  "emergency": "/assets/about/emergency-care.png",
+  "specialists2": "/assets/about/women.png",
+  "cc1": "/assets/about/advanced-nicu.png",
+  "cc2": "/assets/about/ot.png",
+  "emergency": "/assets/about/pe.png",
   "branch1": "/assets/shared/branch-madurai-main.png",
   "branch2": "/assets/shared/branch-madurai-southwing.png",
   "branch3": "/assets/shared/branch-dindigul.png",
@@ -194,6 +194,7 @@ function MobileNav({ open, onClose }) {
         <button className="mnav-x" aria-label="Close menu" onClick={onClose}>×</button>
         <a className="mnav-link" href="/" onClick={onClose}>Home</a>
         <a className="mnav-link" href="/about" onClick={onClose}>About</a>
+        <a className="mnav-link" href="/doctors" onClick={onClose}>Doctors</a>
         <div className="mnav-group">
           <span className="mnav-h">Treatments</span>
           {NAV_TREATMENTS.map((t) => (
@@ -263,9 +264,25 @@ export default function AboutPage() {
         .ahero-media{position:relative}
         .ahero-media .frame{aspect-ratio:4/4.4; border-radius:30px; box-shadow:var(--shadow)}
         .ahero-media .frame img{height:118%; top:-9%; position:relative}
-        .seal{position:absolute; top:-18px; left:-18px; width:98px;height:98px;border-radius:50%; background:var(--teal); color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 18px 34px -16px rgba(48,53,115,.7); z-index:3}
-        .seal strong{font-family:'Proxima Nova','Mulish',sans-serif; font-size:30px; line-height:1}
-        .seal span{font-size:10px; font-weight:800; letter-spacing:.14em; margin-top:3px}
+        .seal {
+          position: absolute;
+          top: 16px;
+          left: 16px;
+          width: 84px;
+          height: 84px;
+          border-radius: 50%;
+          background: var(--blue);
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 8px 24px rgba(48, 53, 115, 0.25);
+          z-index: 5;
+          border: 2.5px solid #fff;
+        }
+        .seal strong { font-family: 'Proxima Nova', 'Mulish', sans-serif; font-size: 26px; line-height: 1; font-weight: 800; }
+        .seal span { font-size: 9px; font-weight: 800; letter-spacing: .12em; margin-top: 2px; }
 
         /* breadcrumb */
 
@@ -424,7 +441,7 @@ export default function AboutPage() {
       <header className={`header ${navSolid ? "nav-solid" : ""}`}>
         <Logo />
         <nav className="nav-links">
-          <a href="/">Home</a><a href="/about" className="active">About</a><NavTreatments /><a href="/contact">Contact</a>
+          <a href="/">Home</a><a href="/about" className="active">About</a><NavTreatments /><a href="/doctors">Doctors</a><a href="/contact">Contact</a>
         </nav>
         <div className="nav-cta">
           <a className="btn btn-line btn-sm" href={LINKS.youtube} target="_blank" rel="noreferrer">Book Vaccine</a>
@@ -441,7 +458,6 @@ export default function AboutPage() {
           <span className="blob blob-coral" style={{ width: 300, height: 300, top: "0%", left: "-8%" }} data-par="0.12" />
           <div className="wrap ahero-grid">
             <Reveal>
-              <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; About Us</p>
               <Eyebrow>About Rio</Eyebrow>
               <h1>12 years of caring for Tamil Nadu's mothers &amp; <span className="accent">children</span>.</h1>
               <p className="lede">

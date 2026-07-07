@@ -14,12 +14,12 @@ import { useEffect, useRef, useState } from "react";
 
 const IMG = {
   "logo": "/assets/shared/riologov2.png",
-  "banner": "/assets/shared/site-hero.png",
-  "emergency": "/assets/emergency/emergency-care.png",
-  "emergency2": "/assets/emergency/neonatal-transport.png",
-  "critical-care3": "/assets/emergency/paediatric-intensive-care.png",
-  "Advanced-NICU": "/assets/emergency/neonatal-intensive-care.png",
-  "newborn-care": "/assets/emergency/child-newborn-care.png",
+  "banner": "/assets/emergency/hero.png",
+  "emergency": "/assets/emergency/vo.png",
+  "emergency2": "/assets/emergency/lab.png",
+  "critical-care3": "/assets/emergency/picu.png",
+  "Advanced-NICU": "/assets/emergency/advanced-nicu.png",
+  "newborn-care": "/assets/emergency/gp.png",
 };
 const LINKS = {
   call: "tel:+917708318222", whatsapp: "https://wa.me/917708318222",
@@ -45,7 +45,7 @@ const PE = {
   slug: "emergency",
   gallery: [
     { img: "emergency", cap: "24/7 paediatric casualty" },
-    { img: "emergency2", cap: "Neonatal transport ambulance" },
+    { img: "emergency2", cap: "24/7 emergency diagnostics lab" },
     { img: "critical-care3", cap: "Resuscitation & stabilisation bay" },
     { img: "Advanced-NICU", cap: "Direct NICU/PICU escalation" },
   ],
@@ -172,7 +172,7 @@ function EmergencyPageContent({ service: s }) {
         <Logo />
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a><NavTreatments active /><a href="/contact">Contact</a></nav>
         <div className="nav-cta"><a className="btn btn-green btn-sm" href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a><a className="btn btn-cta btn-sm" href="/book-appointment">Book an Appointment</a></div>
-              <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
+        <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
       </header>
 
       <MobileNav open={menuOpen} onClose={() => setMenuOpen(false)} />

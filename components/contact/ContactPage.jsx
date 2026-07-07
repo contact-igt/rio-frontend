@@ -12,7 +12,7 @@ import { useEffect, useRef, useState } from "react";
 
 const IMG = {
   "logo": "/assets/shared/riologov2.png",
-  "hero": "/assets/shared/site-hero.png",
+  "hero": "/assets/shared/abouthero.png",
   "branch1": "/assets/shared/branch-madurai-main.png",
   "branch2": "/assets/shared/branch-madurai-southwing.png",
   "branch3": "/assets/shared/branch-dindigul.png",
@@ -81,6 +81,9 @@ const CIC = {
   chat: <path d="M20.5 11.5a8 8 0 0 1-8.5 8 8.5 8.5 0 0 1-3.8-.9L4 20l1.4-4.2a8 8 0 0 1-.9-3.8 8 8 0 0 1 16 .5z" />,
   mail: <><rect x="3.5" y="5.5" width="17" height="13" rx="2" /><path d="m3.8 7.5 8.2 5.5 8.2-5.5" /></>,
   pin: <><path d="M18.5 10.3c0 5-6.5 10.2-6.5 10.2s-6.5-5.2-6.5-10.2a6.5 6.5 0 0 1 13 0Z" /><circle cx="12" cy="10.3" r="2.5" /></>,
+  instagram: <><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></>,
+  facebook: <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />,
+  youtube: <><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" /><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" /></>,
 };
 function CIcon({ name }) { return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">{CIC[name]}</svg>; }
 
@@ -91,6 +94,7 @@ function MobileNav({ open, onClose }) {
         <button className="mnav-x" aria-label="Close menu" onClick={onClose}>×</button>
         <a className="mnav-link" href="/" onClick={onClose}>Home</a>
         <a className="mnav-link" href="/about" onClick={onClose}>About</a>
+        <a className="mnav-link" href="/doctors" onClick={onClose}>Doctors</a>
         <div className="mnav-group">
           <span className="mnav-h">Treatments</span>
           {NAV_TREATMENTS.map((t) => (
@@ -130,7 +134,6 @@ export default function ContactPage() {
 
         /* hero */
         .chero{padding:50px 0 8px;position:relative;overflow:hidden}
-        .chero
         .chero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;position:relative;z-index:1}
         @media(max-width:920px){.chero-grid{grid-template-columns:1fr;gap:34px}}
 
@@ -141,7 +144,7 @@ export default function ContactPage() {
         .chero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
         .chero-media .frame{aspect-ratio:4/3.6;border-radius:28px;box-shadow:var(--shadow)}
         /* quick cards */
-        .qgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:-46px;position:relative;z-index:5}
+        .qgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px;position:relative;z-index:5}
         @media(max-width:880px){.qgrid{grid-template-columns:repeat(2,1fr)}}
         @media(max-width:520px){.qgrid{grid-template-columns:1fr}}
         .qcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;display:block;transition:transform .25s,box-shadow .25s}
@@ -166,17 +169,18 @@ export default function ContactPage() {
         .done{display:flex;align-items:center;gap:10px;background:var(--green-soft);color:var(--green-deep);font-weight:700;padding:16px;border-radius:12px;font-size:14.5px}
         .info-block + .info-block{margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}
         .info-block h4{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--pink-deep);margin-bottom:10px}
-        .info-row{display:flex;gap:10px;font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:8px}
+        .info-row{display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:10px}
+        .info-row svg{width:18px;height:18px;flex-shrink:0;color:var(--pink-deep)}
         .info-row a{color:var(--ink)}.info-row a:hover{color:var(--blue)}
         .socials{display:flex;gap:10px;margin-top:6px}
-        .socials a{width:40px;height:40px;border-radius:11px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px}
+        .socials a{width:40px;height:40px;border-radius:11px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;transition:background .2s ease, color .2s ease}
         .socials a:hover{background:var(--blue);color:#fff}
+        .socials a svg{width:18px;height:18px}
         /* branches */
         .bgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
         @media(max-width:820px){.bgrid{grid-template-columns:1fr}}
         .bcard{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;display:grid;grid-template-columns:.9fr 1.1fr}
         @media(max-width:520px){.bcard{grid-template-columns:1fr}}
-        .bcard
         .bbody{padding:22px}
         .btag{font-size:10.5px;font-weight:800;color:var(--green-deep);background:var(--green-soft);padding:4px 10px;border-radius:999px;letter-spacing:.04em}
         .bbody h3{font-size:16.5px;margin:10px 0 8px}
@@ -198,13 +202,13 @@ export default function ContactPage() {
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
         <nav className="nav">
-          <a href="/">Home</a><a href="/about">About</a><NavTreatments /><a href="/contact" className="active">Contact</a>
+          <a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments /><a href="/contact" className="active">Contact</a>
         </nav>
         <div className="nav-cta">
           <a className="btn btn-green btn-sm" href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
           <a className="btn btn-cta btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
-              <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
+        <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
       </header>
 
       <MobileNav open={menuOpen} onClose={() => setMenuOpen(false)} />
@@ -216,7 +220,6 @@ export default function ContactPage() {
           <span className="blob" style={{ width: 260, height: 260, bottom: "0%", right: "-6%", background: "radial-gradient(circle at 30% 30%,#C9CEF2,transparent 70%)" }} />
           <div className="wrap chero-grid">
             <Reveal>
-              <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Contact Us</p>
               <Eyebrow>Contact Us</Eyebrow>
               <h1>We're here for you — <span className="accent">day or night</span>.</h1>
               <p className="lede">Book an appointment, ask a question, or reach our 24/7 emergency line. Our team across all four Rio branches is ready to help you and your family.</p>
@@ -292,9 +295,9 @@ export default function ContactPage() {
               <div className="info-block">
                 <h4>Follow us</h4>
                 <div className="socials">
-                  <a href={LINKS.instagram} target="_blank" rel="noreferrer">IG</a>
-                  <a href={LINKS.facebook} target="_blank" rel="noreferrer">FB</a>
-                  <a href={LINKS.youtube} target="_blank" rel="noreferrer">YT</a>
+                  <a href={LINKS.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><CIcon name="instagram" /></a>
+                  <a href={LINKS.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><CIcon name="facebook" /></a>
+                  <a href={LINKS.youtube} target="_blank" rel="noreferrer" aria-label="YouTube"><CIcon name="youtube" /></a>
                 </div>
               </div>
             </Reveal>

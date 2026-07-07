@@ -225,6 +225,7 @@ function MobileNav({ open, onClose }) {
         <button className="mnav-x" aria-label="Close menu" onClick={onClose}>×</button>
         <a className="mnav-link" href="/" onClick={onClose}>Home</a>
         <a className="mnav-link" href="/about" onClick={onClose}>About</a>
+        <a className="mnav-link" href="/doctors" onClick={onClose}>Doctors</a>
         <div className="mnav-group">
           <span className="mnav-h">Treatments</span>
           {NAV_TREATMENTS.map((t) => (
@@ -572,7 +573,7 @@ export default function HomePage() {
       <header className={`header ${navSolid ? "nav-solid" : ""}`}>
         <Logo />
         <nav className="nav-links">
-          <a href="/about">About</a><NavTreatments /><a href="#facilities">Facilities</a><a href="/contact">Contact</a>
+          <a href="/about">About</a><NavTreatments /><a href="/doctors">Doctors</a><a href="#facilities">Facilities</a><a href="/contact">Contact</a>
         </nav>
         <div className="nav-cta">
           <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>

@@ -11,16 +11,18 @@ import { useEffect, useRef, useState } from "react";
 
 const IMG = {
   "logo": "/assets/shared/riologov2.png",
-  "banner": "/assets/shared/site-hero.png",
-  "Advanced-NICU": "/assets/treatments/neonatal-intensive-care.png",
-  "critical-care2": "/assets/treatments/diagnostic-suite.png",
-  "critical-care3": "/assets/treatments/paediatric-intensive-care.png",
-  "maternity-care": "/assets/treatments/womens-care.png",
-  "newborn-care": "/assets/treatments/child-newborn-care.png",
-  "expert-specialists": "/assets/treatments/specialist-team.png",
-  "expert-specialists2": "/assets/treatments/clinical-team-support.png",
-  "critical-care4": "/assets/treatments/human-milk-bank.png",
-  "emergency": "/assets/treatments/emergency-care.png",
+  "banner": "/assets/treatments/specialist.png",
+  "Advanced-NICU": "/assets/treatments/advanced-nicu.png",
+  "critical-care2": "/assets/treatments/fetal.png",
+  "critical-care3": "/assets/treatments/picu.png",
+  "maternity-care": "/assets/treatments/women.png",
+  "newborn-care": "/assets/treatments/child-newborn.png",
+  "expert-specialists": "/assets/treatments/specialist.png",
+  "expert-specialists2": "/assets/treatments/women.png",
+  "critical-care4": "/assets/treatments/milkbank.png",
+  "emergency": "/assets/treatments/neonatal.png",
+  "vaccination": "/assets/treatments/vaccine.png",
+  "fertility": "/assets/treatments/scan.png"
 };
 const LINKS = { call: "tel:+917708318222", whatsapp: "https://wa.me/917708318222", youtube: "https://youtube.com/@riochildrenshospital", instagram: "https://instagram.com/riochildrenhospitals" };
 
@@ -45,7 +47,7 @@ const GROUPS = [
       { name: "High-Risk Pregnancy Care", slug: "high-risk-pregnancy", img: "maternity-care", d: "Closer monitoring and a stronger safety net for complex pregnancies and high-risk babies." },
       { name: "Fetal Medicine", slug: "fetal-medicine", img: "critical-care2", d: "Advanced scans and specialist care tracking your baby's growth and wellbeing before birth." },
       { name: "Maternity Care", slug: "maternity", img: "newborn-care", d: "Complete antenatal care with painless, normal & C-section packages, led by senior gynaecologists." },
-      { name: "Fertility & IVF", slug: "fertility-ivf", img: "maternity-care", d: "IVF, hormonal fertility care, reproductive health and follicular studies on your journey to parenthood." },
+      { name: "Fertility & IVF", slug: "fertility-ivf", img: "fertility", d: "IVF, hormonal fertility care, reproductive health and follicular studies on your journey to parenthood." },
     ],
   },
   {
@@ -63,7 +65,7 @@ const GROUPS = [
     items: [
       { name: "Paediatric Emergency", slug: "emergency", img: "emergency", d: "24/7 emergency care for sudden illness, accidents and critical conditions, with NICU & PICU backup." },
       { name: "General Paediatrics", slug: "general-paediatrics", img: "newborn-care", d: "24/7 outpatient care for every childhood illness, from birth to 18 years." },
-      { name: "Vaccination Services", slug: "vaccination", img: "expert-specialists", d: "Complete immunisation on the national schedule, with free SMS reminders and a protected cold chain." },
+      { name: "Vaccination Services", slug: "vaccination", img: "vaccination", d: "Complete immunisation on the national schedule, with free SMS reminders and a protected cold chain." },
     ],
   },
 ];
@@ -103,6 +105,7 @@ function MobileNav({ open, onClose }) {
         <button className="mnav-x" aria-label="Close menu" onClick={onClose}>×</button>
         <a className="mnav-link" href="/" onClick={onClose}>Home</a>
         <a className="mnav-link" href="/about" onClick={onClose}>About</a>
+        <a className="mnav-link" href="/doctors" onClick={onClose}>Doctors</a>
         <div className="mnav-group">
           <span className="mnav-h">Treatments</span>
           {NAV_TREATMENTS.map((t) => (
@@ -110,7 +113,7 @@ function MobileNav({ open, onClose }) {
           ))}
           <a className="mnav-sub mnav-all" href="/treatments" onClick={onClose}>View all treatments →</a>
         </div>
-        <a className="mnav-link" href="/book-appointment" onClick={onClose}>Contact</a>
+        <a className="mnav-link" href="/contact" onClick={onClose}>Contact</a>
         <div className="mnav-cta">
           <a className="btn btn-cta" href="/book-appointment" onClick={onClose}>Book an Appointment</a>
           <a className="btn btn-pink" href={LINKS.call} onClick={onClose}>Call Now</a>
@@ -136,32 +139,60 @@ export default function TreatmentsPage() {
         /* dropdown */
 
         /* hero */
-        .thero{padding:52px 0 8px;position:relative;overflow:hidden}
-        .thero
-        .thero-in{position:relative;z-index:1;max-width:820px}
+        .thero{padding:52px 0 8px;position:relative;overflow:hidden;min-height:480px;display:flex;align-items:center}
+        .thero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}.thero-bg img{width:100%;height:100%;object-fit:cover;object-position:85% 32%;animation:rio-hero-drift 18s ease-in-out infinite alternate;transform-origin:center}
+        .thero-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(10,14,50,.35) 0%,rgba(48,53,115,.10) 60%,transparent 100%);transition:background .35s}
+        .thero-in{position:relative;z-index:2;max-width:540px;color:#fff;padding-left:0}
+        .thero h1{font-size:clamp(34px,5vw,56px);margin-top:14px;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.55)}.thero h1 .accent{color:var(--pink)}
+        .thero .lede{font-size:18px;margin-top:18px;max-width:500px;color:rgba(255,255,255,.98);text-shadow:0 1px 8px rgba(0,0,0,.45)}
+        .thero .eyebrow.light{color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.35)}
+        
+        @media(max-width:800px){
+          .thero-in{max-width:100%}
+          .thero-bg img{object-position:center 32% !important}
+          .thero-veil{background:rgba(10,14,50,.55) !important}
+        }
 
-        .thero h1{font-size:clamp(34px,5vw,56px);margin-top:14px}.thero h1 .accent{color:var(--pink)}
-        .thero .lede{font-size:18px;margin-top:18px;max-width:620px}
         .thero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
         /* group */
-        .group + .group{margin-top:64px}
-        .group-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+        .group + .group{margin-top:72px}
+        .group-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:28px}
         .group-head h2{font-size:clamp(22px,3vw,30px)}
         .group-head .gn{font-size:14.5px;color:var(--muted)}
-        .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+        /* grid – all rows same height */
+        .tgrid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:24px}
         @media(max-width:920px){.tgrid{grid-template-columns:repeat(2,1fr)}}
         @media(max-width:600px){.tgrid{grid-template-columns:1fr}}
-        .tcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
-        .tcard:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
-        .tcard
-        .tcard .img-wrap img{transition:transform .6s}.tcard:hover .img-wrap img{transform:scale(1.05)}
+        /* card */
+        .tcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;height:100%;position:relative;
+          transition:transform .32s cubic-bezier(.2,.7,.2,1),box-shadow .32s cubic-bezier(.2,.7,.2,1)}
+        .tcard::before{content:"";position:absolute;inset:0;border-radius:var(--radius);background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.18) 50%,transparent 70%);
+          background-size:200% 100%;background-position:200% 0;transition:background-position .55s ease;z-index:1;pointer-events:none}
+        .tcard:hover::before{background-position:-200% 0}
+        .tcard:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(48,53,115,.18),0 4px 12px rgba(48,53,115,.10)}
+        /* fixed-height image area */
+        .tcard .img-wrap{height:220px;border-radius:0;flex-shrink:0;overflow:hidden}
+        .tcard .img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;
+          transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .55s ease}
+        .tcard:hover .img-wrap img{transform:scale(1.08);filter:brightness(1.05)}
+        /* body */
         .tbody{padding:22px;display:flex;flex-direction:column;flex:1}
-        .tbody h3{font-size:18px;margin-bottom:8px}.tbody p{font-size:14px;flex:1}
-        .tmore{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:13.5px;font-weight:800;color:var(--pink-deep)}
+        .tbody h3{font-size:18px;margin-bottom:8px;color:var(--ink)}
+        .tbody p{font-size:14px;flex:1;color:var(--muted);line-height:1.6}
+        /* learn more arrow animation */
+        .tmore{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:13.5px;font-weight:800;color:var(--pink-deep);transition:gap .22s ease}
+        .tmore .arr{display:inline-block;transition:transform .22s ease}
+        .tcard:hover .tmore{gap:10px}
+        .tcard:hover .tmore .arr{transform:translateX(4px)}
         /* more chips */
         .more-chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
-        .chip{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:11px 18px;font-size:14px;font-weight:600;color:var(--ink)}
+        .chip{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:11px 18px;font-size:14px;font-weight:600;color:var(--ink);transition:box-shadow .25s,transform .25s}
+        .chip:hover{box-shadow:0 4px 16px rgba(48,53,115,.12);transform:translateY(-2px)}
         .chip i{width:7px;height:7px;border-radius:50%;background:var(--green)}
+        /* more-at-rio glow section */
+        .more-glow{border-radius:20px;margin-top:60px;box-shadow:0 0 0 1px rgba(48,53,115,.10),0 8px 40px rgba(48,53,115,.13),0 0 60px rgba(253,112,161,.08);border-top:2px solid rgba(253,112,161,.25);background:linear-gradient(135deg,#eef0fa 0%,#fce8f1 100%) !important;transition:box-shadow .45s,transform .35s}
+        .more-glow:hover{box-shadow:0 0 0 1px rgba(48,53,115,.18),0 16px 60px rgba(48,53,115,.22),0 0 90px rgba(253,112,161,.18),0 0 30px rgba(253,112,161,.12);transform:translateY(-2px)}
+        .more-btn-wrapper{margin-top:40px;display:block}
         /* cta */
       `}</style>
 
@@ -170,25 +201,24 @@ export default function TreatmentsPage() {
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
         <nav className="nav">
-          <a href="/">Home</a><a href="/about">About</a><NavTreatments active /><a href="/book-appointment">Contact</a>
+          <a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments active /><a href="/contact">Contact</a>
         </nav>
         <div className="nav-cta">
           <a className="btn btn-green btn-sm" href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
           <a className="btn btn-cta btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
-              <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
+        <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
       </header>
 
       <MobileNav open={menuOpen} onClose={() => setMenuOpen(false)} />
 
       <main>
         <section className="thero">
-          <span className="blob" style={{ width: 300, height: 300, top: "-6%", right: "4%", background: "radial-gradient(circle at 30% 30%,#FFC4DA,transparent 70%)" }} />
-          <span className="blob" style={{ width: 240, height: 240, bottom: "-10%", left: "0%", background: "radial-gradient(circle at 30% 30%,#C9CEF2,transparent 70%)" }} />
+          <div className="thero-bg"><img src={IMG.banner} alt="Rio Children's Hospital Treatments" /></div>
+          <div className="thero-veil" />
           <div className="wrap thero-in">
             <Reveal>
-              <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Treatments</p>
-              <Eyebrow>Our Treatments</Eyebrow>
+              <Eyebrow light>Our Treatments</Eyebrow>
               <h1>What treatments do we <span className="accent">offer?</span></h1>
               <p className="lede">From high-risk pregnancy and fetal medicine to advanced NICU and PICU care — explore the specialised treatments and care Rio provides for women, newborns and children, all under one roof.</p>
               <div className="thero-cta">
@@ -209,7 +239,7 @@ export default function TreatmentsPage() {
                     <Reveal key={t.slug} delay={(i % 3) * 80}>
                       <a className="tcard" href={`/services/${t.slug}`}>
                         <Img src={IMG[t.img]} alt={t.name} grad={(gi + i) % 3} />
-                        <div className="tbody"><h3>{t.name}</h3><p>{t.d}</p><span className="tmore">Learn more →</span></div>
+                        <div className="tbody"><h3>{t.name}</h3><p>{t.d}</p><span className="tmore">Learn more <span className="arr">→</span></span></div>
                       </a>
                     </Reveal>
                   ))}
@@ -219,11 +249,11 @@ export default function TreatmentsPage() {
           </div>
         </section>
 
-        <section className="section tint-blue">
+        <section className="section more-glow">
           <div className="wrap">
             <Reveal className="sec-head"><Eyebrow>More at Rio</Eyebrow><h2>Other specialised care &amp; departments</h2><p className="sec-note">Available across our branches — get in touch and our team will guide you to the right care.</p></Reveal>
             <Reveal className="more-chips">{MORE.map((m) => <span key={m} className="chip"><i />{m}</span>)}</Reveal>
-            <Reveal style={{ marginTop: 26 }}><a className="btn btn-cta" href="/book-appointment">Ask about a treatment →</a></Reveal>
+            <Reveal className="more-btn-wrapper"><a className="btn btn-cta" href="/book-appointment">Ask about a treatment →</a></Reveal>
           </div>
         </section>
 

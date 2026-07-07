@@ -19,7 +19,7 @@ const IMG = {
   "maternity-care": "/assets/fetal-medicine/ultrasound.png",
   "expert-specialists": "/assets/fetal-medicine/specialist.png",
   "Advanced-NICU": "/assets/fetal-medicine/advanced-nicu.png",
-  "expert-specialists2": "/assets/fetal-medicine/clinical-team-support.png",
+  "expert-specialists2": "/assets/fetal-medicine/women.png",
 };
 const LINKS = {
   call: "tel:+917708318222", whatsapp: "https://wa.me/917708318222",

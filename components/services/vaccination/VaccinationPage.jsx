@@ -14,12 +14,12 @@ import { useEffect, useRef, useState } from "react";
 
 const IMG = {
   "logo": "/assets/shared/riologov2.png",
-  "banner": "/assets/shared/site-hero.png",
-  "expert-specialists": "/assets/vaccination/specialist-team.png",
-  "expert-specialists2": "/assets/vaccination/clinical-team-support.png",
-  "newborn-care": "/assets/vaccination/child-newborn-care.png",
-  "emergency": "/assets/vaccination/emergency-care.png",
-  "Advanced-NICU": "/assets/vaccination/neonatal-intensive-care.png",
+  "banner": "/assets/vaccination/vaccine.png",
+  "expert-specialists": "/assets/vaccination/specialist.png",
+  "expert-specialists2": "/assets/vaccination/scan.png",
+  "newborn-care": "/assets/vaccination/newborn.png",
+  "emergency": "/assets/vaccination/ot.png",
+  "Advanced-NICU": "/assets/vaccination/nicu-ward.png",
 };
 const LINKS = {
   call: "tel:+917708318222", whatsapp: "https://wa.me/917708318222",
@@ -172,7 +172,7 @@ function VaccinationPageContent({ service: s }) {
         <Logo />
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a><NavTreatments active /><a href="/contact">Contact</a></nav>
         <div className="nav-cta"><a className="btn btn-green btn-sm" href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a><a className="btn btn-cta btn-sm" href="/book-appointment">Book an Appointment</a></div>
-              <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
+        <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
       </header>
 
       <MobileNav open={menuOpen} onClose={() => setMenuOpen(false)} />

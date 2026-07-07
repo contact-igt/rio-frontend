@@ -14,10 +14,10 @@ import { useEffect, useRef, useState } from "react";
 
 const IMG = {
   "logo": "/assets/shared/riologov2.png",
-  "banner": "/assets/shared/site-hero.png",
-  "newborn-care": "/assets/general-paediatrics/child-newborn-care.png",
-  "expert-specialists": "/assets/general-paediatrics/specialist-team.png",
-  "emergency": "/assets/general-paediatrics/emergency-care.png",
+  "banner": "/assets/general-paediatrics/gp.png",
+  "newborn-care": "/assets/general-paediatrics/newborn.png",
+  "expert-specialists": "/assets/general-paediatrics/specialist.png",
+  "emergency": "/assets/general-paediatrics/emergency.png",
   "expert-specialists2": "/assets/general-paediatrics/clinical-team-support.png",
   "critical-care3": "/assets/general-paediatrics/paediatric-intensive-care.png",
 };
@@ -172,7 +172,7 @@ function GeneralPaediatricsPageContent({ service: s }) {
         <Logo />
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a><NavTreatments active /><a href="/contact">Contact</a></nav>
         <div className="nav-cta"><a className="btn btn-green btn-sm" href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a><a className="btn btn-cta btn-sm" href="/book-appointment">Book an Appointment</a></div>
-              <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
+        <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
       </header>
 
       <MobileNav open={menuOpen} onClose={() => setMenuOpen(false)} />

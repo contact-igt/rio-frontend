@@ -14,11 +14,11 @@ import { useEffect, useRef, useState } from "react";
 
 const IMG = {
   "logo": "/assets/shared/riologov2.png",
-  "banner": "/assets/shared/site-hero.png",
-  "maternity-care": "/assets/fertility-ivf/maternity.png",
-  "critical-care2": "/assets/fertility-ivf/check.png",
+  "banner": "/assets/fertility-ivf/banner.png",
+  "maternity-care": "/assets/fertility-ivf/abouthero.png",
+  "critical-care2": "/assets/fertility-ivf/fetal.png",
   "expert-specialists2": "/assets/fertility-ivf/consultation.png",
-  "newborn-care": "/assets/fertility-ivf/newborn.png",
+  "newborn-care": "/assets/fertility-ivf/child-newborn.png",
 };
 const LINKS = {
   call: "tel:+917708318222", whatsapp: "https://wa.me/917708318222",
