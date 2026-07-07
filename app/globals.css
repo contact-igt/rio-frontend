@@ -363,14 +363,14 @@ body {
 .rio .spec-body h2 { font-size: clamp(26px, 3.2vw, 36px); margin-top: 14px; }
 .rio .spec-chip { display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; background: var(--blue-soft); color: var(--blue); font-weight: 800; font-size: 13px; padding: 9px 15px; border-radius: 999px; }
 .rio .branch-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.rio .branch { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: transform .25s, box-shadow .25s; }
+.rio .branch { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: transform .25s, box-shadow .25s; height: 100%; }
 .rio .branch:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
 .rio .branch .img-wrap { border-radius: 0; aspect-ratio: 16/10; }
-.rio .branch-body, .rio .branch .branch-body { padding: 20px; }
-.rio .branch-tag { font-size: 10.5px; font-weight: 800; color: var(--green-deep); background: var(--green-soft); padding: 4px 10px; border-radius: 999px; display: inline-block; margin-bottom: 11px; letter-spacing: .04em; }
+.rio .branch-body, .rio .branch .branch-body { padding: 20px; display: flex; flex-direction: column; flex-grow: 1; }
+.rio .branch-tag { font-size: 10.5px; font-weight: 800; color: var(--green-deep); background: var(--green-soft); padding: 4px 10px; border-radius: 999px; display: inline-block; margin-bottom: 11px; letter-spacing: .04em; align-self: flex-start; }
 .rio .branch h3 { font-size: 16px; margin-bottom: 8px; }
-.rio .branch p { font-size: 12.8px; line-height: 1.55; }
-.rio .branch .call { display: inline-flex; margin-top: 14px; font-size: 13px; font-weight: 800; color: var(--pink-deep); gap: 6px; align-items: center; }
+.rio .branch p { font-size: 12.8px; line-height: 1.55; margin-bottom: 12px; }
+.rio .branch .call { display: inline-flex; margin-top: auto; font-size: 13px; font-weight: 800; color: var(--pink-deep); gap: 6px; align-items: center; }
 .rio .cta-band { background: var(--blue); border-radius: 28px; padding: 50px; display: flex; justify-content: space-between; align-items: center; gap: 28px; flex-wrap: wrap; animation: rio-soft-lift 780ms cubic-bezier(.2, .7, .2, 1) both; }
 .rio .cta-band h2 { color: #fff; font-size: clamp(24px, 3vw, 34px); max-width: 480px; }
 .rio .cta-band p { color: #D6D9F0; margin-top: 10px; }
