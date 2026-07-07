@@ -299,14 +299,14 @@ export default function AboutPage() {
         .about-page .statband > .wrap > div:hover{transform:scale(1.05)}
         .about-page .statband > .wrap > div:last-child{border-right:none}
         .about-page .statband strong{display:inline-block; font-family:'Proxima Nova','Mulish',sans-serif; font-weight:800; font-size:24px; color:#fff; line-height:1; vertical-align:middle}
-        .about-page .statband span{font-size:13.5px; color:#D6D9F0; font-weight:600; margin-left:8px; display:inline-block; vertical-align:middle}
+        .about-page .statband div > span{font-size:13.5px; color:#D6D9F0; font-weight:600; margin-left:8px; display:inline-block; vertical-align:middle}
 
         @media (max-width:768px){
           .about-page .statband{margin:36px 0; padding:16px 0}
           .about-page .statband > .wrap > div{border-right:none; border-bottom:1px solid rgba(255,255,255,.1); padding-bottom:12px; margin-bottom:12px}
           .about-page .statband > .wrap > div:last-child{border-bottom:none; padding-bottom:0; margin-bottom:0}
           .about-page .statband strong{display:block}
-          .about-page .statband span{display:block; margin-left:0; margin-top:2px}
+          .about-page .statband div > span{display:block; margin-left:0; margin-top:2px}
         }
 
         /* mission / vision */

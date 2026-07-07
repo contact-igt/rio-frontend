@@ -30,7 +30,8 @@ const IMG = {
   "emergency2": "/assets/home/neonatal.png",
   "maternity": "/assets/home/women.png",
   "newborn": "/assets/home/child-newborn.png",
-  "specialists": "/assets/home/vaccine.png",
+  "specialists": "/assets/about/specialist.png",
+  "vaccine": "/assets/home/vaccine.png",
   "specialists2": "/assets/home/specialist.png",
   "cc1": "/assets/home/nicu-ward.png",
   "cc2": "/assets/home/ot.png",
@@ -71,7 +72,7 @@ const SERVICES = [
   { t: "Maternity Care", d: "Affordable normal, painless and C-section delivery packages with expert gynaecologist-led antenatal care.", img: "specialists2", slug: "maternity" },
   { t: "Human Milk Bank", d: "Safe, screened, pasteurised donor milk for premature babies who can't be breastfed by their mothers.", img: "cc4", slug: "human-milk-bank" },
   { t: "Paediatric Emergency", d: "Round-the-clock casualty care for childhood accidents, injuries and sudden critical illness.", img: "emergency", slug: "emergency" },
-  { t: "Vaccination Services", d: "National immunisation schedule with free SMS reminders and uninterrupted 3-level power backup.", img: "specialists", slug: "vaccination" },
+  { t: "Vaccination Services", d: "National immunisation schedule with free SMS reminders and uninterrupted 3-level power backup.", img: "vaccine", slug: "vaccination" },
 ];
 const TRIMESTERS = [
   { k: "First Trimester", w: "Week 0 – 12", d: "A crucial phase — early-pregnancy scans, blood tests and supplements, with free SMS alerts and 3-level power backup for uninterrupted care." },
@@ -89,7 +90,7 @@ const GALLERY = [
   { t: "Paediatric emergency", img: "emergency" },
   { t: "Neonatal transport", img: "emergency2" },
   { t: "Specialist team", img: "specialists2" },
-  { t: "Vaccination centre", img: "specialists" },
+  { t: "Vaccination centre", img: "vaccine" },
   { t: "Newborn care", img: "newborn" },
   { t: "Maternity care", img: "maternity" },
 ];
@@ -290,6 +291,7 @@ export default function HomePage() {
         /* ── PARALLAX HERO ── */
         .hero{position:relative; min-height:96vh; display:flex; align-items:center; overflow:hidden}
         .hero-bg{position:absolute; inset:-12% 0; z-index:0}
+        .hero-bg .img-wrap{border-radius:0; width:100%; height:100%}
         .hero-bg img{object-position:70% center}
         .hero-veil{position:absolute; inset:0; z-index:1;
           background:
@@ -305,10 +307,14 @@ export default function HomePage() {
               rgba(23,27,72,.55) 18%,
               rgba(23,27,72,0)   40%)}
         .hero-inner{position:relative; z-index:3; max-width:1200px; margin:0 auto; padding:0 28px; width:100%}
-        .hero h1{color:#fff; font-size:clamp(40px,6vw,74px); max-width:880px; margin-top:18px}
+        @media (max-width:760px){
+          .hero-inner{padding-bottom:140px; padding-top:40px;}
+        }
+        .hero h1{color:#fff; font-size:clamp(34px,8vw,74px); max-width:880px; margin-top:18px}
         .hero h1 .accent{color:#FFA8C4}
         .hero .lede{color:#D7E7E1; font-size:18px; margin-top:22px; max-width:560px}
         .hero-cta{display:flex; gap:13px; flex-wrap:wrap; margin-top:30px}
+        @media (max-width:480px){.hero-cta .btn{width:100%; justify-content:center;}}
         .hero-trust{display:flex; align-items:center; gap:14px; margin-top:34px; color:#FFFFFF; font-size:14.5px; font-weight:600; text-shadow:0 1px 14px rgba(0,0,0,.6)}
         .hero-trust strong{color:#fff}
         .hero-badges{display:none; gap:10px; flex-wrap:wrap; margin-top:18px}
@@ -319,6 +325,7 @@ export default function HomePage() {
         .scrollcue .mouse{width:22px;height:34px;border:2px solid rgba(255,255,255,.5); border-radius:12px; position:relative}
         .scrollcue .mouse::after{content:""; position:absolute; top:6px; left:50%; transform:translateX(-50%); width:3px;height:7px;border-radius:2px; background:#fff; animation:wheel 1.6s infinite}
         @keyframes wheel{0%{opacity:0; top:6px}30%{opacity:1}60%{opacity:1; top:15px}100%{opacity:0; top:18px}}
+        @media (max-width:760px){.scrollcue{display:none}}
         .hero-glass-container{position:absolute; right:28px; bottom:36px; z-index:3; display:flex; flex-direction:column; align-items:flex-end; gap:12px}
         .hero-badges-glass{display:flex; gap:8px}
         .hero-badges-glass span{font-size:11.5px; font-weight:700; color:#fff; background:rgba(35,39,90,.6); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.24); padding:6px 12px; border-radius:999px; text-shadow:0 1px 2px rgba(0,0,0,0.1)}
@@ -326,8 +333,18 @@ export default function HomePage() {
         .hero-glass div{text-align:center; padding:4px 20px}
         .hero-glass div + div{border-left:1px solid rgba(255,255,255,.22)}
         .hero-glass strong{display:block; font-family:'Proxima Nova','Mulish',sans-serif; font-size:27px; font-weight:800; color:#fff}
-        .hero-glass span{font-size:11px; font-weight:700; color:#E3E6F5}
-        @media (max-width:760px){.hero-glass-container{display:none}}
+        .hero-glass div > span{font-size:11px; font-weight:700; color:#E3E6F5}
+        @media (max-width:760px){
+          .hero-glass-container{right:16px; left:16px; bottom:24px; align-items:stretch;}
+          .hero-badges-glass{justify-content:center;}
+          .hero-glass{border-radius:12px; justify-content:space-around; background:rgba(35,39,90,.85);}
+          .hero-glass div{padding:8px 6px;}
+        }
+        @media (max-width:400px){
+          .hero-glass-container{bottom:16px;}
+          .hero-glass div{padding:6px 2px;}
+          .hero-glass strong{font-size:22px;}
+        }
 
         /* ── PARALLAX FULL-BLEED BAND ── */
         .band{position:relative; min-height:60vh; display:flex; align-items:center; overflow:hidden}
@@ -338,7 +355,11 @@ export default function HomePage() {
         .band-inner p{color:#D7E7E1; margin-top:14px; max-width:520px; font-size:16.5px}
         .band-stats{display:flex; flex-wrap:wrap; gap:38px; margin-top:34px}
         .band-stats strong{display:block; font-family:'Proxima Nova','Mulish',sans-serif; font-size:clamp(34px,4vw,50px); font-weight:800; color:#fff; text-shadow:0 2px 16px rgba(0,0,0,.4)}
-        .band-stats span{font-size:13px; color:#D6D9F0; font-weight:700}
+        .band-stats div > span{font-size:13px; color:#D6D9F0; font-weight:700}
+        @media (max-width:480px){
+          .band-inner{padding:48px 20px}
+          .band-stats{gap:24px; flex-direction:column}
+        }
 
 
         /* pillars */
@@ -420,6 +441,7 @@ export default function HomePage() {
 
         /* split */
         .split-list{margin-top:22px; display:grid; grid-template-columns:1fr 1fr; gap:12px 22px}
+        @media (max-width:480px){.split-list{grid-template-columns:1fr}}
         .split-list li{display:flex; gap:9px; font-size:14.5px; color:var(--ink); font-weight:600}
         .split-list li i{color:var(--coral-deep); font-style:normal; font-weight:800}
 
@@ -477,6 +499,7 @@ export default function HomePage() {
         .mbank-badge{position:absolute; left:18px; top:18px; z-index:3; background:var(--green); color:#fff; font-weight:800; font-size:12px; letter-spacing:.04em; padding:8px 14px; border-radius:999px; box-shadow:0 12px 24px -10px rgba(123,169,58,.6)}
         .mbank h2{font-size:clamp(28px,3.8vw,42px); margin-top:14px}
         .mbank-stats{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:26px}
+        @media (max-width:480px){.mbank-stats{grid-template-columns:1fr}}
         .mbank-stat{background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px 20px}
         .mbank-stat strong{display:block; font-family:'Proxima Nova','Mulish',sans-serif; font-size:27px; color:var(--teal)}
         .mbank-stat span{font-size:12.5px; color:var(--muted); font-weight:600}
@@ -552,7 +575,6 @@ export default function HomePage() {
 
         /* cta */
 
-        @media (max-width:860px){}
         .cta-copy{padding:56px; color:#fff}
         .cta-copy h2{color:#fff; font-size:clamp(26px,3.4vw,38px); max-width:420px}
         .cta-copy p{color:#D6D9F0; margin-top:12px; max-width:400px}
@@ -562,6 +584,22 @@ export default function HomePage() {
         .cta-form p.note{color:#D6D9F0; font-size:13px; margin-bottom:18px}
         .cta-form select,.cta-form input{width:100%; padding:13px 14px; margin-bottom:11px; border-radius:11px; border:none; font-size:14px; font-family:inherit; background:#fff; color:var(--ink)}
         .cta-done{display:flex; align-items:center; gap:10px; color:#fff; font-weight:700; font-size:15px; background:rgba(255,255,255,.1); padding:16px; border-radius:12px}
+
+        @media (max-width:860px){
+          .rio .cta-band{padding:32px 20px !important; gap:24px;}
+          .cta-copy{padding:0 0 8px 0 !important;}
+          .cta-form{
+            padding:32px 20px !important;
+            margin:0 -20px -32px !important;
+            border-left:none !important;
+            border-top:1px solid rgba(255,255,255,.12) !important;
+            border-radius:0 0 28px 28px !important;
+          }
+        }
+        @media (max-width:480px){
+          .rio .cta-actions{flex-direction:column; width:100%;}
+          .rio .cta-actions .btn{width:100%; justify-content:center;}
+        }
  .scrollcue .mouse::after{animation:none} }
       `}</style>
 
@@ -608,9 +646,9 @@ export default function HomePage() {
               <span>Only Level 3 NICU in South TN</span>
             </div>
             <div className="hero-glass">
-              <div><strong>6 Lacs+</strong><span>Patients</span></div>
-              <div><strong>100+</strong><span>Specialists</span></div>
-              <div><strong>4</strong><span>Branches</span></div>
+              <div><strong><Counter value="6 Lacs+" /></strong><span>Patients</span></div>
+              <div><strong><Counter value="100+" /></strong><span>Specialists</span></div>
+              <div><strong><Counter value="4" /></strong><span>Branches</span></div>
             </div>
           </div>
           <div className="scrollcue"><span className="mouse" />Scroll</div>

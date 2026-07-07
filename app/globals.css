@@ -295,7 +295,7 @@ body {
 .rio .tri p { font-size: 14px; flex: 1; line-height: 1.6; }
 .rio .statband { background: var(--blue); color: #fff; border-radius: 28px; padding: 46px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; animation: rio-soft-lift 780ms cubic-bezier(.2, .7, .2, 1) both; }
 .rio .statband strong { font-family: 'Proxima Nova', 'Mulish', sans-serif; font-weight: 800; font-size: clamp(40px, 6vw, 62px); display: block; }
-.rio .statband span { color: #D6D9F0; font-weight: 700; font-size: 15px; }
+.rio .statband div > span { color: #D6D9F0; font-weight: 700; font-size: 15px; }
 .rio .statband .sb-cta { display: flex; gap: 12px; flex-wrap: wrap; }
 .rio .faq { max-width: 780px; }
 .rio .faq-item { border-bottom: 1px solid var(--line); }
@@ -374,7 +374,7 @@ body {
 .rio .cta-band { background: var(--blue); border-radius: 28px; padding: 50px; display: flex; justify-content: space-between; align-items: center; gap: 28px; flex-wrap: wrap; animation: rio-soft-lift 780ms cubic-bezier(.2, .7, .2, 1) both; }
 .rio .cta-band h2 { color: #fff; font-size: clamp(24px, 3vw, 34px); max-width: 480px; }
 .rio .cta-band p { color: #D6D9F0; margin-top: 10px; }
-.rio .cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.rio .cta-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
 @media (max-width: 920px) { .rio .branch-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 880px) { .rio .rev .frame { order: 0; } }
 @media (max-width: 860px) { .rio .cta-band { grid-template-columns: 1fr; } }
@@ -390,7 +390,8 @@ body {
 
 @media (max-width: 980px) {
   .rio .nav,
-  .rio .nav-links { display: none; }
+  .rio .nav-links,
+  .rio .nav-cta { display: none; }
   .rio .hamburger { display: flex; }
   .rio .header { background: rgba(252,250,247,.96); backdrop-filter: blur(10px); box-shadow: 0 1px 0 var(--line); }
 }
@@ -418,8 +419,11 @@ body {
   .rio .section { padding: 58px 0; }
   .rio .rel-grid,
   .rio .feat-grid { grid-template-columns: 1fr; }
-  .rio .mbar { display: flex; }
-  .rio { padding-bottom: 70px; }
+}
+@media (max-width: 480px) {
+  .rio .wrap { padding: 0 20px; }
+  .rio .section { padding: 48px 0; }
+  .rio .header { padding: 12px 20px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
