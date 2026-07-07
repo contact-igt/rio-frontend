@@ -189,7 +189,6 @@ function FetalMedicinePageContent({ service: s }) {
           <div className="shero-veil" />
           <div className="shero-in">
             <Reveal>
-              <p className="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/treatments">Treatments</a> &nbsp;/&nbsp; {s.eyebrow}</p>
               <Eyebrow light>{s.eyebrow}</Eyebrow>
               <h1>{s.title}</h1>
               <p className="lede">{s.lede}</p>
