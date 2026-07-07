@@ -73,8 +73,15 @@ function NavTreatments({ active = false }) {
 
 function Logo({ footer = false }) {
   const [b, setB] = useState(false);
-  if (footer) return <a className="logo" href="/"><span className="logo-word on-dark">Rio<em>HOSPITAL</em></span></a>;
-  return <a className="logo" href="/">{!b ? <img className="logo-img" src={IMG.logo} alt="Rio Children's Hospital" onError={() => setB(true)} /> : <span className="logo-word">Rio<em>HOSPITAL</em></span>}</a>;
+  return (
+    <a className="logo" href="/" aria-label={footer ? "Rio Children's Hospital" : "Rio Children's Hospital — Home"}>
+      {!b ? (
+        <img className="logo-img" src="/assets/shared/riologov2.png" alt="Rio Children's Hospital" onError={() => setB(true)} />
+      ) : (
+        <span className={`logo-word ${footer ? "on-dark" : ""}`}>Rio<em>HOSPITAL</em></span>
+      )}
+    </a>
+  );
 }
 const CIC = {
   phone: <path d="M21 16.5v2.7a1.9 1.9 0 0 1-2.1 1.9 18.8 18.8 0 0 1-8.2-2.9 18.5 18.5 0 0 1-5.7-5.7A18.8 18.8 0 0 1 2.1 4.3 1.9 1.9 0 0 1 4 2.2h2.7a1.9 1.9 0 0 1 1.9 1.6c.1 1 .4 1.8.7 2.7a1.9 1.9 0 0 1-.5 2L7.6 9.6a15 15 0 0 0 5.7 5.7l1.1-1.2a1.9 1.9 0 0 1 2-.5c.9.3 1.7.5 2.7.7a1.9 1.9 0 0 1 1.6 1.9z" />,

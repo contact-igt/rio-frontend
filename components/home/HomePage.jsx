@@ -49,13 +49,7 @@ const LINKS = {
   instagram: "https://instagram.com/riochildrenhospitals",
 };
 
-/* ---------- content ------------------------------------------------------ */
-const STATS = [
-  { n: "6 Lacs+", l: "Patients cared for" },
-  { n: "100+", l: "Expert specialists" },
-  { n: "1 Lac+", l: "Families helped" },
-  { n: "5,000+", l: "High-risk pregnancies" },
-];
+
 const PILLARS = [
   { t: "High-Risk Pregnancy Expertise", d: "Specialised monitoring for complex pregnancies, led by experienced fetal medicine and obstetric teams.", icon: "pulse" },
   { t: "Advanced NICU, PICU & Preterm Care", d: "Equipped intensive care for premature babies and critically ill children, monitored around the clock.", icon: "shield" },
@@ -201,18 +195,13 @@ function NavTreatments({ active = false }) {
 
 function Logo({ footer = false }) {
   const [broken, setBroken] = useState(false);
-  if (footer) {
-    return (
-      <a className="logo" href="/" aria-label="Rio Children's Hospital">
-        <span className="logo-word on-dark">Rio<em>HOSPITAL</em></span>
-      </a>
-    );
-  }
   return (
-    <a className="logo" href="/" aria-label="Rio Children's Hospital — Home">
-      {!broken
-        ? <img className="logo-img" src={IMG.logo} alt="Rio Children's Hospital" onError={() => setBroken(true)} />
-        : <span className="logo-word">Rio<em>HOSPITAL</em></span>}
+    <a className="logo" href="/" aria-label={footer ? "Rio Children's Hospital" : "Rio Children's Hospital — Home"}>
+      {!broken ? (
+        <img className="logo-img" src="/assets/shared/riologov2.png" alt="Rio Children's Hospital" onError={() => setBroken(true)} />
+      ) : (
+        <span className={`logo-word ${footer ? "on-dark" : ""}`}>Rio<em>HOSPITAL</em></span>
+      )}
     </a>
   );
 }
@@ -322,19 +311,23 @@ export default function HomePage() {
         .hero-cta{display:flex; gap:13px; flex-wrap:wrap; margin-top:30px}
         .hero-trust{display:flex; align-items:center; gap:14px; margin-top:34px; color:#FFFFFF; font-size:14.5px; font-weight:600; text-shadow:0 1px 14px rgba(0,0,0,.6)}
         .hero-trust strong{color:#fff}
-        .hero-badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+        .hero-badges{display:none; gap:10px; flex-wrap:wrap; margin-top:18px}
         .hero-badges span{font-size:12px; font-weight:700; color:#E8EBF8; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.24); padding:7px 13px; border-radius:999px}
+        @media (max-width:760px){.hero-badges{display:flex}}
         .hero-trust .ht-bar{width:2px;height:38px;background:var(--coral); border-radius:2px}
         .scrollcue{position:absolute; bottom:26px; left:50%; transform:translateX(-50%); z-index:3; color:#E3E6F5; font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; display:flex; flex-direction:column; align-items:center; gap:8px}
         .scrollcue .mouse{width:22px;height:34px;border:2px solid rgba(255,255,255,.5); border-radius:12px; position:relative}
         .scrollcue .mouse::after{content:""; position:absolute; top:6px; left:50%; transform:translateX(-50%); width:3px;height:7px;border-radius:2px; background:#fff; animation:wheel 1.6s infinite}
         @keyframes wheel{0%{opacity:0; top:6px}30%{opacity:1}60%{opacity:1; top:15px}100%{opacity:0; top:18px}}
-        .hero-glass{position:absolute; right:28px; bottom:36px; z-index:3; display:flex; gap:0; background:rgba(35,39,90,.55); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,.32); border-radius:18px; padding:16px 6px}
+        .hero-glass-container{position:absolute; right:28px; bottom:36px; z-index:3; display:flex; flex-direction:column; align-items:flex-end; gap:12px}
+        .hero-badges-glass{display:flex; gap:8px}
+        .hero-badges-glass span{font-size:11.5px; font-weight:700; color:#fff; background:rgba(35,39,90,.6); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.24); padding:6px 12px; border-radius:999px; text-shadow:0 1px 2px rgba(0,0,0,0.1)}
+        .hero-glass{display:flex; gap:0; background:rgba(35,39,90,.55); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,.32); border-radius:18px; padding:16px 6px}
         .hero-glass div{text-align:center; padding:4px 20px}
         .hero-glass div + div{border-left:1px solid rgba(255,255,255,.22)}
         .hero-glass strong{display:block; font-family:'Proxima Nova','Mulish',sans-serif; font-size:27px; font-weight:800; color:#fff}
         .hero-glass span{font-size:11px; font-weight:700; color:#E3E6F5}
-        @media (max-width:760px){.hero-glass{display:none}}
+        @media (max-width:760px){.hero-glass-container{display:none}}
 
         /* ── PARALLAX FULL-BLEED BAND ── */
         .band{position:relative; min-height:60vh; display:flex; align-items:center; overflow:hidden}
@@ -487,10 +480,10 @@ export default function HomePage() {
         .mbank-stat{background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px 20px}
         .mbank-stat strong{display:block; font-family:'Proxima Nova','Mulish',sans-serif; font-size:27px; color:var(--teal)}
         .mbank-stat span{font-size:12.5px; color:var(--muted); font-weight:600}
-        .mbank-help{margin-top:24px; display:flex; flex-direction:column; gap:11px}
+        .mbank-help{margin-top:56px; display:flex; flex-direction:column; gap:14px}
         .mbank-help li{display:flex; gap:11px; font-size:14.5px; color:var(--ink); font-weight:600; align-items:flex-start}
         .mbank-help li i{color:var(--coral-deep); font-style:normal; font-weight:800; line-height:1.5}
-        .mbank-cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:28px}
+        .mbank-cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:42px}
 
         /* ── SIGNATURE: staggered multi-speed gallery ── */
         .gal{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; align-items:start}
@@ -606,14 +599,19 @@ export default function HomePage() {
                 <a className="btn btn-coral" href="/book-appointment">Book an Appointment</a>
                 <a className="btn btn-line" href={LINKS.call}>Call Emergency Care</a>
               </div>
-              <div className="hero-trust"><span className="ht-bar" /><p>Trusted by <strong>1 Lac+ families</strong> across Tamil Nadu for women &amp; child healthcare.</p></div>
               <div className="hero-badges"><span>NABH Entry-Level Certified</span><span>Only Level 3 NICU in South TN</span></div>
             </Reveal>
           </div>
-          <div className="hero-glass">
-            <div><strong>6 Lacs+</strong><span>Patients</span></div>
-            <div><strong>100+</strong><span>Specialists</span></div>
-            <div><strong>4</strong><span>Branches</span></div>
+          <div className="hero-glass-container">
+            <div className="hero-badges-glass">
+              <span>NABH Entry-Level Certified</span>
+              <span>Only Level 3 NICU in South TN</span>
+            </div>
+            <div className="hero-glass">
+              <div><strong>6 Lacs+</strong><span>Patients</span></div>
+              <div><strong>100+</strong><span>Specialists</span></div>
+              <div><strong>4</strong><span>Branches</span></div>
+            </div>
           </div>
           <div className="scrollcue"><span className="mouse" />Scroll</div>
         </section>
@@ -642,9 +640,7 @@ export default function HomePage() {
               <Eyebrow light>Around the clock</Eyebrow>
               <h2 className="mt-14">When every minute matters, we're already ready.</h2>
               <p>24/7 paediatric emergency, advanced NICU &amp; PICU, neonatal transport and round-the-clock specialists — across all four branches.</p>
-              <div className="band-stats">
-                {STATS.map((s) => (<div key={s.l}><strong><Counter value={s.n} light /></strong><span>{s.l}</span></div>))}
-              </div>
+              <div className="hero-trust" style={{ marginTop: 28 }}><span className="ht-bar" /><p>Trusted by <strong>1 Lac+ families</strong> across Tamil Nadu for women &amp; child healthcare.</p></div>
             </Reveal>
           </div>
         </section>

@@ -85,27 +85,12 @@ function Eyebrow({ children, light = false }) {
 
 function Logo({ footer = false }) {
   const [b, setB] = useState(false);
-  if (footer)
-    return (
-      <a className="logo" href="/">
-        <span className="logo-word on-dark">
-          Rio<em>HOSPITAL</em>
-        </span>
-      </a>
-    );
   return (
-    <a className="logo" href="/">
+    <a className="logo" href="/" aria-label={footer ? "Rio Children's Hospital" : "Rio Children's Hospital — Home"}>
       {!b ? (
-        <img
-          className="logo-img"
-          src={IMG.logo}
-          alt="Rio Children's Hospital"
-          onError={() => setB(true)}
-        />
+        <img className="logo-img" src="/assets/shared/riologov2.png" alt="Rio Children's Hospital" onError={() => setB(true)} />
       ) : (
-        <span className="logo-word">
-          Rio<em>HOSPITAL</em>
-        </span>
+        <span className={`logo-word ${footer ? "on-dark" : ""}`}>Rio<em>HOSPITAL</em></span>
       )}
     </a>
   );

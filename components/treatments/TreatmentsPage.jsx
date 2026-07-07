@@ -83,8 +83,15 @@ function Img({ src, alt = "", grad = 0, className = "" }) {
 function Eyebrow({ children, light = false }) { return <span className={`eyebrow ${light ? "light" : ""}`}><i className="ey-dot" />{children}</span>; }
 function Logo({ footer = false }) {
   const [b, setB] = useState(false);
-  if (footer) return <a className="logo" href="/"><span className="logo-word on-dark">Rio<em>HOSPITAL</em></span></a>;
-  return <a className="logo" href="/">{!b ? <img className="logo-img" src={IMG.logo} alt="Rio Children's Hospital" onError={() => setB(true)} /> : <span className="logo-word">Rio<em>HOSPITAL</em></span>}</a>;
+  return (
+    <a className="logo" href="/" aria-label={footer ? "Rio Children's Hospital" : "Rio Children's Hospital — Home"}>
+      {!b ? (
+        <img className="logo-img" src="/assets/shared/riologov2.png" alt="Rio Children's Hospital" onError={() => setB(true)} />
+      ) : (
+        <span className={`logo-word ${footer ? "on-dark" : ""}`}>Rio<em>HOSPITAL</em></span>
+      )}
+    </a>
+  );
 }
 function NavTreatments({ active = false }) {
   return (
@@ -140,17 +147,19 @@ export default function TreatmentsPage() {
 
         /* hero */
         .thero{padding:52px 0 8px;position:relative;overflow:hidden;min-height:480px;display:flex;align-items:center}
-        .thero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}.thero-bg img{width:100%;height:100%;object-fit:cover;object-position:85% 32%;animation:rio-hero-drift 18s ease-in-out infinite alternate;transform-origin:center}
-        .thero-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(10,14,50,.35) 0%,rgba(48,53,115,.10) 60%,transparent 100%);transition:background .35s}
-        .thero-in{position:relative;z-index:2;max-width:540px;color:#fff;padding-left:0}
+        .thero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}.thero-bg img{width:100%;height:100%;object-fit:cover;object-position:95% 32%;animation:rio-hero-drift 18s ease-in-out infinite alternate;transform-origin:center}
+        .thero-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(10,14,50,.65) 0%,rgba(10,14,50,.3) 45%,transparent 85%);transition:background .35s}
+        .thero-fluid{width:100%; padding:0 64px; position:relative; z-index:2}
+        .thero-in{max-width:540px;color:#fff}
         .thero h1{font-size:clamp(34px,5vw,56px);margin-top:14px;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.55)}.thero h1 .accent{color:var(--pink)}
         .thero .lede{font-size:18px;margin-top:18px;max-width:500px;color:rgba(255,255,255,.98);text-shadow:0 1px 8px rgba(0,0,0,.45)}
         .thero .eyebrow.light{color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.35)}
         
         @media(max-width:800px){
+          .thero-fluid{padding:0 24px}
           .thero-in{max-width:100%}
           .thero-bg img{object-position:center 32% !important}
-          .thero-veil{background:rgba(10,14,50,.55) !important}
+          .thero-veil{background:rgba(10,14,50,.65) !important}
         }
 
         .thero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
@@ -216,16 +225,18 @@ export default function TreatmentsPage() {
         <section className="thero">
           <div className="thero-bg"><img src={IMG.banner} alt="Rio Children's Hospital Treatments" /></div>
           <div className="thero-veil" />
-          <div className="wrap thero-in">
-            <Reveal>
-              <Eyebrow light>Our Treatments</Eyebrow>
-              <h1>What treatments do we <span className="accent">offer?</span></h1>
-              <p className="lede">From high-risk pregnancy and fetal medicine to advanced NICU and PICU care — explore the specialised treatments and care Rio provides for women, newborns and children, all under one roof.</p>
-              <div className="thero-cta">
-                <a className="btn btn-cta" href="/book-appointment">Book an Appointment</a>
-                <a className="btn btn-pink" href={LINKS.call}>Call Emergency Care</a>
-              </div>
-            </Reveal>
+          <div className="thero-fluid">
+            <div className="thero-in">
+              <Reveal>
+                <Eyebrow light>Our Treatments</Eyebrow>
+                <h1>What treatments do we <span className="accent">offer?</span></h1>
+                <p className="lede">From high-risk pregnancy and fetal medicine to advanced NICU and PICU care — explore the specialised treatments and care Rio provides for women, newborns and children, all under one roof.</p>
+                <div className="thero-cta">
+                  <a className="btn btn-cta" href="/book-appointment">Book an Appointment</a>
+                  <a className="btn btn-pink" href={LINKS.call}>Call Emergency Care</a>
+                </div>
+              </Reveal>
+            </div>
           </div>
         </section>
 

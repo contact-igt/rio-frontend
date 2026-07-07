@@ -170,18 +170,13 @@ function NavTreatments({ active = false }) {
 
 function Logo({ footer = false }) {
   const [broken, setBroken] = useState(false);
-  if (footer) {
-    return (
-      <a className="logo" href="/" aria-label="Rio Children's Hospital">
-        <span className="logo-word on-dark">Rio<em>HOSPITAL</em></span>
-      </a>
-    );
-  }
   return (
-    <a className="logo" href="/" aria-label="Rio Children's Hospital — Home">
-      {!broken
-        ? <img className="logo-img" src={IMG.logo} alt="Rio Children's Hospital" onError={() => setBroken(true)} />
-        : <span className="logo-word">Rio<em>HOSPITAL</em></span>}
+    <a className="logo" href="/" aria-label={footer ? "Rio Children's Hospital" : "Rio Children's Hospital — Home"}>
+      {!broken ? (
+        <img className="logo-img" src="/assets/shared/riologov2.png" alt="Rio Children's Hospital" onError={() => setBroken(true)} />
+      ) : (
+        <span className={`logo-word ${footer ? "on-dark" : ""}`}>Rio<em>HOSPITAL</em></span>
+      )}
     </a>
   );
 }
