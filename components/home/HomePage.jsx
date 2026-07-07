@@ -326,7 +326,8 @@ export default function HomePage() {
         .scrollcue .mouse::after{content:""; position:absolute; top:6px; left:50%; transform:translateX(-50%); width:3px;height:7px;border-radius:2px; background:#fff; animation:wheel 1.6s infinite}
         @keyframes wheel{0%{opacity:0; top:6px}30%{opacity:1}60%{opacity:1; top:15px}100%{opacity:0; top:18px}}
         @media (max-width:760px){.scrollcue{display:none}}
-        .hero-glass-container{position:absolute; right:28px; bottom:36px; z-index:3; display:flex; flex-direction:column; align-items:flex-end; gap:12px}
+        .hero-glass-wrap{position:absolute; inset:0; max-width:1200px; margin:0 auto; width:100%; pointer-events:none; z-index:3}
+        .hero-glass-container{position:absolute; right:28px; bottom:36px; display:flex; flex-direction:column; align-items:flex-end; gap:12px; pointer-events:auto}
         .hero-badges-glass{display:flex; gap:8px}
         .hero-badges-glass span{font-size:11.5px; font-weight:700; color:#fff; background:rgba(35,39,90,.6); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.24); padding:6px 12px; border-radius:999px; text-shadow:0 1px 2px rgba(0,0,0,0.1)}
         .hero-glass{display:flex; gap:0; background:rgba(35,39,90,.55); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,.32); border-radius:18px; padding:16px 6px}
@@ -640,15 +641,17 @@ export default function HomePage() {
               <div className="hero-badges"><span>NABH Entry-Level Certified</span><span>Only Level 3 NICU in South TN</span></div>
             </Reveal>
           </div>
-          <div className="hero-glass-container">
-            <div className="hero-badges-glass">
-              <span>NABH Entry-Level Certified</span>
-              <span>Only Level 3 NICU in South TN</span>
-            </div>
-            <div className="hero-glass">
-              <div><strong><Counter value="6 Lacs+" /></strong><span>Patients</span></div>
-              <div><strong><Counter value="100+" /></strong><span>Specialists</span></div>
-              <div><strong><Counter value="4" /></strong><span>Branches</span></div>
+          <div className="hero-glass-wrap">
+            <div className="hero-glass-container">
+              <div className="hero-badges-glass">
+                <span>NABH Entry-Level Certified</span>
+                <span>Only Level 3 NICU in South TN</span>
+              </div>
+              <div className="hero-glass">
+                <div><strong><Counter value="6 Lacs+" /></strong><span>Patients</span></div>
+                <div><strong><Counter value="100+" /></strong><span>Specialists</span></div>
+                <div><strong><Counter value="4" /></strong><span>Branches</span></div>
+              </div>
             </div>
           </div>
           <div className="scrollcue"><span className="mouse" />Scroll</div>

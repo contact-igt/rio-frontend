@@ -131,7 +131,7 @@ body {
 
 .rio .topstrip { background: var(--blue-deep); color: #EAEAF4; font-size: 13px; padding: 9px 0; text-align: center; animation: rio-strip-in 520ms cubic-bezier(.2, .7, .2, 1) both; }
 .rio .topstrip a { color: #FFC4DA; font-weight: 700; }
-.rio .header { position: sticky; top: 0; z-index: 80; display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; background: rgba(255, 255, 255, .92); backdrop-filter: blur(10px); transition: background .3s, box-shadow .3s; animation: rio-header-in 620ms cubic-bezier(.2, .7, .2, 1) both; }
+.rio .header { position: sticky; top: 0; z-index: 80; display: flex; align-items: center; justify-content: space-between; padding: 14px max(28px, calc((100% - 1200px) / 2 + 28px)); background: rgba(255, 255, 255, .92); backdrop-filter: blur(10px); transition: background .3s, box-shadow .3s; animation: rio-header-in 620ms cubic-bezier(.2, .7, .2, 1) both; }
 .rio .header.solid,
 .rio .nav-solid { box-shadow: 0 1px 0 var(--line); }
 .rio .logo { display: flex; align-items: center; gap: 10px; }
