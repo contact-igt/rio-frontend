@@ -19,6 +19,7 @@ const IMG = {
   "scan": "/assets/high-risk-pregnancy/scan.png",
   "ultrasound": "/assets/high-risk-pregnancy/ultrasound.png",
   "critical-care2": "/assets/high-risk-pregnancy/ot.png",
+  "critical-care3": "/assets/high-risk-pregnancy/fetal.png",
   "Advanced-NICU": "/assets/high-risk-pregnancy/advanced-nicu.png",
   "expert-specialists": "/assets/high-risk-pregnancy/specialist.png",
   "expert-specialists2": "/assets/high-risk-pregnancy/women.png",
@@ -84,7 +85,7 @@ const HIGH_RISK = {
     { q: "I've been told my pregnancy is high-risk. What should I do?", a: "Book a consultation early. High-risk pregnancy needs expert care, not fear — timely guidance makes a real difference for you and your baby." },
   ],
   related: [
-    { name: "Fetal Medicine", slug: "fetal-medicine", img: "critical-care2" },
+    { name: "Fetal Medicine", slug: "fetal-medicine", img: "critical-care3" },
     { name: "NICU", slug: "nicu", img: "Advanced-NICU" },
     { name: "Maternity Care", slug: "maternity", img: "expert-specialists2" },
   ],
