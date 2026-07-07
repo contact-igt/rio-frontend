@@ -38,8 +38,8 @@ const IMG = {
   "cc4": "/assets/home/milkbank.png",
   "branch1": "/assets/shared/branch-madurai-main.png",
   "branch2": "/assets/shared/branch-madurai-southwing.png",
-  "branch3": "/assets/shared/branch-dindigul.png",
-  "branch4": "/assets/shared/branch-thanjavur.png",
+  "branch3": "/assets/shared/branch-dindigul.jpg",
+  "branch4": "/assets/shared/branch-thanjavur.jpg",
 };
 
 const LINKS = {
