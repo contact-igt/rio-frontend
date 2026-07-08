@@ -308,7 +308,8 @@ export default function HomePage() {
               rgba(23,27,72,0)   40%)}
         .hero-inner{position:relative; z-index:3; max-width:1200px; margin:0 auto; padding:0 28px; width:100%}
         @media (max-width:760px){
-          .hero-inner{padding-bottom:140px; padding-top:40px;}
+          .hero{min-height:auto; padding:110px 0 40px; display:block}
+          .hero-inner{padding:0 20px;}
         }
         .hero h1{color:#fff; font-size:clamp(34px,8vw,74px); max-width:880px; margin-top:18px}
         .hero h1 .accent{color:#FFA8C4}
@@ -336,15 +337,15 @@ export default function HomePage() {
         .hero-glass strong{display:block; font-family:'Proxima Nova','Mulish',sans-serif; font-size:27px; font-weight:800; color:#fff}
         .hero-glass div > span{font-size:11px; font-weight:700; color:#E3E6F5}
         @media (max-width:760px){
-          .hero-glass-container{right:16px; left:16px; bottom:24px; align-items:stretch;}
-          .hero-badges-glass{justify-content:center;}
-          .hero-glass{border-radius:12px; justify-content:space-around; background:rgba(35,39,90,.85);}
-          .hero-glass div{padding:8px 6px;}
+          .hero-glass-wrap{position:relative; inset:auto; margin-top:40px; padding:0 20px; z-index:3; pointer-events:auto}
+          .hero-glass-container{position:relative; right:auto; bottom:auto; align-items:stretch; gap:12px}
+          .hero-badges-glass{display:none}
+          .hero-glass{border-radius:12px; justify-content:space-around; background:rgba(35,39,90,.85)}
+          .hero-glass div{padding:8px 6px}
         }
         @media (max-width:400px){
-          .hero-glass-container{bottom:16px;}
-          .hero-glass div{padding:6px 2px;}
-          .hero-glass strong{font-size:22px;}
+          .hero-glass div{padding:6px 2px}
+          .hero-glass strong{font-size:22px}
         }
 
         /* ── PARALLAX FULL-BLEED BAND ── */
