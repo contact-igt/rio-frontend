@@ -640,7 +640,7 @@ export default function AboutPage() {
         <div className="wrap">
           <div>
             <div style={{ marginBottom: 16 }}><Logo footer /></div>
-            <p style={{ color: "#9FC4BB", maxWidth: 270, fontSize: 14 }}>Advanced women &amp; child healthcare across Tamil Nadu — combining medical expertise, modern facilities and a human-centered approach.</p>
+            <p style={{ color: "#9FC4BB", maxWidth: 270, fontSize: 14 }}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
             <p className="values-line">TRUST • CARE • INNOVATION • COMPASSION • EXCELLENCE</p>
           </div>
           <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about">About Us</a></li><li><a href="/treatments">Treatments</a></li><li><a href="/#milkbank">Human Milk Bank</a></li></ul></div>

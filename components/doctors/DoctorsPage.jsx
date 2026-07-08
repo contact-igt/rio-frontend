@@ -711,7 +711,7 @@ export default function DoctorsPage() {
               <Logo footer />
             </div>
             <p style={{ color: "#9398C2", maxWidth: 270, fontSize: 14 }}>
-              Advanced women &amp; child healthcare across Tamil Nadu — medical expertise, modern facilities, a human-centered approach.
+              Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.
             </p>
             <p className="vals">TRUST • CARE • INNOVATION • COMPASSION • EXCELLENCE</p>
           </div>

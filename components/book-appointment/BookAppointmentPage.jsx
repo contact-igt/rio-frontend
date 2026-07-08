@@ -45,9 +45,16 @@ const NAV_TREATMENTS = [
 ];
 
 function Logo({ footer = false }) {
-  const [b, setB] = useState(false);
-  if (footer) return <a className="logo" href="/"><span className="logo-word on-dark">Rio<em>HOSPITAL</em></span></a>;
-  return <a className="logo" href="/">{!b ? <img className="logo-img" src={IMG.logo} alt="Rio Children's Hospital" onError={() => setB(true)} /> : <span className="logo-word">Rio<em>HOSPITAL</em></span>}</a>;
+  const [broken, setBroken] = useState(false);
+  return (
+    <a className="logo" href="/" aria-label={footer ? "Rio Children's Hospital" : "Rio Children's Hospital — Home"}>
+      {!broken ? (
+        <img className="logo-img" src="/assets/shared/riologov2.png" alt="Rio Children's Hospital" onError={() => setBroken(true)} />
+      ) : (
+        <span className={`logo-word ${footer ? "on-dark" : ""}`}>Rio<em>HOSPITAL</em></span>
+      )}
+    </a>
+  );
 }
 
 function NavTreatments({ active = false }) {
@@ -200,7 +207,7 @@ export default function BookAppointmentPage() {
         <div className="wrap" style={{ display: "flex", justifyContent: "space-between", padding: "32px 0", flexWrap: "wrap", gap: 16 }}>
           <div>
             <div style={{ marginBottom: 12 }}><Logo footer /></div>
-            <p style={{ color: "#9398C2", maxWidth: 280, fontSize: 13, lineHeight: 1.5 }}>Advanced women &amp; child healthcare across Tamil Nadu — medical expertise, modern facilities, a human-centered approach.</p>
+            <p style={{ color: "#9398C2", maxWidth: 280, fontSize: 13, lineHeight: 1.5 }}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: 13, fontWeight: 600 }}>
             <span>© 2026 Rio Children's Hospital</span>

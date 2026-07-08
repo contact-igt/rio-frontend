@@ -115,9 +115,16 @@ function NavTreatments({ active = false }) {
 }
 
 function Logo({ footer = false }) {
-  const [b, setB] = useState(false);
-  if (footer) return <a className="logo" href="/"><span className="logo-word on-dark">Rio<em>HOSPITAL</em></span></a>;
-  return <a className="logo" href="/">{!b ? <img className="logo-img" src={IMG.logo} alt="Rio Children's Hospital" onError={() => setB(true)} /> : <span className="logo-word">Rio<em>HOSPITAL</em></span>}</a>;
+  const [broken, setBroken] = useState(false);
+  return (
+    <a className="logo" href="/" aria-label={footer ? "Rio Children's Hospital" : "Rio Children's Hospital — Home"}>
+      {!broken ? (
+        <img className="logo-img" src="/assets/shared/riologov2.png" alt="Rio Children's Hospital" onError={() => setBroken(true)} />
+      ) : (
+        <span className={`logo-word ${footer ? "on-dark" : ""}`}>Rio<em>HOSPITAL</em></span>
+      )}
+    </a>
+  );
 }
 function Counter({ value }) {
   const m = value.match(/[\d,]+/); const target = m ? parseInt(m[0].replace(/,/g, ""), 10) : null;
@@ -353,7 +360,7 @@ function MaternityPageContent({ service: s }) {
         <div className="wrap">
           <div>
             <div style={{ marginBottom: 16 }}><Logo footer /></div>
-            <p style={{ color: "#AEB2D6", maxWidth: 270, fontSize: 14 }}>Advanced women &amp; child healthcare across Tamil Nadu — medical expertise, modern facilities, a human-centered approach.</p>
+            <p style={{ color: "#AEB2D6", maxWidth: 270, fontSize: 14 }}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
             <p className="vals">TRUST • CARE • INNOVATION • COMPASSION • EXCELLENCE</p>
           </div>
           <div><h4>Treatments</h4><ul>{APPT_SERVICES.slice(0, 6).map((x) => <li key={x}>{x}</li>)}</ul></div>
