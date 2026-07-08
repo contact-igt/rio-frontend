@@ -444,6 +444,61 @@ export default function DoctorsPage() {
           margin: 40px auto 0;
         }
         .empty-state h3 { color: var(--blue-deep); margin-bottom: 10px; }
+
+        /* --- cta --- */
+        .cta-band {
+          overflow: hidden;
+          display: flex !important;
+          align-items: stretch !important;
+          padding: 0 !important;
+        }
+        .cta-copy {
+          flex: 1.2;
+          padding: 48px 48px 48px 48px;
+          color: #fff;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .cta-copy h2 { color: #fff; font-size: clamp(26px, 3.4vw, 38px); max-width: 480px; }
+        .cta-copy p { color: #D6D9F0; margin-top: 12px; max-width: 440px; }
+        .cta-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+
+        .cta-form {
+          flex: 1;
+          background: rgba(255,255,255,.06);
+          border-left: 1px solid rgba(255,255,255,.12);
+          padding: 48px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        .cta-form h3 { color: #fff; font-size: 18px; margin-bottom: 6px; }
+        .cta-form select, .cta-form input {
+          width: 100%;
+          padding: 13px 14px;
+          margin-bottom: 11px;
+          border-radius: 11px;
+          border: none;
+          font-size: 14px;
+          font-family: inherit;
+          background: #fff;
+          color: var(--ink);
+        }
+
+        @media (max-width: 860px) {
+          .cta-band { flex-direction: column; }
+          .cta-copy { padding: 40px 24px 24px 24px !important; }
+          .cta-form {
+            padding: 32px 24px !important;
+            border-left: none !important;
+            border-top: 1px solid rgba(255,255,255,.12) !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .cta-actions { flex-direction: column; width: 100%; }
+          .cta-actions .btn { width: 100%; justify-content: center; }
+        }
       `}</style>
 
       <div className="topstrip">
@@ -619,7 +674,7 @@ export default function DoctorsPage() {
                 <p>
                   Connect with our leading neonatologists, paediatricians, gynaecologists, and fetal medicine specialists. Get in touch to schedule a visit at your preferred branch.
                 </p>
-                <div style={{ marginTop: 24, display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <div className="cta-actions">
                   <a className="btn btn-pink" href={LINKS.call}>
                     Call Now
                   </a>
