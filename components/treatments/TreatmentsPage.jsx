@@ -33,9 +33,9 @@ const GROUPS = [
     title: "Pregnancy & Maternity",
     note: "Expert care for every stage of pregnancy and a safe delivery for mother and baby.",
     items: [
-      { name: "High-Risk Pregnancy Care", slug: "high-risk-pregnancy", img: "maternity-care", d: "Closer monitoring and a stronger safety net for complex pregnancies and high-risk babies." },
-      { name: "Fetal Medicine", slug: "fetal-medicine", img: "critical-care2", d: "Advanced scans and specialist care tracking your baby's growth and wellbeing before birth." },
-      { name: "Maternity Care", slug: "maternity", img: "newborn-care", d: "Complete antenatal care with painless, normal & C-section packages, led by senior gynaecologists." },
+      { name: "High-Risk Pregnancy Care", slug: "high-risk-pregnancy", img: "maternity-care", d: "Expert monitoring and specialised care for high-risk pregnancies to protect both mother and baby." },
+      { name: "Fetal Medicine", slug: "fetal-medicine", img: "critical-care2", d: "Advanced fetal imaging, diagnostic scans and specialist care to monitor your baby’s growth and well-being throughout pregnancy." },
+      { name: "Maternity Care", slug: "maternity", img: "newborn-care", d: "Comprehensive antenatal, painless delivery including normal and Caesarean deliveries, led by experienced obstetricians." },
       { name: "Fertility & IVF", slug: "fertility-ivf", img: "fertility", d: "IVF, hormonal fertility care, reproductive health and follicular studies on your journey to parenthood." },
     ],
   },
@@ -44,13 +44,13 @@ const GROUPS = [
     note: "Round-the-clock intensive care for newborns and critically ill children.",
     items: [
       { name: "NICU", slug: "nicu", img: "Advanced-NICU", d: "Advanced neonatal intensive care for premature and critically ill newborns." },
-      { name: "PICU", slug: "picu", img: "critical-care3", d: "State-of-the-art paediatric intensive care for seriously ill children." },
+      { name: "PICU", slug: "picu", img: "critical-care3", d: "Advanced paediatric intensive care for critically ill children requiring continuous monitoring and specialised treatment." },
       { name: "Human Milk Bank", slug: "human-milk-bank", img: "critical-care4", d: "Safe, screened, pasteurised donor milk for premature and critically ill newborns." },
     ],
   },
   {
     title: "Emergency & Everyday Care",
-    note: "Always-on care for childhood emergencies, everyday illness and prevention.",
+    note: "24/7 care for childhood emergencies, everyday illnesses and preventive healthcare.",
     items: [
       { name: "Paediatric Emergency", slug: "emergency", img: "emergency", d: "24/7 emergency care for sudden illness, accidents and critical conditions, with NICU & PICU backup." },
       { name: "General Paediatrics", slug: "general-paediatrics", img: "newborn-care", d: "24/7 outpatient care for every childhood illness, from birth to 18 years." },
@@ -170,7 +170,7 @@ export default function TreatmentsPage() {
               <Reveal>
                 <Eyebrow light>Our Treatments</Eyebrow>
                 <h1>What treatments do we <span className="accent">offer?</span></h1>
-                <p className="lede">From high-risk pregnancy and fetal medicine to advanced NICU and PICU care — explore the specialised treatments and care Rio provides for women, newborns and children, all under one roof.</p>
+                <p className="lede">From high-risk pregnancy and fetal medicine to advanced NICU, PICU and paediatric care, explore Rio’s comprehensive healthcare services for women, newborns and children all under one roof.</p>
                 <div className="thero-cta">
                   <a className="btn btn-cta" href="/book-appointment">Book an Appointment</a>
                   <a className="btn btn-pink" href={SITE_LINKS.call}>Call Emergency Care</a>

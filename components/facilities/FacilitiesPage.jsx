@@ -1250,7 +1250,7 @@ export default function FacilitiesPage() {
               <Logo footer />
             </div>
             <p style={{ color: "#9FC4BB", maxWidth: 270, fontSize: 14 }}>
-              Advanced women and child healthcare across Tamil Nadu, with modern facilities and a patient-first approach.
+              Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.
             </p>
             <p className="values">TRUST - CARE - INNOVATION - COMPASSION - EXCELLENCE</p>
           </div>
@@ -1287,6 +1287,7 @@ export default function FacilitiesPage() {
     </div>
   );
 }
+
 
 
 
