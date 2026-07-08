@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-
+import Logo from "@/components/shared/SiteLogo";
+import NavTreatments from "@/components/shared/NavTreatments";
+import MobileNav from "@/components/shared/MobileNav";
+import TopStrip from "@/components/shared/TopStrip";
+import { NAV_TREATMENTS, SITE_LINKS } from "@/data/site";
 /* ════════════════════════════════════════════════════════════════════════
    RIO CHILDREN'S HOSPITAL — TREATMENTS landing page  (route: /treatments)
    Lists every treatment in one place; each card opens its detail page.
@@ -24,21 +28,6 @@ const IMG = {
   "vaccination": "/assets/treatments/vaccine.png",
   "fertility": "/assets/treatments/scan.png"
 };
-const LINKS = { call: "tel:+917708318222", whatsapp: "https://wa.me/917708318222", youtube: "https://youtube.com/@riochildrenshospital", instagram: "https://instagram.com/riochildrenhospitals" };
-
-const NAV_TREATMENTS = [
-  { name: "High-Risk Pregnancy Care", slug: "high-risk-pregnancy" },
-  { name: "Fetal Medicine", slug: "fetal-medicine" },
-  { name: "Maternity Care", slug: "maternity" },
-  { name: "Fertility & IVF", slug: "fertility-ivf" },
-  { name: "NICU", slug: "nicu" },
-  { name: "PICU", slug: "picu" },
-  { name: "Paediatric Emergency", slug: "emergency" },
-  { name: "General Paediatrics", slug: "general-paediatrics" },
-  { name: "Vaccination Services", slug: "vaccination" },
-  { name: "Human Milk Bank", slug: "human-milk-bank" },
-];
-
 const GROUPS = [
   {
     title: "Pregnancy & Maternity",
@@ -81,55 +70,6 @@ function Img({ src, alt = "", grad = 0, className = "" }) {
   return <div className={`img-wrap ${G[grad % 3]} ${className}`}>{!b ? <img src={src} alt={alt} loading="lazy" onError={() => setB(true)} /> : <svg viewBox="0 0 24 24" className="fb" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.2C.6 8.7 2 5 5.6 5c2 0 3.5 1.1 4.4 2.6C10.9 6.1 12.4 5 14.4 5 18 5 19.4 8.7 18 11.8 16.5 16.4 12 21 12 21z" /></svg>}</div>;
 }
 function Eyebrow({ children, light = false }) { return <span className={`eyebrow ${light ? "light" : ""}`}><i className="ey-dot" />{children}</span>; }
-function Logo({ footer = false }) {
-  const [b, setB] = useState(false);
-  return (
-    <a className="logo" href="/" aria-label={footer ? "Rio Children's Hospital" : "Rio Children's Hospital — Home"}>
-      {!b ? (
-        <img className="logo-img" src="/assets/shared/riologov2.png" alt="Rio Children's Hospital" onError={() => setB(true)} />
-      ) : (
-        <span className={`logo-word ${footer ? "on-dark" : ""}`}>Rio<em>HOSPITAL</em></span>
-      )}
-    </a>
-  );
-}
-function NavTreatments({ active = false }) {
-  return (
-    <div className="nav-dd">
-      <a href="/treatments" className={`nav-dd-trigger${active ? " active" : ""}`}>Treatments <span className="cv">▾</span></a>
-      <div className="nav-dd-menu">
-        {NAV_TREATMENTS.map((t) => <a key={t.slug} href={`/services/${t.slug}`}>{t.name}</a>)}
-        <a className="nav-dd-all" href="/treatments">View all treatments →</a>
-      </div>
-    </div>
-  );
-}
-
-function MobileNav({ open, onClose }) {
-  return (
-    <div className={`mnav ${open ? "open" : ""}`} onClick={onClose}>
-      <div className="mnav-panel" onClick={(e) => e.stopPropagation()}>
-        <button className="mnav-x" aria-label="Close menu" onClick={onClose}>×</button>
-        <a className="mnav-link" href="/" onClick={onClose}>Home</a>
-        <a className="mnav-link" href="/about" onClick={onClose}>About</a>
-        <a className="mnav-link" href="/doctors" onClick={onClose}>Doctors</a>
-        <div className="mnav-group">
-          <span className="mnav-h">Treatments</span>
-          {NAV_TREATMENTS.map((t) => (
-            <a key={t.slug} className="mnav-sub" href={`/services/${t.slug}`} onClick={onClose}>{t.name}</a>
-          ))}
-          <a className="mnav-sub mnav-all" href="/treatments" onClick={onClose}>View all treatments →</a>
-        </div>
-        <a className="mnav-link" href="/contact" onClick={onClose}>Contact</a>
-        <div className="mnav-cta">
-          <a className="btn btn-cta" href="/book-appointment" onClick={onClose}>Book an Appointment</a>
-          <a className="btn btn-pink" href={LINKS.call} onClick={onClose}>Call Now</a>
-          <a className="btn btn-green" href={LINKS.whatsapp} target="_blank" rel="noreferrer" onClick={onClose}>WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default function TreatmentsPage() {
   const [solid, setSolid] = useState(false);
@@ -205,16 +145,16 @@ export default function TreatmentsPage() {
         /* cta */
       `}</style>
 
-      <div className="topstrip">24/7 Emergency • NICU • PICU — <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
+      <TopStrip callHref={SITE_LINKS.call} />
 
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
         <nav className="nav">
-          <a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments active /><a href="/contact">Contact</a>
+          <a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a>
         </nav>
-        <div className="nav-cta">
-          <a className="btn btn-green btn-sm" href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
-          <a className="btn btn-cta btn-sm" href="/book-appointment">Book an Appointment</a>
+                <div className="nav-cta">
+          <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
+          <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
       </header>
@@ -233,7 +173,7 @@ export default function TreatmentsPage() {
                 <p className="lede">From high-risk pregnancy and fetal medicine to advanced NICU and PICU care — explore the specialised treatments and care Rio provides for women, newborns and children, all under one roof.</p>
                 <div className="thero-cta">
                   <a className="btn btn-cta" href="/book-appointment">Book an Appointment</a>
-                  <a className="btn btn-pink" href={LINKS.call}>Call Emergency Care</a>
+                  <a className="btn btn-pink" href={SITE_LINKS.call}>Call Emergency Care</a>
                 </div>
               </Reveal>
             </div>
@@ -272,7 +212,7 @@ export default function TreatmentsPage() {
           <div className="wrap">
             <Reveal className="cta-band">
               <div><h2>Not sure which treatment you need?</h2><p>Our team will help you find the right department, doctor and branch.</p></div>
-              <div className="cta-actions"><a className="btn btn-pink" href={LINKS.call}>Call Us</a><a className="btn btn-green" href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></div>
+              <div className="cta-actions"><a className="btn btn-pink" href={SITE_LINKS.call}>Call Us</a><a className="btn btn-green" href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></div>
             </Reveal>
           </div>
         </section>
@@ -287,16 +227,21 @@ export default function TreatmentsPage() {
           </div>
           <div><h4>Treatments</h4><ul>{NAV_TREATMENTS.map((t) => <li key={t.slug}><a href={`/services/${t.slug}`}>{t.name}</a></li>)}</ul></div>
           <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about">About Us</a></li><li><a href="/treatments">Treatments</a></li><li><a href="/book-appointment">Contact</a></li></ul></div>
-          <div><h4>Contact</h4><ul><li><a href={LINKS.call}>📞 +91 77083 18222</a></li><li><a href="mailto:info@riohospital.com">✉ info@riohospital.com</a></li><li><a href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></li><li><a href={LINKS.instagram} target="_blank" rel="noreferrer">Instagram</a></li></ul></div>
+          <div><h4>Contact</h4><ul><li><a href={SITE_LINKS.call}>📞 +91 77083 18222</a></li><li><a href="mailto:info@riohospital.com">✉ info@riohospital.com</a></li><li><a href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></li><li><a href={SITE_LINKS.instagram} target="_blank" rel="noreferrer">Instagram</a></li></ul></div>
         </div>
         <div className="wrap footer-bottom"><span>© 2026 Rio Children's Hospital</span><span>Built by Invictus Global Tech</span></div>
       </footer>
 
       <div className="mbar">
-        <a className="btn btn-pink" href={LINKS.call}>Call</a>
-        <a className="btn btn-green" href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
+        <a className="btn btn-pink" href={SITE_LINKS.call}>Call</a>
+        <a className="btn btn-green" href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
         <a className="btn btn-cta" href="/book-appointment">Book</a>
       </div>
     </div>
   );
 }
+
+
+
+
+

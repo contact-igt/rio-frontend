@@ -1,4 +1,6 @@
 import "./globals.css";
+import { SITE_LINKS } from "../data/site";
+import InternalLinkHandler from "../components/shared/InternalLinkHandler";
 
 export const metadata = {
   title: "Rio Children's Hospital — Advanced Women & Child Care in Tamil Nadu",
@@ -29,7 +31,19 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <InternalLinkHandler />
+        {children}
+        <a
+          className="whatsapp-float"
+          href={SITE_LINKS.whatsapp}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Chat on WhatsApp"
+        >
+          <img src="/assets/whatsapp.png" alt="WhatsApp" />
+        </a>
+      </body>
     </html>
   );
 }

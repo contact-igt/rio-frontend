@@ -154,6 +154,7 @@ function MobileNav({ open, onClose }) {
           ))}
           <a className="mnav-sub mnav-all" href="/treatments" onClick={onClose}>View all treatments →</a>
         </div>
+        <a className="mnav-link" href="/facilities" onClick={onClose}>Facilities</a>
         <a className="mnav-link" href="/contact" onClick={onClose}>Contact</a>
         <div className="mnav-cta">
           <a className="btn btn-cta" href="/book-appointment" onClick={onClose}>Book an Appointment</a>
@@ -181,8 +182,11 @@ function FertilityIvfPageContent({ service: s }) {
 
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
-        <nav className="nav"><a href="/">Home</a><a href="/about">About</a><NavTreatments active /><a href="/contact">Contact</a></nav>
-        <div className="nav-cta"><a className="btn btn-green btn-sm" href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a><a className="btn btn-cta btn-sm" href="/book-appointment">Book an Appointment</a></div>
+        <nav className="nav"><a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
+                <div className="nav-cta">
+          <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
+          <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
+        </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
       </header>
 
@@ -376,4 +380,8 @@ function FertilityIvfPageContent({ service: s }) {
 }
 
 export default function FertilityIvfPage() { return <FertilityIvfPageContent service={IVF} />; }
+
+
+
+
 

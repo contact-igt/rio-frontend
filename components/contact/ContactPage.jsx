@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-
+import Logo from "@/components/shared/SiteLogo";
+import NavTreatments from "@/components/shared/NavTreatments";
+import MobileNav from "@/components/shared/MobileNav";
+import TopStrip from "@/components/shared/TopStrip";
+import { APPOINTMENT_SERVICES_WITH_ENQUIRY, SITE_LINKS } from "@/data/site";
 /* ════════════════════════════════════════════════════════════════════════
    RIO CHILDREN'S HOSPITAL — CONTACT US PAGE
    Rio brand: Deep Blue #303573 · Pink #FD70A1 · Green #7BA93A · Warm Brown
@@ -18,27 +22,6 @@ const IMG = {
   "branch3": "/assets/shared/branch-dindigul.jpg",
   "branch4": "/assets/shared/branch-thanjavur.jpg",
 };
-const LINKS = {
-  call: "tel:+917708318222", whatsapp: "https://wa.me/917708318222",
-  email: "mailto:info@riohospital.com", hr: "mailto:hr@riohospital.com",
-  careers: "mailto:careers@riohospital.com",
-  youtube: "https://youtube.com/@riochildrenshospital",
-  instagram: "https://instagram.com/riochildrenhospitals",
-  facebook: "https://facebook.com/riochildrenhospitals",
-};
-const APPT_SERVICES = ["High-Risk Pregnancy Care", "Fetal Medicine", "NICU", "PICU", "Paediatric Emergency Care", "General Paediatrics", "Vaccination Services", "Human Milk Bank", "Maternity Care", "General Enquiry"];
-const NAV_TREATMENTS = [
-  { name: "High-Risk Pregnancy Care", slug: "high-risk-pregnancy" },
-  { name: "Fetal Medicine", slug: "fetal-medicine" },
-  { name: "Maternity Care", slug: "maternity" },
-  { name: "Fertility & IVF", slug: "fertility-ivf" },
-  { name: "NICU", slug: "nicu" },
-  { name: "PICU", slug: "picu" },
-  { name: "Paediatric Emergency", slug: "emergency" },
-  { name: "General Paediatrics", slug: "general-paediatrics" },
-  { name: "Vaccination Services", slug: "vaccination" },
-  { name: "Human Milk Bank", slug: "human-milk-bank" },
-];
 const BRANCHES = [
   { name: "Madurai (Main)", addr: "Rio Children's Hospital, Tuticorin Ring Road, Masthanpatti Rd, opp Annamalaiar School, Madurai – 625020", phones: [["77083 18222", "+917708318222"], ["0452-2555222", "+914522555222"]], img: "branch1" },
   { name: "Southwing, Madurai", addr: "41, Madakulam Main Rd, Pasumpon Nagar, Palangantham, Madurai – 625003", phones: [["07418661222", "+917418661222"], ["0452-4036444", "+914524036444"]], img: "branch2" },
@@ -59,67 +42,36 @@ function Img({ src, alt = "", grad = 0, className = "" }) {
   return <div className={`img-wrap ${G[grad % 3]} ${className}`}>{!b ? <img src={src} alt={alt} loading="lazy" onError={() => setB(true)} /> : <svg viewBox="0 0 24 24" className="fb" aria-hidden="true"><path d="M12 21s-7.5-4.6-10-9.2C.6 8.7 2 5 5.6 5c2 0 3.5 1.1 4.4 2.6C10.9 6.1 12.4 5 14.4 5 18 5 19.4 8.7 18 11.8 16.5 16.4 12 21 12 21z" /></svg>}</div>;
 }
 function Eyebrow({ children, light = false }) { return <span className={`eyebrow ${light ? "light" : ""}`}><i className="ey-dot" />{children}</span>; }
-function NavTreatments({ active = false }) {
-  return (
-    <div className="nav-dd">
-      <a href="/treatments" className={`nav-dd-trigger${active ? " active" : ""}`}>Treatments <span className="cv">▾</span></a>
-      <div className="nav-dd-menu">
-        {NAV_TREATMENTS.map((t) => <a key={t.slug} href={`/services/${t.slug}`}>{t.name}</a>)}
-        <a className="nav-dd-all" href="/treatments">View all treatments →</a>
-      </div>
-    </div>
-  );
-}
+function CIcon({ name }) {
+  const props = {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.8",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": true,
+  };
 
-function Logo({ footer = false }) {
-  const [b, setB] = useState(false);
-  return (
-    <a className="logo" href="/" aria-label={footer ? "Rio Children's Hospital" : "Rio Children's Hospital — Home"}>
-      {!b ? (
-        <img className="logo-img" src="/assets/shared/riologov2.png" alt="Rio Children's Hospital" onError={() => setB(true)} />
-      ) : (
-        <span className={`logo-word ${footer ? "on-dark" : ""}`}>Rio<em>HOSPITAL</em></span>
-      )}
-    </a>
-  );
+  switch (name) {
+    case "phone":
+      return <svg {...props}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.62a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.46-1.29a2 2 0 0 1 2.11-.45c.84.3 1.72.51 2.62.63A2 2 0 0 1 22 16.92Z" /></svg>;
+    case "chat":
+      return <svg {...props}><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8A8.5 8.5 0 0 1 12.5 20a8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.8-7.6A8.38 8.38 0 0 1 12.5 3h.5A8.48 8.48 0 0 1 21 11v.5Z" /></svg>;
+    case "mail":
+      return <svg {...props}><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>;
+    case "pin":
+      return <svg {...props}><path d="M12 21s-6-4.35-6-10a6 6 0 1 1 12 0c0 5.65-6 10-6 10Z" /><circle cx="12" cy="11" r="2.2" /></svg>;
+    case "instagram":
+      return <svg {...props}><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r=".9" fill="currentColor" stroke="none" /></svg>;
+    case "facebook":
+      return <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.6-1.6H17V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H8v3h2.8v8h2.7Z" /></svg>;
+    case "youtube":
+      return <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.98 2.98 0 0 0-2.1-2.1C17.7 4.6 12 4.6 12 4.6s-5.7 0-7.5.5A2.98 2.98 0 0 0 2.4 7.2 31.2 31.2 0 0 0 2 12a31.2 31.2 0 0 0 .4 4.8 2.98 2.98 0 0 0 2.1 2.1c1.8.5 7.5.5 7.5.5s5.7 0 7.5-.5a2.98 2.98 0 0 0 2.1-2.1A31.2 31.2 0 0 0 22 12a31.2 31.2 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z" /></svg>;
+    default:
+      return null;
+  }
 }
-const CIC = {
-  phone: <path d="M21 16.5v2.7a1.9 1.9 0 0 1-2.1 1.9 18.8 18.8 0 0 1-8.2-2.9 18.5 18.5 0 0 1-5.7-5.7A18.8 18.8 0 0 1 2.1 4.3 1.9 1.9 0 0 1 4 2.2h2.7a1.9 1.9 0 0 1 1.9 1.6c.1 1 .4 1.8.7 2.7a1.9 1.9 0 0 1-.5 2L7.6 9.6a15 15 0 0 0 5.7 5.7l1.1-1.2a1.9 1.9 0 0 1 2-.5c.9.3 1.7.5 2.7.7a1.9 1.9 0 0 1 1.6 1.9z" />,
-  chat: <path d="M20.5 11.5a8 8 0 0 1-8.5 8 8.5 8.5 0 0 1-3.8-.9L4 20l1.4-4.2a8 8 0 0 1-.9-3.8 8 8 0 0 1 16 .5z" />,
-  mail: <><rect x="3.5" y="5.5" width="17" height="13" rx="2" /><path d="m3.8 7.5 8.2 5.5 8.2-5.5" /></>,
-  pin: <><path d="M18.5 10.3c0 5-6.5 10.2-6.5 10.2s-6.5-5.2-6.5-10.2a6.5 6.5 0 0 1 13 0Z" /><circle cx="12" cy="10.3" r="2.5" /></>,
-  instagram: <><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></>,
-  facebook: <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />,
-  youtube: <><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" /><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" /></>,
-};
-function CIcon({ name }) { return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">{CIC[name]}</svg>; }
-
-function MobileNav({ open, onClose }) {
-  return (
-    <div className={`mnav ${open ? "open" : ""}`} onClick={onClose}>
-      <div className="mnav-panel" onClick={(e) => e.stopPropagation()}>
-        <button className="mnav-x" aria-label="Close menu" onClick={onClose}>×</button>
-        <a className="mnav-link" href="/" onClick={onClose}>Home</a>
-        <a className="mnav-link" href="/about" onClick={onClose}>About</a>
-        <a className="mnav-link" href="/doctors" onClick={onClose}>Doctors</a>
-        <div className="mnav-group">
-          <span className="mnav-h">Treatments</span>
-          {NAV_TREATMENTS.map((t) => (
-            <a key={t.slug} className="mnav-sub" href={`/services/${t.slug}`} onClick={onClose}>{t.name}</a>
-          ))}
-          <a className="mnav-sub mnav-all" href="/treatments" onClick={onClose}>View all treatments →</a>
-        </div>
-        <a className="mnav-link" href="/contact" onClick={onClose}>Contact</a>
-        <div className="mnav-cta">
-          <a className="btn btn-cta" href="/book-appointment" onClick={onClose}>Book an Appointment</a>
-          <a className="btn btn-pink" href={LINKS.call} onClick={onClose}>Call Now</a>
-          <a className="btn btn-green" href={LINKS.whatsapp} target="_blank" rel="noreferrer" onClick={onClose}>WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function ContactPage() {
   const [solid, setSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -127,9 +79,9 @@ export default function ContactPage() {
   useEffect(() => { const o = () => setSolid(window.scrollY > 40); window.addEventListener("scroll", o, { passive: true }); return () => window.removeEventListener("scroll", o); }, []);
 
   const QUICK = [
-    { icon: "phone", t: "Call us", v: "+91 77083 18222", href: LINKS.call, note: "24/7 emergency line" },
-    { icon: "chat", t: "WhatsApp", v: "Chat with us", href: LINKS.whatsapp, note: "Quick enquiries & bookings" },
-    { icon: "mail", t: "Email", v: "info@riohospital.com", href: LINKS.email, note: "General enquiries" },
+    { icon: "phone", t: "Call us", v: "+91 77083 18222", href: SITE_LINKS.call, note: "24/7 emergency line" },
+    { icon: "chat", t: "WhatsApp", v: "Chat with us", href: SITE_LINKS.whatsapp, note: "Quick enquiries & bookings" },
+    { icon: "mail", t: "Email", v: "info@riohospital.com", href: SITE_LINKS.email, note: "General enquiries" },
     { icon: "pin", t: "Visit us", v: "4 branches", href: "#branches", note: "Madurai · Dindigul · Thanjavur" },
   ];
 
@@ -204,16 +156,16 @@ export default function ContactPage() {
         .careers-links a{color:var(--blue)}
       `}</style>
 
-      <div className="topstrip">24/7 Emergency • NICU • PICU — <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
+      <TopStrip callHref={SITE_LINKS.call} />
 
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
         <nav className="nav">
-          <a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments /><a href="/contact" className="active">Contact</a>
+          <a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments /><a href="/facilities">Facilities</a><a href="/contact" className="active">Contact</a>
         </nav>
-        <div className="nav-cta">
-          <a className="btn btn-green btn-sm" href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
-          <a className="btn btn-cta btn-sm" href="/book-appointment">Book an Appointment</a>
+                <div className="nav-cta">
+          <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
+          <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
       </header>
@@ -231,9 +183,9 @@ export default function ContactPage() {
               <h1>We're here for you — <span className="accent">day or night</span>.</h1>
               <p className="lede">Book an appointment, ask a question, or reach our 24/7 emergency line. Our team across all four Rio branches is ready to help you and your family.</p>
               <div className="chero-cta">
-                <a className="btn btn-pink" href={LINKS.call}>Call Emergency Care</a>
+                <a className="btn btn-pink" href={SITE_LINKS.call}>Call Emergency Care</a>
                 <a className="btn btn-cta" href="/book-appointment">Book an Appointment</a>
-                <a className="btn btn-green" href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp ↗</a>
+                <a className="btn btn-green" href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp ↗</a>
               </div>
             </Reveal>
             <Reveal delay={120} className="chero-media">
@@ -273,7 +225,7 @@ export default function ContactPage() {
                     <div className="field"><label>Full name</label><input type="text" placeholder="Your name" required /></div>
                     <div className="field"><label>Phone</label><input type="tel" placeholder="Phone number" required /></div>
                     <div className="field"><label>Preferred branch</label><select required defaultValue=""><option value="" disabled>Select a branch</option>{BRANCHES.map((b) => <option key={b.name}>{b.name}</option>)}</select></div>
-                    <div className="field"><label>Service needed</label><select required defaultValue=""><option value="" disabled>Select a service</option>{APPT_SERVICES.map((s) => <option key={s}>{s}</option>)}</select></div>
+                    <div className="field"><label>Service needed</label><select required defaultValue=""><option value="" disabled>Select a service</option>{APPOINTMENT_SERVICES_WITH_ENQUIRY.map((s) => <option key={s}>{s}</option>)}</select></div>
                     <div className="field full"><label>Message (optional)</label><textarea placeholder="Tell us briefly how we can help" /></div>
                   </div>
                   <button className="btn btn-cta mt-26" type="submit" style={{ width: "100%", justifyContent: "center" }}>Request a Call Back ↗</button>
@@ -286,13 +238,13 @@ export default function ContactPage() {
               <h2 style={{ marginTop: 10, fontSize: 22 }}>Contact details</h2>
               <div className="info-block mt-26">
                 <h4>Phone</h4>
-                <div className="info-row"><CIcon name="phone" /><a href={LINKS.call}>+91 77083 18222</a></div>
-                <div className="info-row"><CIcon name="chat" /><a href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp: +91 77083 18222</a></div>
+                <div className="info-row"><CIcon name="phone" /><a href={SITE_LINKS.call}>+91 77083 18222</a></div>
+                <div className="info-row"><CIcon name="chat" /><a href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp: +91 77083 18222</a></div>
               </div>
               <div className="info-block">
                 <h4>Email</h4>
-                <div className="info-row"><CIcon name="mail" /><a href={LINKS.email}>info@riohospital.com</a></div>
-                <div className="info-row"><CIcon name="mail" /><a href={LINKS.hr}>hr@riohospital.com</a></div>
+                <div className="info-row"><CIcon name="mail" /><a href={SITE_LINKS.email}>info@riohospital.com</a></div>
+                <div className="info-row"><CIcon name="mail" /><a href={SITE_LINKS.hr}>hr@riohospital.com</a></div>
               </div>
               <div className="info-block">
                 <h4>Hours</h4>
@@ -302,9 +254,9 @@ export default function ContactPage() {
               <div className="info-block">
                 <h4>Follow us</h4>
                 <div className="socials">
-                  <a href={LINKS.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><CIcon name="instagram" /></a>
-                  <a href={LINKS.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><CIcon name="facebook" /></a>
-                  <a href={LINKS.youtube} target="_blank" rel="noreferrer" aria-label="YouTube"><CIcon name="youtube" /></a>
+                  <a href={SITE_LINKS.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><CIcon name="instagram" /></a>
+                  <a href={SITE_LINKS.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><CIcon name="facebook" /></a>
+                  <a href={SITE_LINKS.youtube} target="_blank" rel="noreferrer" aria-label="YouTube"><CIcon name="youtube" /></a>
                 </div>
               </div>
             </Reveal>
@@ -347,8 +299,8 @@ export default function ContactPage() {
                 <p className="sec-note">We're hiring across nursing, lab, pharmacy, front-office and clinical roles at all branches.</p>
               </div>
               <div className="careers-links">
-                <a href={LINKS.hr}>✉ hr@riohospital.com</a>
-                <a href={LINKS.careers}>✉ careers@riohospital.com</a>
+                <a href={SITE_LINKS.hr}>✉ hr@riohospital.com</a>
+                <a href={SITE_LINKS.careers}>✉ careers@riohospital.com</a>
                 <a href="tel:+917397193222">📞 +91 73971 93222</a>
               </div>
             </Reveal>
@@ -364,8 +316,8 @@ export default function ContactPage() {
                 <p>Our paediatric emergency line is open 24 hours, every day, across all branches.</p>
               </div>
               <div className="cta-actions">
-                <a className="btn btn-pink" href={LINKS.call}>Call Emergency Care</a>
-                <a className="btn btn-green" href={LINKS.whatsapp} target="_blank" rel="noreferrer">Message on WhatsApp</a>
+                <a className="btn btn-pink" href={SITE_LINKS.call}>Call Emergency Care</a>
+                <a className="btn btn-green" href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">Message on WhatsApp</a>
               </div>
             </Reveal>
           </div>
@@ -382,18 +334,26 @@ export default function ContactPage() {
           <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about">About Us</a></li><li><a href="/treatments">Services</a></li><li><a href="/contact">Contact</a></li></ul></div>
           <div><h4>Branches</h4><ul>{BRANCHES.map((b) => <li key={b.name}>{b.name}</li>)}</ul></div>
           <div><h4>Contact</h4><ul>
-            <li><a href={LINKS.call}>📞 +91 77083 18222</a></li><li><a href={LINKS.email}>✉ info@riohospital.com</a></li>
-            <li><a href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></li><li><a href={LINKS.instagram} target="_blank" rel="noreferrer">Instagram</a></li>
+            <li><a href={SITE_LINKS.call}>📞 +91 77083 18222</a></li><li><a href={SITE_LINKS.email}>✉ info@riohospital.com</a></li>
+            <li><a href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></li><li><a href={SITE_LINKS.instagram} target="_blank" rel="noreferrer">Instagram</a></li>
           </ul></div>
         </div>
         <div className="wrap footer-bottom"><span>© 2026 Rio Children's Hospital</span><span>Built by Invictus Global Tech</span></div>
       </footer>
 
       <div className="mbar">
-        <a className="btn btn-pink" href={LINKS.call}>Call</a>
-        <a className="btn btn-green" href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
+        <a className="btn btn-pink" href={SITE_LINKS.call}>Call</a>
+        <a className="btn btn-green" href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
         <a className="btn btn-cta" href="/book-appointment">Book</a>
       </div>
     </div>
   );
 }
+
+
+
+
+
+
+
+

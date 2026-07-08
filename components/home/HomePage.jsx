@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-
+import Logo from "@/components/shared/SiteLogo";
+import NavTreatments from "@/components/shared/NavTreatments";
+import MobileNav from "@/components/shared/MobileNav";
+import TopStrip from "@/components/shared/TopStrip";
+import { APPOINTMENT_SERVICES, SITE_LINKS } from "@/data/site";
 /* ════════════════════════════════════════════════════════════════════════
    RIO CHILDREN'S HOSPITAL — HOME PAGE  ·  PARALLAX EDITION
 
@@ -41,13 +45,6 @@ const IMG = {
   "branch2": "/assets/shared/branch-madurai-southwing.png",
   "branch3": "/assets/shared/branch-dindigul.jpg",
   "branch4": "/assets/shared/branch-thanjavur.jpg",
-};
-
-const LINKS = {
-  call: "tel:+917708318222",
-  whatsapp: "https://wa.me/917708318222",
-  youtube: "https://youtube.com/@riochildrenshospital",
-  instagram: "https://instagram.com/riochildrenhospitals",
 };
 
 
@@ -100,19 +97,6 @@ const FAQS = [
   { q: "What signs should I watch for in newborn health?", a: "If your newborn shows signs of jaundice, irregular feeding, or unusual sleep patterns, consult our specialists immediately." },
   { q: "When should I start prenatal care?", a: "Ideally, as soon as you confirm pregnancy. Early monitoring supports a healthy journey for both mother and baby." },
   { q: "What facilities are available for paediatric emergencies?", a: "Rio offers 24/7 paediatric emergency care with NICU support, ensuring immediate attention when your child needs it most." },
-];
-const APPT_SERVICES = ["High-Risk Pregnancy Care", "Fetal Medicine", "NICU", "PICU", "Paediatric Emergency Care", "General Paediatrics", "Vaccination Services", "Human Milk Bank", "Maternity Care"];
-const NAV_TREATMENTS = [
-  { name: "High-Risk Pregnancy Care", slug: "high-risk-pregnancy" },
-  { name: "Fetal Medicine", slug: "fetal-medicine" },
-  { name: "Maternity Care", slug: "maternity" },
-  { name: "Fertility & IVF", slug: "fertility-ivf" },
-  { name: "NICU", slug: "nicu" },
-  { name: "PICU", slug: "picu" },
-  { name: "Paediatric Emergency", slug: "emergency" },
-  { name: "General Paediatrics", slug: "general-paediatrics" },
-  { name: "Vaccination Services", slug: "vaccination" },
-  { name: "Human Milk Bank", slug: "human-milk-bank" },
 ];
 const BRANCHES = [
   { name: "Madurai (Main)", addr: "Tuticorin Ring Road, Masthanpatti Rd, opp Annamalaiar School, Madurai – 625020", phone: "77083 18222", tel: "+917708318222", img: "branch1" },
@@ -181,58 +165,6 @@ function Icon({ name }) {
   return <svg viewBox="0 0 24 24" className="pillar-icon" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">{ICONS[name]}</svg>;
 }
 
-
-function NavTreatments({ active = false }) {
-  return (
-    <div className="nav-dd">
-      <a href="/treatments" className={`nav-dd-trigger${active ? " active" : ""}`}>Treatments <span className="cv">▾</span></a>
-      <div className="nav-dd-menu">
-        {NAV_TREATMENTS.map((t) => <a key={t.slug} href={`/services/${t.slug}`}>{t.name}</a>)}
-        <a className="nav-dd-all" href="/treatments">View all treatments →</a>
-      </div>
-    </div>
-  );
-}
-
-function Logo({ footer = false }) {
-  const [broken, setBroken] = useState(false);
-  return (
-    <a className="logo" href="/" aria-label={footer ? "Rio Children's Hospital" : "Rio Children's Hospital — Home"}>
-      {!broken ? (
-        <img className="logo-img" src="/assets/shared/riologov2.png" alt="Rio Children's Hospital" onError={() => setBroken(true)} />
-      ) : (
-        <span className={`logo-word ${footer ? "on-dark" : ""}`}>Rio<em>HOSPITAL</em></span>
-      )}
-    </a>
-  );
-}
-
-/* ---------- page --------------------------------------------------------- */
-function MobileNav({ open, onClose }) {
-  return (
-    <div className={`mnav ${open ? "open" : ""}`} onClick={onClose}>
-      <div className="mnav-panel" onClick={(e) => e.stopPropagation()}>
-        <button className="mnav-x" aria-label="Close menu" onClick={onClose}>×</button>
-        <a className="mnav-link" href="/" onClick={onClose}>Home</a>
-        <a className="mnav-link" href="/about" onClick={onClose}>About</a>
-        <a className="mnav-link" href="/doctors" onClick={onClose}>Doctors</a>
-        <div className="mnav-group">
-          <span className="mnav-h">Treatments</span>
-          {NAV_TREATMENTS.map((t) => (
-            <a key={t.slug} className="mnav-sub" href={`/services/${t.slug}`} onClick={onClose}>{t.name}</a>
-          ))}
-          <a className="mnav-sub mnav-all" href="/treatments" onClick={onClose}>View all treatments →</a>
-        </div>
-        <a className="mnav-link" href="/contact" onClick={onClose}>Contact</a>
-        <div className="mnav-cta">
-          <a className="btn btn-cta" href="/book-appointment" onClick={onClose}>Book an Appointment</a>
-          <a className="btn btn-pink" href={LINKS.call} onClick={onClose}>Call Now</a>
-          <a className="btn btn-green" href={LINKS.whatsapp} target="_blank" rel="noreferrer" onClick={onClose}>WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default function HomePage() {
   const [navSolid, setNavSolid] = useState(false);
@@ -577,20 +509,21 @@ export default function HomePage() {
 
         /* cta */
 
-        .cta-copy{padding:56px; color:#fff}
+        .rio .home-cta{display:grid !important; grid-template-columns:minmax(0,.88fr) minmax(430px,1.12fr); align-items:stretch !important; gap:0 !important; padding:0 !important; overflow:hidden}
+        .home-cta .cta-copy{padding:58px 48px 58px 56px; color:#fff; display:flex; flex-direction:column; justify-content:center}
         .cta-copy h2{color:#fff; font-size:clamp(26px,3.4vw,38px); max-width:420px}
         .cta-copy p{color:#D6D9F0; margin-top:12px; max-width:400px}
 
-        .cta-form{background:rgba(255,255,255,.06); border-left:1px solid rgba(255,255,255,.12); padding:48px}
+        .home-cta .cta-form{background:rgba(255,255,255,.06); border-left:1px solid rgba(255,255,255,.12); padding:58px 54px; display:flex; flex-direction:column; justify-content:center}
         .cta-form h3{color:#fff; font-size:18px; margin-bottom:6px}
         .cta-form p.note{color:#D6D9F0; font-size:13px; margin-bottom:18px}
         .cta-form select,.cta-form input{width:100%; padding:13px 14px; margin-bottom:11px; border-radius:11px; border:none; font-size:14px; font-family:inherit; background:#fff; color:var(--ink)}
         .cta-done{display:flex; align-items:center; gap:10px; color:#fff; font-weight:700; font-size:15px; background:rgba(255,255,255,.1); padding:16px; border-radius:12px}
 
         @media (max-width:860px){
-          .rio .cta-band{padding:32px 20px !important; gap:24px;}
-          .cta-copy{padding:0 0 8px 0 !important;}
-          .cta-form{
+          .rio .home-cta{grid-template-columns:1fr !important; padding:32px 20px !important; gap:24px !important;}
+          .home-cta .cta-copy{padding:0 0 8px 0 !important;}
+          .home-cta .cta-form{
             padding:32px 20px !important;
             margin:0 -20px -32px !important;
             border-left:none !important;
@@ -607,12 +540,12 @@ export default function HomePage() {
 
       <div className="progress" ref={progressRef} />
 
-      <div className="topstrip">24/7 Emergency • NICU • PICU — <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
+      <TopStrip callHref={SITE_LINKS.call} />
 
       <header className={`header ${navSolid ? "nav-solid" : ""}`}>
         <Logo />
         <nav className="nav-links">
-          <a href="/about">About</a><NavTreatments /><a href="/doctors">Doctors</a><a href="#facilities">Facilities</a><a href="/contact">Contact</a>
+          <a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments /><a href="/facilities">Facilities</a><a href="/contact">Contact</a>
         </nav>
         <div className="nav-cta">
           <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
@@ -637,7 +570,7 @@ export default function HomePage() {
               <p className="lede">Home to the only Level 3 NICU in South Tamil Nadu — with high-risk pregnancy care, fetal medicine, PICU, maternity and a full range of paediatric super-specialities, across 4 branches.</p>
               <div className="hero-cta">
                 <a className="btn btn-coral" href="/book-appointment">Book an Appointment</a>
-                <a className="btn btn-line" href={LINKS.call}>Call Emergency Care</a>
+                <a className="btn btn-line" href={SITE_LINKS.call}>Call Emergency Care</a>
               </div>
               <div className="hero-badges"><span>NABH Entry-Level Certified</span><span>Only Level 3 NICU in South TN</span></div>
             </Reveal>
@@ -763,7 +696,7 @@ export default function HomePage() {
                 <li><i>♥</i> For mothers temporarily unable to breastfeed their baby</li>
               </ul>
               <div className="mbank-cta">
-                <a className="btn btn-coral" href={LINKS.whatsapp} target="_blank" rel="noreferrer">Become a Milk Donor ↗</a>
+                <a className="btn btn-coral" href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">Become a Milk Donor ↗</a>
                 <a className="btn btn-line" href="/book-appointment">Talk to a Lactation Specialist</a>
               </div>
             </Reveal>
@@ -869,19 +802,19 @@ export default function HomePage() {
         {/* ───────── cta ───────── */}
         <section className="section" id="book">
           <div className="wrap">
-            <Reveal className="cta-band">
+            <Reveal className="cta-band home-cta">
               <div className="cta-copy">
                 <Eyebrow light>Appointments</Eyebrow>
                 <h2 className="mt-14">Ready when your family needs us — day or night.</h2>
                 <p>Book an appointment online, or call our emergency line for immediate guidance.</p>
-                <div className="cta-actions"><a className="btn btn-pink" href={LINKS.call}>Call Emergency Care Now</a><a className="btn btn-green" href={LINKS.whatsapp} target="_blank" rel="noreferrer">Message on WhatsApp</a></div>
+                <div className="cta-actions"><a className="btn btn-pink" href={SITE_LINKS.call}>Call Emergency Care Now</a><a className="btn btn-green" href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">Message on WhatsApp</a></div>
               </div>
               <div className="cta-form">
                 <h3>Get a call back</h3><p className="note">Our team responds quickly.</p>
                 {sent ? (<div className="cta-done"><span>✓</span> Thanks! Our team will call you back shortly.</div>) : (
                   <form onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
                     <select aria-label="Preferred branch" required defaultValue=""><option value="" disabled>Preferred branch</option>{BRANCHES.map((b) => <option key={b.name}>{b.name}</option>)}</select>
-                    <select aria-label="Service needed" required defaultValue=""><option value="" disabled>Service needed</option>{APPT_SERVICES.map((s) => <option key={s}>{s}</option>)}</select>
+                    <select aria-label="Service needed" required defaultValue=""><option value="" disabled>Service needed</option>{APPOINTMENT_SERVICES.map((s) => <option key={s}>{s}</option>)}</select>
                     <input aria-label="Phone number" type="tel" placeholder="Phone number" required />
                     <button className="btn btn-coral" type="submit" style={{ width: "100%", justifyContent: "center" }}>Request a Call Back ↗</button>
                   </form>
@@ -899,21 +832,26 @@ export default function HomePage() {
             <p style={{ color: "#9FC4BB", maxWidth: 270, fontSize: 14 }}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
             <p className="values">TRUST • CARE • INNOVATION • COMPASSION • EXCELLENCE</p>
           </div>
-          <div><h4>Treatments</h4><ul>{APPT_SERVICES.slice(0, 6).map((s) => <li key={s}>{s}</li>)}</ul></div>
+          <div><h4>Treatments</h4><ul>{APPOINTMENT_SERVICES.slice(0, 6).map((s) => <li key={s}>{s}</li>)}</ul></div>
           <div><h4>Branches</h4><ul>{BRANCHES.map((b) => <li key={b.name}>{b.name}</li>)}</ul></div>
           <div><h4>Contact</h4><ul>
-            <li><a href={LINKS.call}>📞 +91 77083 18222</a></li><li><a href="mailto:info@riohospital.com">✉ info@riohospital.com</a></li>
-            <li><a href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></li><li><a href={LINKS.instagram} target="_blank" rel="noreferrer">Instagram</a></li><li><a href={LINKS.youtube} target="_blank" rel="noreferrer">YouTube</a></li>
+            <li><a href={SITE_LINKS.call}>📞 +91 77083 18222</a></li><li><a href="mailto:info@riohospital.com">✉ info@riohospital.com</a></li>
+            <li><a href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></li><li><a href={SITE_LINKS.instagram} target="_blank" rel="noreferrer">Instagram</a></li><li><a href={SITE_LINKS.youtube} target="_blank" rel="noreferrer">YouTube</a></li>
           </ul></div>
         </div>
         <div className="wrap footer-bottom"><span>© 2026 Rio Children's Hospital</span><span>Built by Invictus Global Tech</span></div>
       </footer>
 
       <div className="mbar">
-        <a className="btn btn-pink" href={LINKS.call}>Call</a>
-        <a className="btn btn-green" href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
+        <a className="btn btn-pink" href={SITE_LINKS.call}>Call</a>
+        <a className="btn btn-green" href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
         <a className="btn btn-teal" href="/book-appointment">Book</a>
       </div>
     </div>
   );
 }
+
+
+
+
+

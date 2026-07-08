@@ -134,23 +134,22 @@ body {
 .rio .header { position: sticky; top: 0; z-index: 80; display: flex; align-items: center; justify-content: space-between; padding: 14px max(28px, calc((100% - 1200px) / 2 + 28px)); background: rgba(255, 255, 255, .92); backdrop-filter: blur(10px); transition: background .3s, box-shadow .3s; animation: rio-header-in 620ms cubic-bezier(.2, .7, .2, 1) both; }
 .rio .header.solid,
 .rio .nav-solid { box-shadow: 0 1px 0 var(--line); }
-.rio .logo { display: flex; align-items: center; gap: 10px; }
+.rio .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .rio .logo-img { height: 58px; width: auto; display: block; object-fit: contain; }
+.rio .footer-logo-img { height: 62px; width: auto; object-fit: contain; }
 .rio .logo-word { display: flex; align-items: baseline; gap: 6px; font-family: 'Proxima Nova', 'Mulish', sans-serif; font-weight: 800; font-size: 26px; color: var(--ink); line-height: 1; }
 .rio .logo-word em { font-style: normal; font-weight: 700; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--green); }
 .rio .logo-word.on-dark { color: #fff; }
-.rio .nav,
-.rio .nav-links { align-items: center; display: flex; gap: 26px; font-size: 14.5px; font-weight: 600; }
-.rio .nav a,
-.rio .nav-links a { color: var(--muted); transition: color .2s; }
+.rio .nav, .rio .nav-links { align-items: center; display: flex; gap: 26px; font-size: 14.5px; font-weight: 600; line-height: 1; min-width: 0; }
+.rio .nav a, .rio .nav-links a { color: var(--muted); transition: color .2s; line-height: 1; }
 .rio .nav a:hover,
 .rio .nav a.active,
 .rio .nav-links a:hover,
 .rio .nav-links a.active { color: var(--blue); }
-.rio .nav-cta { display: flex; gap: 10px; }
+.rio .nav-cta { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 
 .rio .nav-dd { position: relative; display: inline-flex; align-items: center; }
-.rio .nav-dd-trigger { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; color: var(--muted); font-weight: 600; }
+.rio .nav-dd-trigger { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; color: var(--muted); font-weight: 600; line-height: 1; }
 .rio .nav-dd:hover .nav-dd-trigger,
 .rio .nav-dd-trigger.active { color: var(--blue); }
 .rio .nav-dd .cv { font-size: 10px; transition: transform .2s; }
@@ -388,6 +387,24 @@ body {
 @keyframes rio-soft-lift { from { opacity: 0; transform: translateY(18px) scale(.985); } to { opacity: 1; transform: none; } }
 @keyframes rio-dot-pulse { 0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(253, 112, 161, .36); } 50% { transform: scale(1.18); box-shadow: 0 0 0 8px rgba(253, 112, 161, 0); } }
 
+@media (min-width: 981px) {
+  .rio .header {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 28px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .rio .nav,
+  .rio .nav-links {
+    justify-self: center;
+    justify-content: center;
+  }
+  .rio .nav-cta {
+    justify-self: end;
+  }
+}
 @media (max-width: 980px) {
   .rio .nav,
   .rio .nav-links,
@@ -445,6 +462,41 @@ body {
   .rio .btn::after,
   .rio .img-wrap::after { transition: none !important; }
   .rio [data-par] { transform: none !important; }
+}
+
+
+
+.whatsapp-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 96;
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  box-shadow: 0 18px 34px -18px rgba(26, 26, 34, .45), 0 0 0 6px rgba(255, 255, 255, .85);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.whatsapp-float img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.whatsapp-float:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 22px 40px -18px rgba(26, 26, 34, .5), 0 0 0 8px rgba(255, 255, 255, .92);
+}
+@media (max-width: 760px) {
+  .whatsapp-float {
+    right: 14px;
+    bottom: 86px;
+    width: 58px;
+    height: 58px;
+  }
 }
 
 

@@ -1,6 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Logo from "@/components/shared/SiteLogo";
+import NavTreatments from "@/components/shared/NavTreatments";
+import MobileNav from "@/components/shared/MobileNav";
+import TopStrip from "@/components/shared/TopStrip";
+import { APPOINTMENT_SERVICES, NAV_TREATMENTS, SITE_LINKS } from "@/data/site";
 import { doctors } from "@/data/doctors";
 
 /* ════════════════════════════════════════════════════════════════════════
@@ -12,37 +17,6 @@ const IMG = {
   logo: "/assets/shared/riologov2.png",
 };
 
-const LINKS = {
-  call: "tel:+917708318222",
-  whatsapp: "https://wa.me/917708318222",
-  youtube: "https://youtube.com/@riochildrenshospital",
-  instagram: "https://instagram.com/riochildrenhospitals",
-};
-
-const APPT_SERVICES = [
-  "High-Risk Pregnancy Care",
-  "Fetal Medicine",
-  "NICU",
-  "PICU",
-  "Paediatric Emergency Care",
-  "General Paediatrics",
-  "Vaccination Services",
-  "Human Milk Bank",
-  "Maternity Care",
-];
-
-const NAV_TREATMENTS = [
-  { name: "High-Risk Pregnancy Care", slug: "high-risk-pregnancy" },
-  { name: "Fetal Medicine", slug: "fetal-medicine" },
-  { name: "Maternity Care", slug: "maternity" },
-  { name: "Fertility & IVF", slug: "fertility-ivf" },
-  { name: "NICU", slug: "nicu" },
-  { name: "PICU", slug: "picu" },
-  { name: "Paediatric Emergency", slug: "emergency" },
-  { name: "General Paediatrics", slug: "general-paediatrics" },
-  { name: "Vaccination Services", slug: "vaccination" },
-  { name: "Human Milk Bank", slug: "human-milk-bank" },
-];
 
 function Reveal({ children, delay = 0, className = "", as = "div" }) {
   const ref = useRef(null);
@@ -80,90 +54,6 @@ function Eyebrow({ children, light = false }) {
       <i className="ey-dot" />
       {children}
     </span>
-  );
-}
-
-function Logo({ footer = false }) {
-  const [b, setB] = useState(false);
-  return (
-    <a className="logo" href="/" aria-label={footer ? "Rio Children's Hospital" : "Rio Children's Hospital — Home"}>
-      {!b ? (
-        <img className="logo-img" src="/assets/shared/riologov2.png" alt="Rio Children's Hospital" onError={() => setB(true)} />
-      ) : (
-        <span className={`logo-word ${footer ? "on-dark" : ""}`}>Rio<em>HOSPITAL</em></span>
-      )}
-    </a>
-  );
-}
-
-function NavTreatments({ active = false }) {
-  return (
-    <div className="nav-dd">
-      <a href="/treatments" className={`nav-dd-trigger${active ? " active" : ""}`}>
-        Treatments <span className="cv">▾</span>
-      </a>
-      <div className="nav-dd-menu">
-        {NAV_TREATMENTS.map((t) => (
-          <a key={t.slug} href={`/services/${t.slug}`}>
-            {t.name}
-          </a>
-        ))}
-        <a className="nav-dd-all" href="/treatments">
-          View all treatments →
-        </a>
-      </div>
-    </div>
-  );
-}
-
-function MobileNav({ open, onClose }) {
-  return (
-    <div className={`mnav ${open ? "open" : ""}`} onClick={onClose}>
-      <div className="mnav-panel" onClick={(e) => e.stopPropagation()}>
-        <button className="mnav-x" aria-label="Close menu" onClick={onClose}>
-          ×
-        </button>
-        <a className="mnav-link" href="/" onClick={onClose}>
-          Home
-        </a>
-        <a className="mnav-link" href="/about" onClick={onClose}>
-          About
-        </a>
-        <a className="mnav-link" href="/doctors" onClick={onClose}>
-          Doctors
-        </a>
-        <div className="mnav-group">
-          <span className="mnav-h">Treatments</span>
-          {NAV_TREATMENTS.map((t) => (
-            <a
-              key={t.slug}
-              className="mnav-sub"
-              href={`/services/${t.slug}`}
-              onClick={onClose}
-            >
-              {t.name}
-            </a>
-          ))}
-          <a className="nav-sub mnav-all" href="/treatments" onClick={onClose}>
-            View all treatments →
-          </a>
-        </div>
-        <a className="mnav-link" href="/contact" onClick={onClose}>
-          Contact
-        </a>
-        <div className="mnav-cta">
-          <a className="btn btn-cta" href="/book-appointment" onClick={onClose}>
-            Book an Appointment
-          </a>
-          <a className="btn btn-pink" href={LINKS.call} onClick={onClose}>
-            Call Now
-          </a>
-          <a className="btn btn-green" href={LINKS.whatsapp} target="_blank" rel="noreferrer" onClick={onClose}>
-            WhatsApp
-          </a>
-        </div>
-      </div>
-    </div>
   );
 }
 
@@ -335,21 +225,29 @@ export default function DoctorsPage() {
         @media(max-width: 960px){ .doc-grid { grid-template-columns: repeat(2, 1fr); } }
         @media(max-width: 600px){ .doc-grid { grid-template-columns: 1fr; } }
         
-        /* --- doctor card --- */
+                /* --- doctor card --- */
         .doc-card {
-          background: #FFF;
-          border: 1px solid var(--line);
-          border-radius: var(--radius);
-          padding: 36px 24px 32px;
-          text-align: center;
+          position: relative;
+          height: 100%;
+          overflow: hidden;
           display: flex;
           flex-direction: column;
-          align-items: center;
-          box-shadow: 0 4px 10px rgba(0,0,0,.01);
-          transition: transform .4s cubic-bezier(.16, 1, .3, 1), box-shadow .4s cubic-bezier(.16, 1, .3, 1), border-color .4s ease;
-          height: 100%;
-          position: relative;
-          overflow: hidden;
+          text-align: left;
+          padding: 0 24px 24px;
+          background: linear-gradient(180deg, #fff 0%, #fff 56%, #FCF7F1 100%);
+          border: 1px solid var(--line);
+          border-radius: 28px;
+          box-shadow: 0 6px 18px rgba(48,53,115,.05);
+          transition: transform .35s cubic-bezier(.16, 1, .3, 1), box-shadow .35s cubic-bezier(.16, 1, .3, 1), border-color .35s ease;
+        }
+        .doc-card::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, var(--brown), var(--pink));
         }
         .doc-card::after {
           content: '';
@@ -358,7 +256,7 @@ export default function DoctorsPage() {
           left: -100%;
           width: 50%;
           height: 100%;
-          background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+          background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.35) 100%);
           transform: skewX(-25deg);
           transition: 0.75s;
           pointer-events: none;
@@ -368,70 +266,84 @@ export default function DoctorsPage() {
         }
         .doc-card:hover {
           transform: translateY(-8px);
-          box-shadow: 0 24px 48px rgba(48, 53, 115, .08), 0 6px 16px rgba(253, 112, 161, .04);
-          border-color: var(--pink-soft);
+          box-shadow: 0 28px 54px rgba(48,53,115,.10);
+          border-color: rgba(189,132,76,.22);
         }
-        
-        /* --- circular doctor photo --- */
+
+        /* --- hero photo --- */
         .doc-photo-wrap {
-          width: 140px;
-          height: 140px;
-          border-radius: 50%;
+          width: calc(100% + 48px);
+          height: 260px;
+          margin: 0 -24px 18px;
+          border-radius: 0 0 26px 26px;
           overflow: hidden;
-          margin-bottom: 24px;
-          border: 4px solid var(--brown-soft);
-          background: var(--blue-soft);
-          box-shadow: 0 6px 16px rgba(48,53,115,.06);
+          background: linear-gradient(135deg, var(--brown-soft), var(--blue-soft));
+          border: 0;
+          box-shadow: inset 0 -1px 0 rgba(255,255,255,.55);
           position: relative;
-          transition: transform .5s cubic-bezier(.16, 1, .3, 1), border-color .5s ease, box-shadow .5s ease;
+          transition: transform .5s cubic-bezier(.16, 1, .3, 1), box-shadow .5s ease;
         }
         .doc-card:hover .doc-photo-wrap {
-          transform: scale(1.06) rotate(1deg);
-          border-color: var(--pink);
-          box-shadow: 0 8px 24px rgba(253, 112, 161, .15);
+          transform: scale(1.02);
+          box-shadow: inset 0 -1px 0 rgba(255,255,255,.55);
         }
         .doc-photo {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          object-position: center top;
         }
-        
+
         /* fallback avatar */
         .doc-fb-avatar {
           width: 100%;
           height: 100%;
-          background: var(--brown-soft);
+          background: linear-gradient(135deg, var(--brown-soft), #fff);
           color: var(--brown-deep);
           display: flex;
           align-items: center;
           justify-content: center;
           font-weight: 800;
-          font-size: 28px;
+          font-size: 32px;
+          letter-spacing: .08em;
         }
 
         .doc-name {
-          font-size: 17px;
+          font-size: 18px;
           font-weight: 800;
-          text-transform: uppercase;
+          text-transform: none;
           color: var(--blue-deep);
-          margin-bottom: 6px;
-          letter-spacing: 0.02em;
+          margin: 12px 0 14px;
+          padding-bottom: 6px;
+          letter-spacing: 0;
+          line-height: 1.2;
         }
         .doc-qual {
-          font-size: 13px;
+          display: block;
+          padding: 10px 12px;
+          margin-bottom: 18px;
+          border-radius: 14px;
+          background: rgba(189,132,76,.08);
+          color: var(--muted);
+          font-size: 12.5px;
           font-weight: 700;
-          color: var(--pink-deep);
-          margin-bottom: 8px;
-          line-height: 1.4;
+          line-height: 1.55;
         }
         .doc-role {
-          font-size: 14px;
+          font-size: 14.5px;
           color: var(--muted);
           margin-bottom: 0;
-          line-height: 1.4;
-          flex-grow: 1;
+          line-height: 1.65;
+          padding-top: 14px;
+          border-top: 1px solid rgba(48,53,115,.08);
         }
-        
+
+        @media (max-width: 600px) {
+          .doc-card { padding: 0 18px 22px; border-radius: 24px; }
+          .doc-photo-wrap { width: calc(100% + 36px); height: 230px; margin: 0 -18px 16px; border-radius: 0 0 22px 22px; }
+          .doc-name { font-size: 17px; }
+        }
+
         /* --- empty state --- */
         .empty-state {
           text-align: center;
@@ -501,9 +413,7 @@ export default function DoctorsPage() {
         }
       `}</style>
 
-      <div className="topstrip">
-        24/7 Emergency • NICU • PICU — <a href={LINKS.call}>Call now: +91 77083 18222</a>
-      </div>
+      <TopStrip callHref={SITE_LINKS.call} />
 
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
@@ -514,15 +424,12 @@ export default function DoctorsPage() {
             Doctors
           </a>
           <NavTreatments />
+          <a href="/facilities">Facilities</a>
           <a href="/contact">Contact</a>
         </nav>
-        <div className="nav-cta">
-          <a className="btn btn-green btn-sm" href={LINKS.whatsapp} target="_blank" rel="noreferrer">
-            WhatsApp
-          </a>
-          <a className="btn btn-cta btn-sm" href="/book-appointment">
-            Book an Appointment
-          </a>
+                <div className="nav-cta">
+          <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
+          <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
           <span />
@@ -675,10 +582,10 @@ export default function DoctorsPage() {
                   Connect with our leading neonatologists, paediatricians, gynaecologists, and fetal medicine specialists. Get in touch to schedule a visit at your preferred branch.
                 </p>
                 <div className="cta-actions">
-                  <a className="btn btn-pink" href={LINKS.call}>
+                  <a className="btn btn-pink" href={SITE_LINKS.call}>
                     Call Now
                   </a>
-                  <a className="btn btn-green" href={LINKS.whatsapp} target="_blank" rel="noreferrer">
+                  <a className="btn btn-green" href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">
                     WhatsApp
                   </a>
                 </div>
@@ -690,7 +597,7 @@ export default function DoctorsPage() {
                   <input type="tel" placeholder="Phone number" required aria-label="Phone number" />
                   <select required defaultValue="" aria-label="Service needed">
                     <option value="" disabled>Service needed</option>
-                    {APPT_SERVICES.map((x) => (
+                    {APPOINTMENT_SERVICES.map((x) => (
                       <option key={x} value={x}>{x}</option>
                     ))}
                   </select>
@@ -746,18 +653,18 @@ export default function DoctorsPage() {
             <h4>Contact</h4>
             <ul>
               <li>
-                <a href={LINKS.call}>📞 +91 77083 18222</a>
+                <a href={SITE_LINKS.call}>📞 +91 77083 18222</a>
               </li>
               <li>
                 <a href="mailto:info@riohospital.com">✉ info@riohospital.com</a>
               </li>
               <li>
-                <a href={LINKS.whatsapp} target="_blank" rel="noreferrer">
+                <a href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">
                   WhatsApp
                 </a>
               </li>
               <li>
-                <a href={LINKS.instagram} target="_blank" rel="noreferrer">
+                <a href={SITE_LINKS.instagram} target="_blank" rel="noreferrer">
                   Instagram
                 </a>
               </li>
@@ -771,10 +678,10 @@ export default function DoctorsPage() {
       </footer>
 
       <div className="mbar">
-        <a className="btn btn-pink" href={LINKS.call}>
+        <a className="btn btn-pink" href={SITE_LINKS.call}>
           Call
         </a>
-        <a className="btn btn-green" href={LINKS.whatsapp} target="_blank" rel="noreferrer">
+        <a className="btn btn-green" href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">
           WhatsApp
         </a>
         <a className="btn btn-cta" href="/book-appointment">
@@ -784,3 +691,19 @@ export default function DoctorsPage() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
