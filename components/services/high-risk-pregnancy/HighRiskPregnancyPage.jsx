@@ -53,12 +53,12 @@ const HIGH_RISK = {
     { img: "expert-specialists", cap: "Fetal medicine specialists" },
   ],
   eyebrow: "High-Risk Pregnancy Care",
-  title: "Expert care for high-risk pregnancies & high-risk babies",
-  lede: "Some pregnancies need closer monitoring and a stronger safety net. Rio brings together fetal medicine specialists, obstetricians and a third-level NICU so mother and baby are supported at every step — from early scans to a safe delivery.",
+  title: "Expert Care for High-Risk Pregnancy & Newborn Care",
+  lede: "Some pregnancies require closer monitoring and specialised care. Rio brings together fetal medicine specialists, obstetricians, and a Level III NICU so both mother and baby receive expert support from early screening through safe delivery.",
   heroImg: "maternity-care",
   intro: [
-    "A pregnancy may be called high-risk when the mother or baby needs closer medical monitoring — due to blood pressure, diabetes, bleeding, reduced fetal growth, previous complications, age-related factors, twin pregnancy or other concerns.",
-    "At Rio, high-risk pregnancy care is led by experienced obstetricians and fetal medicine specialists, backed by advanced ultrasound, round-the-clock monitoring and an on-site NICU & PICU — so if specialised newborn care is needed, it's ready immediately.",
+    "A pregnancy may be considered high-risk when the mother or baby requires closer medical monitoring due to conditions such as high blood pressure, gestational diabetes, bleeding during pregnancy, reduced fetal growth, previous pregnancy complications, age-related risk factors, twin or multiple pregnancies, or other maternal medical conditions.",
+    "At Rio, high-risk pregnancy care is led by experienced obstetricians and fetal medicine specialists, supported by advanced ultrasound technology, round-the-clock maternal and fetal monitoring, and an on-site Level III NICU & PICU. If specialised newborn care is required, immediate expert support is available within the same hospital.",
   ],
   covers: [
     "Blood pressure in pregnancy", "Gestational diabetes", "Reduced fetal growth", "Bleeding in pregnancy",
@@ -73,7 +73,7 @@ const HIGH_RISK = {
     { icon: "heart", title: "Compassionate support", desc: "Counselling and clear guidance at every step, so families feel informed and reassured, not anxious." },
   ],
   journey: [
-    { k: "First Trimester", w: "Week 0–12", d: "Early scans, blood tests and supplements, with risk assessment and a personalised care plan." },
+    { k: "First Trimester", w: "Week 0–12", d: "Early scans, blood tests, nutritional guidance, and personalised care planning." },
     { k: "Second Trimester", w: "Week 13–28", d: "Anomaly scan, fetal well-being checks and closer monitoring of growth and maternal health." },
     { k: "Third Trimester", w: "Week 29–40", d: "Growth scans, Doppler studies and delivery planning with the NICU team on standby." },
   ],
