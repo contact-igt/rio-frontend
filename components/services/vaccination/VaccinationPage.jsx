@@ -51,10 +51,10 @@ const VAC = {
   ],
   eyebrow: "Vaccination Services",
   title: "Complete immunisation, on schedule and stress-free",
-  lede: "Rio provides every vaccination on the national immunisation schedule, with free SMS reminders so you never miss a dose — and a 3-level power backup that keeps the cold chain, and your child, safe.",
+  lede: "Rio provides every vaccination on the national immunisation schedule, with free SMS reminders so you never miss a dose and a 3-level power backup that maintains an uninterrupted cold chain, ensuring every vaccine remains safe and effective.",
   heroImg: "expert-specialists",
   intro: [
-    "We provide all vaccinations as per the national immunisation schedule — for newborns, children and mothers — administered by trained staff in a calm, child-friendly setting.",
+    "We provide all vaccinations as per the national immunisation schedule, covering newborns, children, and mothers, administered by trained staff in a calm, child-friendly setting.",
     "Free SMS reminders make sure you never miss a dose, while a 3-level power backup maintains an unbroken cold chain so every vaccine stays safe and effective.",
   ],
   covers: [
@@ -65,8 +65,8 @@ const VAC = {
     { icon: "bell", title: "Free SMS reminders", desc: "Automatic reminders for every upcoming dose, so you never miss your child's vaccination." },
     { icon: "power", title: "3-level power backup", desc: "An unbroken cold chain keeps every vaccine at the right temperature and fully effective." },
     { icon: "heart", title: "Gentle & child-friendly", desc: "Trained staff and a calm environment make vaccination day easier for children and parents." },
-    { icon: "scan", title: "Clear vaccine chart", desc: "A simple schedule shows exactly which vaccines are due and when, from birth onwards." },
-    { icon: "team", title: "For the whole family", desc: "Newborn, childhood and maternal vaccinations, all in one trusted place." },
+    { icon: "scan", title: "Personalised Vaccination Schedule", desc: "A simple schedule shows exactly which vaccines are due and when, from birth onwards." },
+    { icon: "team", title: "Vaccination for Newborns, Children & Mothers", desc: "Newborn, childhood and maternal vaccinations, all in one trusted place." },
     { icon: "nicu", title: "Backed by paediatric care", desc: "Vaccination alongside expert paediatric and specialist care, under one roof." },
   ],
   stat: { n: "100%", l: "Cold-chain protected vaccines" },
@@ -174,12 +174,12 @@ function VaccinationPageContent({ service: s }) {
       <style>{`
       `}</style>
 
-      <div className="topstrip">24/7 Emergency • NICU • PICU — <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
+      <div className="topstrip">24/7 Emergency • NICU • PICU | <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
 
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
-                <div className="nav-cta">
+        <div className="nav-cta">
           <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
@@ -228,7 +228,7 @@ function VaccinationPageContent({ service: s }) {
         {s.features && (
           <section className="section tint-blue">
             <div className="wrap">
-              <Reveal className="sec-head center"><Eyebrow>What you get at Rio</Eyebrow><h2>Built around mother &amp; baby</h2></Reveal>
+              <Reveal className="sec-head center"><Eyebrow>What you get at Rio</Eyebrow><h2>Everything Needed for Safe Immunisation</h2></Reveal>
               <div className="feat-grid">
                 {s.features.map((f, i) => (
                   <Reveal key={f.title} delay={(i % 3) * 80}>

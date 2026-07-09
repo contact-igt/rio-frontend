@@ -50,35 +50,35 @@ const IVF = {
   ],
   eyebrow: "Fertility & IVF",
   title: "Support on every step of your journey to parenthood",
-  lede: "From reproductive health and hormonal fertility care to IVF and follicular studies, Rio supports couples on the path to parenthood — with expert guidance, advanced care and compassion.",
+  lede: "From fertility evaluation and hormonal care to IVF, follicular monitoring and assisted reproductive treatments, Rio supports every step of your journey to parenthood with experienced specialists, advanced technology and compassionate care.",
   heroImg: "maternity-care",
   intro: [
-    "Rio's fertility services support couples trying to conceive — covering reproductive health, hormonal fertility care, IVF and follicular studies, all under one roof.",
-    "Our approach combines advanced reproductive care with empathy and clarity, and flows seamlessly into Rio's maternity, high-risk pregnancy and newborn care — the whole journey from fertility to motherhood.",
+    "Rio offers comprehensive fertility care for couples planning pregnancy, including fertility evaluation, hormonal assessment, IVF, follicular monitoring and reproductive health services all under one roof.",
+    "Our multidisciplinary approach combines advanced fertility treatment with personalised counselling and seamlessly transitions into Rio’s maternity, fetal medicine and newborn care supporting your journey from conception to parenthood.",
   ],
   covers: [
     "IVF (in-vitro fertilisation)", "Hormonal fertility care", "Reproductive health", "Follicular study & monitoring",
-    "Fertility counselling", "Pre-conception care", "Continuity into maternity care", "Related reproductive surgery",
+    "Fertility counselling", "Pre-conception care", "Minimally invasive reproductive procedures", "Seamless transition to maternity care",
   ],
   features: [
-    { icon: "scan", title: "IVF & advanced treatment", desc: "In-vitro fertilisation and assisted reproductive care, guided by experienced specialists." },
-    { icon: "team", title: "Hormonal fertility care", desc: "Assessment and treatment of hormonal factors affecting fertility and reproductive health." },
+    { icon: "scan", title: "IVF & Assisted Reproductive Treatments", desc: "In-vitro fertilisation and assisted reproductive care, guided by experienced specialists." },
+    { icon: "team", title: "Hormonal evaluation & fertility care", desc: "Assessment and treatment of hormonal factors affecting fertility and reproductive health." },
     { icon: "heart", title: "Follicular studies", desc: "Careful follicular monitoring to time treatment and improve your chances of conceiving." },
     { icon: "bell", title: "Counselling & guidance", desc: "Clear, compassionate counselling at every step of a sensitive and personal journey." },
-    { icon: "nicu", title: "Seamless into maternity", desc: "From conception through pregnancy and delivery — continuity with Rio's maternity and NICU care." },
-    { icon: "power", title: "Advanced facilities", desc: "Modern reproductive care backed by Rio's wider women's and children's expertise." },
+    { icon: "nicu", title: "Seamless into maternity", desc: "From conception through pregnancy and delivery, ensuring continuity with Rio's maternity and NICU care." },
+    { icon: "power", title: "Advanced fertility technology", desc: "Modern reproductive care backed by Rio's wider women's and children's expertise." },
   ],
   journey: [
     { k: "Assessment", w: "Step 1", d: "Reproductive health evaluation, hormonal assessment and follicular studies to understand your needs." },
-    { k: "Treatment", w: "Step 2", d: "A personalised plan — from hormonal fertility care to IVF — guided by experienced specialists." },
-    { k: "Pregnancy care", w: "Step 3", d: "Seamless continuity into Rio's maternity, high-risk pregnancy and newborn care." },
+    { k: "Treatment", w: "Step 2", d: "A personalised plan, from hormonal fertility care to IVF, guided by experienced specialists." },
+    { k: "Pregnancy & Maternity Support", w: "Step 3", d: "Once pregnancy is achieved, your care continues seamlessly with Rio’s maternity, fetal medicine and newborn care teams." },
   ],
-  stat: { n: "12+", l: "Years of women's health expertise" },
+  stat: { n: "Comprehensive", l: "fertility & maternity care under one roof" },
   faqs: [
     { q: "What fertility services does Rio offer?", a: "Reproductive health and hormonal fertility care, IVF, follicular studies and fertility counselling, with continuity into maternity and pregnancy care." },
     { q: "What is a follicular study?", a: "A series of ultrasound scans that track the growth and release of follicles, helping time treatment and improve the chances of conception." },
     { q: "Do you offer IVF?", a: "Yes. Rio provides IVF and assisted reproductive care, guided by experienced specialists and supported by counselling throughout." },
-    { q: "What happens after I conceive?", a: "Your care continues seamlessly with Rio's maternity, high-risk pregnancy and newborn services — the whole journey from fertility to motherhood, under one roof." },
+    { q: "What happens after I conceive?", a: "Your care continues seamlessly with Rio's maternity, high-risk pregnancy and newborn services, covering the whole journey from fertility to motherhood, under one roof." },
   ],
   related: [
     { name: "High-Risk Pregnancy Care", slug: "high-risk-pregnancy", img: "maternity-care" },
@@ -178,12 +178,12 @@ function FertilityIvfPageContent({ service: s }) {
       <style>{`
       `}</style>
 
-      <div className="topstrip">24/7 Emergency • NICU • PICU — <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
+      <div className="topstrip">24/7 Emergency • NICU • PICU | <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
 
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
-                <div className="nav-cta">
+        <div className="nav-cta">
           <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
@@ -232,7 +232,7 @@ function FertilityIvfPageContent({ service: s }) {
         {s.features && (
           <section className="section tint-blue">
             <div className="wrap">
-              <Reveal className="sec-head center"><Eyebrow>What you get at Rio</Eyebrow><h2>Built around mother &amp; baby</h2></Reveal>
+              <Reveal className="sec-head center"><Eyebrow>What you get at Rio</Eyebrow><h2>Why Choose Rio for Fertility Care</h2></Reveal>
               <div className="feat-grid">
                 {s.features.map((f, i) => (
                   <Reveal key={f.title} delay={(i % 3) * 80}>
@@ -266,7 +266,7 @@ function FertilityIvfPageContent({ service: s }) {
         {s.journey && (
           <section className="section">
             <div className="wrap">
-              <Reveal className="sec-head center"><Eyebrow>Your Journey</Eyebrow><h2>Care that follows every trimester</h2></Reveal>
+              <Reveal className="sec-head center"><Eyebrow>Your Journey</Eyebrow><h2>Your Fertility Journey</h2></Reveal>
               <div className="tri-rail">
                 {s.journey.map((t, i) => (
                   <Reveal key={t.k} delay={i * 100}><div className="tri"><div className="tri-num">{i + 1}</div><h3>{t.k}</h3><span className="wk">{t.w}</span><p>{t.d}</p></div></Reveal>

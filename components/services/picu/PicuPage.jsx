@@ -52,11 +52,11 @@ const PICU = {
     { img: "emergency", cap: "Linked 24/7 emergency" },
   ],
   eyebrow: "PICU",
-  title: "Paediatric intensive care for critically ill children",
-  lede: "When a child is seriously ill, Rio's Paediatric Intensive Care Unit provides state-of-the-art critical care — with a well-trained team of doctors and nurses and round-the-clock monitoring.",
+  title: "Advanced Paediatric Intensive Care for Critically Ill Children",
+  lede: "When a child is seriously ill, Rio's Paediatric Intensive Care Unit provides state-of-the-art critical care, supported by a well-trained team of doctors and nurses and round-the-clock monitoring.",
   heroImg: "critical-care3",
   intro: [
-    "Our PICU is fully functional with state-of-the-art facilities and instruments, providing intensive care for children across a wide range of serious illnesses.",
+    "Rio’s Paediatric Intensive Care Unit (PICU) delivers advanced critical care for children with life-threatening illnesses, supported by experienced paediatric intensivists, specialised nurses and continuous monitoring 24 hours a day.",
     "Care is delivered by a well-trained team of paediatric intensivists, doctors and nurses, with continuous monitoring and immediate access to specialists when every moment counts.",
   ],
   covers: [
@@ -67,9 +67,9 @@ const PICU = {
     { icon: "nicu", title: "Critical care support", desc: "State-of-the-art equipment and ventilation for children with life-threatening illness." },
     { icon: "scan", title: "Round-the-clock monitoring", desc: "Continuous monitoring of vital signs by a trained paediatric intensive-care team." },
     { icon: "team", title: "Paediatric intensivists", desc: "A well-trained team of intensivists, doctors and nurses dedicated to critically ill children." },
-    { icon: "heart", title: "Immediate specialist access", desc: "Quick access to cardiology, neurology and other specialists when a child needs them." },
+    { icon: "heart", title: "Multi-specialty expert support", desc: "Quick access to cardiology, neurology and other specialists when a child needs them." },
     { icon: "bell", title: "Linked to 24/7 emergency", desc: "Seamlessly connected to our paediatric emergency for fast escalation when needed." },
-    { icon: "power", title: "3-level power backup", desc: "Uninterrupted power for ventilators and monitors — 100% guaranteed." },
+    { icon: "power", title: "3-level power backup", desc: "Uninterrupted power for ventilators and monitors, 100% guaranteed." },
   ],
   stat: { n: "12+", l: "Years of paediatric critical care" },
   faqs: [
@@ -176,12 +176,12 @@ function PicuPageContent({ service: s }) {
       <style>{`
       `}</style>
 
-      <div className="topstrip">24/7 Emergency • NICU • PICU — <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
+      <div className="topstrip">24/7 Emergency • NICU • PICU | <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
 
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
-                <div className="nav-cta">
+        <div className="nav-cta">
           <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
@@ -230,7 +230,7 @@ function PicuPageContent({ service: s }) {
         {s.features && (
           <section className="section tint-blue">
             <div className="wrap">
-              <Reveal className="sec-head center"><Eyebrow>What you get at Rio</Eyebrow><h2>Built around mother &amp; baby</h2></Reveal>
+              <Reveal className="sec-head center"><Eyebrow>What you get at Rio</Eyebrow><h2>Advanced Critical Care, All Under One Roof</h2></Reveal>
               <div className="feat-grid">
                 {s.features.map((f, i) => (
                   <Reveal key={f.title} delay={(i % 3) * 80}>

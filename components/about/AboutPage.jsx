@@ -604,7 +604,7 @@ export default function AboutPage() {
                 <span className="accent">Children</span>.
               </h1>
               <p className="lede">
-                Rio provides comprehensive women and child healthcare — with
+                Rio provides comprehensive women and child healthcare with
                 expertise in high-risk pregnancy care, fetal medicine, NICU,
                 PICU, preterm baby care, paediatric emergency care and
                 child-development services, all under one roof.
@@ -834,8 +834,7 @@ export default function AboutPage() {
               <Eyebrow>Departments</Eyebrow>
               <h2>Super-speciality care, organised clearly</h2>
               <p className="sec-note">
-                From neonatal intensive care to genetic medicine — find the
-                right department, doctor and branch for your need.
+                From neonatal intensive care to genetic medicine. Find the right department, doctor and branch for your need.
               </p>
             </Reveal>
             <div className="dept-grid">

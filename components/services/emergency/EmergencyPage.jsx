@@ -51,7 +51,7 @@ const PE = {
   ],
   eyebrow: "Paediatric Emergency",
   title: "24/7 emergency care, ready when every minute matters",
-  lede: "Round-the-clock paediatric emergency care for sudden illness, accidents and critical conditions — backed by on-site NICU and PICU so expert help is immediate.",
+  lede: "Round-the-clock paediatric emergency care for sudden illness, accidents and life-threatening emergencies, backed by on-site NICU and PICU for immediate specialist support.",
   heroImg: "emergency",
   intro: [
     "Rio provides 24/7 paediatric emergency care for children facing sudden illness, accidents or critical conditions. When something goes wrong, our emergency team is ready — day or night, across all four branches.",
@@ -66,7 +66,7 @@ const PE = {
     { icon: "nicu", title: "NICU & PICU on site", desc: "Immediate escalation to advanced neonatal and paediatric intensive care in the same hospital." },
     { icon: "team", title: "Expert emergency team", desc: "Paediatric emergency doctors and nurses trained to act fast when every minute counts." },
     { icon: "scan", title: "On-site diagnostics", desc: "24-hour lab, imaging and monitoring so the right care starts without delay." },
-    { icon: "heart", title: "Neonatal transport", desc: "Safe transfer for newborns and children who need to reach critical care quickly." },
+    { icon: "heart", title: "Emergency Neonatal transport", desc: "Safe transfer for newborns and children who need to reach critical care quickly." },
     { icon: "power", title: "3-level power backup", desc: "Uninterrupted power for emergency and life-support equipment — 100% guaranteed." },
   ],
   stat: { n: "4", l: "Branches open 24/7 for emergencies" },
@@ -179,7 +179,7 @@ function EmergencyPageContent({ service: s }) {
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
-                <div className="nav-cta">
+        <div className="nav-cta">
           <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
@@ -228,7 +228,7 @@ function EmergencyPageContent({ service: s }) {
         {s.features && (
           <section className="section tint-blue">
             <div className="wrap">
-              <Reveal className="sec-head center"><Eyebrow>What you get at Rio</Eyebrow><h2>Built around mother &amp; baby</h2></Reveal>
+              <Reveal className="sec-head center"><Eyebrow>What you get at Rio</Eyebrow><h2>Emergency Care Without Delay</h2></Reveal>
               <div className="feat-grid">
                 {s.features.map((f, i) => (
                   <Reveal key={f.title} delay={(i % 3) * 80}>

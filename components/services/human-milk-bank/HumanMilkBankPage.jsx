@@ -52,11 +52,11 @@ const HMB = {
   ],
   eyebrow: "Human Milk Bank",
   title: "Safe donor milk, saving the smallest lives",
-  lede: "Rio's Human Milk Bank provides safe, screened and pasteurised donor human milk for premature and critically ill newborns who can't be breastfed by their own mothers — every single day.",
+  lede: "Rio's Human Milk Bank provides safe, screened and pasteurised donor human milk for premature and critically ill newborns who can't be breastfed by their own mothers, available every single day.",
   heroImg: "critical-care4",
   intro: [
     "Our state-of-the-art Human Milk Bank operates every day, providing safe, screened and pasteurised donor human milk for premature and critically ill newborns who cannot be breastfed by their own mothers.",
-    "Stringent quality-control protocols, sterile storage systems and 24/7 power backup ensure the highest safety and nutritional standards — with personalised guidance and counselling for both donor mothers and recipients.",
+    "Stringent quality-control protocols, sterile storage systems and 24/7 power backup ensure the highest safety and nutritional standards, along with personalised guidance and counselling for both donor mothers and recipients.",
   ],
   covers: [
     "Premature & preterm babies", "Critically ill newborns in NICU", "Babies whose mothers can't breastfeed",
@@ -69,14 +69,14 @@ const HMB = {
     { icon: "team", title: "Donor mother support", desc: "Personalised guidance and counselling for the donor mothers who give the gift of milk." },
     { icon: "power", title: "24/7 power-backed cold chain", desc: "Sterile storage with uninterrupted power backup keeps donor milk safe around the clock." },
     { icon: "bell", title: "Operational every day", desc: "The milk bank runs 365 days a year, ready whenever a baby needs it." },
-    { icon: "scan", title: "Strict quality control", desc: "Rigorous protocols at every step — from collection and screening to storage and dispensing." },
+    { icon: "scan", title: "Strict quality control", desc: "Rigorous protocols at every step, covering collection, screening, storage, and dispensing." },
   ],
   stat: { n: "300 L+", l: "Donor milk collected and shared" },
   faqs: [
-    { q: "Who can receive donor milk?", a: "Premature and critically ill newborns who cannot be breastfed by their own mothers — especially babies in the NICU who need safe early nutrition." },
+    { q: "Who can receive donor milk?", a: "Premature and critically ill newborns who cannot be breastfed by their own mothers, especially babies in the NICU who need safe early nutrition." },
     { q: "Is donor milk safe?", a: "Yes. All donor milk is screened and pasteurised under stringent quality-control protocols, with sterile storage and 24/7 power backup." },
     { q: "How can I become a milk donor?", a: "Contact us and our team will guide you through screening and donation, with personalised counselling and support for every donor mother." },
-    { q: "Is the milk bank always open?", a: "Yes — it operates every day of the year, so safe donor milk is available whenever a baby needs it." },
+    { q: "Is the milk bank always open?", a: "Yes, it operates every day of the year, so safe donor milk is available whenever a baby needs it." },
   ],
   related: [
     { name: "NICU", slug: "nicu", img: "Advanced-NICU" },
@@ -176,16 +176,16 @@ function HumanMilkBankPageContent({ service: s }) {
       <style>{`
       `}</style>
 
-      <div className="topstrip">24/7 Emergency • NICU • PICU — <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
+      <div className="topstrip">24/7 Emergency • NICU • PICU | <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
 
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
-                <div className="nav-cta">
+        <div className="nav-cta">
           <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
-              <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
+        <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
       </header>
 
       <MobileNav open={menuOpen} onClose={() => setMenuOpen(false)} />
@@ -230,7 +230,7 @@ function HumanMilkBankPageContent({ service: s }) {
         {s.features && (
           <section className="section tint-blue">
             <div className="wrap">
-              <Reveal className="sec-head center"><Eyebrow>What you get at Rio</Eyebrow><h2>Built around mother &amp; baby</h2></Reveal>
+              <Reveal className="sec-head center"><Eyebrow>What you get at Rio</Eyebrow><h2>Safe Nutrition for the Most Fragile Babies</h2></Reveal>
               <div className="feat-grid">
                 {s.features.map((f, i) => (
                   <Reveal key={f.title} delay={(i % 3) * 80}>

@@ -69,7 +69,7 @@ const HIGH_RISK = {
     { icon: "team", title: "Fetal medicine specialists", desc: "Dedicated specialists who identify concerns early and guide a safer pregnancy and delivery plan." },
     { icon: "nicu", title: "Third-level NICU on site", desc: "If your baby needs intensive care after birth, an advanced NICU & PICU are ready in the same hospital." },
     { icon: "bell", title: "Free SMS care alerts", desc: "Timely reminders for antenatal visits, scans and investigations so nothing important is missed." },
-    { icon: "power", title: "3-level power backup", desc: "Uninterrupted power for monitoring and critical equipment — 100% guaranteed across the journey." },
+    { icon: "power", title: "3-level power backup", desc: "Uninterrupted power for monitoring and critical equipment, 100% guaranteed across the journey." },
     { icon: "heart", title: "Compassionate support", desc: "Counselling and clear guidance at every step, so families feel informed and reassured, not anxious." },
   ],
   journey: [
@@ -79,10 +79,10 @@ const HIGH_RISK = {
   ],
   stat: { n: "5,000+", l: "High-risk pregnancies safely managed" },
   faqs: [
-    { q: "When is a pregnancy called high-risk?", a: "When the mother or baby needs closer monitoring — for reasons like blood pressure, diabetes, bleeding, reduced fetal growth, twins, previous complications or age-related factors." },
+    { q: "When is a pregnancy called high-risk?", a: "When the mother or baby needs closer monitoring, for reasons like blood pressure, diabetes, bleeding, reduced fetal growth, twins, previous complications or age-related factors." },
     { q: "What extra care will I receive?", a: "More frequent scans and check-ups, fetal medicine input, advanced monitoring, and a delivery plan made with the NICU team ready in case specialised newborn care is needed." },
     { q: "Do you have NICU support if my baby needs it?", a: "Yes. Rio has an advanced NICU and PICU on site, so intensive newborn care is immediately available at the same hospital." },
-    { q: "I've been told my pregnancy is high-risk. What should I do?", a: "Book a consultation early. High-risk pregnancy needs expert care, not fear — timely guidance makes a real difference for you and your baby." },
+    { q: "I've been told my pregnancy is high-risk. What should I do?", a: "Book a consultation early. High-risk pregnancy needs expert care, not fear. Timely guidance makes a real difference for you and your baby." },
   ],
   related: [
     { name: "Fetal Medicine", slug: "fetal-medicine", img: "critical-care3" },
@@ -182,7 +182,7 @@ function HighRiskPregnancyPageContent({ service: s }) {
       <style>{`
       `}</style>
 
-      <div className="topstrip">24/7 Emergency • NICU • PICU — <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
+      <div className="topstrip">24/7 Emergency • NICU • PICU | <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
 
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />

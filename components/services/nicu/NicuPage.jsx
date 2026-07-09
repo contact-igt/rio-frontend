@@ -46,18 +46,18 @@ const NAV_TREATMENTS = [
 const NICU = {
   slug: "nicu",
   gallery: [
-    { img: "Advanced-NICU", cap: "Level 3 NICU ward — 20+ beds" },
+    { img: "Advanced-NICU", cap: "Level 3 NICU ward, offering 20+ beds" },
     { img: "critical-care1", cap: "Incubator & radiant-warmer bay" },
     { img: "critical-care2", cap: "Neonatal monitoring station" },
     { img: "critical-care3", cap: "Intensive & isolation care bay" },
   ],
   eyebrow: "NICU",
-  title: "Level 3 NICU — the most advanced newborn intensive care in South Tamil Nadu",
-  lede: "Rio is home to the only Level 3 NICU in South Tamil Nadu — giving premature and critically ill newborns the very best chance, with advanced equipment, continuous monitoring and a neonatology team on duty around the clock.",
+  title: "South Tamil Nadu’s Most Advanced Level 3 Newborn Intensive Care (NICU)",
+  lede: "Rio is home to South Tamil Nadu’s only Level 3 NICU, providing premature and critically ill newborns with advanced life-support technology, continuous monitoring and expert neonatology care around the clock.",
   heroImg: "Advanced-NICU",
   intro: [
-    "Our NICU is equipped for the most fragile newborns — premature babies, low-birth-weight infants and critically ill newborns who need close, continuous care in their first days and weeks.",
-    "Care is led by experienced neonatologists and trained nurses, supported by advanced monitoring, ventilation and nutrition systems — and a gentle, family-centred approach that keeps parents informed and involved.",
+    "Our Level 3 NICU is equipped to care for premature babies, low-birth-weight infants and critically ill newborns requiring advanced intensive care from the very first hours of life.",
+    "Care is led by experienced neonatologists and trained nurses, supported by advanced monitoring, ventilation and nutrition systems, along with a gentle, family-centred approach that keeps parents informed and involved.",
   ],
   covers: [
     "Incubators & radiant warmers", "Phototherapy", "High-tech ventilators", "Multi-parameter monitors",
@@ -70,13 +70,13 @@ const NICU = {
     { icon: "scan", title: "Continuous monitoring", desc: "Multi-parameter monitors, invasive BP, blood-gas and cerebral function monitoring, around the clock." },
     { icon: "team", title: "Neonatologist-led team", desc: "Experienced neonatologists and trained NICU nurses on duty 24/7." },
     { icon: "heart", title: "Pain-free jaundice check", desc: "A transcutaneous bilirubinometer assesses jaundice levels without pricking your baby." },
-    { icon: "bell", title: "Specialised nutrition", desc: "Total parenteral nutrition (TPN), central venous and umbilical lines for the tiniest babies." },
-    { icon: "power", title: "3-level power backup", desc: "Uninterrupted power for incubators, ventilators and monitors — 100% guaranteed." },
+    { icon: "bell", title: "Advanced neonatal nutrition", desc: "Total parenteral nutrition (TPN), central venous and umbilical lines for the tiniest babies." },
+    { icon: "power", title: "3-level power backup", desc: "Uninterrupted power for incubators, ventilators and monitors, 100% guaranteed." },
   ],
-  stat: { n: "20+", l: "Beds in our Level 3 NICU unit" },
+  stat: { n: "24/7", l: "Neonatology Team - Level 3 Intensive Care" },
   faqs: [
     { q: "Which babies need NICU care?", a: "Premature babies, low-birth-weight infants and newborns who are critically ill or need close monitoring and support in their first days." },
-    { q: "Can parents visit their baby in the NICU?", a: "Yes. Rio follows a family-centred approach — our team keeps you informed and involved in your baby's care." },
+    { q: "Can parents visit their baby in the NICU?", a: "Yes. Rio follows a family-centred approach. Our team keeps you informed and involved in your baby's care." },
     { q: "What is a transcutaneous bilirubinometer?", a: "A device that measures jaundice levels through the skin, so your baby's jaundice can be assessed without a needle prick." },
     { q: "Is there backup if there's a power cut?", a: "Yes. A 3-level power backup ensures incubators, ventilators and monitors run without interruption." },
   ],
@@ -178,12 +178,12 @@ function NicuPageContent({ service: s }) {
       <style>{`
       `}</style>
 
-      <div className="topstrip">24/7 Emergency • NICU • PICU — <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
+      <div className="topstrip">24/7 Emergency • NICU • PICU | <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
 
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
-                <div className="nav-cta">
+        <div className="nav-cta">
           <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
@@ -232,7 +232,7 @@ function NicuPageContent({ service: s }) {
         {s.features && (
           <section className="section tint-blue">
             <div className="wrap">
-              <Reveal className="sec-head center"><Eyebrow>What you get at Rio</Eyebrow><h2>Built around mother &amp; baby</h2></Reveal>
+              <Reveal className="sec-head center"><Eyebrow>What you get at Rio</Eyebrow><h2>Advanced Intensive Care for Every Newborn</h2></Reveal>
               <div className="feat-grid">
                 {s.features.map((f, i) => (
                   <Reveal key={f.title} delay={(i % 3) * 80}>

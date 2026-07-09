@@ -51,32 +51,33 @@ const FETAL = {
   ],
   eyebrow: "Fetal Medicine",
   title: "Monitoring your baby's health, growth & development before birth",
-  lede: "Fetal medicine focuses on your baby's wellbeing throughout pregnancy — especially in high-risk pregnancies. At Rio, advanced scans and specialist care help identify concerns early, guide your pregnancy, and plan a safer delivery with the right newborn support ready when needed.",
+  lede: "Fetal medicine focuses on monitoring your baby’s health, growth and development throughout pregnancy, particularly when specialised care is needed. At Rio, advanced fetal imaging and expert maternal fetal specialists help detect concerns early, guide pregnancy management and support safer delivery planning with advanced newborn care available when required.",
   heroImg: "maternity-care",
   intro: [
-    "Fetal medicine is the specialised care of your baby during pregnancy — assessing growth, organ development and overall wellbeing through detailed ultrasound and monitoring. It becomes especially important when a pregnancy is high-risk.",
-    "At Rio, fetal medicine specialists work alongside our obstetric and NICU teams. Concerns are spotted early, your pregnancy care is guided accordingly, and if your baby needs specialised care after birth, an advanced NICU is ready in the same hospital.",
+    "Fetal medicine is a specialised branch of obstetric care that monitors your baby’s growth, organ development and overall well-being throughout pregnancy using advanced ultrasound imaging and fetal assessment. It is particularly important for pregnancies requiring closer monitoring or specialised care.",
+    "At Rio, fetal medicine specialists work closely with obstetricians, neonatologists and the NICU team to ensure coordinated care throughout pregnancy. Early detection allows timely planning, personalised pregnancy management and immediate access to advanced newborn care whenever required",
   ],
   covers: [
     "Anomaly scan (18\u201322 weeks)", "Growth scans", "Fetal well-being checks", "Doppler studies",
     "Renal Doppler", "Portal circulation studies", "Early pregnancy assessment", "High-risk fetal monitoring",
   ],
   features: [
-    { icon: "scan", title: "Detailed anomaly scan", desc: "A thorough 18\u201322 week scan to assess the baby's growth, organ development and overall wellbeing." },
-    { icon: "scan", title: "Advanced Doppler studies", desc: "Assessing blood flow between mother and baby to evaluate circulation and the baby's wellbeing." },
+    { icon: "scan", title: "Detailed anomaly scan", desc: "A detailed 18\u201322 week fetal anomaly scan to assess your baby’s organ development, growth and structural health." },
+    { icon: "scan", title: "Advanced Doppler studies", desc: "Advanced Doppler ultrasound to assess blood flow between mother, placenta and baby, helping evaluate fetal well-being." },
     { icon: "team", title: "Fetal medicine specialists", desc: "Experienced specialists who identify concerns early and guide a safer pregnancy and delivery plan." },
     { icon: "nicu", title: "NICU ready on site", desc: "If specialised newborn care is needed after birth, an advanced NICU & PICU are in the same hospital." },
     { icon: "bell", title: "Free SMS care alerts", desc: "Timely reminders for scans, antenatal visits and investigations throughout pregnancy." },
-    { icon: "power", title: "3-level power backup", desc: "Uninterrupted power for advanced ultrasound and monitoring equipment \u2014 100% guaranteed." },
+    { icon: "power", title: "3-level power backup", desc: "Uninterrupted power for advanced ultrasound and monitoring equipment, 100% guaranteed." },
   ],
   journey: [
-    { k: "First Trimester", w: "Week 0\u201312", d: "Early pregnancy assessment, dating and viability scans, and a baseline risk evaluation." },
-    { k: "Second Trimester", w: "Week 13\u201328", d: "The detailed anomaly scan and fetal well-being checks to track growth and development." },
-    { k: "Third Trimester", w: "Week 29\u201340", d: "Growth scans and Doppler studies, with delivery planning and the NICU team on standby." },
+    { k: "First Trimester", w: "Week 0\u201312", d: "Early pregnancy assessment with dating, viability and first-trimester screening to establish a personalised pregnancy care plan." },
+    { k: "Second Trimester", w: "Week 13\u201328", d: "Detailed anomaly scanning, fetal growth assessment and ongoing monitoring to evaluate healthy development." },
+    { k: "Third Trimester", w: "Week 29\u201340", d: "Growth scans, Doppler assessments and delivery planning, with advanced neonatal support available whenever required." },
   ],
-  stat: { n: "12+", l: "Years of advanced fetal & maternal care" },
+  stat: { n: "5,000+", l: "Advanced fetal assessments performed" },
+
   faqs: [
-    { q: "What is fetal medicine?", a: "It's the specialised care of your baby during pregnancy \u2014 monitoring growth, organ development and wellbeing through detailed scans, especially in high-risk pregnancies." },
+    { q: "What is fetal medicine?", a: "It's the specialised care of your baby during pregnancy, monitoring growth, organ development and wellbeing through detailed scans, especially in high-risk pregnancies." },
     { q: "When is the anomaly scan done?", a: "Usually between 18 and 22 weeks. It assesses the baby's growth, organ development and overall wellbeing, and helps plan the right pregnancy care." },
     { q: "What is a Doppler study?", a: "A specialised ultrasound that checks blood flow between mother and baby, helping evaluate circulation and the baby's wellbeing." },
     { q: "Do I need fetal medicine if my pregnancy is normal?", a: "Routine scans are part of standard antenatal care. Fetal medicine becomes especially important if your pregnancy is high-risk or a scan flags something to monitor more closely." },
@@ -179,12 +180,12 @@ function FetalMedicinePageContent({ service: s }) {
       <style>{`
       `}</style>
 
-      <div className="topstrip">24/7 Emergency • NICU • PICU — <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
+      <div className="topstrip">24/7 Emergency • NICU • PICU | <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
 
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
-                <div className="nav-cta">
+        <div className="nav-cta">
           <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>

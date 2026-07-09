@@ -51,12 +51,12 @@ const MATERNITY = {
   ],
   eyebrow: "Maternity Care",
   title: "Safe, supported delivery — for mother and baby",
-  lede: "From your first antenatal scan to delivery day, Rio's maternity care wraps expert obstetric support around you — with painless-labour support, attractive packages for normal and caesarean deliveries, and an NICU ready if your baby needs it.",
+  lede: "From your first antenatal visit to delivery day, Rio provides comprehensive maternity care with experienced obstetricians, personalised pregnancy support, painless labour options, normal and caesarean delivery packages, and immediate access to advanced newborn care whenever required.",
   heroImg: "newborn-care",
   intro: [
-    "At Rio, maternity care is led by experienced gynaecologists who look after you through your whole pregnancy — with complete antenatal care, scans, counselling and the best treatment for any pregnancy-related concern.",
-    "Attractive, low-cost packages are available for both normal delivery and caesarean section when you book your pregnancy with our gynaecologists. And with an advanced NICU on site, specialised newborn care is ready the moment it's needed.",
-    "We place special focus on painless delivery — epidural and painless-labour support help make your delivery as comfortable, calm and stress-free as possible, with expert monitoring of both mother and baby throughout.",
+    "At Rio, experienced obstetricians and gynaecologists provide comprehensive maternity care throughout pregnancy, including antenatal check-ups, fetal monitoring, counselling and personalised treatment for pregnancy-related concerns.",
+    "Rio offers transparent maternity packages for both normal and caesarean deliveries, supported by experienced specialists and advanced facilities. If specialised newborn care is required after birth, our advanced NICU is immediately available within the same hospital.",
+    "We offer painless labour options, including epidural analgesia where appropriate, with continuous monitoring of both mother and baby to help ensure a safe, comfortable and reassuring birth experience.",
   ],
   covers: [
     "Complete antenatal care", "Normal delivery packages", "Caesarean (C-section) packages",
@@ -65,24 +65,24 @@ const MATERNITY = {
   ],
   features: [
     { icon: "heart", title: "Painless labour & delivery", desc: "Epidural and painless-labour support so your delivery is as comfortable, calm and stress-free as possible." },
-    { icon: "team", title: "Senior gynaecologist-led", desc: "Antenatal care and delivery overseen by experienced gynaecologists you'll know throughout your pregnancy." },
-    { icon: "heart", title: "Normal & C-section packages", desc: "Attractive, low-cost packages for both normal delivery and caesarean section." },
-    { icon: "scan", title: "Antenatal scans & checks", desc: "Regular scans and antenatal visits to keep both mother and baby well throughout pregnancy." },
-    { icon: "nicu", title: "NICU ready on site", desc: "If your newborn needs specialised care, an advanced NICU & PICU are in the same hospital." },
+    { icon: "team", title: "Senior gynaecologist-led", desc: "Continuity of care from experienced obstetricians and gynaecologists throughout pregnancy, labour and delivery." },
+    { icon: "heart", title: "Normal & C-section packages", desc: "Comprehensive maternity packages for both normal and caesarean deliveries with transparent pricing." },
+    { icon: "scan", title: "Antenatal scans & checks", desc: "Regular antenatal consultations, ultrasound scans and health assessments to monitor the wellbeing of both mother and baby." },
+    { icon: "nicu", title: "NICU ready on site", desc: "If specialised newborn care is required after birth, Rio’s advanced NICU is immediately available within the same hospital." },
     { icon: "bell", title: "Free SMS care alerts", desc: "Reminders for antenatal visits, vaccinations and essential screenings throughout pregnancy." },
   ],
   journey: [
-    { k: "First Trimester", w: "Week 0–12", d: "Early pregnancy care — scans, blood tests and supplements, with free SMS alerts." },
-    { k: "Second Trimester", w: "Week 13–28", d: "Anomaly scan, fetal well-being checks and routine antenatal visits." },
-    { k: "Third Trimester", w: "Week 29–40", d: "Growth scans, delivery planning and preparation for a safe birth." },
+    { k: "First Trimester", w: "Week 0–12", d: "Early pregnancy assessment with antenatal consultations, blood investigations, dating scans and personalised guidance for a healthy pregnancy." },
+    { k: "Second Trimester", w: "Week 13–28", d: "Detailed anomaly scanning, fetal growth assessment and regular antenatal reviews to monitor your baby’s development." },
+    { k: "Third Trimester", w: "Week 29–40", d: "Growth monitoring, delivery planning and birth preparation with continuous maternal and fetal assessment." },
   ],
-  stat: { n: "6 Lacs+", l: "Mothers & babies cared for" },
+  stat: { n: "10,000+", l: "Mothers & babies cared for" },
   faqs: [
     { q: "Do you offer painless delivery?", a: "Yes. We offer painless labour (epidural) support so your delivery can be as comfortable and calm as possible, with expert monitoring of both mother and baby throughout." },
     { q: "Do you offer both normal and C-section deliveries?", a: "Yes. Attractive, low-cost packages are available for both normal delivery and caesarean section when you book your pregnancy with our gynaecologists." },
     { q: "Who will look after my pregnancy?", a: "Experienced gynaecologists provide complete antenatal care, scans and counselling, and oversee your delivery." },
     { q: "What if my baby needs special care after birth?", a: "Rio has an advanced NICU and PICU on site, so specialised newborn care is immediately available in the same hospital." },
-    { q: "When should I book my pregnancy?", a: "As early as possible — early antenatal care supports a healthy journey for both mother and baby, and lets us plan the right care from the start." },
+    { q: "When should I book my pregnancy?", a: "As early as possible. Early antenatal care supports a healthy journey for both mother and baby, and lets us plan the right care from the start." },
   ],
   related: [
     { name: "High-Risk Pregnancy Care", slug: "high-risk-pregnancy", img: "maternity-care" },
@@ -182,12 +182,12 @@ function MaternityPageContent({ service: s }) {
       <style>{`
       `}</style>
 
-      <div className="topstrip">24/7 Emergency • NICU • PICU — <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
+      <div className="topstrip">24/7 Emergency • NICU • PICU | <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
 
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
-                <div className="nav-cta">
+        <div className="nav-cta">
           <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>

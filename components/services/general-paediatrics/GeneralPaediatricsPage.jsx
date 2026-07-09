@@ -51,10 +51,10 @@ const GP = {
   ],
   eyebrow: "General Paediatrics",
   title: "Expert everyday care for your child, birth to 18",
-  lede: "From common fevers to complex conditions, Rio's paediatric outpatient services are available 24/7 — caring for children from birth to 18 in a warm, child-friendly environment.",
+  lede: "From common fevers to complex conditions, Rio's paediatric outpatient services are available 24/7, caring for children from birth to 18 in a warm, child-friendly environment.",
   heroImg: "newborn-care",
   intro: [
-    "Our paediatric outpatient services are available around the clock for every childhood illness — from common fevers, coughs and infections to more complex conditions that need a specialist eye.",
+    "Our paediatric outpatient services are available around the clock for every childhood illness, from common fevers, coughs and infections to more complex conditions that need a specialist eye.",
     "Children from birth to 18 years receive expert, compassionate care in a child-friendly environment, alongside vaccination, growth monitoring and developmental guidance.",
   ],
   covers: [
@@ -73,7 +73,7 @@ const GP = {
   faqs: [
     { q: "What ages do you care for?", a: "Children from birth to 18 years, across general and super-speciality paediatric care." },
     { q: "Is outpatient care available at night?", a: "Yes. Paediatric outpatient consultation is available 24/7 for all childhood illnesses." },
-    { q: "Do you handle both minor and complex conditions?", a: "Yes — from common fevers and infections to complex conditions, with specialist and intensive-care support on site when needed." },
+    { q: "Do you handle both minor and complex conditions?", a: "Yes, from common fevers and infections to complex conditions, with specialist and intensive-care support on site when needed." },
     { q: "Do you provide vaccinations?", a: "Yes. We follow the national immunisation schedule with free SMS reminders, plus growth and development monitoring." },
   ],
   related: [
@@ -174,12 +174,12 @@ function GeneralPaediatricsPageContent({ service: s }) {
       <style>{`
       `}</style>
 
-      <div className="topstrip">24/7 Emergency • NICU • PICU — <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
+      <div className="topstrip">24/7 Emergency • NICU • PICU | <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
 
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
-                <div className="nav-cta">
+        <div className="nav-cta">
           <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
@@ -228,7 +228,7 @@ function GeneralPaediatricsPageContent({ service: s }) {
         {s.features && (
           <section className="section tint-blue">
             <div className="wrap">
-              <Reveal className="sec-head center"><Eyebrow>What you get at Rio</Eyebrow><h2>Built around mother &amp; baby</h2></Reveal>
+              <Reveal className="sec-head center"><Eyebrow>What you get at Rio</Eyebrow><h2>Complete Everyday Paediatric Care</h2></Reveal>
               <div className="feat-grid">
                 {s.features.map((f, i) => (
                   <Reveal key={f.title} delay={(i % 3) * 80}>

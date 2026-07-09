@@ -248,8 +248,8 @@ export default function ContactPage() {
               </div>
               <div className="info-block">
                 <h4>Hours</h4>
-                <div className="info-row">🚑 Emergency — 24/7, all 4 branches</div>
-                <div className="info-row">🏥 Outpatient (OPD) — open 24/7</div>
+                <div className="info-row">🚑 Emergency: 24/7, all 4 branches</div>
+                <div className="info-row">🏥 Outpatient (OPD): open 24/7</div>
               </div>
               <div className="info-block">
                 <h4>Follow us</h4>

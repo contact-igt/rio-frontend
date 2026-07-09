@@ -60,7 +60,7 @@ const PILLARS = [
   },
   {
     t: "24/7 Emergency & Mother-Child Support",
-    d: "Round-the-clock emergency response for newborns, children and mothers — because every minute matters.",
+    d: "Round-the-clock emergency response for newborns, children and mothers because every minute matters.",
     icon: "clock",
   },
 ];
@@ -70,7 +70,7 @@ const TESTIMONIALS = [
     name: "Priya R.",
     loc: "Madurai",
     stars: 5,
-    text: "Our premature baby spent three weeks in the NICU and the team was incredible — constant updates, so caring. We're forever grateful to Rio.",
+    text: "Our premature baby spent three weeks in the NICU and the team was incredible, constant updates, so caring. We're forever grateful to Rio.",
   },
   {
     name: "Karthik S.",
@@ -146,17 +146,17 @@ const TRIMESTERS = [
   {
     k: "First Trimester",
     w: "Week 0 – 12",
-    d: "A crucial phase — early-pregnancy scans, blood tests and supplements, with free SMS alerts and 3-level power backup for uninterrupted care.",
+    d: "A crucial phase. Early-pregnancy scans, blood tests and supplements, with free SMS alerts and 3-level power backup for uninterrupted care.",
   },
   {
     k: "Second Trimester",
     w: "Week 13 – 28",
-    d: "Monitoring the baby's growth — the anomaly scan, fetal well-being checks and routine antenatal visits, backed by advanced ultrasound.",
+    d: "Monitoring the baby's growth, including the anomaly scan, fetal well-being checks and routine antenatal visits, backed by advanced ultrasound.",
   },
   {
     k: "Third Trimester",
     w: "Week 29 – 40",
-    d: "Focus on the baby's position, growth and delivery preparation — growth scans, Doppler studies and regular check-ups.",
+    d: "Focus on the baby's position, growth and delivery preparation, including growth scans, Doppler studies and regular check-ups.",
   },
 ];
 const WHY_EXT = [
@@ -818,9 +818,7 @@ export default function HomePage() {
             <Reveal>
               <Eyebrow>12 Years of Trusted Care</Eyebrow>
               <h1>
-                Trusted Women{" "}
-                <span className="accent">&amp; Children’s Hospital</span>{" "}
-                in South Tamil Nadu
+                Trusted <span className="accent">Women</span> &amp; Children’s Hospital in South Tamil Nadu
               </h1>
               <p className="lede">
                 Home to South Tamil Nadu's only Level 3 NICU, offering
@@ -923,7 +921,7 @@ export default function HomePage() {
               </h2>
               <p>
                 24/7 paediatric emergency, advanced NICU &amp; PICU, neonatal
-                transport and round-the-clock specialists — across all four
+                transport and round-the-clock specialists  across all four
                 branches.
               </p>
               <div className="hero-trust" style={{ marginTop: 28 }}>
@@ -937,7 +935,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ───────── services ───────── */}
+        {/* ───────── services ──────── */}
         <section className="section tint-sage" id="services">
           <span
             className="blob blob-teal"
@@ -949,7 +947,7 @@ export default function HomePage() {
               <Eyebrow>Our Treatments</Eyebrow>
               <h2>Specialised care, all under one roof</h2>
               <p className="sec-note">
-                From high-risk pregnancy through every stage of childhood — the
+                From high-risk pregnancy through every stage of childhood. The
                 core services families turn to Rio for, every day.
               </p>
             </Reveal>
@@ -982,8 +980,9 @@ export default function HomePage() {
               <Eyebrow>Child Health</Eyebrow>
               <h2>Caring for your child, at every stage</h2>
               <p className="sec-note">
-                More than a paediatric hospital — your trusted partners in your
-                child's health journey. From newborn care to adolescent health,
+                More than a paediatric hospital, we are your trusted partners in
+                your child's health journey. From newborn care to adolescent
+                health,
                 our specialists provide expert, compassionate care in a
                 child-friendly environment.
               </p>
@@ -1081,7 +1080,7 @@ export default function HomePage() {
                 premature and critically ill newborns who cannot be breastfed by
                 their own mothers. Stringent quality-control protocols, sterile
                 storage and 24/7 power backup ensure the highest safety and
-                nutritional standards — with personalised guidance and
+                nutritional standards, along with personalised guidance and
                 counselling for both donor mothers and recipients.
               </p>
               <div className="mbank-stats">
@@ -1161,7 +1160,7 @@ export default function HomePage() {
               <h2>Built for Emergencies Around Mother &amp; Child</h2>
               <p className="sec-note">
                 Advanced NICU &amp; PICU wards, modular theatres, 24-hour lab
-                and imaging — all designed for faster, coordinated care.
+                and imaging, all designed for faster, coordinated care.
               </p>
             </Reveal>
             <div className="gal">
@@ -1220,8 +1219,8 @@ export default function HomePage() {
                 <p className="sec-note">
                   Experienced paediatricians, neonatologists, intensivists,
                   gynaecologists, fetal medicine specialists, emergency doctors
-                  and super-speciality consultants — coordinated care for women
-                  and children, under one roof.
+                  and super-speciality consultants, offering coordinated care
+                  for women and children, under one roof.
                 </p>
                 <span className="spec-chip">
                   ★ 100+ specialists across 4 branches
@@ -1371,6 +1370,12 @@ export default function HomePage() {
                       setSent(true);
                     }}
                   >
+                    <input
+                      aria-label="Full name"
+                      type="text"
+                      placeholder="Full name"
+                      required
+                    />
                     <select
                       aria-label="Preferred branch"
                       required

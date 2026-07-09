@@ -202,7 +202,7 @@ export default function TreatmentsPage() {
 
         <section className="section more-glow">
           <div className="wrap">
-            <Reveal className="sec-head"><Eyebrow>More at Rio</Eyebrow><h2>Other specialised care &amp; departments</h2><p className="sec-note">Available across our branches — get in touch and our team will guide you to the right care.</p></Reveal>
+            <Reveal className="sec-head"><Eyebrow>More at Rio</Eyebrow><h2>Other specialised care &amp; departments</h2><p className="sec-note">Available across our branches. Get in touch and our team will guide you to the right care.</p></Reveal>
             <Reveal className="more-chips">{MORE.map((m) => <span key={m} className="chip"><i />{m}</span>)}</Reveal>
             <Reveal className="more-btn-wrapper"><a className="btn btn-cta" href="/book-appointment">Ask about a treatment →</a></Reveal>
           </div>
