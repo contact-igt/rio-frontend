@@ -212,8 +212,8 @@ export default function ChairmanPage() {
         .ch-hero-photo {
           position: absolute;
           bottom: 0;
-          left: 50%;
-          transform: translateX(-50%);
+          right: clamp(32px, 8vw, 180px);
+          transform: none;
           height: 90% !important;
           max-height: 720px !important;
           width: auto !important;
@@ -226,8 +226,8 @@ export default function ChairmanPage() {
           animation: photoFadeUp 1s cubic-bezier(.2,.8,.2,1) both;
         }
         @keyframes photoFadeUp {
-          from { opacity: 0; transform: translate(-50%, 30px); }
-          to { opacity: 1; transform: translate(-50%, 0); }
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
         }
 
         /* Bottom scrim gradient for text legibility */
@@ -357,83 +357,79 @@ export default function ChairmanPage() {
         }
 
         /* ── Mobile ── */
-        @media (max-width:900px) {
+        /* Tablet keeps the text and portrait side by side. */
+        @media (max-width:1024px) and (min-width:701px) {
           .ch-hero {
-            min-height: auto;
-            aspect-ratio: 3/4;
+            min-height: clamp(620px, 72vw, 720px);
             align-items: flex-end;
           }
           .ch-hero-bg-text {
-            font-size: clamp(65px, 15vw, 130px);
+            font-size: clamp(100px, 16vw, 170px);
             -webkit-text-stroke: 1px rgba(255, 255, 255, 0.065);
           }
-          .ch-orb {
-            filter: blur(50px);
-            opacity: 0.45;
-          }
-          .ch-orb-1 {
-            width: 260px;
-            height: 260px;
-          }
-          .ch-orb-2 {
-            width: 280px;
-            height: 280px;
-          }
-          .ch-orb-3 {
-            width: 220px;
-            height: 220px;
-          }
           .ch-hero-photo {
-            height: 75% !important;
-            max-height: 450px !important;
-            max-width: 320px !important;
+            right: clamp(16px, 3vw, 42px);
+            height: 84% !important;
+            max-height: 600px !important;
+            max-width: 430px !important;
           }
-          .ch-hero-seal {
-            top: 80px;
-            left: 20px;
-            transform: scale(0.8);
-          }
-          .ch-hero-inner {
-            padding: 0 20px 40px;
-          }
-          .ch-hero-content {
-            max-width: 100%;
-          }
-          .ch-hero-badge {
-            margin-bottom: 16px;
-            padding: 6px 18px;
-          }
-          .ch-hero-name {
-            font-size: clamp(28px, 7vw, 44px);
-            margin-bottom: 8px;
-          }
-          .ch-hero-degree {
-            font-size: 16px;
-          }
-          .ch-hero-role {
-            font-size: 13px;
-            margin-bottom: 24px;
-          }
-          .ch-btn-glass {
-            padding: 12px 24px;
-            font-size: 13px;
-          }
-        }
-        @media (max-width:480px) {
-          .ch-hero {
-            aspect-ratio: 9/14;
-          }
-          .ch-hero-photo {
-            height: 70% !important;
-            max-width: 270px !important;
-          }
-          .ch-hero-seal {
-            transform: scale(0.65);
-            top: 70px;
-            left: 10px;
-          }
+          .ch-hero-inner { padding: 0 42px 52px; }
+          .ch-hero-content { max-width: 54%; }
+          .ch-hero-name { font-size: clamp(42px, 5.2vw, 54px); }
+          .ch-hero-role { margin-bottom: 26px; }
         }
 
+        /* Phone layout stages the portrait above the copy. */
+        @media (max-width:700px) {
+          .ch-hero {
+            min-height: 720px;
+            aspect-ratio: auto;
+            align-items: flex-end;
+          }
+          .ch-hero-bg-text {
+            align-items: flex-start;
+            padding-top: 170px;
+            font-size: clamp(64px, 18vw, 120px);
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.065);
+          }
+          .ch-orb { filter: blur(50px); opacity: 0.45; }
+          .ch-orb-1 { width: 260px; height: 260px; }
+          .ch-orb-2 { width: 280px; height: 280px; }
+          .ch-orb-3 { width: 220px; height: 220px; }
+          .ch-hero-photo {
+            right: 50%;
+            transform: translateX(50%);
+            top: 72px;
+            bottom: auto;
+            height: 48% !important;
+            max-height: 450px !important;
+            max-width: 320px !important;
+            animation: photoFadeUpMobile 1s cubic-bezier(.2,.8,.2,1) both;
+          }
+          @keyframes photoFadeUpMobile {
+            from { opacity: 0; transform: translate(50%, 30px); }
+            to { opacity: 1; transform: translateX(50%); }
+          }
+          .ch-hero-seal { display: none; }
+          .ch-hero-inner { padding: 0 20px 32px; }
+          .ch-hero-content { max-width: 100%; }
+          .ch-hero-badge { margin-bottom: 16px; padding: 6px 18px; }
+          .ch-hero-name { font-size: clamp(28px, 7vw, 44px); margin-bottom: 8px; }
+          .ch-hero-degree { font-size: 16px; }
+          .ch-hero-role { font-size: 13px; margin-bottom: 24px; }
+          .ch-btn-glass { padding: 12px 24px; font-size: 13px; }
+        }
+
+        @media (max-width:480px) {
+          .ch-hero { min-height: 680px; }
+          .ch-hero-photo {
+            top: 62px;
+            height: 46% !important;
+            max-width: 270px !important;
+          }
+          .ch-hero-badge { margin-bottom: 12px; }
+          .ch-hero-role { margin-bottom: 20px; }
+        }
         /* ━━━━━━━━━━━━ STATS ━━━━━━━━━━━━ */
         .ch-stats {
           background: linear-gradient(135deg,#303573 0%,#1a206e 100%);
@@ -813,3 +809,6 @@ export default function ChairmanPage() {
     </div>
   );
 }
+
+
+

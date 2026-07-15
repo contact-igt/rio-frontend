@@ -422,9 +422,6 @@ export default function DoctorsPage() {
           <a href="/">Home</a>
           <a href="/about">About</a>
           <NavManagement />
-          <a href="/doctors" className="active" style={{ color: "var(--brown)" }}>
-            Doctors
-          </a>
           <a href="/paediatric-super-specialities">Pediatric Super Specialities</a>
           <NavTreatments />
           <a href="/facilities">Facilities</a>
