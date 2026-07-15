@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
+import NavManagement from "@/components/shared/NavManagement";
 import MobileNav from "@/components/shared/MobileNav";
 import TopStrip from "@/components/shared/TopStrip";
 import { APPOINTMENT_SERVICES_WITH_FERTILITY, BRANCH_NAMES, SITE_LINKS } from "@/data/site";
@@ -32,7 +33,9 @@ export default function BookEmergencyPage() {
         <nav className="nav">
           <a href="/">Home</a>
           <a href="/about">About</a>
-          <a href="/doctors">Doctors</a>
+          <NavManagement />
+          
+          <a href="/paediatric-super-specialities">Pediatric Super Specialities</a>
           <NavTreatments />
           <a href="/facilities">Facilities</a>
           <a href="/contact">Contact</a>

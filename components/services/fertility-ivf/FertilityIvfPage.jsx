@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import NavManagement from "@/components/shared/NavManagement";
+import MobileNav from "@/components/shared/MobileNav";
 
 /* ════════════════════════════════════════════════════════════════════════
    RIO CHILDREN'S HOSPITAL — SERVICE PAGE (reusable template)
@@ -140,31 +142,7 @@ const FIC = {
 function FIcon({ name }) { return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">{FIC[name]}</svg>; }
 
 /* ───────── template ───────── */
-function MobileNav({ open, onClose }) {
-  return (
-    <div className={`mnav ${open ? "open" : ""}`} onClick={onClose}>
-      <div className="mnav-panel" onClick={(e) => e.stopPropagation()}>
-        <button className="mnav-x" aria-label="Close menu" onClick={onClose}>×</button>
-        <a className="mnav-link" href="/" onClick={onClose}>Home</a>
-        <a className="mnav-link" href="/about" onClick={onClose}>About</a>
-        <div className="mnav-group">
-          <span className="mnav-h">Treatments</span>
-          {NAV_TREATMENTS.map((t) => (
-            <a key={t.slug} className="mnav-sub" href={`/services/${t.slug}`} onClick={onClose}>{t.name}</a>
-          ))}
-          <a className="mnav-sub mnav-all" href="/treatments" onClick={onClose}>View all treatments →</a>
-        </div>
-        <a className="mnav-link" href="/facilities" onClick={onClose}>Facilities</a>
-        <a className="mnav-link" href="/contact" onClick={onClose}>Contact</a>
-        <div className="mnav-cta">
-          <a className="btn btn-cta" href="/book-appointment" onClick={onClose}>Book an Appointment</a>
-          <a className="btn btn-pink" href={LINKS.call} onClick={onClose}>Call Now</a>
-          <a className="btn btn-green" href={LINKS.whatsapp} target="_blank" rel="noreferrer" onClick={onClose}>WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  );
-}
+
 
 function FertilityIvfPageContent({ service: s }) {
   const [solid, setSolid] = useState(false);
@@ -182,7 +160,8 @@ function FertilityIvfPageContent({ service: s }) {
 
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
-        <nav className="nav"><a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
+        <nav className="nav"><a href="/">Home</a><a href="/about">About</a>
+          <NavManagement /><a href="/paediatric-super-specialities">Pediatric Super Specialities</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
         <div className="nav-cta">
           <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
@@ -364,7 +343,7 @@ function FertilityIvfPageContent({ service: s }) {
             <p className="vals">TRUST • CARE • INNOVATION • COMPASSION • EXCELLENCE</p>
           </div>
           <div><h4>Treatments</h4><ul>{APPT_SERVICES.slice(0, 6).map((x) => <li key={x}>{x}</li>)}</ul></div>
-          <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about">About Us</a></li><li><a href="/contact">Contact</a></li></ul></div>
+          <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about">About Us</a></li><li><a href="/about/chairman">Founder &amp; Chairman</a></li><li><a href="/about/management">Management Team</a></li></ul></div>
           <div><h4>Contact</h4><ul><li><a href={LINKS.call}>📞 +91 77083 18222</a></li><li><a href="mailto:info@riohospital.com">✉ info@riohospital.com</a></li><li><a href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></li><li><a href={LINKS.instagram} target="_blank" rel="noreferrer">Instagram</a></li></ul></div>
         </div>
         <div className="wrap footer-bottom"><span>© 2026 Rio Children's Hospital</span><span>Built by Invictus Global Tech</span></div>

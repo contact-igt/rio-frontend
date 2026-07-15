@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
 import MobileNav from "@/components/shared/MobileNav";
+import NavManagement from "@/components/shared/NavManagement";
 import TopStrip from "@/components/shared/TopStrip";
 import { APPOINTMENT_SERVICES, SITE_LINKS } from "@/data/site";
 /* ════════════════════════════════════════════════════════════════════════
@@ -62,6 +63,11 @@ const PILLARS = [
     t: "24/7 Emergency & Mother-Child Support",
     d: "Round-the-clock emergency response for newborns, children and mothers because every minute matters.",
     icon: "clock",
+  },
+  {
+    t: "Paediatric Super Specialities",
+    d: "Multidisciplinary child care under one roof, featuring cardiology, neurology, surgery, pulmonology & urology.",
+    icon: "stethoscope",
   },
 ];
 const TESTIMONIALS = [
@@ -354,6 +360,15 @@ const ICONS = {
       <path d="M12 7.5V12l3 1.8" />
     </>
   ),
+  stethoscope: (
+    <>
+      <path d="M4.5 2C3.7 2 3 2.7 3 3.5v2.3c0 .8.7 1.5 1.5 1.5S6 6.6 6 5.8V3.5C6 2.7 5.3 2 4.5 2z" />
+      <path d="M21 3.5c0-.8-.7-1.5-1.5-1.5S18 2.7 18 3.5v2.3c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5V3.5z" />
+      <path d="M4.5 7.3C4.5 11.6 8 15 12 15s7.5-3.4 7.5-7.7" />
+      <path d="M12 15v3" />
+      <path d="M12 18H9c-1.7 0-3 1.3-3 3" />
+    </>
+  ),
 };
 function Icon({ name }) {
   return (
@@ -454,14 +469,14 @@ export default function HomePage() {
               rgba(23,27,72,0)   40%)}
         .hero-inner{position:relative; z-index:3; max-width:1200px; margin:0 auto; padding:0 28px; width:100%}
         @media (max-width:760px){
-          .hero{min-height:auto; padding:110px 0 40px; display:block}
+          .hero{min-height:auto; padding:110px 0 60px; display:block; z-index:5}
           .hero-inner{padding:0 20px;}
         }
         .hero h1{color:#fff; font-size:clamp(34px,8vw,74px); max-width:880px; margin-top:18px}
         .hero h1 .accent{color:#FFA8C4}
         .hero .lede{color:#D7E7E1; font-size:18px; margin-top:22px; max-width:560px}
         .hero-cta{display:flex; gap:13px; flex-wrap:wrap; margin-top:30px}
-        @media (max-width:480px){.hero-cta .btn{width:100%; justify-content:center;}}
+        @media (max-width:760px){.hero-cta .btn{width:100%; justify-content:center;}}
         .hero-trust{display:flex; align-items:center; gap:14px; margin-top:34px; color:#FFFFFF; font-size:14.5px; font-weight:600; text-shadow:0 1px 14px rgba(0,0,0,.6)}
         .hero-trust strong{color:#fff}
         .hero-badges{display:none; gap:10px; flex-wrap:wrap; margin-top:18px}
@@ -483,7 +498,7 @@ export default function HomePage() {
         .hero-glass strong{display:block; font-family:'Proxima Nova','Mulish',sans-serif; font-size:27px; font-weight:800; color:#fff}
         .hero-glass div > span{font-size:11px; font-weight:700; color:#E3E6F5}
         @media (max-width:760px){
-          .hero-glass-wrap{position:relative; inset:auto; margin-top:40px; padding:0 20px; z-index:3; pointer-events:auto}
+          .hero-glass-wrap{position:relative; inset:auto; margin:40px 0 24px 0; padding:0 20px; z-index:3; pointer-events:auto}
           .hero-glass-container{position:relative; right:auto; bottom:auto; align-items:stretch; gap:12px}
           .hero-badges-glass{display:none}
           .hero-glass{border-radius:12px; justify-content:space-around; background:rgba(35,39,90,.85)}
@@ -511,8 +526,9 @@ export default function HomePage() {
 
 
         /* pillars */
-        .pillar-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; align-items:stretch}
-        @media (max-width:880px){.pillar-grid{grid-template-columns:1fr}}
+        .pillar-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:26px; align-items:stretch}
+        @media (max-width:1100px){.pillar-grid{grid-template-columns:repeat(2,1fr)}}
+        @media (max-width:680px){.pillar-grid{grid-template-columns:1fr}}
         .pillar-grid > .reveal{display:flex}
 
         /* uniform height + base style */
@@ -761,7 +777,9 @@ export default function HomePage() {
         <nav className="nav-links">
           <a href="/">Home</a>
           <a href="/about">About</a>
-          <a href="/doctors">Doctors</a>
+          <NavManagement />
+          
+          <a href="/paediatric-super-specialities">Pediatric Super Specialities</a>
           <NavTreatments />
           <a href="/facilities">Facilities</a>
           <a href="/contact">Contact</a>
@@ -874,7 +892,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ───────── 3 pillars ───────── */}
+        {/* ───────── 4 pillars ───────── */}
         <section className="section">
           <span
             className="blob blob-coral"
@@ -884,7 +902,7 @@ export default function HomePage() {
           <div className="wrap">
             <Reveal className="sec-head center">
               <Eyebrow>Why Choose Rio</Eyebrow>
-              <h2>Three reasons families trust us</h2>
+              <h2>Four reasons families trust us</h2>
             </Reveal>
             <div className="pillar-grid">
               {PILLARS.map((p, i) => (

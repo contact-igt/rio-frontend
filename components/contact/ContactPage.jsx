@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
 import MobileNav from "@/components/shared/MobileNav";
+import NavManagement from "@/components/shared/NavManagement";
 import TopStrip from "@/components/shared/TopStrip";
 import { APPOINTMENT_SERVICES_WITH_ENQUIRY, SITE_LINKS } from "@/data/site";
 /* ════════════════════════════════════════════════════════════════════════
@@ -161,7 +162,8 @@ export default function ContactPage() {
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
         <nav className="nav">
-          <a href="/">Home</a><a href="/about">About</a><a href="/doctors">Doctors</a><NavTreatments /><a href="/facilities">Facilities</a><a href="/contact" className="active">Contact</a>
+          <a href="/">Home</a><a href="/about">About</a>
+          <NavManagement /><a href="/paediatric-super-specialities">Pediatric Super Specialities</a><NavTreatments /><a href="/facilities">Facilities</a><a href="/contact" className="active">Contact</a>
         </nav>
                 <div className="nav-cta">
           <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
@@ -331,7 +333,7 @@ export default function ContactPage() {
             <p style={{ color: "#9398C2", maxWidth: 270, fontSize: 14 }}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
             <p className="vals">TRUST • CARE • INNOVATION • COMPASSION • EXCELLENCE</p>
           </div>
-          <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about">About Us</a></li><li><a href="/treatments">Services</a></li><li><a href="/contact">Contact</a></li></ul></div>
+          <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about">About Us</a></li><li><a href="/about/chairman">Founder &amp; Chairman</a></li><li><a href="/about/management">Management Team</a></li></ul></div>
           <div><h4>Branches</h4><ul>{BRANCHES.map((b) => <li key={b.name}>{b.name}</li>)}</ul></div>
           <div><h4>Contact</h4><ul>
             <li><a href={SITE_LINKS.call}>📞 +91 77083 18222</a></li><li><a href={SITE_LINKS.email}>✉ info@riohospital.com</a></li>

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
 import MobileNav from "@/components/shared/MobileNav";
+import NavManagement from "@/components/shared/NavManagement";
 import TopStrip from "@/components/shared/TopStrip";
 import { APPOINTMENT_SERVICES, NAV_TREATMENTS, SITE_LINKS } from "@/data/site";
 import { doctors } from "@/data/doctors";
@@ -420,9 +421,11 @@ export default function DoctorsPage() {
         <nav className="nav">
           <a href="/">Home</a>
           <a href="/about">About</a>
+          <NavManagement />
           <a href="/doctors" className="active" style={{ color: "var(--brown)" }}>
             Doctors
           </a>
+          <a href="/paediatric-super-specialities">Pediatric Super Specialities</a>
           <NavTreatments />
           <a href="/facilities">Facilities</a>
           <a href="/contact">Contact</a>
@@ -642,10 +645,10 @@ export default function DoctorsPage() {
                 <a href="/about">About Us</a>
               </li>
               <li>
-                <a href="/treatments">Treatments</a>
+                <a href="/about/chairman">Founder &amp; Chairman</a>
               </li>
               <li>
-                <a href="/book-appointment">Contact</a>
+                <a href="/about/management">Management Team</a>
               </li>
             </ul>
           </div>

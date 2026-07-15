@@ -30,11 +30,23 @@ export default function MobileNav({
         <a className="mnav-link" href="/about" onClick={onClose}>
           About
         </a>
-        {showDoctors ? (
-          <a className="mnav-link" href="/doctors" onClick={onClose}>
-            Doctors
+        <div className="mnav-group">
+          <span className="mnav-h">Management</span>
+          <a className="mnav-sub" href="/about/chairman" onClick={onClose}>
+            Founder & Chairman
           </a>
-        ) : null}
+          <a className="mnav-sub" href="/about/management" onClick={onClose}>
+            Management Team
+          </a>
+          {showDoctors ? (
+            <a className="mnav-sub" href="/doctors" onClick={onClose}>
+              Our Doctors
+            </a>
+          ) : null}
+        </div>
+        <a className="mnav-link" href="/paediatric-super-specialities" onClick={onClose}>
+          Paediatric Super Specialities
+        </a>
         <a className="mnav-link" href="/facilities" onClick={onClose}>
           Facilities
         </a>

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
 import MobileNav from "@/components/shared/MobileNav";
+import NavManagement from "@/components/shared/NavManagement";
 import TopStrip from "@/components/shared/TopStrip";
 import { APPOINTMENT_SERVICES, SITE_LINKS } from "@/data/site";
 /* ════════════════════════════════════════════════════════════════════════
@@ -554,10 +555,10 @@ export default function AboutPage() {
         <Logo />
         <nav className="nav-links">
           <a href="/">Home</a>
-          <a href="/about" className="active">
-            About
-          </a>
-          <a href="/doctors">Doctors</a>
+          <a href="/about" className="active">About</a>
+          <NavManagement />
+          
+          <a href="/paediatric-super-specialities">Pediatric Super Specialities</a>
           <NavTreatments />
           <a href="/facilities">Facilities</a>
           <a href="/contact">Contact</a>
@@ -962,10 +963,10 @@ export default function AboutPage() {
                 <a href="/about">About Us</a>
               </li>
               <li>
-                <a href="/treatments">Treatments</a>
+                <a href="/about/chairman">Founder &amp; Chairman</a>
               </li>
               <li>
-                <a href="/#milkbank">Human Milk Bank</a>
+                <a href="/about/management">Management Team</a>
               </li>
             </ul>
           </div>

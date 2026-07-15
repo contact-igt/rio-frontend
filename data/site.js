@@ -29,6 +29,7 @@ export const APPOINTMENT_SERVICES = [
   "PICU",
   "Paediatric Emergency Care",
   "General Paediatrics",
+  "Paediatric Super Specialities",
   "Vaccination Services",
   "Human Milk Bank",
   "Maternity Care",
