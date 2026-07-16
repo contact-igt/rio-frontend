@@ -982,7 +982,7 @@ export default function HomePage() {
         {/* ───────── faq ───────── */}
         <section className={`section tint-sage ${styles.faqSection}`} id="faq">
           <div className="wrap">
-            <Reveal className="sec-head">
+            <Reveal className="sec-head center">
               <Eyebrow>FAQ</Eyebrow>
               <h2>Frequently asked questions</h2>
             </Reveal>

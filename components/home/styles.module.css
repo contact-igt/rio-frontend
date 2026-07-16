@@ -753,7 +753,7 @@
 
 .page .trimesterRail::before {
   /* 32px card padding + half of the 38px numbered badge */
-  top: 51px !important;
+  top: 145px !important;
   z-index: 0;
 }
 
@@ -1361,7 +1361,7 @@
 }
 
 .page :global(.home-cta .cta-copy) {
-  padding: 100px 48px 58px 56px;
+  padding: 58px 48px 58px 56px;
   color: #fff;
   display: flex;
   flex-direction: column;
