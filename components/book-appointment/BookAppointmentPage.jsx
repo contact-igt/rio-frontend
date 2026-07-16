@@ -7,6 +7,7 @@ import NavManagement from "@/components/shared/NavManagement";
 import MobileNav from "@/components/shared/MobileNav";
 import TopStrip from "@/components/shared/TopStrip";
 import { APPOINTMENT_SERVICES_WITH_FERTILITY, BRANCH_NAMES, SITE_LINKS } from "@/data/site";
+import styles from "./styles.module.css";
 const IMG = {
   logo: "/assets/shared/riologov2.png",
   hero: "/assets/book-appointment/child-newborn.png",
@@ -25,7 +26,7 @@ export default function BookAppointmentPage() {
   }, []);
 
   return (
-    <div className="rio booking-page">
+    <div className={`rio booking-page ${styles.page}`}>
       <TopStrip callHref={SITE_LINKS.call} />
 
       <header className={`header ${solid ? "solid" : ""}`}>
@@ -57,8 +58,8 @@ export default function BookAppointmentPage() {
         <section className="hero">
           <div className="wrap hero-grid">
             <div>
-              <span className="eyebrow" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
-                <i className="ey-dot" style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--pink)", display: "inline-block" }} />
+              <span className={`eyebrow ${styles.eyebrowInline}`}>
+                <i className={`ey-dot ${styles.eyDot}`} />
                 Book Appointment
               </span>
               <h1>Book an <span>appointment</span> with Rio.</h1>
@@ -71,9 +72,9 @@ export default function BookAppointmentPage() {
 
             <div className="panel">
               <h2>Request a call back</h2>
-              <p style={{ marginTop: 8 }}>Share a few details and we will help you plan the visit.</p>
+              <p className={styles.panelIntro}>Share a few details and we will help you plan the visit.</p>
               {sent ? (
-                <div className="done" style={{ marginTop: 20 }}>Thanks! Our care team will contact you shortly.</div>
+                <div className={`done ${styles.doneSpace}`}>Thanks! Our care team will contact you shortly.</div>
               ) : (
                 <form className="form" onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
                   <div className="field">
@@ -102,38 +103,38 @@ export default function BookAppointmentPage() {
                     <label>Message</label>
                     <textarea placeholder="Tell us briefly how we can help" />
                   </div>
-                  <button className="btn btn-cta" type="submit" style={{ width: "100%", justifyContent: "center", marginTop: 8 }}>Submit request ↗</button>
+                  <button className={`btn btn-cta ${styles.fullButton}`} type="submit">Submit request ↗</button>
                 </form>
               )}
             </div>
           </div>
         </section>
 
-        <section className="wrap info" style={{ padding: "64px 0" }}>
+        <section className={`wrap info ${styles.infoSection}`}>
           <div className="card">
             <strong>24/7 response</strong>
-            <p style={{ fontSize: "14px", color: "var(--muted)", lineHeight: 1.5 }}>Emergency support is available day and night across all four Rio branches.</p>
+            <p className={styles.infoText}>Emergency support is available day and night across all four Rio branches.</p>
           </div>
           <div className="card">
             <strong>Specialist guidance</strong>
-            <p style={{ fontSize: "14px", color: "var(--muted)", lineHeight: 1.5 }}>Our team routes you to the right doctor, department and branch for your need.</p>
+            <p className={styles.infoText}>Our team routes you to the right doctor, department and branch for your need.</p>
           </div>
           <div className="card">
             <strong>Family-first care</strong>
-            <p style={{ fontSize: "14px", color: "var(--muted)", lineHeight: 1.5 }}>Clear communication, compassionate support and coordinated women and child healthcare.</p>
+            <p className={styles.infoText}>Clear communication, compassionate support and coordinated women and child healthcare.</p>
           </div>
         </section>
       </main>
 
-      <footer className="footer" style={{ borderTop: "1px solid var(--line)", background: "#FAFBFD" }}>
-        <div className="wrap" style={{ display: "flex", justifyContent: "space-between", padding: "32px 0", flexWrap: "wrap", gap: 16 }}>
+      <footer className={`footer ${styles.bookingFooter}`}>
+        <div className={`wrap ${styles.bookingFooterWrap}`}>
           <div>
-            <div style={{ marginBottom: 12 }}><Logo footer /></div>
-            <p style={{ color: "#9398C2", maxWidth: 280, fontSize: 13, lineHeight: 1.5 }}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
+            <div className={styles.footerLogoSpace}><Logo footer /></div>
+            <p className={styles.footerDesc}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: 13, fontWeight: 600 }}>
+          <div className={styles.footerMeta}>
             <span>© 2026 Rio Children's Hospital</span>
-            <span style={{ color: "var(--muted)", fontWeight: 400 }}>Built by Invictus Global Tech</span>
+            <span className={styles.footerCredit}>Built by Invictus Global Tech</span>
           </div>
         </div>
       </footer>

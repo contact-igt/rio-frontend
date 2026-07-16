@@ -7,6 +7,7 @@ import MobileNav from "@/components/shared/MobileNav";
 import NavManagement from "@/components/shared/NavManagement";
 import TopStrip from "@/components/shared/TopStrip";
 import { APPOINTMENT_SERVICES_WITH_ENQUIRY, SITE_LINKS } from "@/data/site";
+import styles from "./styles.module.css";
 /* ════════════════════════════════════════════════════════════════════════
    RIO CHILDREN'S HOSPITAL — CONTACT US PAGE
    Rio brand: Deep Blue #303573 · Pink #FD70A1 · Green #7BA93A · Warm Brown
@@ -87,75 +88,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="rio">
-      <style>{`
-{}
-{}
-
-        /* hero */
-        .chero{padding:50px 0 8px;position:relative;overflow:hidden}
-        .chero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;position:relative;z-index:1}
-        @media(max-width:920px){.chero-grid{grid-template-columns:1fr;gap:34px}}
-
-
-        .chero h1{font-size:clamp(34px,5vw,56px);margin-top:14px}
-        .chero h1 .accent{color:var(--pink)}
-        .chero .lede{font-size:17.5px;margin-top:18px;max-width:520px}
-        .chero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-        .chero-media .frame{aspect-ratio:4/3.6;border-radius:28px;box-shadow:var(--shadow)}
-        /* quick cards */
-        .qgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:32px;position:relative;z-index:5}
-        @media(max-width:880px){.qgrid{grid-template-columns:repeat(2,1fr)}}
-        @media(max-width:520px){.qgrid{grid-template-columns:1fr}}
-        .qcard{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;display:block;transition:transform .25s,box-shadow .25s}
-        .qcard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
-        .qic{width:50px;height:50px;border-radius:14px;background:var(--pink-soft);color:var(--pink-deep);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-        .qic svg{width:24px;height:24px}
-        .qcard h3{font-size:15px}
-        .qcard .qv{font-size:16px;font-weight:800;color:var(--blue);margin:3px 0 4px}
-        .qcard .qn{font-size:12.5px;color:var(--muted)}
-        /* form + details */
-        .cgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:start}
-        @media(max-width:880px){.cgrid{grid-template-columns:1fr}}
-        .card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:34px}
-        .card h2{font-size:24px}
-        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
-        @media(max-width:520px){.form-row{grid-template-columns:1fr}}
-        .field{display:flex;flex-direction:column;gap:6px}
-        .field.full{grid-column:1/-1}
-        .field label{font-size:12.5px;font-weight:700;color:var(--ink)}
-        .field input,.field select,.field textarea{padding:12px 13px;border-radius:11px;border:1.4px solid var(--line);font-size:14px;font-family:inherit;background:#fff;color:var(--ink)}
-        .field textarea{resize:vertical;min-height:96px}
-        .done{display:flex;align-items:center;gap:10px;background:var(--green-soft);color:var(--green-deep);font-weight:700;padding:16px;border-radius:12px;font-size:14.5px}
-        .info-block + .info-block{margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}
-        .info-block h4{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--pink-deep);margin-bottom:10px}
-        .info-row{display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:600;color:var(--ink);margin-bottom:10px}
-        .info-row svg{width:18px;height:18px;flex-shrink:0;color:var(--pink-deep)}
-        .info-row a{color:var(--ink)}.info-row a:hover{color:var(--blue)}
-        .socials{display:flex;gap:10px;margin-top:6px}
-        .socials a{width:40px;height:40px;border-radius:11px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;transition:background .2s ease, color .2s ease}
-        .socials a:hover{background:var(--blue);color:#fff}
-        .socials a svg{width:18px;height:18px}
-        /* branches */
-        .bgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-        @media(max-width:820px){.bgrid{grid-template-columns:1fr}}
-        .bcard{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;display:grid;grid-template-columns:.9fr 1.1fr}
-        @media(max-width:520px){.bcard{grid-template-columns:1fr}}
-        .bbody{padding:22px}
-        .btag{font-size:10.5px;font-weight:800;color:var(--green-deep);background:var(--green-soft);padding:4px 10px;border-radius:999px;letter-spacing:.04em}
-        .bbody h3{font-size:16.5px;margin:10px 0 8px}
-        .bbody p{font-size:12.8px;line-height:1.5}
-        .bphones{display:flex;flex-direction:column;gap:5px;margin-top:12px}
-        .bphones a{font-size:13.5px;font-weight:700;color:var(--pink-deep)}
-        .bdir{display:inline-flex;margin-top:12px;font-size:12.5px;font-weight:800;color:var(--blue);gap:6px}
-        .mapwrap{margin-top:34px;border-radius:24px;overflow:hidden;border:1px solid var(--line);height:380px}
-        .mapwrap iframe{width:100%;height:100%;border:0;display:block}
-        /* careers */
-        .careers{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:24px;padding:34px}
-        .careers h3{font-size:20px}
-        .careers-links{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;font-weight:700}
-        .careers-links a{color:var(--blue)}
-      `}</style>
+    <div className={`rio ${styles.page}`}>
 
       <TopStrip callHref={SITE_LINKS.call} />
 
@@ -177,8 +110,8 @@ export default function ContactPage() {
       <main>
         {/* hero */}
         <section className="chero">
-          <span className="blob" style={{ width: 300, height: 300, top: "-4%", left: "-6%", background: "radial-gradient(circle at 30% 30%,#FFC4DA,transparent 70%)" }} />
-          <span className="blob" style={{ width: 260, height: 260, bottom: "0%", right: "-6%", background: "radial-gradient(circle at 30% 30%,#C9CEF2,transparent 70%)" }} />
+          <span className={`blob ${styles.contactBlobPink}`} />
+          <span className={`blob ${styles.contactBlobBlue}`} />
           <div className="wrap chero-grid">
             <Reveal>
               <Eyebrow>Contact Us</Eyebrow>
@@ -197,7 +130,7 @@ export default function ContactPage() {
         </section>
 
         {/* quick cards */}
-        <section className="wrap" style={{ paddingBottom: 8 }}>
+        <section className={`wrap ${styles.contactIntroSection}`}>
           <div className="qgrid">
             {QUICK.map((q, i) => (
               <Reveal key={q.t} delay={i * 70}>
@@ -217,7 +150,7 @@ export default function ContactPage() {
           <div className="wrap cgrid">
             <Reveal className="card">
               <Eyebrow>Send an enquiry</Eyebrow>
-              <h2 style={{ marginTop: 10 }}>Request a call back</h2>
+              <h2 className={styles.headingTopSmall}>Request a call back</h2>
               <p className="sec-note">Fill this in and our team will get back to you quickly.</p>
               {sent ? (
                 <div className="done mt-26"><span>✓</span> Thank you! Our team will contact you shortly.</div>
@@ -230,14 +163,14 @@ export default function ContactPage() {
                     <div className="field"><label>Service needed</label><select required defaultValue=""><option value="" disabled>Select a service</option>{APPOINTMENT_SERVICES_WITH_ENQUIRY.map((s) => <option key={s}>{s}</option>)}</select></div>
                     <div className="field full"><label>Message (optional)</label><textarea placeholder="Tell us briefly how we can help" /></div>
                   </div>
-                  <button className="btn btn-cta mt-26" type="submit" style={{ width: "100%", justifyContent: "center" }}>Request a Call Back ↗</button>
+                  <button className={`btn btn-cta mt-26 ${styles.fullButton}`} type="submit">Request a Call Back ↗</button>
                 </form>
               )}
             </Reveal>
 
             <Reveal delay={120} className="card">
               <Eyebrow>Reach us directly</Eyebrow>
-              <h2 style={{ marginTop: 10, fontSize: 22 }}>Contact details</h2>
+              <h2 className={styles.contactDetailsTitle}>Contact details</h2>
               <div className="info-block mt-26">
                 <h4>Phone</h4>
                 <div className="info-row"><CIcon name="phone" /><a href={SITE_LINKS.call}>+91 77083 18222</a></div>
@@ -297,7 +230,7 @@ export default function ContactPage() {
             <Reveal className="careers">
               <div>
                 <Eyebrow>Careers</Eyebrow>
-                <h3 style={{ marginTop: 10 }}>Join the Rio family</h3>
+                <h3 className={styles.headingTopSmall}>Join the Rio family</h3>
                 <p className="sec-note">We're hiring across nursing, lab, pharmacy, front-office and clinical roles at all branches.</p>
               </div>
               <div className="careers-links">
@@ -310,7 +243,7 @@ export default function ContactPage() {
         </section>
 
         {/* cta */}
-        <section className="section" style={{ paddingTop: 0 }}>
+        <section className={`section ${styles.sectionNoTop}`}>
           <div className="wrap">
             <Reveal className="cta-band">
               <div>
@@ -329,8 +262,8 @@ export default function ContactPage() {
       <footer className="footer">
         <div className="wrap">
           <div>
-            <div style={{ marginBottom: 16 }}><Logo footer /></div>
-            <p style={{ color: "#9398C2", maxWidth: 270, fontSize: 14 }}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
+            <div className={styles.footerLogoSpace}><Logo footer /></div>
+            <p className={styles.footerDescPurple}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
             <p className="vals">TRUST • CARE • INNOVATION • COMPASSION • EXCELLENCE</p>
           </div>
           <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about">About Us</a></li><li><a href="/about/chairman">Founder &amp; Chairman</a></li><li><a href="/about/management">Management Team</a></li></ul></div>

@@ -6,7 +6,8 @@ import NavTreatments from "@/components/shared/NavTreatments";
 import MobileNav from "@/components/shared/MobileNav";
 import NavManagement from "@/components/shared/NavManagement";
 import TopStrip from "@/components/shared/TopStrip";
-import { APPOINTMENT_SERVICES, SITE_LINKS } from "@/data/site";
+import { APPOINTMENT_SERVICES, SITE_LINKS } from "@/data/site";
+import styles from "./about-page/styles.module.css";
 /* ════════════════════════════════════════════════════════════════════════
    RIO CHILDREN'S HOSPITAL — ABOUT US PAGE
 
@@ -360,193 +361,7 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <div className="rio about-page">
-      <style>{`
-.nav-links a.active{position:relative}
-
-
-        .nav-cta
-        /* about hero — editorial */
-        .ahero{padding:54px 0 10px; position:relative}
-        .ahero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:58px; align-items:center}
-        @media (max-width:940px){.ahero-grid{grid-template-columns:1fr; gap:40px}}
-        .ahero h1{font-size:clamp(38px,5.4vw,62px); margin-top:18px}
-        .ahero h1 .accent{color:var(--coral)}
-        .ahero .lede{font-size:18px; margin-top:20px; max-width:540px}
-        .ahero-cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:28px}
-        .ahero-media{position:relative}
-        .ahero-media .frame{aspect-ratio:4/4.4; border-radius:30px; box-shadow:var(--shadow)}
-        .ahero-media .frame img{height:118%; top:-9%; position:relative}
-        .seal {
-          position: absolute;
-          top: 16px;
-          left: 16px;
-          width: 84px;
-          height: 84px;
-          border-radius: 50%;
-          background: var(--blue);
-          color: #fff;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 8px 24px rgba(48, 53, 115, 0.25);
-          z-index: 5;
-          border: 2.5px solid #fff;
-        }
-        .seal strong { font-family: 'Proxima Nova', 'Mulish', sans-serif; font-size: 26px; line-height: 1; font-weight: 800; }
-        .seal span { font-size: 9px; font-weight: 800; letter-spacing: .12em; margin-top: 2px; }
-
-        /* breadcrumb */
-
-
-
-        /* story split */
-
-        @media (max-width:880px){}
-
-
-
-        .split p + p{margin-top:14px}
-         @media (max-width:880px){}
-
-        /* stat band */
-        .about-page .statband{background:var(--teal); color:#fff; padding:20px 0; width:100%; margin:46px 0; border-radius:0; box-shadow:none}
-        .about-page .statband > .wrap{display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; gap:12px 18px}
-        .about-page .statband > .wrap > div{text-align:center; flex:1; min-width:180px; padding:4px 18px; border-right:1px solid rgba(255,255,255,.14); transition:transform .3s ease}
-        .about-page .statband > .wrap > div:hover{transform:scale(1.05)}
-        .about-page .statband > .wrap > div:last-child{border-right:none}
-        .about-page .statband strong{display:inline-block; font-family:'Proxima Nova','Mulish',sans-serif; font-weight:800; font-size:24px; color:#fff; line-height:1; vertical-align:middle}
-        .about-page .statband div > span{font-size:13.5px; color:#D6D9F0; font-weight:600; margin-left:8px; display:inline-block; vertical-align:middle}
-
-        @media (max-width:768px){
-          .about-page .statband{margin:36px 0; padding:16px 0}
-          .about-page .statband > .wrap > div{border-right:none; border-bottom:1px solid rgba(255,255,255,.1); padding-bottom:12px; margin-bottom:12px}
-          .about-page .statband > .wrap > div:last-child{border-bottom:none; padding-bottom:0; margin-bottom:0}
-          .about-page .statband strong{display:block}
-          .about-page .statband div > span{display:block; margin-left:0; margin-top:2px}
-        }
-
-        /* mission / vision */
-        .mv-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px}
-        @media (max-width:820px){.mv-grid{grid-template-columns:1fr}}
-        .mv{border-radius:26px; padding:40px; border:1px solid var(--line)}
-        .mv-mission{background:#fff}
-        .mv-vision{background:var(--teal); color:#fff}
-        .mv-vision h3,.mv-vision  .mv-vision  .mv-vision
-        .mv-vision p{color:#C7E2DA}
-        .mv h3{font-size:24px; margin:12px 0 12px; font-family:'Proxima Nova','Mulish',sans-serif; font-weight:400}
-        .mv-pts{display:flex; flex-wrap:wrap; gap:9px; margin-top:18px}
-        .mv-pt{font-size:12.5px; font-weight:700; background:var(--coral-soft); color:var(--coral-deep); padding:8px 13px; border-radius:999px}
-
-        /* values */
-        .val-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:18px; align-items:stretch}
-        @media (max-width:980px){.val-grid{grid-template-columns:repeat(3,1fr)}}
-        @media (max-width:620px){.val-grid{grid-template-columns:repeat(2,1fr)}}
-        .val-grid > .reveal{display:flex}
-
-        .val{background:#fff; border:1px solid var(--line); border-radius:18px; padding:28px 24px;
-          display:flex; flex-direction:column; position:relative; overflow:hidden; flex:1;
-          transition:transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s cubic-bezier(.2,.7,.2,1), border-color .3s}
-
-        /* gradient top-border */
-        .val::before{content:""; position:absolute; top:0; left:0; right:0; height:3.5px;
-          background:linear-gradient(90deg, var(--coral), var(--blue));
-          transform:scaleX(0); transform-origin:left; transition:transform .35s cubic-bezier(.2,.7,.2,1)}
-        .val:hover::before{transform:scaleX(1)}
-
-        /* shimmer sweep */
-        .val::after{content:""; position:absolute; inset:-2px; pointer-events:none;
-          background:linear-gradient(120deg, transparent 30%, rgba(255,255,255,.55) 50%, transparent 70%);
-          transform:translateX(-130%); transition:transform 560ms cubic-bezier(.2,.7,.2,1)}
-        .val:hover::after{transform:translateX(130%)}
-
-        .val:hover{transform:translateY(-6px); box-shadow:0 22px 44px -18px rgba(48,53,115,.2); border-color:rgba(48,53,115,.14)}
-
-        /* icon */
-        .val-ic-wrap{width:48px; height:48px; border-radius:14px; background:var(--coral-soft);
-          display:flex; align-items:center; justify-content:center; margin-bottom:20px; flex-shrink:0;
-          transition:background .28s, transform .28s cubic-bezier(.2,.7,.2,1)}
-        .val:hover .val-ic-wrap{background:var(--pink); transform:scale(1.08) rotate(-3deg)}
-        .val-icon{width:22px; height:22px; color:var(--coral-deep); transition:color .28s}
-        .val:hover .val-icon{color:#fff}
-
-        /* text */
-        .val h3{font-size:16.5px; margin-bottom:8px; transition:color .22s}
-        .val:hover h3{color:var(--blue)}
-        .val p{font-size:13.5px; line-height:1.55; color:var(--muted); flex:1}
-
-        /* timeline */
-        .tl{position:relative; max-width:820px; margin:0 auto; padding-left:34px}
-        .tl::before{content:""; position:absolute; left:8px; top:6px; bottom:6px; width:2px; background:linear-gradient(var(--coral), var(--teal))}
-        .tl-item{position:relative; padding:0 0 38px 8px;
-          transition:opacity .7s cubic-bezier(.2, .7,.2,1), transform .7s cubic-bezier(.2, .7,.2,1)}
-        .tl-item:hover{transform:translateX(6px); transition:transform .3s ease}
-        .tl-item:last-child{padding-bottom:0}
-        
-        /* dot pops in when section triggers (.in) */
-        .tl-dot{position:absolute; left:-34px; top:2px; width:18px; height:18px; border-radius:50%; background:#fff; border:3px solid var(--coral); box-shadow:0 0 0 5px var(--coral-soft);
-          transform:scale(0); transition:transform .55s cubic-bezier(.34, 1.56, .64, 1) .22s, background .25s, box-shadow .25s}
-        .reveal.in .tl-dot{transform:scale(1)}
-        .tl-item:hover .tl-dot{background:var(--coral); box-shadow:0 0 0 8px var(--coral-soft)}
-        
-        .tl-y{font-family:'Proxima Nova','Mulish',sans-serif; font-size:22px; color:var(--teal); line-height:1; transition:color .22s}
-        .tl-item:hover .tl-y{color:var(--pink)}
-        .tl-item h3{font-size:17.5px; margin:6px 0 6px; transition:color .22s}
-        .tl-item:hover h3{color:var(--blue)}
-        .tl-item p{font-size:14px; line-height:1.6}
-
-        /* trust themes */
-        .themes{display:flex; flex-wrap:wrap; gap:12px}
-        .theme{display:inline-flex; align-items:center; gap:9px; background:#fff; border:1px solid var(--line); border-radius:999px; padding:11px 18px; font-size:14px; font-weight:600; color:var(--ink)}
-        .theme i{color:var(--coral-deep); font-style:normal; font-weight:800}
-
-        /* departments */
-        .dept-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
-        @media (max-width:820px){.dept-grid{grid-template-columns:repeat(2,1fr)}}
-        @media (max-width:520px){.dept-grid{grid-template-columns:1fr}}
-        .dept{background:#fff; border:1px solid var(--line); border-radius:13px; padding:15px 18px; font-size:14px; font-weight:600; color:var(--ink);
-          display:flex; align-items:center; gap:10px; cursor:default;
-          transition:transform .28s cubic-bezier(.2,.7,.2,1), box-shadow .28s cubic-bezier(.2,.7,.2,1), border-color .28s, color .28s}
-        .dept:hover{transform:translateY(-3px); box-shadow:0 0 16px rgba(253,112,161,.36), 0 12px 24px -12px rgba(48,53,115,.16); border-color:var(--pink); color:var(--blue)}
-        .dept i{width:7px; height:7px; border-radius:50%; background:var(--coral); flex-shrink:0; transition:transform .28s cubic-bezier(.2,.7,.2,1), background-color .28s}
-        .dept:hover i{transform:scale(1.3); background-color:var(--pink-deep)}
-
-        /* approach */
-        .ap-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
-        @media (max-width:880px){.ap-grid{grid-template-columns:1fr}}
-        .ap{padding:6px}
-        .ap-rule{width:36px;height:3px;background:var(--coral); border-radius:2px; margin-bottom:16px}
-        .ap h3{font-size:18px; margin-bottom:9px}
-
-        /* specialist band */
-
-        @media (max-width:820px){}
-
-
-        @media (max-width:820px){}
-
-
-
-        /* branches */
-
-        @media (max-width:920px){}
-        @media (max-width:560px){}
-
-
-
-
-
-
-
-
-        /* cta */
-
-
-
-
- }
-      `}</style>
+    <div className={`rio about-page ${styles.page}`}>
 
       <div className="progress" ref={progressRef} />
       <TopStrip callHref={SITE_LINKS.call} />
@@ -593,8 +408,7 @@ export default function AboutPage() {
         {/* hero */}
         <section className="ahero">
           <span
-            className="blob blob-coral"
-            style={{ width: 300, height: 300, top: "0%", left: "-8%" }}
+            className={`blob blob-coral ${styles.aboutBlobHero}`}
             data-par="0.12"
           />
           <div className="wrap ahero-grid">
@@ -685,8 +499,7 @@ export default function AboutPage() {
         {/* mission / vision */}
         <section className="section">
           <span
-            className="blob blob-teal"
-            style={{ width: 280, height: 280, bottom: "0%", right: "-8%" }}
+            className={`blob blob-teal ${styles.aboutBlobMission}`}
             data-par="0.1"
           />
           <div className="wrap">
@@ -755,8 +568,7 @@ export default function AboutPage() {
         {/* timeline */}
         <section className="section">
           <span
-            className="blob blob-coral"
-            style={{ width: 260, height: 260, top: "8%", left: "-6%" }}
+            className={`blob blob-coral ${styles.aboutBlobTimeline}`}
             data-par="0.1"
           />
           <div className="wrap">
@@ -786,7 +598,7 @@ export default function AboutPage() {
               <p className="sec-note">
                 Consistent feedback from the families we care for highlights the qualities that bring them back and inspire them to recommend Rio to others.
               </p>
-              <div className="themes" style={{ marginTop: 22 }}>
+              <div className={`themes ${styles.themesSpace}`}>
                 {TRUST_THEMES.map((t) => (
                   <span key={t} className="theme">
                     <i>✓</i>
@@ -942,10 +754,8 @@ export default function AboutPage() {
       <footer className="footer">
         <div className="wrap">
           <div>
-            <div style={{ marginBottom: 16 }}>
-              <Logo footer />
-            </div>
-            <p style={{ color: "#9FC4BB", maxWidth: 270, fontSize: 14 }}>
+            <div className={styles.footerLogoSpace}><Logo footer /></div>
+            <p className={styles.footerDescGreen}>
               Advanced women and child healthcare across Tamil Nadu combining
               medical expertise, modern facilities, and compassionate care.
             </p>
