@@ -12,7 +12,8 @@
 /* --- doctors hero search area --- */
 .page :global(.doc-hero) {
   background: linear-gradient(135deg, var(--brown-soft) 0%, #FFF8EE 100%);
-  padding: 120px 0 60px;
+  /* padding: 120px 0 60px; */
+  padding: clamp(76px, 8vw, 120px) 0;
   text-align: center;
   position: relative;
   border-bottom: 1px solid var(--line);
@@ -45,7 +46,7 @@
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 999px;
-  padding: 6px 10px 6px 24px;
+  padding: 15px;
   display: flex;
   align-items: center;
   box-shadow: 0 10px 30px rgba(189, 132, 76, .08);
@@ -91,12 +92,54 @@
 /* --- department filter chips --- */
 .page :global(.dept-filter-sec) {
   background: #FFF;
-  padding: 24px 0;
+  padding: 14px 0;
   border-bottom: 1px solid var(--line);
   position: sticky;
   top: 76px;
   z-index: 10;
   box-shadow: 0 4px 12px rgba(0, 0, 0, .02);
+}
+
+.page :global(.dept-filter-sec .wrap) {
+  margin: 0 auto;
+}
+
+.chipsControl {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 42px;
+  align-items: center;
+  gap: 10px;
+}
+
+.chipsArrow {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--teal);
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color .22s ease, border-color .22s ease, color .22s ease, transform .22s ease;
+}
+
+.chipsArrow:hover {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.chipsArrow:active {
+  transform: translateY(0) scale(.96);
+}
+
+.chipsArrow:focus-visible {
+  outline: 3px solid rgba(253, 112, 161, .52);
+  outline-offset: 3px;
 }
 
 .page :global(.chips-scroll-wrap) {
@@ -106,6 +149,23 @@
   padding: 4px 10px;
   scrollbar-width: none;
   /* Firefox */
+}
+
+@media (max-width: 560px) {
+  .page :global(.dept-filter-sec) {
+    padding: 10px 0;
+  }
+
+  .chipsControl {
+    grid-template-columns: 36px minmax(0, 1fr) 36px;
+    gap: 6px;
+  }
+
+  .chipsArrow {
+    width: 36px;
+    height: 36px;
+    font-size: 19px;
+  }
 }
 
 .page :global(.chips-scroll-wrap::-webkit-scrollbar) {

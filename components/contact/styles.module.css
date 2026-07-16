@@ -1,4 +1,20 @@
         /* hero */
+        .page :global(.section) {
+                padding-block: clamp(68px, 8vw, 120px);
+        }
+
+        .page :global(.section > .wrap) {
+                margin: 0 auto;
+        }
+
+        .page .careersSection {
+                padding-bottom: clamp(36px, 4vw, 60px);
+        }
+
+        .page .emergencyCtaSection {
+                padding-top: clamp(36px, 4vw, 60px);
+        }
+
         .page :global(.chero) {
                 padding: 50px 0 8px;
                 position: relative;
@@ -389,10 +405,6 @@
                 color: var(--blue)
         }
 
-        .sectionNoTop {
-                padding-top: 0;
-        }
-
         .fullButton {
                 width: 100%;
                 justify-content: center;
@@ -460,8 +472,14 @@
                 background: radial-gradient(circle at 30% 30%, #C9CEF2, transparent 70%);
         }
 
-        .contactIntroSection {
-                padding-bottom: 8px;
+        .page .contactIntroSection {
+                margin: 0 auto;
+                padding-top: clamp(36px, 4vw, 60px);
+                padding-bottom: 0;
+        }
+
+        .page .enquirySection {
+                padding-top: clamp(36px, 4vw, 60px);
         }
 
         .contactDetailsTitle {

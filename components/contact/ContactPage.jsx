@@ -1,5 +1,6 @@
 "use client";
 
+import SiteFooter from "@/components/shared/SiteFooter";
 import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
@@ -146,7 +147,7 @@ export default function ContactPage() {
         </section>
 
         {/* form + details */}
-        <section className="section" id="enquire">
+        <section className={`section ${styles.enquirySection}`} id="enquire">
           <div className="wrap cgrid">
             <Reveal className="card">
               <Eyebrow>Send an enquiry</Eyebrow>
@@ -225,7 +226,7 @@ export default function ContactPage() {
         </section>
 
         {/* careers */}
-        <section className="section">
+        <section className={`section ${styles.careersSection}`}>
           <div className="wrap">
             <Reveal className="careers">
               <div>
@@ -243,7 +244,7 @@ export default function ContactPage() {
         </section>
 
         {/* cta */}
-        <section className={`section ${styles.sectionNoTop}`}>
+        <section className={`section ${styles.emergencyCtaSection}`}>
           <div className="wrap">
             <Reveal className="cta-band">
               <div>
@@ -259,22 +260,7 @@ export default function ContactPage() {
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="wrap">
-          <div>
-            <div className={styles.footerLogoSpace}><Logo footer /></div>
-            <p className={styles.footerDescPurple}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
-            <p className="vals">TRUST • CARE • INNOVATION • COMPASSION • EXCELLENCE</p>
-          </div>
-          <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about">About Us</a></li><li><a href="/about/chairman">Founder &amp; Chairman</a></li><li><a href="/about/management">Management Team</a></li></ul></div>
-          <div><h4>Branches</h4><ul>{BRANCHES.map((b) => <li key={b.name}>{b.name}</li>)}</ul></div>
-          <div><h4>Contact</h4><ul>
-            <li><a href={SITE_LINKS.call}>📞 +91 77083 18222</a></li><li><a href={SITE_LINKS.email}>✉ info@riohospital.com</a></li>
-            <li><a href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></li><li><a href={SITE_LINKS.instagram} target="_blank" rel="noreferrer">Instagram</a></li>
-          </ul></div>
-        </div>
-        <div className="wrap footer-bottom"><span>© 2026 Rio Children's Hospital</span><span>Built by Invictus Global Tech</span></div>
-      </footer>
+      <SiteFooter />
 
       <div className="mbar">
         <a className="btn btn-pink" href={SITE_LINKS.call}>Call</a>
@@ -284,9 +270,6 @@ export default function ContactPage() {
     </div>
   );
 }
-
-
-
 
 
 

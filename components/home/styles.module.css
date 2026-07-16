@@ -10,7 +10,7 @@
 
 
 
-/* ── PARALLAX HERO ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ PARALLAX HERO Ã¢â€â‚¬Ã¢â€â‚¬ */
 /* Home-only vertical rhythm
    Keep shared globals untouched; normalize spacing inside this page. */
 .page :global(.wrap) {
@@ -18,7 +18,7 @@
 }
 
 .page :global(.section) {
-  padding: clamp(76px, 8vw, 112px) 0;
+  padding: clamp(76px, 8vw, 120px) 0;
 }
 
 .page :global(.section.tint-sage),
@@ -266,7 +266,7 @@
   bottom: 36px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   gap: 12px;
   pointer-events: auto
 }
@@ -364,7 +364,7 @@
   }
 }
 
-/* ── PARALLAX FULL-BLEED BAND ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ PARALLAX FULL-BLEED BAND Ã¢â€â‚¬Ã¢â€â‚¬ */
 .page :global(.band) {
   position: relative;
   min-height: 60vh;
@@ -640,7 +640,7 @@
   border-color: rgba(48, 53, 115, .18)
 }
 
-/* image area — fixed ratio, covers uniformly */
+/* image area Ã¢â‚¬â€ fixed ratio, covers uniformly */
 .page :global(.svc .img-wrap) {
   aspect-ratio: 16/10;
   flex-shrink: 0;
@@ -743,12 +743,23 @@
 .page :global(.tri-rail::before) {
   content: "";
   position: absolute;
-  top: 42px;
+  top: 51px;
   left: 8%;
   right: 8%;
   height: 2px;
   background: repeating-linear-gradient(90deg, var(--coral) 0 9px, transparent 9px 18px);
   pointer-events: none
+}
+
+.page .trimesterRail::before {
+  /* 32px card padding + half of the 38px numbered badge */
+  top: 51px !important;
+  z-index: 0;
+}
+
+.page .trimesterRail > :global(.reveal) {
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width:820px) {
@@ -762,7 +773,12 @@
 }
 
 .page :global(.tri-rail > .reveal) {
-  display: flex
+  display: flex;
+  margin-top: 0
+}
+
+.page :global(.tri-rail > .reveal.in) {
+  margin-top: 0
 }
 
 .page :global(.tri) {
@@ -906,7 +922,7 @@
   margin-bottom: 16px
 }
 
-/* ── HUMAN MILK BANK (dedicated) ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ HUMAN MILK BANK (dedicated) Ã¢â€â‚¬Ã¢â€â‚¬ */
 .page :global(.mbank) {
   background: linear-gradient(180deg, var(--teal-soft), #fff)
 }
@@ -1024,7 +1040,7 @@
   margin-top: 42px
 }
 
-/* ── SIGNATURE: staggered multi-speed gallery ── */
+/* Ã¢â€â‚¬Ã¢â€â‚¬ SIGNATURE: staggered multi-speed gallery Ã¢â€â‚¬Ã¢â€â‚¬ */
 .page :global(.gal) {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1319,9 +1335,9 @@
 
 /* cta */
 
-.page :global(.rio .home-cta) {
+.page :global(.home-cta) {
   display: grid !important;
-  grid-template-columns: minmax(0, .88fr) minmax(430px, 1.12fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch !important;
   gap: 0 !important;
   padding: 0 !important;
@@ -1329,7 +1345,7 @@
 }
 
 .page :global(.home-cta .cta-copy) {
-  padding: 58px 48px 58px 56px;
+  padding: 100px 48px 58px 56px;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -1382,6 +1398,21 @@
   color: var(--ink)
 }
 
+.callbackForm {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.callbackForm :global(input),
+.callbackForm :global(select) {
+  margin-bottom: 0;
+}
+
+.callbackForm :global(.btn) {
+  grid-column: 1 / -1;
+}
+
 .page :global(.cta-done) {
   display: flex;
   align-items: center;
@@ -1395,7 +1426,7 @@
 }
 
 @media (max-width:860px) {
-  .page :global(.rio .home-cta) {
+  .page :global(.home-cta) {
     grid-template-columns: 1fr !important;
     padding: 32px 20px !important;
     gap: 24px !important;
@@ -1415,12 +1446,15 @@
 }
 
 @media (max-width:480px) {
-  .page :global(.rio .cta-actions) {
+  .callbackForm {
+    grid-template-columns: 1fr;
+  }
+  .page :global(.cta-actions) {
     flex-direction: column;
     width: 100%;
   }
 
-  .page :global(.rio .cta-actions .btn) {
+  .page :global(.cta-actions .btn) {
     width: 100%;
     justify-content: center;
   }
@@ -1539,7 +1573,7 @@
 }
 
 .page :global(.svc-grid) {
-  gap: clamp(22px, 2.3vw, 28px);
+  gap: clamp(22px, 6vw, 55px);
 }
 
 .page :global(.branch-grid) {
@@ -1625,4 +1659,128 @@
   .page :global(.gal-col) {
     gap: 16px;
   }
+}
+/* Home duplicate-space fixes: sections that already have internal structure */
+.page :global(#reviews).reviewsSection {
+  padding-block: clamp(84px, 8vw, 120px);
+}
+
+.page :global(#faq).faqSection {
+  padding-block: clamp(84px, 8vw, 120px);
+}
+.page :global(.band) {
+  min-height: auto;
+}
+
+.page :global(.band-inner) {
+  padding-block: clamp(68px, 8vw, 120px);
+}
+
+.page :global(.section:has(.spec)) {
+  padding-block: clamp(64px, 8vw, 120px);
+}
+
+.page :global(#book) {
+  padding-block: clamp(58px, 8vw, 120px);
+}
+
+.page :global(#faq) {
+  padding-top: clamp(54px, 5.5vw, 76px);
+}
+
+@media (max-width: 880px) {
+  .page :global(.band-inner) {
+    padding-block: 64px;
+  }
+
+  .page :global(.section:has(.spec)),
+  .page :global(#book) {
+    padding-block: 58px;
+  }
+
+  .page :global(#faq) {
+    padding-top: 46px;
+  }
+}
+
+@media (max-width: 560px) {
+  .page :global(.band-inner) {
+    padding-block: 52px;
+  }
+
+  .page :global(.section:has(.spec)),
+  .page :global(#book) {
+    padding-block: 48px;
+  }
+
+  .page :global(#faq) {
+    padding-top: 38px;
+  }
+}
+/* Hero desktop rhythm correction */
+@media (min-width: 761px) {
+  .page :global(.hero) {
+    min-height: max(760px, 100svh);
+  }
+
+  .page :global(.hero h1) {
+    max-width: 1050px;
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+  }
+
+  .page :global(.hero .lede) {
+    margin-top: 26px;
+  }
+
+  .page :global(.hero-cta) {
+    margin-top: 28px;
+  }
+
+  .page :global(.hero-glass-container) {
+    bottom: 46px;
+  }
+
+  .page :global(.scrollcue) {
+    bottom: 22px;
+  }
+}
+/* Emergency band spacing and alignment */
+.page :global(.band-inner > .reveal) {
+  max-width: 660px;
+}
+
+.page :global(.band-inner > .reveal > p) {
+  max-width: 600px;
+}
+
+.page :global(.band-inner .hero-trust) {
+  margin-top: 28px;
+  max-width: 600px;
+}
+
+.page :global(.band-inner .hero-trust p) {
+  margin-top: 0;
+  max-width: 560px;
+}
+/* Child Health content rhythm */
+.childHealthContent :global(.eyebrow) {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.childHealthContent :global(h2) {
+  margin: 0;
+}
+
+.childHealthContent :global(.sec-note) {
+  margin-top: 20px;
+}
+
+.childHealthContent :global(.split-list) {
+  margin-top: 28px;
+}
+
+.childHealthContent :global(.mt-28) {
+  margin-top: 28px;
 }

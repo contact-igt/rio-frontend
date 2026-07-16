@@ -1,8 +1,9 @@
 "use client";
 
+import SiteFooter from "@/components/shared/SiteFooter";
 import { useEffect, useRef, useState } from "react";
 import NavManagement from "@/components/shared/NavManagement";
-import MobileNav from "@/components/shared/MobileNav";
+import MobileNav from "@/components/shared/MobileNav";
 import styles from "./styles.module.css";
 
 
@@ -512,7 +513,7 @@ export default function PaediatricSuperSpecialitiesPage() {
         </section>
 
         {/* 6. STAT + CTA */}
-        <section className={`section ${styles.sectionNoTop}`}>
+        <section className="section">
           <div className="wrap">
             <Reveal className="statband">
               <div>
@@ -548,7 +549,7 @@ export default function PaediatricSuperSpecialitiesPage() {
         </section>
 
         {/* 8. FINAL APPOINTMENT */}
-        <section className={`section ${styles.sectionNoTop}`} id="book">
+        <section className="section" id="book">
           <div className="wrap">
             <Reveal className="enq">
               <div className="enq-copy">
@@ -585,45 +586,7 @@ export default function PaediatricSuperSpecialitiesPage() {
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="wrap">
-          <div>
-            <div className={styles.footerLogoSpace}><Logo footer /></div>
-            <p className={styles.footerDescLight}>
-              Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.
-            </p>
-            <p className="vals">TRUST &bull; CARE &bull; INNOVATION &bull; COMPASSION &bull; EXCELLENCE</p>
-          </div>
-          <div>
-            <h4>Specialities</h4>
-            <ul>
-              {SPECIALITIES.slice(0, 6).map((sp) => <li key={sp.title}>{sp.title}</li>)}
-            </ul>
-          </div>
-          <div>
-            <h4>Explore</h4>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About Us</a></li>
-              <li><a href="/facilities">Facilities</a></li>
-              <li><a href="/contact">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Contact</h4>
-            <ul>
-              <li><a href={LINKS.call}>Call: +91 77083 18222</a></li>
-              <li><a href="mailto:info@riohospital.com">Email: info@riohospital.com</a></li>
-              <li><a href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></li>
-              <li><a href={LINKS.instagram} target="_blank" rel="noreferrer">Instagram</a></li>
-            </ul>
-          </div>
-        </div>
-        <div className="wrap footer-bottom">
-          <span>&copy; 2026 Rio Children&apos;s Hospital</span>
-          <span>Built by Invictus Global Tech</span>
-        </div>
-      </footer>
+      <SiteFooter />
 
       <div className="mbar">
         <a className="btn btn-pink" href={LINKS.call}>Call</a>

@@ -1,3 +1,40 @@
+.page :global(.section) {
+  padding-block: clamp(68px, 8vw, 120px);
+}
+
+/* Give this page's final appointment card more vertical breathing room. */
+.page :global(.enq) {
+  min-height: clamp(480px, 34vw, 560px);
+}
+
+.page :global(.enq-copy),
+.page :global(.enq-form) {
+  padding-block: clamp(58px, 5vw, 82px);
+}
+
+.page :global(.enq-copy) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.page :global(.enq-form) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 760px) {
+  .page :global(.enq) {
+    min-height: 0;
+  }
+
+  .page :global(.enq-copy),
+  .page :global(.enq-form) {
+    padding-block: 42px;
+  }
+}
+
 .page :global(.spec-section) {
   background: linear-gradient(135deg, #fff2f6 0%, #f2f5ff 50%, #fffbfd 100%);
   position: relative;
@@ -7,7 +44,7 @@
 .page :global(.spec-grid) {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 40px;
   margin-top: 40px;
 }
 
@@ -134,10 +171,6 @@
 
 .page :global(.gal-note) {
   display: none;
-}
-
-.sectionNoTop {
-  padding-top: 0;
 }
 
 .fullButton {
