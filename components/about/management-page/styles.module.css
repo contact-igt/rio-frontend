@@ -1,0 +1,297 @@
+/* Progress & Header styles */
+        .page :global(.progress) {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background: linear-gradient(90deg, var(--coral), var(--green));
+          transform: scaleX(0);
+          transform-origin: left;
+          z-index: 1000;
+          transition: transform 0.1s ease-out;
+        }
+
+        /* Banner styling */
+        .page :global(.mgmt-hero) {
+          display: flex;
+          position: relative;
+          background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue) 100%);
+          min-height: 360px;
+          overflow: hidden;
+          align-items: stretch;
+          width: 100%;
+        }
+
+        .page :global(.mgmt-hero-container) {
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 28px;
+          display: flex;
+          align-items: stretch;
+          position: relative;
+          z-index: 2;
+        }
+
+        .page :global(.mgmt-hero-left) {
+          width: 56%;
+          padding: 64px 40px 64px 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          position: relative;
+          z-index: 3;
+        }
+
+        .page :global(.mgmt-hero-left h1) {
+          font-family: 'Playfair Display', 'Georgia', serif;
+          font-size: clamp(34px, 4.5vw, 52px);
+          font-weight: 800;
+          color: #ffffff !important;
+          margin-bottom: 10px;
+          letter-spacing: -0.01em;
+          line-height: 1.1;
+        }
+
+        .page :global(.mgmt-hero-tagline) {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+        }
+
+        .page :global(.mgmt-hero-line) {
+          display: inline-block;
+          width: 32px;
+          height: 3px;
+          background-color: #ffffff;
+          margin-right: 12px;
+          border-radius: 2px;
+        }
+
+        .page :global(.mgmt-hero-tag) {
+          font-family: 'Montserrat', sans-serif;
+          font-size: clamp(13px, 1.8vw, 15px);
+          font-weight: 700;
+          color: #00a2ff !important;
+          letter-spacing: 0.02em;
+        }
+
+        .page :global(.mgmt-hero-desc) {
+          font-size: 15px;
+          color: #d6d9f0;
+          line-height: 1.6;
+        }
+
+        .page :global(.mgmt-hero-desc p) {
+          margin-bottom: 6px;
+          color: #d6d9f0 !important;
+        }
+
+        .page :global(.mgmt-hero-desc p:last-child) {
+          margin-bottom: 0;
+        }
+
+        /* Leaf Decoration SVG */
+        .page :global(.mgmt-hero-leaf) {
+          position: absolute;
+          left: -20px;
+          top: 50%;
+          transform: translateY(-50%);
+          opacity: 0.16;
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        .page :global(.mgmt-hero-right) {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          width: 44vw; /* stretches to the right edge of screen */
+          z-index: 2;
+          overflow: hidden;
+        }
+
+        .page :global(.mgmt-hero-skewed) {
+          position: absolute;
+          inset: 0;
+          left: 30px;
+          transform: skewX(14deg);
+          border-left: 10px solid #ffffff;
+          border-bottom-left-radius: 40px;
+          overflow: hidden;
+          background: #081735;
+        }
+
+        .page :global(.mgmt-hero-skewed img) {
+          width: 130%;
+          height: 100%;
+          object-fit: cover;
+          transform: skewX(-14deg) scale(1.15);
+          transform-origin: center center;
+        }
+
+        @media (max-width: 900px) {
+          .page :global(.mgmt-hero) {
+            flex-direction: column;
+            min-height: auto;
+          }
+          .page :global(.mgmt-hero-container) {
+            flex-direction: column;
+            padding: 40px 20px 0;
+          }
+          .page :global(.mgmt-hero-left) {
+            width: 100%;
+            padding: 0 0 32px;
+          }
+          .page :global(.mgmt-hero-right) {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            right: auto;
+            top: auto;
+            bottom: auto;
+          }
+          .page :global(.mgmt-hero-skewed) {
+            left: 0;
+            transform: none;
+            border-left: none;
+            border-top: 8px solid #ffffff;
+            border-bottom-left-radius: 0;
+          }
+          .page :global(.mgmt-hero-skewed img) {
+            width: 100%;
+            transform: none;
+          }
+        }
+
+        /* Management Grid */
+        .page :global(.mgmt-section) {
+          padding: 80px 0;
+          background: #ffffff;
+        }
+
+        .page :global(.mgmt-grid) {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 32px;
+        }
+
+        @media (max-width: 768px) {
+          .page :global(.mgmt-grid) {
+            grid-template-columns: 1fr;
+            gap: 24px;
+          }
+        }
+
+        /* Leader Card */
+        .page :global(.leader-card) {
+          background: #ffffff;
+          border: 1px solid var(--line);
+          border-radius: var(--radius);
+          padding: 36px;
+          display: flex;
+          gap: 24px;
+          align-items: center;
+          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+        }
+
+        .page :global(.leader-card:hover) {
+          transform: translateY(-4px);
+          box-shadow: 0 20px 40px -18px rgba(48, 53, 115, 0.12);
+          border-color: rgba(48, 53, 115, 0.18);
+        }
+
+        @media (max-width: 580px) {
+          .page :global(.leader-card) {
+            flex-direction: column;
+            padding: 24px;
+            gap: 16px;
+            align-items: center;
+            text-align: center;
+          }
+        }
+
+        /* Styled Image Placeholder inside Card */
+        .page :global(.leader-avatar-placeholder) {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          background: var(--blue-soft);
+          border: 2px dashed rgba(48, 53, 115, 0.25);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          transition: border-color 0.3s, background 0.3s;
+          overflow: hidden;
+        }
+
+        .page :global(.leader-avatar-placeholder.has-image) {
+          border: 1px solid var(--line);
+          background: #f8fafc;
+        }
+
+        .page :global(.leader-avatar-placeholder img) {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .page :global(.leader-card:hover .leader-avatar-placeholder:not(.has-image)) {
+          border-color: var(--pink);
+          background: var(--pink-soft);
+        }
+
+        .page :global(.leader-avatar-placeholder svg) {
+          width: 44px;
+          height: 44px;
+          color: rgba(48, 53, 115, 0.3);
+          transition: color 0.3s;
+        }
+
+        .page :global(.leader-card:hover .leader-avatar-placeholder svg) {
+          color: var(--pink-deep);
+        }
+
+        .page :global(.leader-info h3) {
+          font-size: 20px;
+          font-weight: 700;
+          color: var(--blue);
+          margin-bottom: 4px;
+        }
+
+        .page :global(.leader-role) {
+          font-size: 13.5px;
+          font-weight: 700;
+          color: var(--pink-deep);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          margin-bottom: 2px;
+        }
+
+        .page :global(.leader-qual) {
+          font-size: 12px;
+          font-weight: 600;
+          color: var(--muted);
+          margin-bottom: 12px;
+        }
+
+        .page :global(.leader-desc) {
+          font-size: 14.5px;
+          line-height: 1.6;
+          color: var(--muted);
+        }
+
+.sectionNoTop { padding-top: 0; }
+.fullButton { width: 100%; justify-content: center; }
+.headingTop { margin-top: 12px; }
+.headingTopSmall { margin-top: 10px; }
+.themesSpace { margin-top: 22px; }
+.enqActions { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
+.footerLogoSpace { margin-bottom: 16px; }
+.footerDescGreen { color: #9FC4BB; max-width: 270px; font-size: 14px; }
+.footerDescPurple { color: #9398C2; max-width: 270px; font-size: 14px; }
+.footerDescLight { color: #AEB2D6; max-width: 270px; font-size: 14px; }
+.hidden { display: none; }

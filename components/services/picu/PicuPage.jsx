@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import NavManagement from "@/components/shared/NavManagement";
 import MobileNav from "@/components/shared/MobileNav";
+import styles from "./styles.module.css";
 
 /* ════════════════════════════════════════════════════════════════════════
    RIO CHILDREN'S HOSPITAL — SERVICE PAGE (reusable template)
@@ -150,9 +151,7 @@ function PicuPageContent({ service: s }) {
   useEffect(() => { const o = () => setSolid(window.scrollY > 40); window.addEventListener("scroll", o, { passive: true }); return () => window.removeEventListener("scroll", o); }, []);
 
   return (
-    <div className="rio">
-      <style>{`
-      `}</style>
+    <div className={`rio ${styles.page}`}>
 
       <div className="topstrip">24/7 Emergency • NICU • PICU | <a href={LINKS.call}>Call now: +91 77083 18222</a></div>
 
@@ -192,11 +191,11 @@ function PicuPageContent({ service: s }) {
           <div className="wrap split">
             <Reveal>
               <Eyebrow>Overview</Eyebrow>
-              <h2 style={{ marginTop: 12 }}>Closer monitoring, a stronger safety net</h2>
-              {s.intro.map((p, i) => <p className="sec-note" key={i} style={i ? { marginTop: 14 } : {}}>{p}</p>)}
+              <h2 className={styles.headingTop}>Closer monitoring, a stronger safety net</h2>
+              {s.intro.map((p, i) => <p className={`sec-note ${i ? styles.secNoteGap : ""}`} key={i}>{p}</p>)}
               {s.covers && (
                 <>
-                  <h4 style={{ marginTop: 24, fontSize: 14, textTransform: "uppercase", letterSpacing: ".06em", color: "var(--pink-deep)" }}>This care covers</h4>
+                  <h4 className={styles.coversTitle}>This care covers</h4>
                   <div className="covers">{s.covers.map((c) => <span key={c} className="cov"><i />{c}</span>)}</div>
                 </>
               )}
@@ -255,7 +254,7 @@ function PicuPageContent({ service: s }) {
 
         {/* stat band */}
         {s.stat && (
-          <section className="section" style={{ paddingTop: 0 }}>
+          <section className={`section ${styles.sectionNoTop}`}>
             <div className="wrap">
               <Reveal className="statband">
                 <div><strong><Counter value={s.stat.n} /></strong><span>{s.stat.l}</span></div>
@@ -305,14 +304,14 @@ function PicuPageContent({ service: s }) {
         )}
 
         {/* enquiry */}
-        <section className="section" id="book" style={{ paddingTop: 0 }}>
+        <section className={`section ${styles.sectionNoTop}`} id="book">
           <div className="wrap">
             <Reveal className="enq">
               <div className="enq-copy">
                 <Eyebrow light>Appointments</Eyebrow>
-                <h2 style={{ marginTop: 12 }}>Book your {s.eyebrow.toLowerCase()} consultation</h2>
+                <h2 className={styles.headingTop}>Book your {s.eyebrow.toLowerCase()} consultation</h2>
                 <p>Share your details and our team will call you back to schedule a visit at your preferred branch.</p>
-                <div style={{ marginTop: 24, display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <div className={styles.enqActions}>
                   <a className="btn btn-pink" href={LINKS.call}>Call Now</a>
                   <a className="btn btn-green" href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
                 </div>
@@ -324,7 +323,7 @@ function PicuPageContent({ service: s }) {
                     <input type="text" placeholder="Full name" required />
                     <input type="tel" placeholder="Phone number" required />
                     <select required defaultValue={s.eyebrow}>{APPT_SERVICES.map((x) => <option key={x}>{x}</option>)}</select>
-                    <button className="btn btn-cta" type="submit" style={{ width: "100%", justifyContent: "center" }}>Request a Call Back ↗</button>
+                    <button className={`btn btn-cta ${styles.fullButton}`} type="submit">Request a Call Back ↗</button>
                   </form>
                 )}
               </div>
@@ -336,8 +335,8 @@ function PicuPageContent({ service: s }) {
       <footer className="footer">
         <div className="wrap">
           <div>
-            <div style={{ marginBottom: 16 }}><Logo footer /></div>
-            <p style={{ color: "#9398C2", maxWidth: 270, fontSize: 14 }}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
+            <div className={styles.footerLogoSpace}><Logo footer /></div>
+            <p className={styles.footerDesc}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
             <p className="vals">TRUST • CARE • INNOVATION • COMPASSION • EXCELLENCE</p>
           </div>
           <div><h4>Treatments</h4><ul>{APPT_SERVICES.slice(0, 6).map((x) => <li key={x}>{x}</li>)}</ul></div>

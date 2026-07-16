@@ -6,7 +6,8 @@ import NavTreatments from "@/components/shared/NavTreatments";
 import NavManagement from "@/components/shared/NavManagement";
 import MobileNav from "@/components/shared/MobileNav";
 import TopStrip from "@/components/shared/TopStrip";
-import { NAV_TREATMENTS, SITE_LINKS } from "@/data/site";
+import { NAV_TREATMENTS, SITE_LINKS } from "@/data/site";
+import styles from "./styles.module.css";
 /* ════════════════════════════════════════════════════════════════════════
    RIO CHILDREN'S HOSPITAL — TREATMENTS landing page  (route: /treatments)
    Lists every treatment in one place; each card opens its detail page.
@@ -78,73 +79,7 @@ export default function TreatmentsPage() {
   useEffect(() => { const o = () => setSolid(window.scrollY > 40); window.addEventListener("scroll", o, { passive: true }); return () => window.removeEventListener("scroll", o); }, []);
 
   return (
-    <div className="rio">
-      <style>{`
-{}
-
-        .nav a:hover{color:var(--blue)}
-{}
-        /* dropdown */
-
-        /* hero */
-        .thero{padding:52px 0 8px;position:relative;overflow:hidden;min-height:480px;display:flex;align-items:center}
-        .thero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}.thero-bg img{width:100%;height:100%;object-fit:cover;object-position:95% 32%;animation:rio-hero-drift 18s ease-in-out infinite alternate;transform-origin:center}
-        .thero-veil{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(10,14,50,.65) 0%,rgba(10,14,50,.3) 45%,transparent 85%);transition:background .35s}
-        .thero-fluid{width:100%; padding:0 64px; position:relative; z-index:2}
-        .thero-in{max-width:540px;color:#fff}
-        .thero h1{font-size:clamp(34px,5vw,56px);margin-top:14px;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.55)}.thero h1 .accent{color:var(--pink)}
-        .thero .lede{font-size:18px;margin-top:18px;max-width:500px;color:rgba(255,255,255,.98);text-shadow:0 1px 8px rgba(0,0,0,.45)}
-        .thero .eyebrow.light{color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.35)}
-        
-        @media(max-width:800px){
-          .thero-fluid{padding:0 24px}
-          .thero-in{max-width:100%}
-          .thero-bg img{object-position:center 32% !important}
-          .thero-veil{background:rgba(10,14,50,.65) !important}
-        }
-
-        .thero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-        /* group */
-        .group + .group{margin-top:72px}
-        .group-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:28px}
-        .group-head h2{font-size:clamp(22px,3vw,30px)}
-        .group-head .gn{font-size:14.5px;color:var(--muted)}
-        /* grid – all rows same height */
-        .tgrid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:24px}
-        @media(max-width:920px){.tgrid{grid-template-columns:repeat(2,1fr)}}
-        @media(max-width:600px){.tgrid{grid-template-columns:1fr}}
-        /* card */
-        .tcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;height:100%;position:relative;
-          transition:transform .32s cubic-bezier(.2,.7,.2,1),box-shadow .32s cubic-bezier(.2,.7,.2,1)}
-        .tcard::before{content:"";position:absolute;inset:0;border-radius:var(--radius);background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.18) 50%,transparent 70%);
-          background-size:200% 100%;background-position:200% 0;transition:background-position .55s ease;z-index:1;pointer-events:none}
-        .tcard:hover::before{background-position:-200% 0}
-        .tcard:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(48,53,115,.18),0 4px 12px rgba(48,53,115,.10)}
-        /* fixed-height image area */
-        .tcard .img-wrap{height:220px;border-radius:0;flex-shrink:0;overflow:hidden}
-        .tcard .img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;
-          transition:transform .55s cubic-bezier(.2,.7,.2,1),filter .55s ease}
-        .tcard:hover .img-wrap img{transform:scale(1.08);filter:brightness(1.05)}
-        /* body */
-        .tbody{padding:22px;display:flex;flex-direction:column;flex:1}
-        .tbody h3{font-size:18px;margin-bottom:8px;color:var(--ink)}
-        .tbody p{font-size:14px;flex:1;color:var(--muted);line-height:1.6}
-        /* learn more arrow animation */
-        .tmore{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:13.5px;font-weight:800;color:var(--pink-deep);transition:gap .22s ease}
-        .tmore .arr{display:inline-block;transition:transform .22s ease}
-        .tcard:hover .tmore{gap:10px}
-        .tcard:hover .tmore .arr{transform:translateX(4px)}
-        /* more chips */
-        .more-chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
-        .chip{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:11px 18px;font-size:14px;font-weight:600;color:var(--ink);transition:box-shadow .25s,transform .25s}
-        .chip:hover{box-shadow:0 4px 16px rgba(48,53,115,.12);transform:translateY(-2px)}
-        .chip i{width:7px;height:7px;border-radius:50%;background:var(--green)}
-        /* more-at-rio glow section */
-        .more-glow{border-radius:20px;margin-top:60px;box-shadow:0 0 0 1px rgba(48,53,115,.10),0 8px 40px rgba(48,53,115,.13),0 0 60px rgba(253,112,161,.08);border-top:2px solid rgba(253,112,161,.25);background:linear-gradient(135deg,#eef0fa 0%,#fce8f1 100%) !important;transition:box-shadow .45s,transform .35s}
-        .more-glow:hover{box-shadow:0 0 0 1px rgba(48,53,115,.18),0 16px 60px rgba(48,53,115,.22),0 0 90px rgba(253,112,161,.18),0 0 30px rgba(253,112,161,.12);transform:translateY(-2px)}
-        .more-btn-wrapper{margin-top:40px;display:block}
-        /* cta */
-      `}</style>
+    <div className={`rio ${styles.page}`}>
 
       <TopStrip callHref={SITE_LINKS.call} />
 
@@ -223,8 +158,8 @@ export default function TreatmentsPage() {
       <footer className="footer">
         <div className="wrap">
           <div>
-            <div style={{ marginBottom: 16 }}><Logo footer /></div>
-            <p style={{ color: "#9398C2", maxWidth: 270, fontSize: 14 }}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
+            <div className={styles.footerLogoSpace}><Logo footer /></div>
+            <p className={styles.footerDescPurple}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
             <p className="vals">TRUST • CARE • INNOVATION • COMPASSION • EXCELLENCE</p>
           </div>
           <div><h4>Treatments</h4><ul>{NAV_TREATMENTS.map((t) => <li key={t.slug}><a href={`/services/${t.slug}`}>{t.name}</a></li>)}</ul></div>

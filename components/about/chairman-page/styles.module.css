@@ -1,0 +1,541 @@
+/* -- tokens -- */
+        .page { --hero-h: min(92vh,780px); }
+
+        /* -- progress bar -- */
+        .page :global(.ch-progress) {
+          position: fixed; top: 0; left: 0; width: 100%; height: 3px;
+          background: linear-gradient(90deg,#FD70A1,#7BA93A);
+          transform: scaleX(0); transform-origin: left; z-index: 2000;
+          transition: transform .1s linear;
+        }
+
+        /* ???????????? HERO ???????????? */
+        .page :global(.ch-hero) {
+          position: relative;
+          min-height: min(92vh, 800px);
+          display: flex;
+          align-items: flex-end;
+          background: linear-gradient(135deg, #153b75 0%, #081735 100%);
+          overflow: hidden;
+          padding: 0;
+        }
+
+        /* Giant outline background text */
+        .page :global(.ch-hero-bg-text) {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: 'Playfair Display', serif;
+          font-size: clamp(120px, 18vw, 280px);
+          font-weight: 900;
+          color: transparent;
+          -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.075);
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          pointer-events: none;
+          user-select: none;
+          z-index: 0;
+          white-space: nowrap;
+          animation: floatBgText 12s ease-in-out infinite;
+        }
+
+        @keyframes floatBgText {
+          0%, 100% { transform: translateY(0) scale(1); }
+          50% { transform: translateY(-12px) scale(1.02); }
+        }
+
+        /* Animated floating background orbs */
+        .page :global(.ch-orb) {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(80px);
+          pointer-events: none;
+          z-index: 1;
+          opacity: 0.55;
+        }
+        .page :global(.ch-orb-1) {
+          width: 450px;
+          height: 450px;
+          background: radial-gradient(circle, rgba(0, 162, 255, 0.35) 0%, transparent 70%);
+          top: 5%;
+          left: 15%;
+          animation: floatOrb1 22s infinite alternate ease-in-out;
+        }
+        .page :global(.ch-orb-2) {
+          width: 500px;
+          height: 500px;
+          background: radial-gradient(circle, rgba(253, 112, 161, 0.28) 0%, transparent 70%);
+          bottom: 5%;
+          right: 10%;
+          animation: floatOrb2 28s infinite alternate ease-in-out;
+        }
+        .page :global(.ch-orb-3) {
+          width: 350px;
+          height: 350px;
+          background: radial-gradient(circle, rgba(0, 242, 254, 0.22) 0%, transparent 70%);
+          top: 35%;
+          left: 50%;
+          animation: floatOrb3 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes floatOrb1 {
+          0% { transform: translate(0, 0) scale(1); }
+          100% { transform: translate(60px, 40px) scale(1.1); }
+        }
+        @keyframes floatOrb2 {
+          0% { transform: translate(0, 0) scale(1.1); }
+          100% { transform: translate(-70px, -40px) scale(0.9); }
+        }
+        @keyframes floatOrb3 {
+          0% { transform: translate(-50%, -50%) translate(0, 0); }
+          100% { transform: translate(-50%, -50%) translate(40px, -50px) scale(1.15); }
+        }
+
+        /* -- Chairman photo -- */
+        .page :global(.ch-hero-photo) {
+          position: absolute;
+          bottom: 0;
+          right: clamp(32px, 8vw, 180px);
+          transform: none;
+          height: 90% !important;
+          max-height: 720px !important;
+          width: auto !important;
+          max-width: 520px !important;
+          object-fit: contain !important;
+          object-position: bottom center;
+          z-index: 2;
+          pointer-events: none;
+          filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.55));
+          animation: photoFadeUp 1s cubic-bezier(.2,.8,.2,1) both;
+        }
+        @keyframes photoFadeUp {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Bottom scrim gradient for text legibility */
+        .page :global(.ch-hero-scrim) {
+          position: absolute;
+          bottom: 0; left: 0; right: 0;
+          height: 40%;
+          background: linear-gradient(to top, rgba(8, 23, 53, 0.95) 0%, rgba(8, 23, 53, 0.4) 50%, transparent 100%);
+          z-index: 3;
+          pointer-events: none;
+        }
+
+        /* Top-Left Seal emblem */
+        .page :global(.ch-hero-seal) {
+          position: absolute;
+          top: 100px;
+          left: 40px;
+          z-index: 4;
+          opacity: 0.8;
+          animation: fadeIn 1.2s ease-out both;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 0.8; }
+        }
+
+        /* Layout Inner Container */
+        .page :global(.ch-hero-inner) {
+          position: relative;
+          z-index: 4;
+          width: 100%;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 36px 64px;
+        }
+        .page :global(.ch-hero-content) {
+          max-width: 680px;
+          text-align: left;
+        }
+
+        /* Founder & Chairman Badge */
+        .page :global(.ch-hero-badge) {
+          display: inline-flex;
+          align-items: center;
+          background: rgba(255, 255, 255, 0.07);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          padding: 8px 22px;
+          border-radius: 99px;
+          color: #ffffff !important;
+          font-size: clamp(13px, 1.6vw, 15px);
+          font-weight: 600;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          margin-bottom: 24px;
+          box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.2);
+          animation: fadeSlide .8s cubic-bezier(.2,.8,.2,1) forwards;
+          opacity: 0;
+        }
+
+        .page :global(.ch-hero-name) {
+          font-family: 'Playfair Display', 'Georgia', serif;
+          font-size: clamp(38px, 5.2vw, 64px);
+          font-weight: 800;
+          color: #ffffff !important;
+          letter-spacing: -0.01em;
+          line-height: 1.1;
+          margin-bottom: 12px;
+          text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+          animation: fadeSlide .8s cubic-bezier(.2,.8,.2,1) .15s forwards;
+          opacity: 0;
+        }
+        .page :global(.ch-hero-name .name-highlight) { color: #FD70A1; }
+
+        .page :global(.ch-hero-degree) {
+          font-size: clamp(16px, 2.2vw, 24px);
+          font-weight: 700;
+          color: #ffffff !important;
+          margin-bottom: 12px;
+          letter-spacing: 0.05em;
+          animation: fadeSlide .8s cubic-bezier(.2,.8,.2,1) .25s forwards;
+          opacity: 0;
+        }
+
+        .page :global(.ch-hero-role) {
+          font-size: clamp(14px, 1.8vw, 17px);
+          font-weight: 500;
+          color: rgba(255, 255, 255, 0.8) !important;
+          margin-bottom: 32px;
+          line-height: 1.4;
+          letter-spacing: 0.02em;
+          animation: fadeSlide .8s cubic-bezier(.2,.8,.2,1) .35s forwards;
+          opacity: 0;
+        }
+
+        /* Frosted glass button */
+        .page :global(.ch-btn-glass) {
+          background: rgba(255, 255, 255, 0.85);
+          border: 1px solid rgba(255, 255, 255, 0.9);
+          border-radius: 99px;
+          padding: 15px 32px;
+          font-size: 15px;
+          font-weight: 700;
+          color: #0d1140 !important;
+          cursor: pointer;
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          transition: background .2s, transform .2s, box-shadow .2s;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+          animation: fadeSlide .8s cubic-bezier(.2,.8,.2,1) .45s forwards;
+          opacity: 0;
+        }
+        .page :global(.ch-btn-glass:hover) {
+          background: #ffffff;
+          transform: translateY(-2px);
+          box-shadow: 0 12px 30px rgba(0, 162, 255, 0.3);
+        }
+
+        @keyframes fadeSlide {
+          from { opacity: 0; transform: translateY(20px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* -- Mobile -- */
+        /* Tablet keeps the text and portrait side by side. */
+        @media (max-width:1024px) and (min-width:701px) {
+          .page :global(.ch-hero) {
+            min-height: clamp(620px, 72vw, 720px);
+            align-items: flex-end;
+          }
+          .page :global(.ch-hero-bg-text) {
+            font-size: clamp(100px, 16vw, 170px);
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.065);
+          }
+          .page :global(.ch-hero-photo) {
+            right: clamp(16px, 3vw, 42px);
+            height: 84% !important;
+            max-height: 600px !important;
+            max-width: 430px !important;
+          }
+          .page :global(.ch-hero-inner) { padding: 0 42px 52px; }
+          .page :global(.ch-hero-content) { max-width: 54%; }
+          .page :global(.ch-hero-name) { font-size: clamp(42px, 5.2vw, 54px); }
+          .page :global(.ch-hero-role) { margin-bottom: 26px; }
+        }
+
+        /* Phone layout stages the portrait above the copy. */
+        @media (max-width:700px) {
+          .page :global(.ch-hero) {
+            min-height: 720px;
+            aspect-ratio: auto;
+            align-items: flex-end;
+          }
+          .page :global(.ch-hero-bg-text) {
+            align-items: flex-start;
+            padding-top: 170px;
+            font-size: clamp(64px, 18vw, 120px);
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.065);
+          }
+          .page :global(.ch-orb) { filter: blur(50px); opacity: 0.45; }
+          .page :global(.ch-orb-1) { width: 260px; height: 260px; }
+          .page :global(.ch-orb-2) { width: 280px; height: 280px; }
+          .page :global(.ch-orb-3) { width: 220px; height: 220px; }
+          .page :global(.ch-hero-photo) {
+            right: 50%;
+            transform: translateX(50%);
+            top: 72px;
+            bottom: auto;
+            height: 48% !important;
+            max-height: 450px !important;
+            max-width: 320px !important;
+            animation: photoFadeUpMobile 1s cubic-bezier(.2,.8,.2,1) both;
+          }
+          @keyframes photoFadeUpMobile {
+            from { opacity: 0; transform: translate(50%, 30px); }
+            to { opacity: 1; transform: translateX(50%); }
+          }
+          .page :global(.ch-hero-seal) { display: none; }
+          .page :global(.ch-hero-inner) { padding: 0 20px 32px; }
+          .page :global(.ch-hero-content) { max-width: 100%; }
+          .page :global(.ch-hero-badge) { margin-bottom: 16px; padding: 6px 18px; }
+          .page :global(.ch-hero-name) { font-size: clamp(28px, 7vw, 44px); margin-bottom: 8px; }
+          .page :global(.ch-hero-degree) { font-size: 16px; }
+          .page :global(.ch-hero-role) { font-size: 13px; margin-bottom: 24px; }
+          .page :global(.ch-btn-glass) { padding: 12px 24px; font-size: 13px; }
+        }
+
+        @media (max-width:480px) {
+          .page :global(.ch-hero) { min-height: 680px; }
+          .page :global(.ch-hero-photo) {
+            top: 62px;
+            height: 46% !important;
+            max-width: 270px !important;
+          }
+          .page :global(.ch-hero-badge) { margin-bottom: 12px; }
+          .page :global(.ch-hero-role) { margin-bottom: 20px; }
+        }
+        /* ???????????? STATS ???????????? */
+        .page :global(.ch-stats) {
+          background: linear-gradient(135deg,#303573 0%,#1a206e 100%);
+          padding: 0;
+        }
+        .page :global(.ch-stats-inner) {
+          max-width: 1200px; margin: 0 auto; padding: 0 28px;
+          display: grid; grid-template-columns: repeat(4,1fr);
+          gap: 0;
+        }
+        @media (max-width:700px) { .page :global(.ch-stats-inner) { grid-template-columns: repeat(2,1fr); } }
+        .page :global(.ch-stat) {
+          padding: 48px 20px;
+          text-align: center;
+          border-right: 1px solid rgba(255,255,255,.08);
+          position: relative; overflow: visible;
+          transition: background .3s;
+          min-width: 0;
+        }
+        .page :global(.ch-stat:last-child) { border-right: none; }
+        .page :global(.ch-stat::before) {
+          content: "";
+          position: absolute; inset: 0;
+          background: radial-gradient(ellipse at center, rgba(253,112,161,.07) 0%, transparent 70%);
+          opacity: 0; transition: opacity .3s;
+        }
+        .page :global(.ch-stat:hover::before) { opacity: 1; }
+        .page :global(.ch-stat-num) {
+          font-size: clamp(28px,3.5vw,46px); font-weight: 900;
+          color: #ffffff; line-height: 1;
+          white-space: nowrap;
+        }
+        .page :global(.ch-stat-label) {
+          font-size: 12px; font-weight: 600; color: rgba(255,255,255,.55);
+          text-transform: uppercase; letter-spacing: .08em;
+          margin-top: 8px; white-space: nowrap;
+        }
+
+        /* ???????????? JOURNEY / TIMELINE ???????????? */
+        .page :global(.ch-journey) {
+          padding: 100px 0;
+          background: #f8f9ff;
+          position: relative; overflow: hidden;
+        }
+        .page :global(.ch-journey::before) {
+          content: ""; position: absolute;
+          top: -200px; right: -200px;
+          width: 600px; height: 600px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(48,53,115,.04), transparent 70%);
+        }
+        .page :global(.ch-section-label) {
+          font-size: 12px; font-weight: 800; text-transform: uppercase;
+          letter-spacing: .14em; color: #FD70A1;
+          display: flex; align-items: center; gap: 10px;
+          margin-bottom: 12px;
+        }
+        .page :global(.ch-section-label::after) {
+          content: ""; height: 2px; width: 40px;
+          background: linear-gradient(90deg,#FD70A1,transparent);
+        }
+        .page :global(.ch-section-title) {
+          font-size: clamp(28px,4vw,44px); font-weight: 800;
+          color: #0d1140; line-height: 1.15;
+          margin-bottom: 16px; letter-spacing: -.02em;
+        }
+        .page :global(.ch-section-sub) {
+          font-size: 16px; color: #6b7280; max-width: 520px; line-height: 1.6;
+          margin-bottom: 64px;
+        }
+
+        /* Timeline */
+        .page :global(.ch-timeline) { position: relative; padding-left: 32px; }
+        .page :global(.ch-timeline::before) {
+          content: ""; position: absolute;
+          left: 10px; top: 8px; bottom: 8px; width: 2px;
+          background: linear-gradient(180deg,#FD70A1,#303573,#7BA93A);
+        }
+        .page :global(.ch-tl-item) { position: relative; padding: 0 0 48px 36px; }
+        .page :global(.ch-tl-item:last-child) { padding-bottom: 0; }
+        .page :global(.ch-tl-dot) {
+          position: absolute; left: -42px; top: 4px;
+          width: 20px; height: 20px; border-radius: 50%;
+          background: #fff;
+          border: 3px solid #303573;
+          box-shadow: 0 0 0 4px rgba(48,53,115,.1);
+          transition: border-color .3s, transform .3s;
+        }
+        .page :global(.ch-tl-item:hover .ch-tl-dot) {
+          border-color: #FD70A1; transform: scale(1.25);
+          box-shadow: 0 0 0 6px rgba(253,112,161,.15);
+        }
+        .page :global(.ch-tl-year) {
+          display: inline-block;
+          background: linear-gradient(135deg,#303573,#1a206e);
+          color: #fff; font-size: 11px; font-weight: 700;
+          padding: 3px 12px; border-radius: 99px;
+          letter-spacing: .08em; text-transform: uppercase;
+          margin-bottom: 8px;
+        }
+        .page :global(.ch-tl-head) {
+          font-size: 18px; font-weight: 700; color: #0d1140; margin-bottom: 6px;
+        }
+        .page :global(.ch-tl-body) { font-size: 14.5px; color: #6b7280; line-height: 1.65; }
+        /* Plain static timeline � no animation */
+        .page :global(.ch-tl-item-plain) {
+          position: relative; padding: 0 0 48px 36px;
+          opacity: 1 !important; transform: none !important;
+        }
+        .page :global(.ch-tl-item-plain:last-child) { padding-bottom: 0; }
+
+        /* ???????????? VISION / QUOTE ???????????? */
+        .page :global(.ch-vision) {
+          background: linear-gradient(135deg,#0d1140,#1e2580);
+          padding: 100px 0;
+          position: relative; overflow: hidden;
+        }
+        .page :global(.ch-vision::before) {
+          content: "";
+          position: absolute; font-family: Georgia,serif;
+          font-size: 600px; line-height: .7;
+          color: rgba(255,255,255,.03); top: -80px; left: -40px;
+          pointer-events: none; user-select: none;
+        }
+        .page :global(.ch-vision-inner) {
+          max-width: 800px; margin: 0 auto; padding: 0 28px;
+          text-align: center; position: relative; z-index: 2;
+        }
+        .page :global(.ch-vision-quote) {
+          font-size: clamp(20px,2.8vw,30px); font-weight: 600;
+          font-style: italic; color: rgba(255,255,255,.9);
+          line-height: 1.55; margin-bottom: 32px;
+        }
+        .page :global(.ch-vision-quote em) { color: #FD70A1; font-style: normal; }
+        .page :global(.ch-vision-attr) {
+          display: flex; align-items: center; justify-content: center; gap: 14px;
+        }
+        .page :global(.ch-vision-attr-line) { height: 1px; width: 48px; background: rgba(255,255,255,.2); }
+        .page :global(.ch-vision-attr-text) { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.5); letter-spacing: .1em; text-transform: uppercase; }
+
+        /* ???????????? AWARDS ???????????? */
+        .page :global(.ch-awards) {
+          padding: 100px 0;
+          background: #fff;
+        }
+        .page :global(.ch-awards-grid) {
+          display: grid; grid-template-columns: repeat(3,1fr); gap: 28px;
+          margin-top: 56px;
+        }
+        @media (max-width:700px) { .page :global(.ch-awards-grid) { grid-template-columns: 1fr; } }
+        .page :global(.ch-award-card) {
+          position: relative; overflow: hidden;
+          border: 1px solid #e5e7f0;
+          border-radius: 24px; padding: 40px 32px;
+          background: #fafbff;
+          text-align: center;
+          transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
+          cursor: default;
+        }
+        .page :global(.ch-award-card:hover) {
+          transform: translateY(-10px) scale(1.02);
+          box-shadow: 0 24px 48px rgba(48,53,115,.1);
+          border-color: #FD70A1;
+        }
+        .page :global(.ch-award-card::after) {
+          content: "";
+          position: absolute; inset: 0;
+          background: linear-gradient(145deg, rgba(253,112,161,.04) 0%, transparent 60%);
+          opacity: 0; transition: opacity .35s;
+        }
+        .page :global(.ch-award-card:hover::after) { opacity: 1; }
+        .page :global(.ch-award-icon) {
+          font-size: 48px; margin-bottom: 20px; display: block;
+          filter: drop-shadow(0 4px 12px rgba(253,112,161,.2));
+          transition: transform .35s;
+        }
+        .page :global(.ch-award-card:hover .ch-award-icon) { transform: scale(1.15) rotate(-5deg); }
+        .page :global(.ch-award-year) {
+          display: inline-block;
+          background: #FD70A1; color: #fff;
+          font-size: 11px; font-weight: 700;
+          padding: 3px 12px; border-radius: 99px;
+          letter-spacing: .08em;
+          margin-bottom: 14px;
+        }
+        .page :global(.ch-award-title) {
+          font-size: 18px; font-weight: 800; color: #0d1140;
+          margin-bottom: 8px;
+        }
+        .page :global(.ch-award-sub) {
+          font-size: 13.5px; color: #6b7280; line-height: 1.5;
+        }
+
+        /* ???????????? SECTION WRAPPER ???????????? */
+        .page :global(.ch-wrap) { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+
+        /* ???????????? RESPONSIVE TWEAKS ???????????? */
+        @media (max-width:600px) {
+          .page :global(.ch-stat) { padding: 36px 16px; }
+          .page :global(.ch-tl-item) { padding-left: 24px; }
+          .page :global(.ch-timeline::before) { left: 6px; }
+          .page :global(.ch-tl-dot) { left: -34px; }
+        }
+
+.page :global(.bio-hl)   { color: #303573; font-weight: 700; }
+            .page :global(.bio-para) { font-size: 15.5px; line-height: 1.85; color: #1f2937; margin-bottom: 28px; }
+            .page :global(.bio-para:last-child) { margin-bottom: 0; }
+            .page :global(.bio-body)  { max-width: 100%; margin-top: 32px; }
+
+.sectionNoTop { padding-top: 0; }
+.fullButton { width: 100%; justify-content: center; }
+.headingTop { margin-top: 12px; }
+.headingTopSmall { margin-top: 10px; }
+.themesSpace { margin-top: 22px; }
+.enqActions { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
+.footerLogoSpace { margin-bottom: 16px; }
+.footerDescGreen { color: #9FC4BB; max-width: 270px; font-size: 14px; }
+.footerDescPurple { color: #9398C2; max-width: 270px; font-size: 14px; }
+.footerDescLight { color: #AEB2D6; max-width: 270px; font-size: 14px; }
+.hidden { display: none; }
+
+
+.visionLabelCenter { justify-content: center; color: rgba(255,255,255,.4); }
+

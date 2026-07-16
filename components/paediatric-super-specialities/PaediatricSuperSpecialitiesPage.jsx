@@ -2,12 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import NavManagement from "@/components/shared/NavManagement";
-import MobileNav from "@/components/shared/MobileNav";
+import MobileNav from "@/components/shared/MobileNav";
+import styles from "./styles.module.css";
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   RIO CHILDREN'S HOSPITAL â€” Paediatric Super-Speciality Page
-   All 8 sections from content brief implemented here.
-   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 
 const IMG = {
   logo: "/assets/shared/riologov2.png",
@@ -353,122 +350,7 @@ export default function PaediatricSuperSpecialitiesPage() {
   }, []);
 
   return (
-    <div className="rio">
-      <style>{`
-        .spec-section {
-          background: linear-gradient(135deg, #fff2f6 0%, #f2f5ff 50%, #fffbfd 100%);
-          position: relative;
-          z-index: 1;
-        }
-        .spec-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
-          margin-top: 40px;
-        }
-        .spec-grid .reveal {
-          display: flex;
-          height: 100%;
-          width: 100%;
-        }
-        @media (max-width: 1024px) {
-          .spec-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 680px) {
-          .spec-grid { grid-template-columns: 1fr; }
-        }
-        .spec-card {
-          background: #ffffff;
-          border: 1px solid #f0f0f4;
-          border-radius: 24px;
-          display: flex;
-          gap: 20px;
-          text-align: left;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.015), 0 2px 4px rgba(48, 53, 115, 0.005);
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          position: relative;
-          width: 100%;
-          height: 100%;
-          padding: 24px;
-        }
-        .spec-card:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 20px 40px rgba(253, 112, 161, 0.1), 0 4px 10px rgba(48, 53, 115, 0.02);
-          border-color: rgba(253, 112, 161, 0.2);
-        }
-        .spec-left {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          width: 92px;
-        }
-        .spec-illustration {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 100%;
-        }
-        .spec-circle {
-          width: 92px;
-          height: 92px;
-          border-radius: 50%;
-          background: radial-gradient(circle, #fff3f7 0%, #ffd4e3 100%);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: inset 0 2px 6px rgba(253, 112, 161, 0.05);
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          overflow: visible;
-        }
-        .illust-img {
-          width: 82%;
-          height: 82%;
-          object-fit: contain;
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          transform-origin: bottom center;
-        }
-        .spec-card:hover .spec-circle {
-          background: radial-gradient(circle, #ffd4e3 0%, #ffb6d0 100%);
-          transform: scale(1.04);
-        }
-        .spec-card:hover .illust-img {
-          transform: scale(1.12) rotate(3deg);
-          filter: drop-shadow(0 6px 12px rgba(253, 112, 161, 0.15));
-        }
-        .spec-right {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-        }
-        .spec-right h3 {
-          font-size: 16px;
-          font-weight: 700;
-          color: #6a0b37;
-          margin: 0 0 6px;
-          line-height: 1.3;
-          transition: color 0.3s ease;
-        }
-        .spec-card:hover .spec-right h3 {
-          color: #c2185b;
-        }
-        .spec-divider {
-          width: 24px;
-          height: 3px;
-          background: #fd70a1;
-          border-radius: 2px;
-          margin-bottom: 12px;
-        }
-        .spec-right p {
-          font-size: 13px;
-          color: #555c82;
-          line-height: 1.6;
-          margin: 0;
-          flex-grow: 1;
-        }
-        .gal-note { display: none; }
-      `}</style>
+    <div className={`rio ${styles.page}`}>
 
       {/* Top strip */}
       <div className="topstrip">
@@ -530,19 +412,19 @@ export default function PaediatricSuperSpecialitiesPage() {
           <div className="wrap split">
             <Reveal>
               <Eyebrow>Overview</Eyebrow>
-              <h2 style={{ marginTop: 12 }}>Specialised answers for complex childhood conditions</h2>
+              <h2 className={styles.headingTop}>Specialised answers for complex childhood conditions</h2>
               <p className="sec-note">
                 Some childhood health concerns require more than general paediatric care. Persistent symptoms,
                 developmental delays, organ-related conditions, recurring illness or an unusual diagnosis may require
                 assessment by a paediatric doctor with advanced training in a specific speciality.
               </p>
-              <p className="sec-note" style={{ marginTop: 14 }}>
+              <p className={`sec-note ${styles.noteTop}`}>
                 At Rio, paediatricians and super-specialists work together to understand the complete condition and
                 guide families through diagnosis, treatment and follow-up. Children can access coordinated
                 consultations, advanced investigations, critical-care support and long-term management without
                 having to move between multiple hospitals.
               </p>
-              <h4 style={{ marginTop: 24, fontSize: 13, textTransform: "uppercase", letterSpacing: ".07em", color: "var(--pink-deep)", fontWeight: 700 }}>
+              <h4 className={styles.specialityTitle}>
                 This care covers
               </h4>
               <div className="covers">
@@ -630,7 +512,7 @@ export default function PaediatricSuperSpecialitiesPage() {
         </section>
 
         {/* 6. STAT + CTA */}
-        <section className="section" style={{ paddingTop: 0 }}>
+        <section className={`section ${styles.sectionNoTop}`}>
           <div className="wrap">
             <Reveal className="statband">
               <div>
@@ -666,17 +548,17 @@ export default function PaediatricSuperSpecialitiesPage() {
         </section>
 
         {/* 8. FINAL APPOINTMENT */}
-        <section className="section" id="book" style={{ paddingTop: 0 }}>
+        <section className={`section ${styles.sectionNoTop}`} id="book">
           <div className="wrap">
             <Reveal className="enq">
               <div className="enq-copy">
                 <Eyebrow light>Appointments</Eyebrow>
-                <h2 style={{ marginTop: 12 }}>Find the right specialist for your child</h2>
+                <h2 className={styles.headingTop}>Find the right specialist for your child</h2>
                 <p>
                   Tell us about your child&apos;s concern, and our care team will help you identify the appropriate
                   paediatric speciality, doctor and Rio branch.
                 </p>
-                <div style={{ marginTop: 24, display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <div className={styles.enqActions}>
                   <a className="btn btn-pink" href={LINKS.call}>Call Now</a>
                   <a className="btn btn-green" href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
                 </div>
@@ -692,7 +574,7 @@ export default function PaediatricSuperSpecialitiesPage() {
                     <select required defaultValue="Paediatric Super Specialities">
                       {APPT_SERVICES.map((x) => <option key={x}>{x}</option>)}
                     </select>
-                    <button className="btn btn-cta" type="submit" style={{ width: "100%", justifyContent: "center" }}>
+                    <button className={`btn btn-cta ${styles.fullButton}`} type="submit">
                       Request a Call Back &rarr;
                     </button>
                   </form>
@@ -706,8 +588,8 @@ export default function PaediatricSuperSpecialitiesPage() {
       <footer className="footer">
         <div className="wrap">
           <div>
-            <div style={{ marginBottom: 16 }}><Logo footer /></div>
-            <p style={{ color: "#AEB2D6", maxWidth: 270, fontSize: 14 }}>
+            <div className={styles.footerLogoSpace}><Logo footer /></div>
+            <p className={styles.footerDescLight}>
               Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.
             </p>
             <p className="vals">TRUST &bull; CARE &bull; INNOVATION &bull; COMPASSION &bull; EXCELLENCE</p>

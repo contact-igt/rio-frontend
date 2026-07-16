@@ -1,0 +1,142 @@
+/* Shared booking pages */
+.page {
+  min-height: 100vh;
+}
+
+.page :global(.hero) {
+  position: relative;
+  overflow: hidden;
+  padding: 70px 0;
+}
+
+.page :global(.hero::before) {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, .96), rgba(255, 255, 255, .76)), url('/assets/shared/site-hero.png') center/cover;
+  transform: scale(1.02);
+}
+
+.page :global(.hero-grid) {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr .86fr;
+  gap: 38px;
+  align-items: start;
+}
+
+.page :global(.hero h1) {
+  font-size: clamp(34px, 5vw, 58px);
+  margin-top: 14px;
+}
+
+.page :global(.hero h1 span) {
+  color: var(--pink);
+}
+
+.page :global(.lede) {
+  font-size: 18px;
+  max-width: 620px;
+  margin-top: 18px;
+}
+
+.page :global(.actions) {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+
+.page :global(.panel) {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+}
+
+.page :global(.panel h2) {
+  font-size: 24px;
+}
+
+.page :global(.form) {
+  display: grid;
+  gap: 13px;
+  margin-top: 20px;
+}
+
+.page :global(.field) {
+  display: grid;
+  gap: 6px;
+}
+
+.page :global(.field label) {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.page :global(input),
+.page :global(select),
+.page :global(textarea) {
+  width: 100%;
+  border: 1.4px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  padding: 12px 13px;
+}
+
+.page :global(textarea) {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.page :global(.done) {
+  background: var(--green-soft);
+  color: var(--green-deep);
+  border-radius: 14px;
+  padding: 18px;
+  font-weight: 800;
+}
+
+.page :global(.info) {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 62px 0;
+}
+
+.page :global(.card) {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 22px;
+}
+
+.page :global(.card strong) {
+  display: block;
+  color: var(--blue);
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 860px) {
+  .page :global(.hero-grid) { grid-template-columns: 1fr; }
+  .page :global(.info) { grid-template-columns: 1fr; }
+}
+
+.eyebrowInline { display: inline-flex; align-items: center; gap: 6px; }
+.eyDot { width: 6px; height: 6px; border-radius: 50%; background: var(--pink); display: inline-block; }
+.panelIntro { margin-top: 8px; }
+.doneSpace { margin-top: 20px; }
+.fullButton { width: 100%; justify-content: center; margin-top: 8px; }
+.infoSection { padding: 64px 0; }
+.infoText { font-size: 14px; color: var(--muted); line-height: 1.5; }
+.bookingFooter { border-top: 1px solid var(--line); background: #FAFBFD; }
+.bookingFooterWrap { display: flex; justify-content: space-between; padding: 32px 0; flex-wrap: wrap; gap: 16px; }
+.footerLogoSpace { margin-bottom: 12px; }
+.footerDesc { color: #9398C2; max-width: 280px; font-size: 13px; line-height: 1.5; }
+.footerMeta { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; }
+.footerCredit { color: var(--muted); font-weight: 400; }
