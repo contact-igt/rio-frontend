@@ -4,6 +4,27 @@
 
 .description {
   max-width: 270px;
-  color: #9FC4BB;
+  color: #fff !important;
   font-size: 14px;
+  line-height: 1.65;
+}
+
+.valuesBand {
+  width: min(1200px, calc(100% - 56px));
+  margin: 24px auto 0;
+  padding: 16px 0;
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  text-align: center;
+}
+
+.valuesBand :global(.values) {
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .valuesBand {
+    width: calc(100% - 40px);
+    margin-top: 28px;
+    padding-block: 16px;
+  }
 }

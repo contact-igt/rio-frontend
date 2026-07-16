@@ -89,10 +89,7 @@ export default function ManagementPage() {
         <div className="nav-cta">
           <a
             className="btn btn-line btn-sm"
-            href={SITE_LINKS.youtube}
-            target="_blank"
-            rel="noreferrer"
-          >
+           href="/book-vaccine">
             Book Vaccine
           </a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">

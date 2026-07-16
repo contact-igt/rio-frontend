@@ -363,7 +363,7 @@ export default function FacilitiesPage() {
           <a href="/contact">Contact</a>
         </nav>
         <div className="nav-cta">
-          <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">
+          <a className="btn btn-line btn-sm" href="/book-vaccine">
             Book Vaccine
           </a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">

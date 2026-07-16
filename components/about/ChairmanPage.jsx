@@ -132,7 +132,7 @@ export default function ChairmanPage() {
           <a href="/contact">Contact</a>
         </nav>
         <div className="nav-cta">
-          <a className="btn btn-line btn-sm" href={SITE_LINKS.youtube} target="_blank" rel="noreferrer">Book Vaccine</a>
+          <a className="btn btn-line btn-sm" href="/book-vaccine">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}>

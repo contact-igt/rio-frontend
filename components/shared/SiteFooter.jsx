@@ -14,7 +14,6 @@ export default function SiteFooter() {
             Advanced women and child healthcare across Tamil Nadu combining
             medical expertise, modern facilities, and compassionate care.
           </p>
-          <p className="values">TRUST • CARE • INNOVATION • COMPASSION • EXCELLENCE</p>
         </div>
         <div>
           <h4>Treatments</h4>
@@ -42,6 +41,9 @@ export default function SiteFooter() {
             <li><a href={SITE_LINKS.youtube} target="_blank" rel="noreferrer">YouTube</a></li>
           </ul>
         </div>
+      </div>
+      <div className={styles.valuesBand}>
+        <p className="values">TRUST • CARE • INNOVATION • COMPASSION • EXCELLENCE</p>
       </div>
       <div className="wrap footer-bottom">
         <span>© 2026 Rio Children's Hospital</span>

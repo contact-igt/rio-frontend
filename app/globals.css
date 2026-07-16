@@ -680,6 +680,41 @@ body {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1.1fr;
   gap: 36px;
+  align-items: start;
+}
+
+.rio .footer .wrap > div {
+  min-width: 0;
+}
+
+.rio .footer .logo {
+  width: max-content;
+  margin-left: 0;
+  padding: 7px 10px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(4, 9, 43, .2);
+}
+
+.rio .footer .footer-logo-img {
+  height: 54px;
+}
+
+.rio .footer li {
+  line-height: 1.45;
+}
+
+.rio .footer li,
+.rio .footer a {
+  color: #CCD1F2;
+}
+
+.rio .footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  overflow-wrap: anywhere;
+  transition: color .2s ease;
 }
 
 .rio .footer h4 {
@@ -697,25 +732,29 @@ body {
   color: #fff;
 }
 
-.rio .footer-bottom {
+.rio .footer .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, .12);
-  margin-top: 42px;
+  margin-top: 0;
   padding-top: 20px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 10px;
   font-size: 12.5px;
-  color: #8085B0;
+  color: #B5BCE4;
 }
 
 .rio .values,
 .rio .values-line,
 .rio .vals {
-  font-size: 13px;
-  color: #9095BE;
-  letter-spacing: .08em;
+  font-size: 12px;
+  color: #fff;
+  letter-spacing: .065em;
+  word-spacing: .08em;
+  line-height: 1.6;
   margin-top: 10px;
+  white-space: nowrap;
 }
 
 .rio .mbar {
@@ -1755,6 +1794,23 @@ body {
   }
 }
 
+@media (max-width: 640px) {
+  .rio .footer {
+    padding: 48px 0 24px;
+  }
+
+  .rio .footer .wrap {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .rio .footer .footer-bottom {
+    align-items: flex-start;
+    padding-top: 18px;
+  }
+
+}
+
 @media (max-width: 760px) {
   .rio .section {
     padding: 58px 0;
@@ -1763,6 +1819,10 @@ body {
   .rio .rel-grid,
   .rio .feat-grid {
     grid-template-columns: 1fr;
+  }
+
+  .rio .footer .values {
+    white-space: normal;
   }
 }
 

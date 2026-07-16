@@ -1,0 +1,80 @@
+.page { min-height: 100vh; }
+.page :global(.header) { background: rgba(255, 255, 255, 0.94); }
+.page :global(.section) { padding-block: clamp(68px, 8vw, 120px); }
+.page :global(.section > .wrap) { margin: 0 auto; }
+
+.page :global(.vaccine-hero) { position: relative; display: flex; align-items: center; min-height: clamp(440px, 58vh, 640px); overflow: hidden; background: #303573; }
+.page :global(.vaccine-hero-image), .page :global(.vaccine-hero-overlay) { position: absolute; inset: 0; }
+.page :global(.vaccine-hero-image) { background: url("/assets/vaccination/vaccine.png") center / cover no-repeat; }
+.page :global(.vaccine-hero-overlay) { background: linear-gradient(90deg, rgba(35, 39, 90, .96), rgba(35, 39, 90, .76) 48%, rgba(35, 39, 90, .26)); }
+.page :global(.vaccine-hero-content) { position: relative; z-index: 1; width: 100%; max-width: 1200px; margin: 0 auto; padding: clamp(68px, 8vw, 120px) 28px; }
+.page :global(.vaccine-hero h1) { max-width: 700px; margin-top: 16px; color: #fff; font-size: clamp(42px, 5.4vw, 72px); line-height: .98; letter-spacing: -.045em; }
+.page :global(.vaccine-hero h1 span) { color: #ffc4da; }
+.page :global(.vaccine-hero p) { max-width: 560px; margin-top: 22px; color: #e0e7ff; font-size: 18px; line-height: 1.7; }
+
+.page :global(.vaccine-layout) { display: grid; grid-template-columns: minmax(260px, .72fr) minmax(0, 1.28fr); gap: clamp(32px, 6vw, 90px); align-items: start; }
+.page :global(.vaccine-form-copy) { padding-top: 18px; }
+.page :global(.vaccine-form-copy h2), .page :global(.schedule-heading h2) { margin-top: 16px; font-size: clamp(30px, 3.4vw, 48px); }
+.page :global(.vaccine-form-card) { padding: clamp(24px, 4vw, 42px); border: 1px solid var(--line); border-radius: 24px; background: #fff; box-shadow: var(--shadow); }
+.page :global(.vaccine-form-grid) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.page :global(.vaccine-field) { display: grid; gap: 7px; min-width: 0; }
+.page :global(.vaccine-field > span), .page :global(.vaccine-field legend) { color: var(--ink); font-size: 13px; font-weight: 800; }
+.page :global(.vaccine-field input) { width: 100%; min-height: 48px; padding: 12px 14px; border: 1.4px solid var(--line); border-radius: 12px; color: var(--ink); font: inherit; }
+.page :global(.vaccine-field input:focus) { outline: 3px solid rgba(253, 112, 161, .18); border-color: var(--pink); }
+.page :global(.vaccine-field input[aria-invalid="true"]) { border-color: #cf3d5e; }
+.page :global(.vaccine-field em) { color: #bc284a; font-size: 12px; font-style: normal; line-height: 1.35; }
+.page :global(.vaccine-date-field) { position: relative; }
+.page :global(.date-picker-trigger) { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 48px; padding: 12px 13px 12px 14px; border: 1.4px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink); font: inherit; text-align: left; cursor: pointer; transition: border-color .2s ease, box-shadow .2s ease, background .2s ease; }
+.page :global(.date-picker-trigger:hover) { border-color: #d9b5c6; background: #fffafd; }
+.page :global(.date-picker-trigger:focus-visible) { outline: 3px solid rgba(253, 112, 161, .18); border-color: var(--pink); }
+.page :global(.date-picker-placeholder) { color: #8b8e9f; }
+.page :global(.date-picker-value) { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.page :global(.date-picker-trigger svg) { width: 19px; height: 19px; flex: 0 0 auto; fill: none; stroke: var(--pink); stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+.page :global(.date-picker-popover) { position: absolute; z-index: 12; top: calc(100% + 8px); left: 0; width: min(318px, calc(100vw - 48px)); max-width: 100%; padding: 14px; border: 1px solid #f0dce5; border-radius: 18px; background: #fff; box-shadow: 0 20px 45px rgba(48, 53, 115, .18); }
+.page :global(.date-picker-head) { display: grid; grid-template-columns: 36px 1fr 36px; align-items: center; margin-bottom: 12px; }
+.page :global(.date-picker-head strong) { color: var(--blue); font-size: 14px; text-align: center; }
+.page :global(.date-picker-head button) { width: 34px; height: 34px; border: 0; border-radius: 10px; background: #fff1f6; color: var(--pink); font-size: 25px; line-height: 1; cursor: pointer; transition: background .2s ease, transform .2s ease; }
+.page :global(.date-picker-head button:hover:not(:disabled)) { background: #ffdce9; transform: translateY(-1px); }
+.page :global(.date-picker-head button:disabled) { color: #c5c7d2; cursor: not-allowed; }
+.page :global(.date-picker-weekdays), .page :global(.date-picker-days) { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; }
+.page :global(.date-picker-weekdays) { margin-bottom: 5px; color: #9295a7; font-size: 10px; font-weight: 800; letter-spacing: .04em; }
+.page :global(.date-picker-weekdays span) { padding: 6px 0; }
+.page :global(.date-picker-days) { gap: 2px; }
+.page :global(.date-picker-days button), .page :global(.date-picker-days > span) { aspect-ratio: 1; display: grid; place-items: center; border: 0; border-radius: 9px; font: inherit; font-size: 12px; }
+.page :global(.date-picker-days button) { background: transparent; color: var(--ink); cursor: pointer; transition: background .18s ease, color .18s ease, transform .18s ease; }
+.page :global(.date-picker-days button:hover:not(:disabled)) { background: #fff0f6; color: var(--pink); transform: scale(1.04); }
+.page :global(.date-picker-days button.selected) { background: var(--pink); color: #fff; font-weight: 800; box-shadow: 0 5px 12px rgba(253, 112, 161, .28); }
+.page :global(.date-picker-days button:disabled) { color: #d6d8e1; cursor: not-allowed; }
+.page :global(.vaccine-gender-field) { grid-column: 1 / -1; margin: 0; padding: 0; border: 0; }
+.page :global(.gender-options) { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.page :global(.gender-options label) { display: inline-flex; align-items: center; gap: 9px; min-width: 124px; padding: 11px 14px; border: 1.4px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink); font-size: 14px; font-weight: 700; cursor: pointer; transition: border-color .2s ease, background .2s ease, color .2s ease, transform .2s ease; }
+.page :global(.gender-options label:hover) { border-color: #e7afc4; background: #fffafd; transform: translateY(-1px); }
+.page :global(.gender-options label.selected) { border-color: var(--pink); background: #fff0f6; color: #c84574; }
+.page :global(.gender-options input) { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.page :global(.gender-radio) { width: 16px; height: 16px; border: 2px solid #b7bac9; border-radius: 50%; background: #fff; box-shadow: inset 0 0 0 3px #fff; transition: border-color .2s ease, background .2s ease; }
+.page :global(.gender-options label.selected .gender-radio) { border-color: var(--pink); background: var(--pink); }
+.page :global(.gender-options label:has(input:focus-visible)) { outline: 3px solid rgba(253, 112, 161, .18); outline-offset: 2px; }
+.page :global(.vaccine-submit) { width: 100%; justify-content: center; margin-top: 26px; }
+.page :global(.vaccine-submit:disabled) { cursor: not-allowed; opacity: .48; transform: none; box-shadow: none; }
+
+.page :global(.vaccine-results-section) { background: #f7f8ff; }
+.page :global(.schedule-heading) { display: flex; align-items: end; justify-content: space-between; gap: 22px; margin-bottom: 32px; }
+.page :global(.schedule-heading .btn) { flex-shrink: 0; }
+.page :global(.patient-summary) { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--line); }
+.page :global(.patient-summary > div) { min-width: 0; padding: 18px; background: #fff; }
+.page :global(.patient-summary span) { display: block; margin-bottom: 5px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.page :global(.patient-summary strong) { display: block; overflow-wrap: anywhere; color: var(--blue); font-size: 14px; }
+.page :global(.schedule-table-wrap) { margin-top: 28px; overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+.page :global(.schedule-table) { width: 100%; min-width: 720px; border-collapse: collapse; }
+.page :global(.schedule-table th) { padding: 15px 16px; background: var(--blue); color: #fff; font-size: 13px; text-align: left; }
+.page :global(.schedule-table td) { padding: 14px 16px; border-top: 1px solid var(--line); color: var(--ink); font-size: 14px; vertical-align: top; }
+.page :global(.schedule-table tbody tr:nth-child(even)) { background: #fafaff; }
+.page :global(.schedule-table th:first-child), .page :global(.schedule-table td:first-child) { width: 70px; text-align: center; }
+.page :global(.schedule-table th:nth-child(2)), .page :global(.schedule-table td:nth-child(2)) { width: 190px; font-weight: 700; color: var(--blue); }
+.page :global(.schedule-table th:last-child), .page :global(.schedule-table td:last-child) { width: 170px; white-space: nowrap; font-weight: 700; }
+.page :global(.schedule-note), .page :global(.pdf-error) { margin-top: 18px; font-size: 13px; line-height: 1.65; }
+.page :global(.pdf-error) { color: #bc284a; font-weight: 700; }
+
+@media (max-width: 880px) { .page :global(.vaccine-layout) { grid-template-columns: 1fr; gap: 38px; } .page :global(.vaccine-form-copy) { padding-top: 0; } .page :global(.patient-summary) { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .page :global(.vaccine-hero) { min-height: 500px; align-items: flex-end; } .page :global(.vaccine-hero-image) { background-position: 60% center; } .page :global(.vaccine-hero-overlay) { background: linear-gradient(0deg, rgba(35, 39, 90, .98), rgba(35, 39, 90, .44)); } .page :global(.vaccine-hero-content) { padding: 60px 20px; } .page :global(.vaccine-hero p) { font-size: 16px; } .page :global(.vaccine-form-card) { padding: 22px 18px; border-radius: 20px; } .page :global(.vaccine-form-grid) { grid-template-columns: 1fr; gap: 16px; } .page :global(.vaccine-gender-field) { grid-column: auto; } .page :global(.gender-options) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); } .page :global(.gender-options label) { min-width: 0; justify-content: center; padding-inline: 10px; } .page :global(.date-picker-popover) { width: 100%; min-width: 0; } .page :global(.schedule-heading) { align-items: flex-start; flex-direction: column; margin-bottom: 24px; } .page :global(.schedule-heading .btn) { width: 100%; justify-content: center; } .page :global(.patient-summary) { grid-template-columns: 1fr; } }
+@media (max-width: 380px) { .page :global(.vaccine-hero h1) { font-size: 40px; } .page :global(.vaccine-form-card) { padding: 20px 14px; } .page :global(.date-picker-popover) { padding: 10px; border-radius: 15px; } .page :global(.date-picker-head) { margin-bottom: 8px; } .page :global(.date-picker-days button), .page :global(.date-picker-days > span) { font-size: 11px; } .page :global(.vaccine-submit) { padding-inline: 14px; font-size: 14px; } }

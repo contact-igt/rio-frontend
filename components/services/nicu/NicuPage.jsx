@@ -163,7 +163,7 @@ function NicuPageContent({ service: s }) {
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a>
           <NavManagement /><a href="/paediatric-super-specialities">Pediatric Super Specialities</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
         <div className="nav-cta">
-          <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
+          <a className="btn btn-line btn-sm" href="/book-vaccine">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>

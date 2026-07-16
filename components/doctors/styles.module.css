@@ -22,6 +22,7 @@
 .page :global(.doc-hero-in) {
   max-width: 780px;
   margin: 0 auto;
+  min-width: 0;
 }
 
 .page :global(.doc-hero h1) {
@@ -43,6 +44,8 @@
 .page :global(.search-box-wrap) {
   margin-top: 32px;
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -82,6 +85,7 @@
   font-size: 16px;
   color: var(--ink);
   flex: 1;
+  min-width: 0;
   background: transparent;
 }
 
@@ -240,9 +244,18 @@
   gap: 28px;
 }
 
+.page :global(.doc-grid > *) {
+  min-width: 0;
+}
+
 @media(max-width: 960px) {
   .page :global(.doc-grid) {
     grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .page :global(.doc-photo-wrap) {
+    height: 240px;
   }
 }
 
@@ -423,6 +436,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 0;
 }
 
 .page :global(.cta-copy h2) {
@@ -452,6 +466,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 0;
 }
 
 .page :global(.cta-form h3) {
@@ -489,6 +504,39 @@
   }
 }
 
+@media (max-width: 700px) {
+  .page :global(.doc-hero .lede) {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .page :global(.search-box-wrap) {
+    margin-top: 24px;
+    padding: 13px;
+  }
+
+  .page :global(.search-input) {
+    font-size: 15px;
+  }
+
+  .page :global(.dept-chip) {
+    padding: 9px 17px;
+    font-size: 13px;
+  }
+
+  .page :global(.results-bar) {
+    padding-top: 18px;
+  }
+
+  .page :global(.dept-section) {
+    margin-top: 42px;
+  }
+
+  .page :global(.dept-section + .dept-section) {
+    margin-top: 54px;
+  }
+}
+
 @media (max-width: 480px) {
   .page :global(.cta-actions) {
     flex-direction: column;
@@ -499,10 +547,48 @@
     width: 100%;
     justify-content: center;
   }
+
+  .page :global(.doc-hero h1) {
+    font-size: 31px;
+  }
+
+  .page :global(.search-box-wrap svg) {
+    width: 18px;
+    height: 18px;
+    margin-right: 9px;
+  }
+
+  .page :global(.doc-qual) {
+    padding: 9px 10px;
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .page :global(.doc-photo-wrap) {
+    height: 210px;
+  }
+
+  .page :global(.chips-scroll-wrap) {
+    gap: 7px;
+    padding-inline: 4px;
+  }
+
+  .page :global(.dept-chip) {
+    padding-inline: 14px;
+  }
 }
 
 .sectionNoTop {
   padding-top: 0;
+}
+
+.page :global(#book) {
+  padding-block: clamp(68px, 8vw, 120px);
+}
+
+.page :global(#book > .wrap) {
+  margin: 0 auto;
 }
 
 .fullButton {
