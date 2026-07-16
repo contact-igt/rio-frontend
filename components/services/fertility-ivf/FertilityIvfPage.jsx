@@ -1,5 +1,6 @@
 "use client";
 
+import SiteFooter from "@/components/shared/SiteFooter";
 import { useEffect, useRef, useState } from "react";
 import NavManagement from "@/components/shared/NavManagement";
 import MobileNav from "@/components/shared/MobileNav";
@@ -162,7 +163,7 @@ function FertilityIvfPageContent({ service: s }) {
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a>
           <NavManagement /><a href="/paediatric-super-specialities">Pediatric Super Specialities</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
         <div className="nav-cta">
-          <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
+          <a className="btn btn-line btn-sm" href="/book-vaccine">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
@@ -224,7 +225,7 @@ function FertilityIvfPageContent({ service: s }) {
 
         {/* infrastructure gallery */}
         {s.gallery && (
-          <section className="section">
+          <section className={`section ${styles.gallerySection}`}>
             <div className="wrap">
               <Reveal className="sec-head center"><Eyebrow>Our Infrastructure</Eyebrow><h2>Inside our {s.eyebrow} facilities</h2><p className="sec-note">A look at the structure and infrastructure behind our {s.eyebrow.toLowerCase()} care.</p></Reveal>
               <div className="gal-grid">
@@ -242,7 +243,7 @@ function FertilityIvfPageContent({ service: s }) {
 
         {/* journey */}
         {s.journey && (
-          <section className="section">
+          <section className={`section ${styles.journeySection}`}>
             <div className="wrap">
               <Reveal className="sec-head center"><Eyebrow>Your Journey</Eyebrow><h2>Your Fertility Journey</h2></Reveal>
               <div className="tri-rail">
@@ -256,7 +257,7 @@ function FertilityIvfPageContent({ service: s }) {
 
         {/* stat band */}
         {s.stat && (
-          <section className={`section ${styles.sectionNoTop}`}>
+          <section className={`section ${styles.bandSection}`}>
             <div className="wrap">
               <Reveal className="statband">
                 <div><strong><Counter value={s.stat.n} /></strong><span>{s.stat.l}</span></div>
@@ -271,9 +272,9 @@ function FertilityIvfPageContent({ service: s }) {
 
         {/* faq */}
         {s.faqs && (
-          <section className="section tint-pink">
+          <section className={`section tint-pink ${styles.faqSection}`}>
             <div className="wrap">
-              <Reveal className="sec-head"><Eyebrow>FAQ</Eyebrow><h2>Questions families ask</h2></Reveal>
+              <Reveal className="sec-head center"><Eyebrow>FAQ</Eyebrow><h2>Questions families ask</h2></Reveal>
               <div className="faq">
                 {s.faqs.map((f, i) => (
                   <Reveal key={f.q} delay={i * 50} className={`faq-item ${openFaq === i ? "open" : ""}`}>
@@ -288,7 +289,7 @@ function FertilityIvfPageContent({ service: s }) {
 
         {/* related */}
         {s.related && (
-          <section className="section">
+          <section className={`section ${styles.relatedSection}`}>
             <div className="wrap">
               <Reveal className="sec-head center"><Eyebrow>Related Care</Eyebrow><h2>Explore related services</h2></Reveal>
               <div className="rel-grid">
@@ -306,7 +307,7 @@ function FertilityIvfPageContent({ service: s }) {
         )}
 
         {/* enquiry */}
-        <section className={`section ${styles.sectionNoTop}`} id="book">
+        <section className={`section ${styles.enquirySection}`} id="book">
           <div className="wrap">
             <Reveal className="enq">
               <div className="enq-copy">
@@ -334,19 +335,7 @@ function FertilityIvfPageContent({ service: s }) {
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="wrap">
-          <div>
-            <div className={styles.footerLogoSpace}><Logo footer /></div>
-            <p className={styles.footerDesc}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
-            <p className="vals">TRUST • CARE • INNOVATION • COMPASSION • EXCELLENCE</p>
-          </div>
-          <div><h4>Treatments</h4><ul>{APPT_SERVICES.slice(0, 6).map((x) => <li key={x}>{x}</li>)}</ul></div>
-          <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about">About Us</a></li><li><a href="/about/chairman">Founder &amp; Chairman</a></li><li><a href="/about/management">Management Team</a></li></ul></div>
-          <div><h4>Contact</h4><ul><li><a href={LINKS.call}>📞 +91 77083 18222</a></li><li><a href="mailto:info@riohospital.com">✉ info@riohospital.com</a></li><li><a href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></li><li><a href={LINKS.instagram} target="_blank" rel="noreferrer">Instagram</a></li></ul></div>
-        </div>
-        <div className="wrap footer-bottom"><span>© 2026 Rio Children's Hospital</span><span>Built by Invictus Global Tech</span></div>
-      </footer>
+      <SiteFooter />
 
       <div className="mbar">
         <a className="btn btn-pink" href={LINKS.call}>Call</a>

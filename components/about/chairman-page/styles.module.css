@@ -256,7 +256,7 @@
             right: clamp(16px, 3vw, 42px);
             height: 84% !important;
             max-height: 600px !important;
-            max-width: 430px !important;
+            max-width: min(430px, 46vw) !important;
           }
           .page :global(.ch-hero-inner) { padding: 0 42px 52px; }
           .page :global(.ch-hero-content) { max-width: 54%; }
@@ -325,7 +325,7 @@
           display: grid; grid-template-columns: repeat(4,1fr);
           gap: 0;
         }
-        @media (max-width:700px) { .page :global(.ch-stats-inner) { grid-template-columns: repeat(2,1fr); } }
+        @media (max-width:700px) { .page :global(.ch-stats-inner) { grid-template-columns: repeat(2,1fr); padding-inline: 16px; } }
         .page :global(.ch-stat) {
           padding: 48px 20px;
           text-align: center;
@@ -350,7 +350,7 @@
         .page :global(.ch-stat-label) {
           font-size: 12px; font-weight: 600; color: rgba(255,255,255,.55);
           text-transform: uppercase; letter-spacing: .08em;
-          margin-top: 8px; white-space: nowrap;
+          margin-top: 8px; line-height: 1.35;
         }
 
         /* ???????????? JOURNEY / TIMELINE ???????????? */
@@ -464,7 +464,8 @@
           display: grid; grid-template-columns: repeat(3,1fr); gap: 28px;
           margin-top: 56px;
         }
-        @media (max-width:700px) { .page :global(.ch-awards-grid) { grid-template-columns: 1fr; } }
+        @media (max-width:1024px) { .page :global(.ch-awards-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; } .page :global(.ch-award-card) { padding: 32px 24px; } }
+        @media (max-width:700px) { .page :global(.ch-awards-grid) { grid-template-columns: 1fr; margin-top: 34px; } }
         .page :global(.ch-award-card) {
           position: relative; overflow: hidden;
           border: 1px solid #e5e7f0;
@@ -517,6 +518,22 @@
           .page :global(.ch-tl-item) { padding-left: 24px; }
           .page :global(.ch-timeline::before) { left: 6px; }
           .page :global(.ch-tl-dot) { left: -34px; }
+          .page :global(.ch-journey), .page :global(.ch-vision), .page :global(.ch-awards) { padding-block: 68px; }
+          .page :global(.ch-vision-attr) { flex-wrap: wrap; }
+          .page :global(.ch-vision-attr-text) { width: 100%; font-size: 11px; line-height: 1.55; }
+          .page :global(.ch-vision-attr-line) { width: 28px; }
+          .page :global(.ch-award-card) { padding: 30px 22px; }
+        }
+
+        @media (max-width:380px) {
+          .page :global(.ch-hero) { min-height: 650px; }
+          .page :global(.ch-hero-inner) { padding-inline: 16px; }
+          .page :global(.ch-hero-photo) { top: 54px; max-width: 245px !important; }
+          .page :global(.ch-hero-role) { font-size: 12px; }
+          .page :global(.ch-stat) { padding: 30px 10px; }
+          .page :global(.ch-stat-label) { font-size: 10px; letter-spacing: .05em; }
+          .page :global(.ch-wrap), .page :global(.ch-vision-inner) { padding-inline: 20px; }
+          .page :global(.ch-vision-attr-line) { display: none; }
         }
 
 .page :global(.bio-hl)   { color: #303573; font-weight: 700; }
@@ -538,4 +555,3 @@
 
 
 .visionLabelCenter { justify-content: center; color: rgba(255,255,255,.4); }
-

@@ -1,4 +1,5 @@
 .page {
+  --facility-section-space: clamp(76px, 8vw, 120px);
   --facility-blue: #303573;
   --facility-blue-deep: #252a63;
   --facility-pink: #fd70a1;
@@ -16,6 +17,8 @@
     linear-gradient(180deg, #f4f6ff 0%, #fffaf3 100%);
   color: var(--facility-ink);
 }
+
+
 
 .page :global(.header) {
   background: transparent;
@@ -35,7 +38,7 @@
 
 .page :global(.facility-browser) {
   position: relative;
-  padding: 0 0 80px;
+  padding: 0 0 var(--facility-section-space);
   overflow: hidden;
 }
 
@@ -65,6 +68,7 @@
 .page :global(.facility-browser .wrap) {
   position: relative;
   z-index: 1;
+  margin: 0 auto;
 }
 
 .page :global(.browser-intro-new) {
@@ -107,7 +111,9 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 72px 56px;
+  /* padding: 72px 56px; */
+  padding: clamp(68px, 8vw, 120px) 28px;
+  box-sizing: border-box;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -116,6 +122,7 @@
 
 .page :global(.facility-hero-copy) {
   max-width: 760px;
+  min-width: 0;
 }
 
 .page :global(.browser-intro-new .eyebrow) {
@@ -155,6 +162,7 @@
   border-radius: 18px;
   padding: 16px 8px;
   box-shadow: 0 18px 40px rgba(10, 15, 45, 0.2);
+  min-width: 0;
 }
 
 .page :global(.quick-stat-badge) {
@@ -193,8 +201,12 @@
   display: grid;
   grid-template-columns: 380px 1fr;
   gap: 32px;
-  margin-top: 16px;
+  margin-top: var(--facility-section-space);
   align-items: start;
+}
+
+.page :global(.facility-dashboard > *) {
+  min-width: 0;
 }
 
 .page :global(.facility-sidebar) {
@@ -715,9 +727,73 @@
   animation: pulseGreen 2.5s infinite;
 }
 
-.page :global(.footer) {
-  margin-top: 60px;
+.page :global(.facility-cta-banner) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: clamp(36px, 5vw, 68px);
+  border-radius: 28px;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(253, 112, 161, 0.34), transparent 32%),
+    linear-gradient(125deg, var(--facility-blue-deep), var(--facility-blue));
+  box-shadow: 0 24px 52px rgba(48, 53, 115, 0.18);
 }
+
+.page :global(.detail-tabs) {
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.facilityCtaSection :global(.wrap) {
+  margin: 0 auto;
+  padding: 0 0 120px;
+}
+
+.page :global(.facility-cta-banner .eyebrow) {
+  color: #ffc4da;
+}
+
+.page :global(.facility-cta-banner .ey-dot) {
+  background: #ffc4da;
+}
+
+.page :global(.facility-cta-banner h2) {
+  max-width: 620px;
+  margin-top: 14px;
+  color: #ffffff;
+  font-size: clamp(30px, 3.2vw, 48px);
+  line-height: 1.05;
+}
+
+.page :global(.facility-cta-banner p) {
+  max-width: 600px;
+  margin: 16px 0 0;
+  color: #dfe8ff;
+  line-height: 1.65;
+}
+
+.page :global(.facility-cta-actions) {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.page :global(.facility-cta-banner .btn-line) {
+  border-color: #ffffff;
+  color: var(--facility-blue-deep);
+}
+
+.page :global(.facility-cta-banner .btn-line:hover) {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--facility-blue-deep);
+}
+
 
 .page :global(.footer ul) {
   list-style: none;
@@ -782,8 +858,8 @@
 }
 
 @media (max-width: 760px) {
-  .page :global(.facility-browser) {
-    padding: 0 0 60px;
+  .facilityCtaSection :global(.wrap) {
+    padding: 0 20px 120px;
   }
 
   .page :global(.browser-intro-new) {
@@ -840,6 +916,104 @@
 
   .page :global(.btn-booking),
   .page :global(.btn-whatsapp-live) {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .page :global(.facility-cta-banner) {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 28px;
+    border-radius: 22px;
+  }
+
+  .page :global(.facility-cta-actions) {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 980px) {
+  .page :global(.browser-intro-new) {
+    min-height: auto;
+  }
+
+  .page :global(.intro-container) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 28px;
+  }
+
+  .page :global(.facility-hero-copy) {
+    max-width: 680px;
+  }
+
+  .page :global(.quick-stats) {
+    width: 100%;
+    align-self: stretch;
+  }
+
+  .page :global(.quick-stat-badge) {
+    min-width: 0;
+    flex: 1 1 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .page :global(.facility-cta-banner) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  .page :global(.facility-cta-actions) {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .page :global(.facility-item-card) {
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .page :global(.facility-item-card .card-icon) {
+    width: 40px;
+    height: 40px;
+  }
+
+  .page :global(.mobile-facility-details .detail-header-image) {
+    height: 220px;
+  }
+
+  .page :global(.detail-content) {
+    padding: 20px 16px;
+  }
+
+  .page :global(.detail-tabs) {
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .page :global(.tab-btn) {
+    flex: 0 0 auto;
+    font-size: 13px;
+  }
+
+  .page :global(.facility-cta-banner) {
+    padding: 28px 22px;
+  }
+
+  .page :global(.facility-cta-actions) {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .page :global(.facility-cta-actions .btn) {
     width: 100%;
     justify-content: center;
   }

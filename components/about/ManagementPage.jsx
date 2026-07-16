@@ -1,12 +1,13 @@
 "use client";
 
+import SiteFooter from "@/components/shared/SiteFooter";
 import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
 import NavManagement from "@/components/shared/NavManagement";
 import MobileNav from "@/components/shared/MobileNav";
 import TopStrip from "@/components/shared/TopStrip";
-import { SITE_LINKS } from "@/data/site";
+import { SITE_LINKS } from "@/data/site";
 import styles from "./management-page/styles.module.css";
 
 const LEADERS = [
@@ -88,10 +89,7 @@ export default function ManagementPage() {
         <div className="nav-cta">
           <a
             className="btn btn-line btn-sm"
-            href={SITE_LINKS.youtube}
-            target="_blank"
-            rel="noreferrer"
-          >
+           href="/book-vaccine">
             Book Vaccine
           </a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">
@@ -182,19 +180,7 @@ export default function ManagementPage() {
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="wrap">
-          <div>
-            <div className={styles.footerLogoSpace}><Logo footer /></div>
-            <p className={styles.footerDescLight}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
-            <p className="vals">TRUST • CARE • INNOVATION • COMPASSION • EXCELLENCE</p>
-          </div>
-          <div><h4>Treatments</h4><ul>{APPT_SERVICES.slice(0, 6).map((x) => <li key={x}>{x}</li>)}</ul></div>
-          <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about">About Us</a></li><li><a href="/about/chairman">Founder &amp; Chairman</a></li><li><a href="/about/management">Management Team</a></li></ul></div>
-          <div><h4>Contact</h4><ul><li><a href={LINKS.call}>📞 +91 77083 18222</a></li><li><a href="mailto:info@riohospital.com">✉ info@riohospital.com</a></li><li><a href={LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></li><li><a href={LINKS.instagram} target="_blank" rel="noreferrer">Instagram</a></li></ul></div>
-        </div>
-        <div className="wrap footer-bottom"><span>© 2026 Rio Children&apos;s Hospital</span><span>Built by Invictus Global Tech</span></div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

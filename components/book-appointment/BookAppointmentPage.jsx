@@ -1,5 +1,6 @@
 "use client";
 
+import SiteFooter from "@/components/shared/SiteFooter";
 import { useEffect, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
@@ -42,7 +43,7 @@ export default function BookAppointmentPage() {
           <a href="/contact">Contact</a>
         </nav>
                 <div className="nav-cta">
-          <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
+          <a className="btn btn-line btn-sm" href="/book-vaccine">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
@@ -126,18 +127,7 @@ export default function BookAppointmentPage() {
         </section>
       </main>
 
-      <footer className={`footer ${styles.bookingFooter}`}>
-        <div className={`wrap ${styles.bookingFooterWrap}`}>
-          <div>
-            <div className={styles.footerLogoSpace}><Logo footer /></div>
-            <p className={styles.footerDesc}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
-          </div>
-          <div className={styles.footerMeta}>
-            <span>© 2026 Rio Children's Hospital</span>
-            <span className={styles.footerCredit}>Built by Invictus Global Tech</span>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

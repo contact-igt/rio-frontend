@@ -1,12 +1,13 @@
 "use client";
 
+import SiteFooter from "@/components/shared/SiteFooter";
 import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
 import MobileNav from "@/components/shared/MobileNav";
 import NavManagement from "@/components/shared/NavManagement";
 import TopStrip from "@/components/shared/TopStrip";
-import { APPOINTMENT_SERVICES, SITE_LINKS } from "@/data/site";
+import { APPOINTMENT_SERVICES, SITE_LINKS } from "@/data/site";
 import styles from "./about-page/styles.module.css";
 /* ════════════════════════════════════════════════════════════════════════
    RIO CHILDREN'S HOSPITAL — ABOUT US PAGE
@@ -249,9 +250,11 @@ function Eyebrow({ children, light = false }) {
 }
 function Counter({ value, light = false }) {
   const m = value.match(/[\d,]+/);
-  const target = m ? parseInt(m[0].replace(/,/g, ""), 10) : null;
+  const baseTarget = m ? parseInt(m[0].replace(/,/g, ""), 10) : null;
   const suffix = m ? value.slice(m.index + m[0].length) : "";
   const prefix = m ? value.slice(0, m.index) : "";
+  const usesLakhUnit = /\b(?:lakh|lac)\b/i.test(value);
+  const target = baseTarget == null ? null : baseTarget * (usesLakhUnit ? 100000 : 1);
   const [n, setN] = useState(target ? 0 : null);
   const ref = useRef(null);
   useEffect(() => {
@@ -277,7 +280,13 @@ function Counter({ value, light = false }) {
   }, [target]);
   return (
     <span ref={ref} className={light ? "ct-light" : ""}>
-      {target != null ? `${prefix}${n.toLocaleString()}${suffix}` : value}
+      {target == null
+        ? value
+        : n === 0
+          ? "0"
+          : usesLakhUnit
+            ? `${prefix}${n === target ? baseTarget : (n / 100000).toFixed(1)}${suffix}`
+            : `${prefix}${n.toLocaleString()}${suffix}`}
     </span>
   );
 }
@@ -381,10 +390,7 @@ export default function AboutPage() {
         <div className="nav-cta">
           <a
             className="btn btn-line btn-sm"
-            href={SITE_LINKS.youtube}
-            target="_blank"
-            rel="noreferrer"
-          >
+           href="/book-vaccine">
             Book Vaccine
           </a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">
@@ -751,75 +757,7 @@ export default function AboutPage() {
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="wrap">
-          <div>
-            <div className={styles.footerLogoSpace}><Logo footer /></div>
-            <p className={styles.footerDescGreen}>
-              Advanced women and child healthcare across Tamil Nadu combining
-              medical expertise, modern facilities, and compassionate care.
-            </p>
-            <p className="values-line">
-              TRUST • CARE • INNOVATION • COMPASSION • EXCELLENCE
-            </p>
-          </div>
-          <div>
-            <h4>Explore</h4>
-            <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/about">About Us</a>
-              </li>
-              <li>
-                <a href="/about/chairman">Founder &amp; Chairman</a>
-              </li>
-              <li>
-                <a href="/about/management">Management Team</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4>Branches</h4>
-            <ul>
-              {BRANCHES.map((b) => (
-                <li key={b.name}>{b.name}</li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4>Contact</h4>
-            <ul>
-              <li>
-                <a href={SITE_LINKS.call}>📞 +91 77083 18222</a>
-              </li>
-              <li>
-                <a href="mailto:info@riohospital.com">✉ info@riohospital.com</a>
-              </li>
-              <li>
-                <a href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">
-                  WhatsApp
-                </a>
-              </li>
-              <li>
-                <a href={SITE_LINKS.instagram} target="_blank" rel="noreferrer">
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a href={SITE_LINKS.youtube} target="_blank" rel="noreferrer">
-                  YouTube
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="wrap footer-bottom">
-          <span>© 2026 Rio Children's Hospital</span>
-          <span>Built by Invictus Global Tech</span>
-        </div>
-      </footer>
+      <SiteFooter />
 
       <div className="mbar">
         <a className="btn btn-pink" href={SITE_LINKS.call}>

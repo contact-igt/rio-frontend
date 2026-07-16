@@ -1,3 +1,67 @@
+.page :global(.section) {
+  padding-block: clamp(68px, 8vw, 120px);
+}
+
+.page :global(.shero-in) {
+  padding-inline: 28px;
+  box-sizing: border-box;
+}
+
+.page :global(.shero-in .lede),
+.page :global(.split > *),
+.page :global(.feat-grid > *),
+.page :global(.gal-grid > *),
+.page :global(.statband > *),
+.page :global(.enq-copy),
+.page :global(.enq-form) {
+  min-width: 0;
+}
+
+/* Give this page's final appointment card more vertical breathing room. */
+.page :global(.enq) {
+  min-height: clamp(480px, 34vw, 560px);
+}
+
+.page :global(.enq-copy),
+.page :global(.enq-form) {
+  padding-block: clamp(68px, 6vw, 96px);
+}
+
+.page :global(.enq-copy) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.page :global(.enq-copy .eyebrow) {
+  margin-bottom: 16px;
+}
+
+.page :global(.enq-copy h2) {
+  margin-top: 0;
+}
+
+.page :global(.enq-copy p) {
+  margin-top: 18px;
+}
+
+.page :global(.enq-form) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 760px) {
+  .page :global(.enq) {
+    min-height: 0;
+  }
+
+  .page :global(.enq-copy),
+  .page :global(.enq-form) {
+    padding-block: 52px;
+  }
+}
+
 .page :global(.spec-section) {
   background: linear-gradient(135deg, #fff2f6 0%, #f2f5ff 50%, #fffbfd 100%);
   position: relative;
@@ -6,8 +70,8 @@
 
 .page :global(.spec-grid) {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
   margin-top: 40px;
 }
 
@@ -19,13 +83,15 @@
 
 @media (max-width: 1024px) {
   .page :global(.spec-grid) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
   }
 }
 
 @media (max-width: 680px) {
   .page :global(.spec-grid) {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
@@ -99,6 +165,7 @@
 
 .page :global(.spec-right) {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
@@ -132,12 +199,96 @@
   flex-grow: 1;
 }
 
-.page :global(.gal-note) {
-  display: none;
+@media (max-width: 560px) {
+  .page :global(.shero) {
+    min-height: auto;
+  }
+
+  .page :global(.shero-in) {
+    padding-inline: 20px;
+  }
+
+  .page :global(.shero .lede) {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .page :global(.shero-cta) {
+    width: 100%;
+  }
+
+  .page :global(.shero-cta .btn) {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .page :global(.spec-card) {
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+  }
+
+  .page :global(.spec-left) {
+    width: auto;
+    align-items: flex-start;
+  }
+
+  .page :global(.spec-circle) {
+    width: 76px;
+    height: 76px;
+  }
+
+  .page :global(.gal-grid) {
+    grid-template-columns: 1fr;
+  }
+
+  .page :global(.gal-item) {
+    aspect-ratio: 16 / 9;
+  }
+
+  .page :global(.statband) {
+    padding: 30px 22px;
+    align-items: flex-start;
+  }
+
+  .page :global(.statband .sb-cta) {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .page :global(.statband .sb-cta .btn) {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .page :global(.faq-q) {
+    padding-block: 17px;
+    font-size: 15px;
+  }
+
+  .page :global(.enq-copy),
+  .page :global(.enq-form) {
+    padding-inline: 22px;
+  }
 }
 
-.sectionNoTop {
-  padding-top: 0;
+@media (max-width: 380px) {
+  .page :global(.shero-in) {
+    padding-inline: 16px;
+  }
+
+  .page :global(.spec-card) {
+    padding: 18px;
+  }
+
+  .page :global(.enq-copy),
+  .page :global(.enq-form) {
+    padding-inline: 18px;
+  }
+}
+
+.page :global(.gal-note) {
+  display: none;
 }
 
 .fullButton {

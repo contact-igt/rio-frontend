@@ -1,13 +1,14 @@
 "use client";
 
+import SiteFooter from "@/components/shared/SiteFooter";
 import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
 import MobileNav from "@/components/shared/MobileNav";
 import NavManagement from "@/components/shared/NavManagement";
 import TopStrip from "@/components/shared/TopStrip";
-import { APPOINTMENT_SERVICES, NAV_TREATMENTS, SITE_LINKS } from "@/data/site";
-import { doctors } from "@/data/doctors";
+import { APPOINTMENT_SERVICES, BRANCH_NAMES, SITE_LINKS } from "@/data/site";
+import { doctors } from "@/data/doctors";
 import styles from "./styles.module.css";
 
 /* ════════════════════════════════════════════════════════════════════════
@@ -64,6 +65,7 @@ export default function DoctorsPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeDept, setActiveDept] = useState("All");
+  const chipsRef = useRef(null);
 
   useEffect(() => {
     const o = () => setSolid(window.scrollY > 40);
@@ -88,6 +90,13 @@ export default function DoctorsPage() {
     return matchesDept && matchesSearch;
   });
 
+  const scrollChips = (direction) => {
+    chipsRef.current?.scrollBy({
+      left: direction * 320,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className={`rio ${styles.page}`}>
 
@@ -105,7 +114,7 @@ export default function DoctorsPage() {
           <a href="/contact">Contact</a>
         </nav>
                 <div className="nav-cta">
-          <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
+          <a className="btn btn-line btn-sm" href="/book-vaccine">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
@@ -148,22 +157,40 @@ export default function DoctorsPage() {
         {/* Sticky Department Filter Chips */}
         <section className="dept-filter-sec">
           <div className="wrap">
-            <div className="chips-scroll-wrap">
+            <div className={styles.chipsControl}>
               <button
-                className={`dept-chip ${activeDept === "All" ? "active" : ""}`}
-                onClick={() => setActiveDept("All")}
+                type="button"
+                className={styles.chipsArrow}
+                aria-label="Scroll departments left"
+                onClick={() => scrollChips(-1)}
               >
-                All Departments
+                ←
               </button>
-              {uniqueDepts.map((dept) => (
+              <div ref={chipsRef} className="chips-scroll-wrap">
                 <button
-                  key={dept}
-                  className={`dept-chip ${activeDept === dept ? "active" : ""}`}
-                  onClick={() => setActiveDept(dept)}
+                  className={`dept-chip ${activeDept === "All" ? "active" : ""}`}
+                  onClick={() => setActiveDept("All")}
                 >
-                  {dept}
+                  All Departments
                 </button>
-              ))}
+                {uniqueDepts.map((dept) => (
+                  <button
+                    key={dept}
+                    className={`dept-chip ${activeDept === dept ? "active" : ""}`}
+                    onClick={() => setActiveDept(dept)}
+                  >
+                    {dept}
+                  </button>
+                ))}
+              </div>
+              <button
+                type="button"
+                className={styles.chipsArrow}
+                aria-label="Scroll departments right"
+                onClick={() => scrollChips(1)}
+              >
+                →
+              </button>
             </div>
           </div>
         </section>
@@ -288,69 +315,7 @@ export default function DoctorsPage() {
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="wrap">
-          <div>
-            <div className={styles.footerLogoSpace}><Logo footer /></div>
-            <p className={styles.footerDescPurple}>
-              Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.
-            </p>
-            <p className="vals">TRUST • CARE • INNOVATION • COMPASSION • EXCELLENCE</p>
-          </div>
-          <div>
-            <h4>Treatments</h4>
-            <ul>
-              {NAV_TREATMENTS.map((t) => (
-                <li key={t.slug}>
-                  <a href={`/services/${t.slug}`}>{t.name}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4>Explore</h4>
-            <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/about">About Us</a>
-              </li>
-              <li>
-                <a href="/about/chairman">Founder &amp; Chairman</a>
-              </li>
-              <li>
-                <a href="/about/management">Management Team</a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4>Contact</h4>
-            <ul>
-              <li>
-                <a href={SITE_LINKS.call}>📞 +91 77083 18222</a>
-              </li>
-              <li>
-                <a href="mailto:info@riohospital.com">✉ info@riohospital.com</a>
-              </li>
-              <li>
-                <a href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">
-                  WhatsApp
-                </a>
-              </li>
-              <li>
-                <a href={SITE_LINKS.instagram} target="_blank" rel="noreferrer">
-                  Instagram
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="wrap footer-bottom">
-          <span>© 2026 Rio Children's Hospital</span>
-          <span>Built by Invictus Global Tech</span>
-        </div>
-      </footer>
+      <SiteFooter />
 
       <div className="mbar">
         <a className="btn btn-pink" href={SITE_LINKS.call}>

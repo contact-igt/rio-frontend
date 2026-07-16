@@ -1,12 +1,13 @@
 "use client";
 
+import SiteFooter from "@/components/shared/SiteFooter";
 import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
 import NavManagement from "@/components/shared/NavManagement";
 import MobileNav from "@/components/shared/MobileNav";
 import TopStrip from "@/components/shared/TopStrip";
-import { NAV_TREATMENTS, SITE_LINKS } from "@/data/site";
+import { NAV_TREATMENTS, SITE_LINKS } from "@/data/site";
 import styles from "./styles.module.css";
 /* ════════════════════════════════════════════════════════════════════════
    RIO CHILDREN'S HOSPITAL — TREATMENTS landing page  (route: /treatments)
@@ -90,7 +91,7 @@ export default function TreatmentsPage() {
           <NavManagement /><a href="/paediatric-super-specialities">Pediatric Super Specialities</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a>
         </nav>
                 <div className="nav-cta">
-          <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">Book Vaccine</a>
+          <a className="btn btn-line btn-sm" href="/book-vaccine">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
@@ -155,19 +156,7 @@ export default function TreatmentsPage() {
         </section>
       </main>
 
-      <footer className="footer">
-        <div className="wrap">
-          <div>
-            <div className={styles.footerLogoSpace}><Logo footer /></div>
-            <p className={styles.footerDescPurple}>Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.</p>
-            <p className="vals">TRUST • CARE • INNOVATION • COMPASSION • EXCELLENCE</p>
-          </div>
-          <div><h4>Treatments</h4><ul>{NAV_TREATMENTS.map((t) => <li key={t.slug}><a href={`/services/${t.slug}`}>{t.name}</a></li>)}</ul></div>
-          <div><h4>Explore</h4><ul><li><a href="/">Home</a></li><li><a href="/about">About Us</a></li><li><a href="/about/chairman">Founder &amp; Chairman</a></li><li><a href="/about/management">Management Team</a></li></ul></div>
-          <div><h4>Contact</h4><ul><li><a href={SITE_LINKS.call}>📞 +91 77083 18222</a></li><li><a href="mailto:info@riohospital.com">✉ info@riohospital.com</a></li><li><a href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></li><li><a href={SITE_LINKS.instagram} target="_blank" rel="noreferrer">Instagram</a></li></ul></div>
-        </div>
-        <div className="wrap footer-bottom"><span>© 2026 Rio Children's Hospital</span><span>Built by Invictus Global Tech</span></div>
-      </footer>
+      <SiteFooter />
 
       <div className="mbar">
         <a className="btn btn-pink" href={SITE_LINKS.call}>Call</a>

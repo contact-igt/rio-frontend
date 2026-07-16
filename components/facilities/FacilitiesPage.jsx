@@ -1,5 +1,6 @@
 "use client";
 
+import SiteFooter from "@/components/shared/SiteFooter";
 import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
@@ -7,7 +8,7 @@ import MobileNav from "@/components/shared/MobileNav";
 import NavManagement from "@/components/shared/NavManagement";
 import TopStrip from "@/components/shared/TopStrip";
 import { FACILITIES } from "@/data/facilities";
-import { SITE_LINKS } from "@/data/site";
+import { SITE_LINKS } from "@/data/site";
 import styles from "./styles.module.css";
 
 function Reveal({ children, delay = 0, className = "", as = "div", ...rest }) {
@@ -362,7 +363,7 @@ export default function FacilitiesPage() {
           <a href="/contact">Contact</a>
         </nav>
         <div className="nav-cta">
-          <a className="btn btn-line btn-sm" href="https://appointment.riochildrenshospital.com" target="_blank" rel="noreferrer">
+          <a className="btn btn-line btn-sm" href="/book-vaccine">
             Book Vaccine
           </a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">
@@ -461,41 +462,29 @@ export default function FacilitiesPage() {
             </div>
           </div>
         </section>
+
+        <section className={`section ${styles.facilityCtaSection}`}>
+          <div className="wrap">
+            <Reveal className="facility-cta-banner">
+              <div>
+                <Eyebrow light>Need guidance?</Eyebrow>
+                <h2>Find the right facility for your family</h2>
+                <p>
+                  Tell us what care you need and our team will guide you to the
+                  right unit, specialist and Rio branch.
+                </p>
+              </div>
+              <div className="facility-cta-actions">
+                <a className="btn btn-pink" href={SITE_LINKS.call}>Call us</a>
+                <a className="btn btn-green" href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a>
+                <a className="btn btn-line" href="/book-appointment">Book an appointment</a>
+              </div>
+            </Reveal>
+          </div>
+        </section>
       </main>
 
-      <footer className="footer">
-        <div className="wrap">
-          <div>
-            <div className={styles.footerLogoSpace}><Logo footer /></div>
-            <p className={styles.footerDescGreen}>
-              Advanced women and child healthcare across Tamil Nadu combining medical expertise, modern facilities, and compassionate care.
-            </p>
-            <p className="values">TRUST - CARE - INNOVATION - COMPASSION - EXCELLENCE</p>
-          </div>
-          <div>
-            <h4>Explore</h4>
-            <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/about">About Us</a></li>
-              <li><a href="/about/chairman">Founder &amp; Chairman</a></li>
-              <li><a href="/about/management">Management Team</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4>Contact</h4>
-            <ul>
-              <li><a href={SITE_LINKS.call}>Call +91 77083 18222</a></li>
-              <li><a href="mailto:info@riohospital.com">info@riohospital.com</a></li>
-              <li><a href={SITE_LINKS.whatsapp} target="_blank" rel="noreferrer">WhatsApp</a></li>
-              <li><a href={SITE_LINKS.instagram} target="_blank" rel="noreferrer">Instagram</a></li>
-            </ul>
-          </div>
-        </div>
-        <div className="wrap footer-bottom">
-          <span>2026 Rio Children's Hospital</span>
-          <span>Built by Invictus Global Tech</span>
-        </div>
-      </footer>
+      <SiteFooter />
 
       <div className="mbar">
         <a className="btn btn-pink" href={SITE_LINKS.call}>Call</a>
@@ -505,8 +494,6 @@ export default function FacilitiesPage() {
     </div>
   );
 }
-
-
 
 
 
