@@ -223,7 +223,7 @@ function HumanMilkBankPageContent({ service: s }) {
 
         {/* infrastructure gallery */}
         {s.gallery && (
-          <section className="section">
+          <section className={`section ${styles.gallerySection}`}>
             <div className="wrap">
               <Reveal className="sec-head center"><Eyebrow>Our Infrastructure</Eyebrow><h2>Inside our {s.eyebrow} facilities</h2><p className="sec-note">A look at the structure and infrastructure behind our {s.eyebrow.toLowerCase()} care.</p></Reveal>
               <div className="gal-grid">
@@ -241,7 +241,7 @@ function HumanMilkBankPageContent({ service: s }) {
 
         {/* journey */}
         {s.journey && (
-          <section className="section">
+          <section className={`section ${styles.journeySection}`}>
             <div className="wrap">
               <Reveal className="sec-head center"><Eyebrow>Your Journey</Eyebrow><h2>Care that follows every trimester</h2></Reveal>
               <div className="tri-rail">
@@ -255,7 +255,7 @@ function HumanMilkBankPageContent({ service: s }) {
 
         {/* stat band */}
         {s.stat && (
-          <section className={`section ${styles.sectionNoTop}`}>
+          <section className={`section ${styles.bandSection}`}>
             <div className="wrap">
               <Reveal className="statband">
                 <div><strong><Counter value={s.stat.n} /></strong><span>{s.stat.l}</span></div>
@@ -270,9 +270,9 @@ function HumanMilkBankPageContent({ service: s }) {
 
         {/* faq */}
         {s.faqs && (
-          <section className="section tint-pink">
+          <section className={`section tint-pink ${styles.faqSection}`}>
             <div className="wrap">
-              <Reveal className="sec-head"><Eyebrow>FAQ</Eyebrow><h2>Questions families ask</h2></Reveal>
+              <Reveal className="sec-head center"><Eyebrow>FAQ</Eyebrow><h2>Questions families ask</h2></Reveal>
               <div className="faq">
                 {s.faqs.map((f, i) => (
                   <Reveal key={f.q} delay={i * 50} className={`faq-item ${openFaq === i ? "open" : ""}`}>
@@ -287,7 +287,7 @@ function HumanMilkBankPageContent({ service: s }) {
 
         {/* related */}
         {s.related && (
-          <section className="section">
+          <section className={`section ${styles.relatedSection}`}>
             <div className="wrap">
               <Reveal className="sec-head center"><Eyebrow>Related Care</Eyebrow><h2>Explore related services</h2></Reveal>
               <div className="rel-grid">
@@ -305,7 +305,7 @@ function HumanMilkBankPageContent({ service: s }) {
         )}
 
         {/* enquiry */}
-        <section className={`section ${styles.sectionNoTop}`} id="book">
+        <section className={`section ${styles.enquirySection}`} id="book">
           <div className="wrap">
             <Reveal className="enq">
               <div className="enq-copy">
