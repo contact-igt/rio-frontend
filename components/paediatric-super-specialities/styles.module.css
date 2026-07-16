@@ -17,14 +17,14 @@
   min-width: 0;
 }
 
-/* Give this page's final appointment card more vertical breathing room. */
+/* Standardized vertical breathing room. */
 .page :global(.enq) {
-  min-height: clamp(480px, 34vw, 560px);
+  min-height: auto;
 }
 
 .page :global(.enq-copy),
 .page :global(.enq-form) {
-  padding-block: clamp(68px, 6vw, 96px);
+  padding-block: clamp(48px, 5vw, 72px);
 }
 
 .page :global(.enq-copy) {
@@ -246,21 +246,6 @@
     aspect-ratio: 16 / 9;
   }
 
-  .page :global(.statband) {
-    padding: 30px 22px;
-    align-items: flex-start;
-  }
-
-  .page :global(.statband .sb-cta) {
-    width: 100%;
-    flex-direction: column;
-  }
-
-  .page :global(.statband .sb-cta .btn) {
-    width: 100%;
-    justify-content: center;
-  }
-
   .page :global(.faq-q) {
     padding-block: 17px;
     font-size: 15px;
@@ -315,6 +300,18 @@
   flex-wrap: wrap;
 }
 
+@media (max-width: 480px) {
+  .enqActions {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .enqActions :global(.btn) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 .footerLogoSpace {
   margin-bottom: 16px;
 }
@@ -347,10 +344,91 @@
 }
 
 .specialityTitle {
-  margin-top: 24px;
+  margin-top: clamp(26px, 4.5vw, 32px) !important;
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: .07em;
   color: var(--pink-deep);
   font-weight: 700;
+}
+
+/* --- Statband Alignment Corrections --- */
+.page :global(.statband) {
+  padding: clamp(42px, 4.5vw, 54px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.page :global(.statband > div:first-child) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 108px;
+}
+
+.page :global(.statband strong) {
+  line-height: 0.92;
+  margin-bottom: 16px;
+}
+
+.page :global(.statband div > span) {
+  line-height: 1.35;
+}
+
+.page :global(.statband .sb-cta) {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 108px;
+  align-self: center;
+}
+
+@media (max-width: 760px) {
+  .page :global(.statband) {
+    justify-content: center;
+    text-align: center;
+  }
+  .page :global(.statband > div:first-child) {
+    align-items: center;
+    width: 100%;
+    min-height: 0;
+  }
+  .page :global(.statband strong) {
+    margin-bottom: 12px;
+  }
+  .page :global(.statband .sb-cta) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 0;
+    gap: 14px;
+  }
+  .page :global(.statband .sb-cta .btn) {
+    width: min(100%, 236px);
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .page :global(.statband) {
+    padding: 38px 28px;
+  }
+  .page :global(.statband strong) {
+    font-size: clamp(27px, 7vw, 35px);
+  }
+  .page :global(.statband .sb-cta) {
+    width: min(100%, 300px);
+    gap: 12px;
+    margin-top: 4px;
+  }
+  .page :global(.statband .sb-cta .btn) {
+    width: 100%;
+    justify-content: center;
+  }
 }

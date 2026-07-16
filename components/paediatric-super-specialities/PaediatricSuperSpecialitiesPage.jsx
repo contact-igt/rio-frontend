@@ -531,7 +531,7 @@ export default function PaediatricSuperSpecialitiesPage() {
         {/* 7. FAQ */}
         <section className="section tint-pink">
           <div className="wrap">
-            <Reveal className="sec-head">
+            <Reveal className="sec-head center">
               <Eyebrow>FAQ</Eyebrow>
               <h2>Questions families ask</h2>
             </Reveal>

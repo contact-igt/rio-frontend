@@ -352,6 +352,10 @@
   .page :global(.hero-glass div) {
     padding: 8px 6px
   }
+
+  .page :global(.hero-glass div + div) {
+    border-left: none;
+  }
 }
 
 @media (max-width:400px) {
