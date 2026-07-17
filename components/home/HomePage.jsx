@@ -3,6 +3,7 @@
 import SiteFooter from "@/components/shared/SiteFooter";
 import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
+import Slider from "react-slick";
 import NavTreatments from "@/components/shared/NavTreatments";
 import MobileNav from "@/components/shared/MobileNav";
 import NavManagement from "@/components/shared/NavManagement";
@@ -93,6 +94,28 @@ const TESTIMONIALS = [
     text: "We rushed in at 2 AM with our daughter and the emergency team was ready immediately. 24/7 care that genuinely saved us.",
   },
 ];
+
+// Slick needs more slides than the visible desktop count to keep autoplay moving.
+const TESTIMONIAL_SLIDES = [...TESTIMONIALS, ...TESTIMONIALS];
+
+const TESTIMONIAL_SLIDER_SETTINGS = {
+  arrows: false,
+  dots: false,
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 0,
+  speed: 7000,
+  cssEase: "linear",
+  pauseOnHover: false,
+  pauseOnFocus: false,
+  swipeToSlide: true,
+  responsive: [
+    { breakpoint: 881, settings: { slidesToShow: 2, speed: 6200 } },
+    { breakpoint: 561, settings: { slidesToShow: 1, speed: 5200 } },
+  ],
+};
 
 const SERVICES = [
   {
@@ -996,9 +1019,9 @@ export default function HomePage() {
                 reviews on Google.
               </p>
             </Reveal>
-            <div className="tst-grid">
-              {TESTIMONIALS.map((t, i) => (
-                <Reveal key={i} delay={(i % 3) * 80} className="tst">
+            <Slider className="testimonial-slider" {...TESTIMONIAL_SLIDER_SETTINGS}>
+              {TESTIMONIAL_SLIDES.map((t, i) => (
+                <div key={`${t.name}-${i}`} className="tst">
                   <article className="tst-card">
                   <div className="tst-stars">{"★".repeat(t.stars)}</div>
                   <p className="tst-text">"{t.text}"</p>
@@ -1010,9 +1033,9 @@ export default function HomePage() {
                     </div>
                   </div>
                   </article>
-                </Reveal>
+                </div>
               ))}
-            </div>
+            </Slider>
           </div>
         </section>
 

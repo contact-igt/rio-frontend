@@ -397,7 +397,7 @@ export default function PaediatricSuperSpecialitiesPage() {
         </section>
 
         {/* 2. OVERVIEW */}
-        <section className="section">
+        <section className={`section ${styles.overviewBackground}`}>
           <div className="wrap split">
             <Reveal>
               <Eyebrow>Overview</Eyebrow>
@@ -462,7 +462,7 @@ export default function PaediatricSuperSpecialitiesPage() {
                   <div className="spec-card">
                     <div className="spec-left">
                       <div className="spec-illustration">
-                        <div className="spec-circle">
+                        <div className="spec-image-box">
                           <img src={sp.img} alt={sp.title} className="illust-img" />
                         </div>
                       </div>
@@ -480,7 +480,7 @@ export default function PaediatricSuperSpecialitiesPage() {
         </section>
 
         {/* 5. INFRASTRUCTURE */}
-        <section className="section tint-blue">
+        <section className={`section tint-blue ${styles.infrastructureBackground}`}>
           <div className="wrap">
             <Reveal className="sec-head center">
               <Eyebrow>Our Infrastructure</Eyebrow>

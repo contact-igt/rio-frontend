@@ -11,6 +11,28 @@
   padding: clamp(76px, 8vw, 120px) 0;
 }
 
+.whoWeAreBackground {
+  background: url("/assets/home/childbg.png") center / cover no-repeat;
+}
+
+.ourTeamBackground {
+  background: url("/assets/home/ourteam.png") center / cover no-repeat;
+}
+
+.familyChooseBackground {
+  background: url("/assets/about/familybg.png") center / cover no-repeat !important;
+}
+
+.departmentsBackground {
+  background: #f3f4fb;
+}
+
+.page :global(.cta-band) {
+  background:
+    linear-gradient(90deg, rgba(48, 57, 130, .94) 0%, rgba(48, 57, 130, .82) 100%),
+    url("/assets/shared/branch-madurai-main.png") center / cover no-repeat;
+}
+
 @media (max-width: 880px) {
   .page :global(.section) {
     padding-block: 70px;
@@ -25,8 +47,20 @@
 
 /* about hero � editorial */
 .page :global(.ahero) {
-  padding: 54px 0 10px;
+  padding: clamp(76px, 8vw, 120px) 0;
   position: relative
+}
+
+@media (max-width: 880px) {
+  .page :global(.ahero) {
+    padding-block: 70px;
+  }
+}
+
+@media (max-width: 560px) {
+  .page :global(.ahero) {
+    padding-block: 56px;
+  }
 }
 
 .page :global(.ahero-grid) {
@@ -459,19 +493,32 @@
 }
 
 /* timeline */
+.journeySection {
+  position: relative;
+  isolation: isolate;
+  background:
+    linear-gradient(90deg, rgba(255, 253, 254, .96), rgba(255, 255, 255, .86)),
+    url("/assets/shared/branch-madurai-main.png") center 44% / cover no-repeat;
+}
+
+.journeySection :global(.wrap) {
+  position: relative;
+  z-index: 1;
+}
+
 .page :global(.tl) {
   position: relative;
   max-width: 820px;
   margin: 0 auto;
-  padding-left: 34px
+  padding-left: 58px
 }
 
 .page :global(.tl::before) {
   content: "";
   position: absolute;
-  left: 8px;
-  top: 6px;
-  bottom: 6px;
+  left: 20px;
+  top: 20px;
+  bottom: 20px;
   width: 2px;
   background: linear-gradient(var(--coral), var(--teal))
 }
@@ -486,28 +533,37 @@
   padding-bottom: 0
 }
 
-/* dot pops in when section triggers (.in) */
-.page :global(.tl-dot) {
+/* milestone icons */
+.page :global(.tl-icon) {
   position: absolute;
-  left: -34px;
-  top: 2px;
-  width: 18px;
-  height: 18px;
+  left: -58px;
+  top: -4px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: #fff;
-  border: 3px solid var(--coral);
-  box-shadow: 0 0 0 5px var(--coral-soft);
+  display: grid;
+  place-items: center;
+  color: var(--blue);
+  background: rgba(255, 255, 255, .94);
+  border: 2px solid rgba(253, 112, 161, .72);
+  box-shadow: 0 8px 22px rgba(48, 53, 115, .16), 0 0 0 5px rgba(253, 112, 161, .12);
   transform: scale(0);
-  transition: transform .55s cubic-bezier(.34, 1.56, .64, 1) .22s, background .25s, box-shadow .25s
+  transition: transform .55s cubic-bezier(.34, 1.56, .64, 1) .22s, color .25s, background .25s, box-shadow .25s
 }
 
-.page :global(.reveal.in .tl-dot) {
+.page :global(.tl-icon .val-icon) {
+  width: 21px;
+  height: 21px;
+}
+
+.page :global(.reveal.in .tl-icon) {
   transform: scale(1)
 }
 
-.page :global(.tl-item:hover .tl-dot) {
-  background: var(--coral);
-  box-shadow: 0 0 0 8px var(--coral-soft)
+.page :global(.tl-item:hover .tl-icon) {
+  color: #fff;
+  background: var(--blue);
+  box-shadow: 0 10px 26px rgba(48, 53, 115, .24), 0 0 0 8px rgba(253, 112, 161, .14)
 }
 
 .page :global(.tl-y) {
@@ -646,6 +702,53 @@
 .page :global(.ap h3) {
   font-size: 18px;
   margin-bottom: 9px
+}
+.approachBackground {
+  background:
+    linear-gradient(rgba(35, 39, 90, .88), rgba(35, 39, 90, .88)),
+    url("/assets/home/advanced-nicu.png") center / cover no-repeat;
+  color: #fff;
+}
+
+.page .approachBackground :global(h2),
+.page .approachBackground :global(.ap h3) {
+  color: #fff;
+}
+
+.page .approachBackground :global(.ap-grid > *) {
+  min-width: 0;
+  height: 100%;
+}
+
+.page .approachBackground :global(.ap) {
+  height: 100%;
+  min-width: 0;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.page .approachBackground :global(.ap p) {
+  color: #c7e2da;
+  font-size: 14.5px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.approachIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .16);
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+}
+
+.approachIcon :global(.val-icon) {
+  width: 24px;
+  height: 24px;
+  color: #fff;
 }
 
 /* specialist band */

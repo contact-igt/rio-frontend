@@ -224,3 +224,75 @@
  ✓ Compiled in 545ms (470 modules)
  ✓ Compiled in 868ms (460 modules)
  ✓ Compiled in 747ms (470 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 648ms (309 modules)
+ GET / 500 in 1516ms
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 519ms (771 modules)
+ ✓ Compiled in 1802ms (773 modules)
+ ✓ Compiled in 623ms (470 modules)
+ ✓ Compiled in 773ms (470 modules)
+ ✓ Compiled in 755ms (470 modules)
+ ✓ Compiled in 712ms (763 modules)
+ ✓ Compiled in 1325ms (474 modules)
+ ✓ Compiled in 811ms (474 modules)
+ ✓ Compiled in 523ms (474 modules)
+ ✓ Compiled in 586ms (474 modules)
+ ✓ Compiled in 1118ms (484 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 1271ms (323 modules)
+ GET / 200 in 1707ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 583ms (800 modules)
+ GET /_next/static/css/app/page.css?v=1784296649032 404 in 1057ms
+ GET /_next/static/css/app/layout.css?v=1784296649032 404 in 1063ms
+ GET /_next/static/chunks/main-app.js?v=1784296649032 404 in 1113ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 1073ms
+ GET /_next/static/chunks/app/page.js 404 in 1074ms
+ GET /_next/static/chunks/app/layout.js 404 in 1069ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 165ms
+ GET /_next/static/chunks/main-app.js?v=1784296649032 404 in 171ms
+ GET /_next/static/chunks/app/page.js 404 in 164ms
+ GET /_next/static/chunks/app/layout.js 404 in 162ms
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 527ms (802 modules)
+ ✓ Compiled in 1341ms (819 modules)
+ ✓ Compiled in 5.2s (780 modules)
+ ✓ Compiled in 2.5s (486 modules)
+ ✓ Compiled in 339ms (476 modules)
+ ✓ Compiled in 447ms (486 modules)
+ ✓ Compiled in 323ms (486 modules)
+ ✓ Compiled in 315ms (486 modules)
+ ✓ Compiled in 395ms (486 modules)
+ ✓ Compiled in 1203ms (486 modules)
+ ✓ Compiled in 3.2s (486 modules)
+ ✓ Compiled in 1398ms (486 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 939ms (324 modules)
+ ✓ Compiled /_error in 395ms (802 modules)
+ GET / 500 in 1652ms
+ ✓ Compiled in 381ms (477 modules)
+ ✓ Compiled in 398ms (487 modules)
+ ✓ Compiled in 316ms (477 modules)
+ ✓ Compiled in 1720ms (790 modules)
+ ✓ Compiled / in 407ms (324 modules)
+ ✓ Compiled /_error in 477ms (802 modules)
+ GET / 500 in 1262ms
+ ✓ Compiled in 2.6s (486 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 587ms (803 modules)
+ ✓ Compiled /_error in 343ms (805 modules)
+ ✓ Compiled in 4.3s (790 modules)
+ ✓ Compiled in 4.3s (790 modules)
+ ✓ Compiled in 945ms (794 modules)
+ ✓ Compiled in 529ms (794 modules)
+ ✓ Compiled in 524ms (794 modules)
+ ✓ Compiled in 2.9s (790 modules)
+ ✓ Compiled in 2.5s (486 modules)
+ ✓ Compiled in 1990ms (486 modules)
+ ✓ Compiled in 4.9s (790 modules)
+ ✓ Compiled in 6.6s (790 modules)
+ ✓ Compiled in 6.2s (790 modules)
+ ✓ Compiled in 570ms (790 modules)
+ ✓ Compiled in 504ms (790 modules)
+ ✓ Compiled in 404ms (790 modules)
