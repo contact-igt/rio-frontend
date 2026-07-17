@@ -81,8 +81,6 @@ const AWARDS = [
   { icon: "📖", title: "India Book of Records", sub: "BLS training for maximum villagers in a single day", year: "Record" },
 ];
 
-const APPT_SERVICES = ["High-Risk Pregnancy Care", "Fetal Medicine", "NICU", "PICU", "Paediatric Emergency Care", "General Paediatrics", "Vaccination Services", "Human Milk Bank", "Maternity Care"];
-
 const LINKS = {
   call: "tel:+917708318222",
   whatsapp: "https://wa.me/917708318222",

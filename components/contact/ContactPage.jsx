@@ -2,12 +2,14 @@
 
 import SiteFooter from "@/components/shared/SiteFooter";
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
 import MobileNav from "@/components/shared/MobileNav";
 import NavManagement from "@/components/shared/NavManagement";
 import TopStrip from "@/components/shared/TopStrip";
 import { APPOINTMENT_SERVICES_WITH_ENQUIRY, SITE_LINKS } from "@/data/site";
+import { registerRioLead } from "@/lib/rioRegistration";
 import styles from "./styles.module.css";
 /* ════════════════════════════════════════════════════════════════════════
    RIO CHILDREN'S HOSPITAL — CONTACT US PAGE
@@ -76,10 +78,45 @@ function CIcon({ name }) {
   }
 }
 export default function ContactPage() {
+  const router = useRouter();
   const [solid, setSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   useEffect(() => { const o = () => setSolid(window.scrollY > 40); window.addEventListener("scroll", o, { passive: true }); return () => window.removeEventListener("scroll", o); }, []);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    if (submitting) return;
+
+    const formData = new FormData(event.currentTarget);
+    const utmSource = new URLSearchParams(window.location.search).get("utm_source");
+
+    setSubmitting(true);
+    setSubmitError("");
+
+    try {
+      await registerRioLead({
+        name: formData.get("name"),
+        mobile_number: formData.get("mobile_number"),
+        branch: formData.get("branch"),
+        service: formData.get("service"),
+        message: formData.get("message"),
+        utm_source: utmSource,
+      });
+      setSent(true);
+      router.push("/thank-you");
+    } catch (error) {
+      const message = error instanceof Error
+        ? error.message
+        : "Unable to submit your request. Please try again.";
+      setSubmitError(message);
+      router.push(`/submission-error?source=contact&message=${encodeURIComponent(message)}`);
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   const QUICK = [
     { icon: "phone", t: "Call us", v: "+91 77083 18222", href: SITE_LINKS.call, note: "24/7 emergency line" },
@@ -156,15 +193,18 @@ export default function ContactPage() {
               {sent ? (
                 <div className="done mt-26"><span>✓</span> Thank you! Our team will contact you shortly.</div>
               ) : (
-                <form onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
+                <form onSubmit={handleSubmit}>
                   <div className="form-row">
-                    <div className="field"><label>Full name</label><input type="text" placeholder="Your name" required /></div>
-                    <div className="field"><label>Phone</label><input type="tel" placeholder="Phone number" required /></div>
-                    <div className="field"><label>Preferred branch</label><select required defaultValue=""><option value="" disabled>Select a branch</option>{BRANCHES.map((b) => <option key={b.name}>{b.name}</option>)}</select></div>
-                    <div className="field"><label>Service needed</label><select required defaultValue=""><option value="" disabled>Select a service</option>{APPOINTMENT_SERVICES_WITH_ENQUIRY.map((s) => <option key={s}>{s}</option>)}</select></div>
-                    <div className="field full"><label>Message (optional)</label><textarea placeholder="Tell us briefly how we can help" /></div>
+                    <div className="field"><label>Full name</label><input name="name" type="text" maxLength={150} autoComplete="name" placeholder="Your name" required /></div>
+                    <div className="field"><label>Phone</label><input name="mobile_number" type="tel" maxLength={20} pattern="[0-9+()\- ]+" autoComplete="tel" placeholder="Phone number" required /></div>
+                    <div className="field"><label>Preferred branch</label><select name="branch" required defaultValue=""><option value="" disabled>Select a branch</option>{BRANCHES.map((b) => <option key={b.name}>{b.name}</option>)}</select></div>
+                    <div className="field"><label>Service needed</label><select name="service" required defaultValue=""><option value="" disabled>Select a service</option>{APPOINTMENT_SERVICES_WITH_ENQUIRY.map((s) => <option key={s}>{s}</option>)}</select></div>
+                    <div className="field full"><label>Message (optional)</label><textarea name="message" maxLength={2000} placeholder="Tell us briefly how we can help" /></div>
                   </div>
-                  <button className={`btn btn-cta mt-26 ${styles.fullButton}`} type="submit">Request a Call Back ↗</button>
+                  {submitError ? <div className={styles.formError} role="alert">{submitError}</div> : null}
+                  <button className={`btn btn-cta mt-26 ${styles.fullButton}`} type="submit" disabled={submitting}>
+                    {submitting ? "Submitting..." : "Request a Call Back ↗"}
+                  </button>
                 </form>
               )}
             </Reveal>

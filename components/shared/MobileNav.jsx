@@ -50,6 +50,9 @@ export default function MobileNav({
         <a className="mnav-link" href="/facilities" onClick={onClose}>
           Facilities
         </a>
+        <a className="mnav-link" href="/book-vaccine" onClick={onClose}>
+          Book Vaccine
+        </a>
         <div className="mnav-group">
           <span className="mnav-h">Treatments</span>
           {NAV_TREATMENTS.map((t) => (

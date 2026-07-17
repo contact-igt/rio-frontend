@@ -132,6 +132,8 @@
 .panelIntro { margin-top: 8px; }
 .doneSpace { margin-top: 20px; }
 .fullButton { width: 100%; justify-content: center; margin-top: 8px; }
+.fullButton:disabled { cursor: wait; opacity: 0.7; }
+.formError { color: #9f1d35; background: #fff0f3; border: 1px solid #f2bdc8; border-radius: 10px; padding: 11px 13px; font-size: 13px; line-height: 1.45; }
 .infoSection { padding: 64px 0; }
 .infoText { font-size: 14px; color: var(--muted); line-height: 1.5; }
 .bookingFooter { border-top: 1px solid var(--line); background: #FAFBFD; }
@@ -140,3 +142,108 @@
 .footerDesc { color: #9398C2; max-width: 280px; font-size: 13px; line-height: 1.5; }
 .footerMeta { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; }
 .footerCredit { color: var(--muted); font-weight: 400; }
+
+/* Align the appointment hero copy with the taller request form. */
+@media (min-width: 861px) {
+  .page :global(.hero-grid) {
+    grid-template-columns: minmax(0, 1fr) minmax(390px, .86fr);
+    align-items: center;
+  }
+
+  .page :global(.hero-grid > :first-child) {
+    padding-block: 28px;
+  }
+}
+
+@media (max-width: 860px) {
+  .page :global(.hero) {
+    padding-block: 56px;
+  }
+
+  .page :global(.hero-grid) {
+    gap: 30px;
+  }
+
+  .page :global(.panel) {
+    width: min(100%, 680px);
+    margin-inline: auto;
+  }
+}
+
+/* Appointment reassurance cards: use the Rio colour system and stronger hierarchy. */
+.page .infoSection {
+  position: relative;
+  margin-block: 18px 56px;
+  padding: clamp(24px, 3vw, 38px) !important;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #fff2f6 0%, #f5f7ff 52%, #eff9f5 100%);
+}
+
+.page :global(.info) {
+  gap: 18px;
+}
+
+.page :global(.info .card) {
+  position: relative;
+  min-height: 164px;
+  padding: 30px 26px 26px 82px;
+  border: 1px solid rgba(48, 53, 115, .10);
+  border-radius: 20px;
+  box-shadow: 0 16px 30px -24px rgba(48, 53, 115, .42);
+  overflow: hidden;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+.page :global(.info .card::before) {
+  position: absolute;
+  top: 26px;
+  left: 24px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: var(--pink-deep);
+  background: var(--pink-soft);
+  border-radius: 13px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .04em;
+}
+
+.page :global(.info .card:nth-child(1)::before) { content: "01"; }
+.page :global(.info .card:nth-child(2)::before) { content: "02"; color: var(--green-deep); background: var(--green-soft); }
+.page :global(.info .card:nth-child(3)::before) { content: "03"; color: var(--blue); background: var(--blue-soft); }
+
+.page :global(.info .card:hover) {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 36px -24px rgba(48, 53, 115, .32);
+}
+
+.page :global(.info .card strong) {
+  margin-bottom: 8px;
+  font-size: 19px;
+}
+
+@media (max-width: 860px) {
+  .page .infoSection {
+    margin-block: 8px 40px;
+  }
+}
+
+@media (max-width: 560px) {
+  .page .infoSection {
+    margin-inline: 20px;
+    padding: 18px !important;
+    border-radius: 22px;
+  }
+
+  .page :global(.info .card) {
+    min-height: 0;
+    padding: 26px 20px 24px 74px;
+  }
+
+  .page :global(.info .card::before) {
+    top: 23px;
+    left: 18px;
+  }
+}

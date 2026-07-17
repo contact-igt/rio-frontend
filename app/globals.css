@@ -1495,6 +1495,8 @@ body {
 .rio .spec-chip {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 8px;
   margin-top: 22px;
   background: var(--blue-soft);
@@ -1931,4 +1933,58 @@ body {
     width: 58px;
     height: 58px;
   }
+}
+
+.mobile-cta-bar {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .rio {
+    padding-bottom: calc(74px + env(safe-area-inset-bottom));
+  }
+
+  .mobile-cta-bar {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 90;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    min-height: calc(70px + env(safe-area-inset-bottom));
+    padding: 8px 8px calc(8px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, .98);
+    border-top: 1px solid rgba(48, 53, 115, .12);
+    box-shadow: 0 -12px 28px -22px rgba(26, 26, 34, .45);
+  }
+
+  .mobile-cta-bar__action {
+    min-width: 0;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: 4px;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    font-size: clamp(10px, 2.8vw, 12px);
+    font-weight: 700;
+    line-height: 1.1;
+    text-decoration: none;
+    transition: transform .2s ease;
+  }
+
+  .mobile-cta-bar__action svg {
+    width: 27px;
+    height: 27px;
+  }
+
+  .mobile-cta-bar__action:active { transform: scale(.94); }
+  .mobile-cta-bar__action:focus-visible { outline: 2px solid currentColor; outline-offset: -2px; border-radius: 6px; }
+  .mobile-cta-bar__action--phone { color: #f55b45; }
+  .mobile-cta-bar__action--whatsapp { color: #2db557; }
+  .mobile-cta-bar__action--instagram { color: #8faaf0; }
+  .mobile-cta-bar__action--book { color: #dca62e; }
+  .mobile-cta-bar__action--address { color: #303f8d; }
+
+  .whatsapp-float { display: none; }
 }

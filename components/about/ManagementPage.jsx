@@ -15,33 +15,31 @@ const LEADERS = [
     name: "Dr. Saravanan.M",
     role: "Chairman & Managing Director",
     qual: "MBBS., DCH., MRCP(UK).,",
-    image: "/assets/doctors/chairman.png", // Add path to image here, e.g. "/assets/about/dr-saravanan.jpg"
+    image: "/assets/doctors/chairman.png",
     desc: "Provides overall strategic vision, co-founder leadership, and clinical direction for the hospital group, bringing decades of neonatal and paediatric intensive care experience.",
   },
   {
     name: "Mrs. Kavitha",
     role: "Executive Director",
     qual: "MCA",
-    image: "/assets/doctors/", // Add path to image here, e.g. "/assets/about/mrs-kavitha.jpg"
+    image: "/assets/doctors/Mrs. Kavitha.png",
     desc: "Directs hospital operations, execution of administrative protocols, and oversees IT systems and quality management across all branches.",
   },
   {
     name: "Mr. Krishnakumar. V",
     role: "Chief Executive Officer",
     qual: "MHM (Hospl. Mgt)",
-    image: "", // Add path to image here, e.g. "/assets/about/mr-krishnakumar.jpg"
+    image: "/assets/doctors/Mr.Krishnakumar.png",
     desc: "Leads operational management, clinical excellence guidelines, corporate partnerships, and expansion execution for the hospital group.",
   },
   {
     name: "Mr. Dinesh Pandian",
     role: "Vice President : Legal & Projects",
     qual: "BE., LLB.,",
-    image: "", // Add path to image here, e.g. "/assets/about/mr-dinesh.jpg"
+    image: "/assets/doctors/Mr.Dinesh.png",
     desc: "Directs legal regulatory compliance, project construction, expansion execution, and government liaison for the Rio Hospital Group.",
   }
 ];
-
-const APPT_SERVICES = ["High-Risk Pregnancy Care", "Fetal Medicine", "NICU", "PICU", "Paediatric Emergency Care", "General Paediatrics", "Vaccination Services", "Human Milk Bank", "Maternity Care"];
 
 const LINKS = {
   call: "tel:+917708318222",

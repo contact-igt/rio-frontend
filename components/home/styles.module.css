@@ -44,6 +44,19 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.page .servicesBackground {
+  background: url("/assets/home/carebg.png") center / cover no-repeat;
+}
+
+.page .childHealthBackground {
+  background: url("/assets/home/childbg.png") center / cover no-repeat;
+}
+
+.page .ourTeamBackground {
+  background: url("/assets/home/ourteam.png") center / cover no-repeat;
+}
+
 .page :global(.hero) {
   position: relative;
   min-height: 96vh;
@@ -98,7 +111,7 @@
 @media (max-width:760px) {
   .page :global(.hero) {
     min-height: auto;
-    padding: 110px 0 60px;
+    padding: 70px 0 60px;
     display: block;
     z-index: 5
   }
@@ -351,6 +364,10 @@
 
   .page :global(.hero-glass div) {
     padding: 8px 6px
+  }
+
+  .page :global(.hero-glass div + div) {
+    border-left: none;
   }
 }
 
@@ -887,6 +904,26 @@
   color: #fff
 }
 
+.page .approachBackground {
+  background:
+    linear-gradient(rgba(35, 39, 90, .88), rgba(35, 39, 90, .88)),
+    url("/assets/home/advanced-nicu.png") center / cover no-repeat;
+}
+
+.approachIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .16);
+  display: grid;
+  place-items: center;
+  margin-bottom: 18px;
+}
+
+.approachIcon :global(.pillar-icon) {
+  color: #fff;
+}
+
 .page :global(.why h2) {
   color: #fff
 }
@@ -947,7 +984,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 56px;
-  align-items: center
+  align-items: stretch
 }
 
 @media (max-width:880px) {
@@ -955,22 +992,95 @@
     grid-template-columns: 1fr;
     gap: 38px
   }
+
+  .page :global(.mbank-media) {
+    display: block;
+  }
+
+  .page :global(.mbank-card-stack) {
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+    aspect-ratio: 4/3.75;
+  }
 }
 
 .page :global(.mbank-media) {
-  position: relative
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-self: stretch;
 }
 
-.page :global(.mbank-media .frame) {
-  aspect-ratio: 4/3.4;
-  box-shadow: var(--shadow);
-  border-radius: 26px
+.page :global(.mbank-card-stack) {
+  width: 112%;
+  height: 100%;
+  margin-left: -6%;
+  aspect-ratio: auto;
+  display: grid;
+  grid-template-columns: 1.18fr .82fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+  padding: 10px;
+  box-shadow: none;
+  border-radius: 0;
 }
 
-.page :global(.mbank-media .frame img) {
+.page :global(.mbank-card-rose .mbank-card-image img) {
   height: 120%;
   top: -10%;
   position: relative
+}
+
+.page :global(.mbank-card) {
+  min-width: 0;
+  overflow: hidden;
+  padding: 0;
+  border-radius: 22px;
+  position: relative;
+  box-shadow: 0 24px 42px -30px rgba(48, 53, 115, .45);
+}
+
+.page :global(.mbank-card-rose) {
+  grid-row: span 2;
+  transform: none;
+}
+
+.page :global(.mbank-card-green) {
+  transform: none;
+}
+
+.page :global(.mbank-card-yellow) {
+  transform: none;
+}
+
+.page :global(.mbank-card .mbank-card-image) {
+  height: 100%;
+  border-radius: 14px;
+}
+
+.page :global(.mbank-card .mbank-card-image img) {
+  height: 100%;
+}
+
+@media (max-width:560px) {
+  .page :global(.mbank-card-stack) {
+    width: 100%;
+    margin-left: 0;
+    gap: 10px;
+    padding: 6px;
+  }
+
+  .page :global(.mbank-card) {
+    padding: 0;
+    border-radius: 16px;
+  }
+
+  .page :global(.mbank-card-rose),
+  .page :global(.mbank-card-green),
+  .page :global(.mbank-card-yellow) {
+    transform: none;
+  }
 }
 
 .page :global(.mbank-badge) {
@@ -1173,10 +1283,11 @@
 }
 
 .page :global(.tst-grid > .reveal) {
-  display: flex
+  display: flex;
+  padding: 14px 8px 12px;
 }
 
-.page :global(.tst) {
+.page :global(.tst-card) {
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -1294,7 +1405,77 @@
   margin-top: 2px
 }
 
-/* faq */
+/* pinned testimonial cards */
+.page :global(.tst-card) {
+  --tst-tilt: -1.7deg;
+  background: #fffefd;
+  border-color: rgba(189, 132, 76, .14);
+  border-radius: 5px 7px 6px 4px;
+  padding: 46px 32px 32px;
+  overflow: visible;
+  box-shadow: 0 22px 34px -26px rgba(102, 67, 65, .34), 5px 8px 0 rgba(255, 255, 255, .5);
+  transform: rotate(var(--tst-tilt));
+  transition: transform .32s cubic-bezier(.2, .7, .2, 1), box-shadow .32s cubic-bezier(.2, .7, .2, 1), border-color .32s;
+}
+
+.page :global(.tst::before),
+.page :global(.tst::after) {
+  content: none;
+}
+
+.page :global(.tst-card::before) {
+  content: "";
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  top: -10px;
+  left: calc(50% - 8px);
+  z-index: 2;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, #fff 0 12%, #ff9bbd 14% 30%, var(--coral) 66%, var(--coral-deep) 100%);
+  box-shadow: 0 3px 4px rgba(92, 49, 60, .26);
+}
+
+.page :global(.tst-card::after) {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 20px;
+  top: 4px;
+  left: calc(50% - 1px);
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(104, 90, 87, .7), rgba(104, 90, 87, 0));
+  transform: rotate(18deg);
+  transform-origin: top;
+}
+
+.page :global(.tst-grid > .tst:nth-child(3n + 2) .tst-card) {
+  --tst-tilt: 1.3deg;
+}
+
+.page :global(.tst-grid > .tst:nth-child(3n) .tst-card) {
+  --tst-tilt: -.9deg;
+}
+
+.page :global(.tst:hover) {
+  transform: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.page :global(.tst:hover .tst-card) {
+  border-color: rgba(189, 132, 76, .28);
+  box-shadow: 0 30px 38px -24px rgba(102, 67, 65, .38), 7px 11px 0 rgba(255, 255, 255, .56);
+  transform: translateY(-8px) rotate(0deg);
+}
+
+@media (max-width:560px) {
+  .page :global(.tst-grid > .tst:nth-child(n) .tst-card) {
+    --tst-tilt: -.45deg;
+  }
+}
+
 .page :global(.faq) {
   max-width: 780px
 }
@@ -1662,7 +1843,7 @@
 
   .page :global(.pillar),
   .page :global(.tri),
-  .page :global(.tst) {
+  .page :global(.tst-card) {
     padding: 28px 22px;
   }
 
@@ -1799,4 +1980,323 @@
 
 .childHealthContent :global(.mt-28) {
   margin-top: 28px;
+}
+
+/* Homepage hero placement: preserve clear space for the hospital image. */
+@media (min-width: 761px) {
+  .page :global(.hero-bg) {
+    inset: 0;
+  }
+
+  .page :global(.hero-bg img) {
+    object-position: 72% center;
+  }
+
+  .page :global(.hero-veil) {
+    background:
+      linear-gradient(90deg, rgba(18, 24, 66, .96) 0%, rgba(18, 24, 66, .89) 32%, rgba(18, 24, 66, .61) 48%, rgba(18, 24, 66, .20) 68%, rgba(18, 24, 66, 0) 100%),
+      linear-gradient(0deg, rgba(18, 24, 66, .44) 0%, rgba(18, 24, 66, 0) 42%);
+  }
+
+  .page :global(.hero-inner) {
+    display: flex;
+    align-items: center;
+    min-height: inherit;
+  }
+
+  .page :global(.hero-inner > .reveal) {
+    max-width: 520px;
+  }
+
+  .page :global(.hero h1) {
+    max-width: 520px;
+    font-size: clamp(40px, 4.8vw, 66px);
+    line-height: 1.06;
+  }
+
+  .page :global(.hero .lede) {
+    max-width: 490px;
+    margin-top: 18px;
+    font-size: 16.5px;
+    line-height: 1.58;
+  }
+
+  .page :global(.hero-cta) {
+    margin-top: 24px;
+  }
+
+  .page :global(.hero-glass-container) {
+    right: 64px;
+    bottom: 64px;
+    align-items: flex-end;
+  }
+
+  .page :global(.hero-badges-glass) {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .page :global(.hero-bg img) {
+    object-position: 67% center;
+  }
+
+  .page :global(.hero-inner > .reveal) {
+    max-width: 460px;
+  }
+
+  .page :global(.hero h1) {
+    max-width: 460px;
+    font-size: clamp(38px, 5vw, 54px);
+  }
+
+  .page :global(.hero-glass-container) {
+    right: 32px;
+    bottom: 52px;
+  }
+}
+
+@media (max-width: 760px) {
+  .page :global(.hero-bg) {
+    inset: 0;
+  }
+
+  .page :global(.hero-bg img) {
+    object-position: 66% center;
+  }
+
+  .page :global(.hero-veil) {
+    background: linear-gradient(90deg, rgba(18, 24, 66, .88) 0%, rgba(18, 24, 66, .68) 62%, rgba(18, 24, 66, .28) 100%);
+  }
+
+  .page :global(.hero h1),
+  .page :global(.hero .lede) {
+    max-width: 34rem;
+  }
+}
+
+/* Lift and enlarge the lower-right hero statistics panel. */
+@media (min-width: 761px) {
+  .page :global(.hero-glass-container) {
+    bottom: 96px;
+  }
+
+  .page :global(.hero-glass) {
+    padding: 22px 8px;
+  }
+
+  .page :global(.hero-glass div) {
+    padding: 7px 22px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .page :global(.hero-glass-container) {
+    bottom: 78px;
+  }
+}
+
+/* Reference desktop composition for the homepage hero. */
+@media (min-width: 1101px) {
+  .page :global(.hero-inner) {
+    max-width: 1200px;
+    padding-inline: 0;
+  }
+
+  .page :global(.hero-inner > .reveal) {
+    max-width: 720px;
+  }
+
+  .page :global(.hero h1) {
+    max-width: 720px;
+    font-size: clamp(54px, 4.25vw, 80px);
+    line-height: 1.1;
+    letter-spacing: -.035em;
+  }
+
+  .page :global(.hero .lede) {
+    max-width: 620px;
+    margin-top: 24px;
+    font-size: 19px;
+    line-height: 1.7;
+  }
+
+  .page :global(.hero-cta) {
+    margin-top: 28px;
+  }
+
+  .page :global(.hero-glass-wrap) {
+    max-width: none;
+  }
+
+  .page :global(.hero-glass-container) {
+    right: clamp(56px, 6vw, 150px);
+    bottom: 126px;
+    gap: 16px;
+    align-items: flex-end;
+  }
+
+  .page :global(.hero-glass) {
+    width: 500px;
+    min-height: 200px;
+    padding: 22px 18px;
+    border-radius: 20px;
+    align-items: stretch;
+  }
+
+  .page :global(.hero-glass div) {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 14px 20px;
+  }
+
+  .page :global(.hero-glass strong) {
+    font-size: 35px;
+    line-height: 1;
+  }
+
+  .page :global(.hero-glass div > span) {
+    margin-top: 14px;
+    font-size: 13px;
+  }
+
+  .page :global(.hero-badges-glass) {
+    align-self: center;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1440px) {
+  .page :global(.hero-inner) {
+    padding-inline: 28px;
+  }
+}
+
+/* Mobile certification badges: one aligned column with even spacing. */
+@media (max-width: 760px) {
+  .page :global(.hero-badges) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .page :global(.hero-badges span) {
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 16px;
+    line-height: 1.25;
+  }
+
+  .page :global(.hero-glass-wrap) {
+    margin-top: 48px;
+  }
+}
+
+/* Mobile certification badges: full-width centered cards. */
+@media (max-width: 760px) {
+  .page :global(.hero-badges) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .page :global(.hero-badges span) {
+    display: flex;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 16px;
+    line-height: 1.25;
+    text-align: center;
+  }
+}
+
+/* Home page breakpoint coherence: protect cards and controls from shrinking. */
+@media (min-width: 561px) and (max-width: 880px) {
+  .page :global(.why .why-grid),
+  .page :global(.tst-grid) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .page :global(.pillar-grid > .reveal),
+  .page :global(.svc-grid > .reveal),
+  .page :global(.tri-rail > .reveal),
+  .page :global(.why .why-grid > .reveal),
+  .page :global(.tst-grid > .reveal),
+  .page :global(.branch-grid > .reveal),
+  .page :global(.split > .reveal),
+  .page :global(.mbank-grid > .reveal) {
+    min-width: 0;
+  }
+
+  .page :global(.mbank-cta) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .page :global(.mbank-cta .btn) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .page :global(.spec-body) {
+    padding: 28px 22px;
+  }
+
+  .page :global(.mbank-badge) {
+    left: 14px;
+    top: 14px;
+    font-size: 11px;
+    padding: 7px 10px;
+  }
+}
+
+/* Tablet hero: reserve a dedicated lower-right lane for badges and statistics. */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .page :global(.hero) {
+    min-height: 890px;
+  }
+
+  .page :global(.hero-inner) {
+    min-height: inherit;
+    align-items: flex-start;
+    padding-top: 112px;
+    padding-bottom: 250px;
+  }
+
+  .page :global(.hero-glass-container) {
+    right: 28px;
+    bottom: 48px;
+  }
+}
+
+/* Tablet hero: tighten the space between copy and the lower-right panel. */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .page :global(.hero) {
+    min-height: 840px;
+  }
+
+  .page :global(.hero-inner) {
+    padding-bottom: 200px;
+  }
+}
+
+/* Background artwork for the homepage Why Choose Rio section. */
+.whyChooseBackground {
+  background: url("/assets/home/choosebg.png") center / cover no-repeat;
 }

@@ -22,7 +22,7 @@ export const NAV_TREATMENTS = [
   { name: "Human Milk Bank", slug: "human-milk-bank" },
 ];
 
-export const APPOINTMENT_SERVICES = [
+export const RIO_SERVICE_TYPES = [
   "High-Risk Pregnancy Care",
   "Fetal Medicine",
   "NICU",
@@ -33,17 +33,15 @@ export const APPOINTMENT_SERVICES = [
   "Vaccination Services",
   "Human Milk Bank",
   "Maternity Care",
-];
-
-export const APPOINTMENT_SERVICES_WITH_FERTILITY = [
-  ...APPOINTMENT_SERVICES,
   "Fertility & IVF",
-];
-
-export const APPOINTMENT_SERVICES_WITH_ENQUIRY = [
-  ...APPOINTMENT_SERVICES,
   "General Enquiry",
 ];
+
+export const APPOINTMENT_SERVICES = RIO_SERVICE_TYPES;
+
+export const APPOINTMENT_SERVICES_WITH_FERTILITY = RIO_SERVICE_TYPES;
+
+export const APPOINTMENT_SERVICES_WITH_ENQUIRY = RIO_SERVICE_TYPES;
 
 export const BRANCH_NAMES = [
   "Madurai (Main)",

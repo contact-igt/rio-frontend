@@ -78,3 +78,24 @@
 @media (max-width: 880px) { .page :global(.vaccine-layout) { grid-template-columns: 1fr; gap: 38px; } .page :global(.vaccine-form-copy) { padding-top: 0; } .page :global(.patient-summary) { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .page :global(.vaccine-hero) { min-height: 500px; align-items: flex-end; } .page :global(.vaccine-hero-image) { background-position: 60% center; } .page :global(.vaccine-hero-overlay) { background: linear-gradient(0deg, rgba(35, 39, 90, .98), rgba(35, 39, 90, .44)); } .page :global(.vaccine-hero-content) { padding: 60px 20px; } .page :global(.vaccine-hero p) { font-size: 16px; } .page :global(.vaccine-form-card) { padding: 22px 18px; border-radius: 20px; } .page :global(.vaccine-form-grid) { grid-template-columns: 1fr; gap: 16px; } .page :global(.vaccine-gender-field) { grid-column: auto; } .page :global(.gender-options) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); } .page :global(.gender-options label) { min-width: 0; justify-content: center; padding-inline: 10px; } .page :global(.date-picker-popover) { width: 100%; min-width: 0; } .page :global(.schedule-heading) { align-items: flex-start; flex-direction: column; margin-bottom: 24px; } .page :global(.schedule-heading .btn) { width: 100%; justify-content: center; } .page :global(.patient-summary) { grid-template-columns: 1fr; } }
 @media (max-width: 380px) { .page :global(.vaccine-hero h1) { font-size: 40px; } .page :global(.vaccine-form-card) { padding: 20px 14px; } .page :global(.date-picker-popover) { padding: 10px; border-radius: 15px; } .page :global(.date-picker-head) { margin-bottom: 8px; } .page :global(.date-picker-days button), .page :global(.date-picker-days > span) { font-size: 11px; } .page :global(.vaccine-submit) { padding-inline: 14px; font-size: 14px; } }
+
+/* Hero spacing tuned for the Book Vaccine tablet and mobile views. */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .page :global(.vaccine-hero) {
+    min-height: 560px;
+  }
+
+  .page :global(.vaccine-hero-content) {
+    padding: 96px 32px 88px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page :global(.vaccine-hero) {
+    min-height: auto;
+  }
+
+  .page :global(.vaccine-hero-content) {
+    padding: 76px 20px 72px;
+  }
+}

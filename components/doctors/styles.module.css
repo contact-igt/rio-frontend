@@ -367,7 +367,7 @@
 
 .page :global(.doc-qual) {
   display: block;
-  padding: 10px 12px;
+  padding: 10px 16px;
   margin-bottom: 18px;
   border-radius: 14px;
   background: rgba(189, 132, 76, .08);
@@ -559,7 +559,7 @@
   }
 
   .page :global(.doc-qual) {
-    padding: 9px 10px;
+    padding: 9px 15px;
     margin-bottom: 14px;
   }
 }

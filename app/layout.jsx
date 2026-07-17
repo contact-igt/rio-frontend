@@ -1,6 +1,7 @@
 import "./globals.css";
 import { SITE_LINKS } from "../data/site";
 import InternalLinkHandler from "../components/shared/InternalLinkHandler";
+import MobileCtaBar from "../components/shared/MobileCtaBar";
 
 export const metadata = {
   title: "Rio Children's Hospital — Advanced Women & Child Care in Tamil Nadu",
@@ -34,6 +35,7 @@ export default function RootLayout({ children }) {
       <body>
         <InternalLinkHandler />
         {children}
+        <MobileCtaBar />
         <a
           className="whatsapp-float"
           href={SITE_LINKS.whatsapp}
