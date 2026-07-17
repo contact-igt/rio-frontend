@@ -851,6 +851,14 @@ body {
   margin-top: 26px;
 }
 
+.rio .shero + .section {
+  background: url('/assets/overview.png') center / cover no-repeat;
+}
+
+.rio .section:has(> .wrap > .gal-grid) {
+  background: url('/assets/Infrastructure.png') center / cover no-repeat;
+}
+
 .rio .split {
   display: grid;
   grid-template-columns: 1.05fr .95fr;
@@ -1210,7 +1218,9 @@ body {
 }
 
 .rio .statband {
-  background: var(--blue);
+  background:
+    linear-gradient(90deg, rgba(48, 57, 130, .94) 0%, rgba(48, 57, 130, .82) 100%),
+    url('/assets/shared/branch-madurai-main.png') center / cover no-repeat !important;
   color: #fff;
   border-radius: 28px;
   padding: 46px;

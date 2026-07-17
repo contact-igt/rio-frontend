@@ -20,9 +20,9 @@
 
 .page .journeySection {
   padding: clamp(76px, 8vw, 120px) 0;
-  background: linear-gradient(135deg,
-      var(--blue-soft) 0%,
-      #fff5fa 55%,
+  background: linear-gradient(135deg, var(--blue-soft) 0%, #fff5fa 55%, var(--pink-soft) 100%);
+}
+
 .page .journeySection :global(.tri) {
   background:
     linear-gradient(135deg, rgba(255, 255, 255, .76), rgba(255, 251, 253, .68)),
@@ -39,8 +39,6 @@
 
 .page .journeySection :global(.tri-rail > .reveal:nth-child(3) .tri) {
   background-position: center, 80% center !important;
-}
-      var(--pink-soft) 100%);
 }
 
 .page .bandSection {
