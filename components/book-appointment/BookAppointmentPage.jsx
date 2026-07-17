@@ -2,12 +2,14 @@
 
 import SiteFooter from "@/components/shared/SiteFooter";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
 import NavManagement from "@/components/shared/NavManagement";
 import MobileNav from "@/components/shared/MobileNav";
 import TopStrip from "@/components/shared/TopStrip";
 import { APPOINTMENT_SERVICES_WITH_FERTILITY, BRANCH_NAMES, SITE_LINKS } from "@/data/site";
+import { registerRioLead } from "@/lib/rioRegistration";
 import styles from "./styles.module.css";
 const IMG = {
   logo: "/assets/shared/riologov2.png",
@@ -16,15 +18,50 @@ const IMG = {
 
 
 export default function BookAppointmentPage() {
+  const router = useRouter();
   const [solid, setSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   useEffect(() => {
     const o = () => setSolid(window.scrollY > 40);
     window.addEventListener("scroll", o, { passive: true });
     return () => window.removeEventListener("scroll", o);
   }, []);
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    if (submitting) return;
+
+    const formData = new FormData(event.currentTarget);
+    const utmSource = new URLSearchParams(window.location.search).get("utm_source");
+
+    setSubmitting(true);
+    setSubmitError("");
+
+    try {
+      await registerRioLead({
+        name: formData.get("name"),
+        mobile_number: formData.get("mobile_number"),
+        branch: formData.get("branch"),
+        service: formData.get("service"),
+        message: formData.get("message"),
+        utm_source: utmSource,
+      });
+      setSent(true);
+      router.push("/thank-you");
+    } catch (error) {
+      const message = error instanceof Error
+        ? error.message
+        : "Unable to submit your request. Please try again.";
+      setSubmitError(message);
+      router.push(`/submission-error?source=appointment&message=${encodeURIComponent(message)}`);
+    } finally {
+      setSubmitting(false);
+    }
+  }
 
   return (
     <div className={`rio booking-page ${styles.page}`}>
@@ -77,34 +114,37 @@ export default function BookAppointmentPage() {
               {sent ? (
                 <div className={`done ${styles.doneSpace}`}>Thanks! Our care team will contact you shortly.</div>
               ) : (
-                <form className="form" onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
+                <form className="form" onSubmit={handleSubmit}>
                   <div className="field">
                     <label>Full name</label>
-                    <input required placeholder="Your name" />
+                    <input name="name" required maxLength={150} autoComplete="name" placeholder="Your name" />
                   </div>
                   <div className="field">
                     <label>Phone</label>
-                    <input required type="tel" placeholder="Phone number" />
+                    <input name="mobile_number" required type="tel" maxLength={20} pattern="[0-9+()\- ]+" autoComplete="tel" placeholder="Phone number" />
                   </div>
                   <div className="field">
                     <label>Preferred branch</label>
-                    <select required defaultValue="">
+                    <select name="branch" required defaultValue="">
                       <option value="" disabled>Select a branch</option>
                       {BRANCH_NAMES.map((b) => <option key={b}>{b}</option>)}
                     </select>
                   </div>
                   <div className="field">
                     <label>Service needed</label>
-                    <select required defaultValue="">
+                    <select name="service" required defaultValue="">
                       <option value="" disabled>Select a service</option>
                       {APPOINTMENT_SERVICES_WITH_FERTILITY.map((s) => <option key={s}>{s}</option>)}
                     </select>
                   </div>
                   <div className="field">
                     <label>Message</label>
-                    <textarea placeholder="Tell us briefly how we can help" />
+                    <textarea name="message" maxLength={2000} placeholder="Tell us briefly how we can help" />
                   </div>
-                  <button className={`btn btn-cta ${styles.fullButton}`} type="submit">Submit request ↗</button>
+                  {submitError ? <div className={styles.formError} role="alert">{submitError}</div> : null}
+                  <button className={`btn btn-cta ${styles.fullButton}`} type="submit" disabled={submitting}>
+                    {submitting ? "Submitting..." : "Submit request ↗"}
+                  </button>
                 </form>
               )}
             </div>

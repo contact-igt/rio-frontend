@@ -1,47 +1,226 @@
 
 > rio-static-app@1.0.0 dev
-> next dev -p 3100
+> next dev
 
   ▲ Next.js 14.2.5
-  - Local:        http://localhost:3100
+  - Local:        http://localhost:3000
+  - Environments: .env
 
  ✓ Starting...
- ✓ Ready in 2.1s
+ ✓ Ready in 2.2s
  ○ Compiling / ...
- ✓ Compiled / in 7.6s (459 modules)
- GET / 200 in 8383ms
+ ✓ Compiled / in 4s (505 modules)
+ GET / 200 in 4368ms
+ ○ Compiling /book-appointment ...
+ ✓ Compiled /book-appointment in 3.5s (495 modules)
+ GET /book-appointment 200 in 3606ms
+ ✓ Compiled /contact in 366ms (505 modules)
+ GET /contact 200 in 465ms
+ ✓ Compiled in 142ms (495 modules)
+ ✓ Compiled in 170ms (495 modules)
+ ✓ Compiled in 169ms (495 modules)
+ ✓ Compiled in 125ms (495 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 739ms (498 modules)
+ GET / 404 in 965ms
+ ✓ Compiled in 267ms (245 modules)
+ ✓ Compiled /book-appointment in 162ms (238 modules)
+ GET /book-appointment 200 in 387ms
+ ✓ Compiled /contact in 199ms (244 modules)
+ GET /contact 200 in 367ms
+ ✓ Compiled in 181ms (245 modules)
+ ✓ Compiled in 285ms (245 modules)
+ ✓ Compiled /book-appointment in 213ms (238 modules)
+ GET /book-appointment 200 in 450ms
+ ✓ Compiled /contact in 135ms (244 modules)
+ GET /contact 200 in 273ms
+ ✓ Compiled /thank-you in 277ms (508 modules)
+ GET /thank-you 200 in 368ms
+ ✓ Compiled /submission-error in 177ms (500 modules)
+ GET /submission-error?source=contact&message=Test%20error 200 in 276ms
+ ✓ Compiled in 347ms (258 modules)
+ ✓ Compiled in 214ms (258 modules)
+ ✓ Compiled in 245ms (258 modules)
+ ✓ Compiled in 473ms (258 modules)
+ ✓ Compiled / in 321ms (237 modules)
+ ○ Compiling /_error ...
+ GET / 500 in 1237ms
+ ✓ Compiled /_error in 1292ms (709 modules)
+ ✓ Compiled in 410ms (440 modules)
+ ✓ Compiled /_not-found in 385ms (710 modules)
+ ✓ Compiled /_error in 217ms (712 modules)
+ GET / 404 in 919ms
+ ✓ Compiled in 371ms (440 modules)
+ ✓ Compiled in 306ms (440 modules)
+ ✓ Compiled in 159ms (440 modules)
+ ✓ Compiled in 180ms (440 modules)
+ ✓ Compiled in 170ms (440 modules)
+ ✓ Compiled in 162ms (440 modules)
+ ✓ Compiled in 212ms (440 modules)
+ ✓ Compiled in 156ms (440 modules)
+ ✓ Compiled in 118ms (440 modules)
+ ✓ Compiled in 158ms (440 modules)
+ ✓ Compiled in 1426ms (488 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 821ms (277 modules)
+ GET / 200 in 1073ms
+ ✓ Compiled /_error in 270ms (709 modules)
+ ✓ Compiled in 513ms (719 modules)
+ ✓ Compiled in 559ms (488 modules)
+ ✓ Compiled in 245ms (430 modules)
+ ✓ Compiled in 621ms (440 modules)
+ ✓ Compiled in 582ms (440 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 516ms (277 modules)
+ ✓ Compiled /_error in 180ms (709 modules)
+ GET / 500 in 1067ms
+ ✓ Compiled in 1600ms (488 modules)
+ ✓ Compiled in 373ms (430 modules)
+ ✓ Compiled in 253ms (430 modules)
+ ✓ Compiled in 517ms (440 modules)
+ ✓ Compiled in 282ms (430 modules)
+ ✓ Compiled in 285ms (430 modules)
+ ✓ Compiled in 252ms (430 modules)
+ ✓ Compiled in 199ms (430 modules)
+ ✓ Compiled in 253ms (430 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 622ms (277 modules)
+ GET / 200 in 1100ms
+ ✓ Compiled /_not-found in 330ms (710 modules)
+ GET /_next/static/css/app/layout.css?v=1784281755914 404 in 644ms
+ GET /_next/static/chunks/main-app.js?v=1784281755914 404 in 678ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 664ms
+ GET /_next/static/chunks/app/layout.js 404 in 664ms
+ GET /_next/static/chunks/main-app.js?v=1784281755914 404 in 109ms
+ GET /_next/static/chunks/app/layout.js 404 in 115ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 110ms
+ ✓ Compiled /_error in 495ms (712 modules)
+ ✓ Compiled in 1477ms (712 modules)
+ ✓ Compiled in 824ms (488 modules)
+ ✓ Compiled in 513ms (430 modules)
+ ✓ Compiled in 468ms (440 modules)
+ ✓ Compiled in 390ms (440 modules)
+ ✓ Compiled in 493ms (440 modules)
+ ✓ Compiled in 569ms (440 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 536ms (277 modules)
+ ✓ Compiled /_error in 247ms (709 modules)
+ GET / 500 in 1199ms
+ ✓ Compiled in 748ms (488 modules)
+ ✓ Compiled / in 428ms (277 modules)
+ GET / 200 in 571ms
+ ✓ Compiled in 1024ms (717 modules)
+ ✓ Compiled in 588ms (488 modules)
+ ✓ Compiled / in 342ms (277 modules)
+ ✓ Compiled /_not-found in 442ms (710 modules)
+ GET / 404 in 1137ms
+ ✓ Compiled /_error in 220ms (712 modules)
+ ✓ Compiled in 887ms (488 modules)
+ ✓ Compiled in 656ms (440 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 1074ms (277 modules)
+ ✓ Compiled /_error in 204ms (709 modules)
+ GET / 500 in 1510ms
+ GET / 500 in 64ms
+ ✓ Compiled /_not-found in 187ms (712 modules)
+ GET /_next/static/chunks/fallback/webpack.js 500 in 314ms
+ GET /_next/static/chunks/fallback/main.js 500 in 309ms
+ GET /_next/static/chunks/fallback/pages/_app.js 500 in 305ms
+ GET /_next/static/chunks/fallback/react-refresh.js 500 in 303ms
+ GET /_next/static/chunks/fallback/pages/_error.js 500 in 301ms
+ ✓ Compiled in 751ms (488 modules)
+ ✓ Compiled in 371ms (440 modules)
+ ✓ Compiled in 400ms (440 modules)
+ ✓ Compiled in 436ms (440 modules)
+ ✓ Compiled in 352ms (440 modules)
+ ✓ Compiled in 291ms (440 modules)
+ ✓ Compiled in 258ms (440 modules)
+ ✓ Compiled in 328ms (440 modules)
+ ✓ Compiled in 268ms (440 modules)
+ ✓ Compiled in 323ms (440 modules)
+ ✓ Compiled in 448ms (440 modules)
+ ✓ Compiled in 832ms (440 modules)
+ ✓ Compiled in 743ms (440 modules)
+ ✓ Compiled in 331ms (440 modules)
+ ✓ Compiled in 374ms (440 modules)
+ ✓ Compiled in 502ms (440 modules)
+ ✓ Compiled in 645ms (440 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 519ms (277 modules)
+ GET / 200 in 998ms
+ ✓ Compiled /_not-found in 335ms (710 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 563ms
+ GET /_next/static/webpack/46affaffa257d89c.webpack.hot-update.json 404 in 80ms
+ GET / 200 in 114ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 73ms
+ ✓ Compiled in 761ms (717 modules)
+ ✓ Compiled /_not-found in 329ms (710 modules)
+ GET / 404 in 535ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 137ms
+ GET /_next/static/css/app/layout.css?v=1784286250430 404 in 252ms
+ GET /_next/static/chunks/main-app.js?v=1784286250430 404 in 326ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 323ms
+ GET /_next/static/chunks/app/layout.js 404 in 299ms
+ GET /_next/static/chunks/main-app.js?v=1784286250430 404 in 148ms
+ GET /_next/static/chunks/app-pages-internals.js 404 in 134ms
+ GET /_next/static/chunks/app/layout.js 404 in 132ms
+ ✓ Compiled /_error in 439ms (712 modules)
+ GET / 500 in 645ms
+ GET / 500 in 42ms
+ GET /_next/static/chunks/fallback/webpack.js 500 in 101ms
+ GET /_next/static/chunks/fallback/main.js 500 in 84ms
+ GET /_next/static/chunks/fallback/pages/_error.js 500 in 79ms
+ GET /_next/static/chunks/fallback/react-refresh.js 500 in 78ms
+ GET /_next/static/chunks/fallback/pages/_app.js 500 in 76ms
+ GET /_next/static/chunks/fallback/webpack.js 500 in 77ms
+ GET /_next/static/chunks/fallback/main.js 500 in 74ms
+ GET /_next/static/chunks/fallback/pages/_error.js 500 in 70ms
+ GET /_next/static/chunks/fallback/react-refresh.js 500 in 67ms
+ GET /_next/static/chunks/fallback/pages/_app.js 500 in 65ms
+ GET / 500 in 48ms
+ GET / 500 in 44ms
+ GET / 404 in 127ms
+ GET / 200 in 180ms
+ ✓ Compiled in 1108ms (717 modules)
+ ✓ Compiled /_not-found in 343ms (710 modules)
+ GET /_next/static/webpack/6ed01431102e15a1.webpack.hot-update.json 404 in 540ms
+ GET / 200 in 147ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 86ms
+ ✓ Compiled /_not-found in 907ms (710 modules)
+ GET /_next/static/webpack/7777ad471cf09310.webpack.hot-update.json 404 in 581ms
+ GET / 200 in 183ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 42ms
+ ○ Compiling /about/management ...
+ ✓ Compiled /about/management in 796ms (720 modules)
+ GET /_next/static/webpack/55b4193939a81e4e.webpack.hot-update.json 404 in 159ms
+ GET / 200 in 94ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 61ms
  ○ Compiling /about ...
- ✓ Compiled /about in 5.9s (452 modules)
- GET /about 200 in 6167ms
- ✓ Compiled /contact in 493ms (459 modules)
- GET /contact 200 in 630ms
- ✓ Compiled /treatments in 388ms (466 modules)
- GET /treatments 200 in 487ms
- ✓ Compiled /book-appointment in 341ms (473 modules)
- GET /book-appointment 200 in 451ms
- ✓ Compiled /book-emergency in 323ms (480 modules)
- GET /book-emergency 200 in 418ms
- ✓ Compiled /services/nicu in 443ms (487 modules)
- GET /services/nicu 200 in 546ms
- ✓ Compiled /services/picu in 451ms (494 modules)
- GET /services/picu 200 in 559ms
- ✓ Compiled /services/fetal-medicine in 405ms (501 modules)
- GET /services/fetal-medicine 200 in 515ms
- ✓ Compiled /services/human-milk-bank in 439ms (508 modules)
- GET /services/human-milk-bank 200 in 545ms
- ✓ Compiled /services/emergency in 447ms (515 modules)
- GET /services/emergency 200 in 555ms
- ○ Compiling /services/maternity ...
- ✓ Compiled /services/maternity in 537ms (522 modules)
- GET /services/maternity 200 in 652ms
- ○ Compiling /services/high-risk-pregnancy ...
- ✓ Compiled /services/high-risk-pregnancy in 571ms (529 modules)
- GET /services/high-risk-pregnancy 200 in 690ms
- ✓ Compiled /services/general-paediatrics in 499ms (536 modules)
- GET /services/general-paediatrics 200 in 610ms
- ✓ Compiled /services/fertility-ivf in 477ms (543 modules)
- GET /services/fertility-ivf 200 in 591ms
- ○ Compiling /services/vaccination ...
- ✓ Compiled /services/vaccination in 551ms (550 modules)
- GET /services/vaccination 200 in 676ms
-[?25h
+ ✓ Compiled /about in 535ms (730 modules)
+ ✓ Compiled /about/chairman in 325ms (740 modules)
+ ✓ Compiled in 537ms (740 modules)
+ ✓ Compiled /doctors in 324ms (752 modules)
+ ✓ Compiled /paediatric-super-specialities in 462ms (762 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 207ms
+ ○ Compiling /facilities ...
+ ✓ Compiled /facilities in 1445ms (778 modules)
+ ○ Compiling /services/general-paediatrics ...
+ ✓ Compiled /services/general-paediatrics in 944ms (788 modules)
+ ✓ Compiled /contact in 482ms (317 modules)
+ GET /_next/static/chunks/app/contact/page.js 404 in 336ms
+ GET /_next/static/css/app/contact/page.css?v=1784287074159 404 in 165ms
+ GET /_next/static/chunks/app/contact/page.js 404 in 66ms
+ ✓ Compiled in 865ms (789 modules)
+ ✓ Compiled in 450ms (779 modules)
+ GET /_next/static/css/app/contact/page.css?1784287075670 404 in 595ms
+ GET /contact 200 in 1035ms
+ GET /_next/static/css/app/contact/page.css?v=1784287076616 404 in 77ms
+ GET /_next/static/chunks/app/contact/page.js 404 in 86ms
+ GET /_next/static/chunks/app/contact/page.js 404 in 44ms
+ ✓ Compiled in 1253ms (763 modules)
+ ✓ Compiled in 502ms (470 modules)
+ ✓ Compiled in 537ms (470 modules)
+ ✓ Compiled in 517ms (470 modules)
+ ✓ Compiled in 545ms (470 modules)
+ ✓ Compiled in 868ms (460 modules)
+ ✓ Compiled in 747ms (470 modules)

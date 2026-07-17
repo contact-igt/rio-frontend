@@ -1,0 +1,275 @@
+.page { min-height: 100vh; background: #fff; }
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: clamp(500px, 64svh, 650px);
+  overflow: hidden;
+  color: #fff;
+  background-image: url("/assets/shared/hero1.png");
+  background-position: 70% center;
+  background-size: cover;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to right, rgba(23, 27, 72, 0.97) 0%, rgba(23, 27, 72, 0.92) 30%, rgba(23, 27, 72, 0.68) 50%, rgba(23, 27, 72, 0.28) 68%, rgba(23, 27, 72, 0.08) 82%, rgba(23, 27, 72, 0) 100%),
+    linear-gradient(to top, rgba(23, 27, 72, 0.92) 0%, rgba(23, 27, 72, 0.55) 18%, rgba(23, 27, 72, 0) 40%);
+}
+
+.errorHero .heroOverlay {
+  background:
+    linear-gradient(to right, rgba(74, 28, 50, 0.97) 0%, rgba(74, 28, 50, 0.92) 30%, rgba(74, 28, 50, 0.68) 50%, rgba(74, 28, 50, 0.28) 68%, rgba(74, 28, 50, 0.08) 82%, rgba(74, 28, 50, 0) 100%),
+    linear-gradient(to top, rgba(74, 28, 50, 0.92) 0%, rgba(74, 28, 50, 0.55) 18%, rgba(74, 28, 50, 0) 40%);
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+
+.heroContent {
+  max-width: 640px;
+}
+
+.kicker,
+.guidanceLabel {
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.kicker { color: #ffd5e2; }
+.successHero .kicker { color: #d5efa8; }
+
+.statusLine {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.statusSymbol {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  color: #303573;
+  background: #d5efa8;
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.errorHero .statusSymbol { color: #8b2542; background: #ffd5e2; }
+
+.hero h1 {
+  max-width: 620px;
+  margin: 16px 0;
+  color: #fff !important;
+  font-size: clamp(38px, 5vw, 62px);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.description {
+  max-width: 500px;
+  margin: 0;
+  color: #d7e7e1 !important;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.detail {
+  display: none;
+  max-width: 590px;
+  margin: 22px 0 0;
+  padding-left: 16px;
+  color: #ffe2eb;
+  border-left: 2px solid #fd70a1;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 28px;
+}
+
+.actions :global(.btn) {
+  min-height: 48px;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.actions :global(.btn:hover) { transform: translateY(-2px); }
+.actions :global(.btn:active) { transform: translateY(0) scale(0.98); }
+
+.trustLine {
+  display: none;
+  align-items: center;
+  gap: 14px;
+  max-width: 590px;
+  margin-top: 34px;
+  color: #fff;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.6);
+}
+
+.trustLine p { color: inherit !important; }
+.trustLine strong { color: #fff; }
+
+.trustBar {
+  flex: 0 0 2px;
+  width: 2px;
+  height: 42px;
+  border-radius: 2px;
+  background: #fd70a1;
+}
+
+.successHero .trustBar { background: #d5efa8; }
+
+.phoneLink {
+  display: none;
+  margin-top: 14px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.guidance {
+  padding: 34px 0;
+  background: #fff;
+}
+
+.guidanceInner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  padding: 24px 28px !important;
+  color: #fff;
+  background: #303573;
+  border-radius: 18px;
+  box-shadow: 0 18px 42px rgba(48, 53, 115, 0.16);
+}
+
+.guidanceInner::before {
+  content: "+";
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #303573;
+  background: #d5efa8;
+  border-radius: 12px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.guidanceCopy { min-width: 0; }
+
+.guidanceLabel {
+  color: #d5efa8 !important;
+  letter-spacing: 0.12em;
+}
+
+.guidanceText {
+  margin-top: 4px !important;
+  color: rgba(255, 255, 255, 0.86) !important;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.textLink {
+  padding: 11px 16px;
+  color: #303573 !important;
+  background: #fff;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.textLink:hover { transform: translateY(-2px); background: #d5efa8; }
+
+@media (max-width: 900px) {
+  .guidanceInner { grid-template-columns: auto minmax(0, 1fr); }
+  .textLink { grid-column: 2; justify-self: start; }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    display: block;
+    min-height: auto;
+    padding: 94px 0 54px;
+    background-position: 62% center;
+  }
+  .heroInner { padding-top: 0; padding-bottom: 0; }
+  .hero h1 { font-size: clamp(36px, 11vw, 52px); }
+  .description { font-size: 16px; }
+  .actions { flex-direction: column; }
+  .actions :global(.btn) { width: 100%; justify-content: center; }
+  .guidance { padding: 22px 0; }
+  .guidanceInner { padding: 20px; border-radius: 14px; }
+  .guidanceInner::before { width: 36px; height: 36px; }
+  .textLink { width: 100%; justify-self: stretch; text-align: center; }
+}
+
+/* Submission status: compact, aligned layouts for tablet and mobile. */
+@media (min-width: 601px) and (max-width: 900px) {
+  .heroInner {
+    padding-block: 72px;
+  }
+
+  .heroContent {
+    max-width: 560px;
+  }
+
+  .hero h1 {
+    max-width: 540px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    max-width: 14ch;
+  }
+
+  .description {
+    max-width: 34ch;
+  }
+
+  .textLink {
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-self: stretch;
+    text-align: center;
+  }
+}
+
+/* Keep the mobile guidance card inset from both screen edges. */
+@media (max-width: 600px) {
+  .guidanceInner {
+    width: calc(100% - 40px);
+    margin-inline: auto !important;
+  }
+}

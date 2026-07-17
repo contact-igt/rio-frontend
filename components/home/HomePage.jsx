@@ -171,14 +171,17 @@ const WHY_EXT = [
   {
     t: "Patient-Centered Care",
     d: "Every patient's story is unique, and so is our approach to caring for them.",
+    icon: "pulse",
   },
   {
     t: "Compassionate Support",
     d: "We stand by you with empathy and understanding throughout your journey.",
+    icon: "shield",
   },
   {
     t: "Multidisciplinary Team",
     d: "Neonatologists, paediatricians, fetal medicine specialists, intensivists and emergency experts, together.",
+    icon: "stethoscope",
   },
 ];
 const GALLERY = [
@@ -559,7 +562,7 @@ export default function HomePage() {
         </section>
 
         {/* ───────── 4 pillars ───────── */}
-        <section className="section">
+        <section className={`section ${styles.whyChooseBackground}`}>
           <span
             className={`blob blob-coral ${styles.homeBlobThree}`}
             data-par="0.12"
@@ -619,7 +622,10 @@ export default function HomePage() {
         </section>
 
         {/* ───────── services ──────── */}
-        <section className="section tint-sage" id="services">
+        <section
+          className={`section tint-sage ${styles.servicesBackground}`}
+          id="services"
+        >
           <span
             className={`blob blob-teal ${styles.homeBlobFour}`}
             data-par="0.1"
@@ -655,8 +661,41 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ───────── caring split ───────── */}
-        <section className="section">
+   
+      
+
+        {/* ───────── pregnancy journey ───────── */}
+        <section className="section tint-blush" id="pregnancy">
+          <span
+            className={`blob blob-coral ${styles.homeBlobFive}`}
+            data-par="0.1"
+          />
+          <div className="wrap">
+            <Reveal className="sec-head center">
+              <Eyebrow>Pregnancy Journey</Eyebrow>
+              <h2>Care that follows every trimester</h2>
+              <p className="sec-note">
+                From the first scan to delivery day, Rio's antenatal programme
+                is built around what each stage of pregnancy needs most.
+              </p>
+            </Reveal>
+            <div className={`tri-rail ${styles.trimesterRail}`}>
+              {TRIMESTERS.map((t, i) => (
+                <Reveal key={t.k} delay={i * 120}>
+                  <div className="tri">
+                    <div className="tri-num">{i + 1}</div>
+                    <h3>{t.k}</h3>
+                    <span className="wk">{t.w}</span>
+                    <p>{t.d}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
+          <section className={`section ${styles.childHealthBackground}`}>
           <div className="wrap split">
             <Reveal className={styles.childHealthContent}>
               <Eyebrow>Child Health</Eyebrow>
@@ -704,36 +743,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ───────── pregnancy journey ───────── */}
-        <section className="section tint-blush" id="pregnancy">
-          <span
-            className={`blob blob-coral ${styles.homeBlobFive}`}
-            data-par="0.1"
-          />
-          <div className="wrap">
-            <Reveal className="sec-head center">
-              <Eyebrow>Pregnancy Journey</Eyebrow>
-              <h2>Care that follows every trimester</h2>
-              <p className="sec-note">
-                From the first scan to delivery day, Rio's antenatal programme
-                is built around what each stage of pregnancy needs most.
-              </p>
-            </Reveal>
-            <div className={`tri-rail ${styles.trimesterRail}`}>
-              {TRIMESTERS.map((t, i) => (
-                <Reveal key={t.k} delay={i * 120}>
-                  <div className="tri">
-                    <div className="tri-num">{i + 1}</div>
-                    <h3>{t.k}</h3>
-                    <span className="wk">{t.w}</span>
-                    <p>{t.d}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* ───────── HUMAN MILK BANK (dedicated div) ───────── */}
         <section className="section mbank" id="milkbank">
           <span
@@ -743,13 +752,33 @@ export default function HomePage() {
           <div className="wrap mbank-grid">
             <Reveal className="mbank-media">
               <span className="mbank-badge">★ A Rio differentiator</span>
-              <Img
+              <div className="mbank-card-stack">
+                <article className="mbank-card mbank-card-rose">
+                  <Img
                 src={IMG.cc4}
                 alt="Rio's Human Milk Bank — screened, pasteurised donor milk"
                 grad={1}
-                className="frame"
-                par="0.05"
-              />
+                    className="mbank-card-image"
+                    par="0.05"
+                  />
+                </article>
+                <article className="mbank-card mbank-card-green">
+                  <Img
+                    src={IMG.newborn}
+                    alt="Newborn care at Rio Children's Hospital"
+                    grad={2}
+                    className="mbank-card-image"
+                  />
+                </article>
+                <article className="mbank-card mbank-card-yellow">
+                  <Img
+                    src={IMG.cc1}
+                    alt="Rio neonatal intensive care ward"
+                    grad={0}
+                    className="mbank-card-image"
+                  />
+                </article>
+              </div>
             </Reveal>
             <Reveal delay={120}>
               <Eyebrow>Human Milk Bank</Eyebrow>
@@ -812,7 +841,10 @@ export default function HomePage() {
         </section>
 
         {/* ───────── why (teal) ───────── */}
-        <section className="section why" id="why">
+        <section
+          className={`section why ${styles.approachBackground}`}
+          id="why"
+        >
           <div className="wrap">
             <Reveal className="sec-head center">
               <Eyebrow light>Our Approach</Eyebrow>
@@ -822,6 +854,9 @@ export default function HomePage() {
               {WHY_EXT.map((w, i) => (
                 <Reveal key={w.t} delay={i * 90}>
                   <div className="why-card">
+                    <div className={styles.approachIcon}>
+                      <Icon name={w.icon} />
+                    </div>
                     <div className="why-rule" />
                     <h3>{w.t}</h3>
                     <p>{w.d}</p>
@@ -889,7 +924,7 @@ export default function HomePage() {
         </section>
 
         {/* ───────── specialist band ───────── */}
-        <section className="section tint-sage">
+        <section className={`section tint-sage ${styles.ourTeamBackground}`}>
           <div className="wrap">
             <Reveal className="spec">
               <Img src={IMG.specialists} alt="Rio specialist team" grad={1} />
@@ -964,6 +999,7 @@ export default function HomePage() {
             <div className="tst-grid">
               {TESTIMONIALS.map((t, i) => (
                 <Reveal key={i} delay={(i % 3) * 80} className="tst">
+                  <article className="tst-card">
                   <div className="tst-stars">{"★".repeat(t.stars)}</div>
                   <p className="tst-text">"{t.text}"</p>
                   <div className="tst-by">
@@ -973,6 +1009,7 @@ export default function HomePage() {
                       <span className="tst-loc">{t.loc}</span>
                     </div>
                   </div>
+                  </article>
                 </Reveal>
               ))}
             </div>

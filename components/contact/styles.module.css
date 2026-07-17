@@ -237,6 +237,22 @@
                 font-size: 14.5px
         }
 
+        .fullButton:disabled {
+                cursor: wait;
+                opacity: .7
+        }
+
+        .formError {
+                color: #9f1d35;
+                background: #fff0f3;
+                border: 1px solid #f2bdc8;
+                border-radius: 10px;
+                padding: 11px 13px;
+                margin-top: 18px;
+                font-size: 13px;
+                line-height: 1.45
+        }
+
         .page :global(.info-block + .info-block) {
                 margin-top: 22px;
                 padding-top: 22px;

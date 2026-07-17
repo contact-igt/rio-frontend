@@ -4,6 +4,7 @@ import SiteFooter from "@/components/shared/SiteFooter";
 import { useEffect, useRef, useState } from "react";
 import NavManagement from "@/components/shared/NavManagement";
 import MobileNav from "@/components/shared/MobileNav";
+import { APPOINTMENT_SERVICES as APPT_SERVICES } from "@/data/site";
 import styles from "./styles.module.css";
 
 /* ════════════════════════════════════════════════════════════════════════
@@ -31,7 +32,6 @@ const LINKS = {
   call: "tel:+917708318222", whatsapp: "https://wa.me/917708318222",
   youtube: "https://youtube.com/@riochildrenshospital", instagram: "https://instagram.com/riochildrenhospitals",
 };
-const APPT_SERVICES = ["High-Risk Pregnancy Care", "Fetal Medicine", "NICU", "PICU", "Paediatric Emergency Care", "General Paediatrics", "Vaccination Services", "Human Milk Bank", "Maternity Care"];
 const NAV_TREATMENTS = [
   { name: "High-Risk Pregnancy Care", slug: "high-risk-pregnancy" },
   { name: "Fetal Medicine", slug: "fetal-medicine" },
