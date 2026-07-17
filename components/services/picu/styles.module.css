@@ -26,6 +26,24 @@
       var(--pink-soft) 100%);
 }
 
+.page .journeySection :global(.tri) {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .76), rgba(255, 251, 253, .68)),
+    url('/assets/home/PregnancyJourney.png') center / cover no-repeat !important;
+}
+
+.page .journeySection :global(.tri-rail > .reveal:nth-child(1) .tri) {
+  background-position: center, 20% center !important;
+}
+
+.page .journeySection :global(.tri-rail > .reveal:nth-child(2) .tri) {
+  background-position: center, 50% center !important;
+}
+
+.page .journeySection :global(.tri-rail > .reveal:nth-child(3) .tri) {
+  background-position: center, 80% center !important;
+}
+
 .page .bandSection {
   padding: clamp(76px, 8vw, 120px) 0;
 }

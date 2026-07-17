@@ -1,4 +1,5 @@
 import "./globals.css";
+import "slick-carousel/slick/slick.css";
 import { SITE_LINKS } from "../data/site";
 import InternalLinkHandler from "../components/shared/InternalLinkHandler";
 import MobileCtaBar from "../components/shared/MobileCtaBar";

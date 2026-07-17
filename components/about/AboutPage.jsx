@@ -85,21 +85,25 @@ const MILESTONES = [
     y: "2013",
     t: "Rio is founded in Madurai",
     d: "Begins as a dedicated women & children's hospital, built around safer motherhood and newborn care.",
+    icon: "hospital",
   },
   {
     y: "2023",
     t: "10th anniversary, Dindigul branch & Human Milk Bank",
     d: "A decade of care marked by the opening of the Dindigul branch and the launch of the Human Milk Bank.",
+    icon: "heart",
   },
   {
     y: "2024",
     t: "11th anniversary",
     d: "Continued growth across specialities, with multidisciplinary super-speciality care expanding.",
+    icon: "spark",
   },
   {
     y: "2025",
     t: "12th anniversary, South Wing & Thanjavur",
-    d: "South Wing inaugurated in Madurai, followed by the addition of the Thanjavur branch expanding Rio to four branches across Tamil Nadu."
+    d: "South Wing inaugurated in Madurai, followed by the addition of the Thanjavur branch expanding Rio to four branches across Tamil Nadu.",
+    icon: "location",
   }
 ];
 const TRUST_THEMES = [
@@ -138,14 +142,17 @@ const APPROACH = [
   {
     t: "Patient-Centered Care",
     d: "Every patient's story is unique, and so is our approach to caring for them.",
+    icon: "pulse",
   },
   {
     t: "Compassionate Support",
     d: "We stand by you with empathy and understanding throughout your journey.",
+    icon: "shield",
   },
   {
     t: "Multidisciplinary Team",
     d: "Neonatologists, paediatricians, fetal medicine specialists, intensivists and emergency experts, together.",
+    icon: "stethoscope",
   },
 ];
 const BRANCHES = [
@@ -291,6 +298,26 @@ function Counter({ value, light = false }) {
   );
 }
 const ICONS = {
+  pulse: <path d="M3 12h4l2-6 4 12 2-6h6" />,
+  stethoscope: (
+    <>
+      <path d="M4.5 2C3.7 2 3 2.7 3 3.5v2.3c0 .8.7 1.5 1.5 1.5S6 6.6 6 5.8V3.5C6 2.7 5.3 2 4.5 2z" />
+      <path d="M21 3.5c0-.8-.7-1.5-1.5-1.5S18 2.7 18 3.5v2.3c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5V3.5z" />
+      <path d="M4.5 7.3C4.5 11.6 8 15 12 15s7.5-3.4 7.5-7.7M12 15v3M12 18H9c-1.7 0-3 1.3-3 3" />
+    </>
+  ),
+  hospital: (
+    <>
+      <path d="M4 21V7l8-4 8 4v14" />
+      <path d="M9 21v-5h6v5M8 9h2m4 0h2m-8 4h2m4 0h2" />
+    </>
+  ),
+  location: (
+    <>
+      <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" />
+      <circle cx="12" cy="10" r="2.5" />
+    </>
+  ),
   shield: (
     <path d="M12 3.2 5.5 5.6v4.9c0 4.3 2.8 7.2 6.5 8.8 3.7-1.6 6.5-4.5 6.5-8.8V5.6L12 3.2Z" />
   ),
@@ -456,7 +483,7 @@ export default function AboutPage() {
         </section>
 
         {/* story */}
-        <section className="section">
+        <section className={`section ${styles.whoWeAreBackground}`}>
           <div className="wrap split">
             <Reveal>
               <Img
@@ -572,7 +599,7 @@ export default function AboutPage() {
         </section>
 
         {/* timeline */}
-        <section className="section">
+        <section className={`section ${styles.journeySection}`}>
           <span
             className={`blob blob-coral ${styles.aboutBlobTimeline}`}
             data-par="0.1"
@@ -585,7 +612,9 @@ export default function AboutPage() {
             <div className="tl">
               {MILESTONES.map((m, i) => (
                 <Reveal key={m.y} delay={100} className="tl-item">
-                  <span className="tl-dot" />
+                  <span className="tl-icon" aria-hidden="true">
+                    <Icon name={m.icon} />
+                  </span>
                   <div className="tl-y">{m.y}</div>
                   <h3>{m.t}</h3>
                   <p>{m.d}</p>
@@ -596,7 +625,7 @@ export default function AboutPage() {
         </section>
 
         {/* trust themes */}
-        <section className="section tint-blush">
+        <section className={`section tint-blush ${styles.familyChooseBackground}`}>
           <div className="wrap split">
             <Reveal>
               <Eyebrow>Why Families Choose Rio</Eyebrow>
@@ -626,16 +655,19 @@ export default function AboutPage() {
         </section>
 
         {/* approach */}
-        <section className="section">
+        <section className={`section why ${styles.approachBackground}`}>
           <div className="wrap">
             <Reveal className="sec-head center">
-              <Eyebrow>Our Approach</Eyebrow>
+              <Eyebrow light>Our Approach</Eyebrow>
               <h2>What it feels like to be cared for at Rio</h2>
             </Reveal>
             <div className="ap-grid">
               {APPROACH.map((a, i) => (
                 <Reveal key={a.t} delay={i * 90}>
                   <div className="ap">
+                    <div className={styles.approachIcon}>
+                      <Icon name={a.icon} />
+                    </div>
                     <div className="ap-rule" />
                     <h3>{a.t}</h3>
                     <p>{a.d}</p>
@@ -647,7 +679,7 @@ export default function AboutPage() {
         </section>
 
         {/* departments */}
-        <section className="section tint-sage">
+        <section className={`section ${styles.departmentsBackground}`}>
           <div className="wrap">
             <Reveal className="sec-head">
               <Eyebrow>Departments</Eyebrow>
@@ -670,7 +702,7 @@ export default function AboutPage() {
         </section>
 
         {/* specialist band */}
-        <section className="section">
+        <section className={`section ${styles.ourTeamBackground}`}>
           <div className="wrap">
             <Reveal className="spec">
               <Img src={IMG.specialists} alt="Rio specialist team" grad={1} />
