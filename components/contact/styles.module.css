@@ -15,11 +15,20 @@
                 padding-top: clamp(36px, 4vw, 60px);
         }
 
+        .page :global(.cta-band) {
+                background:
+                        linear-gradient(90deg, rgba(48, 57, 130, .94) 0%, rgba(48, 57, 130, .82) 100%),
+                        url('/assets/shared/branch-madurai-main.png') center / cover no-repeat;
+        }
+
 .page :global(.chero) {
                 padding-block: clamp(68px, 8vw, 120px);
                 position: relative;
                 overflow: hidden;
                 isolation: isolate;
+                background:
+                        linear-gradient(90deg, rgba(255, 255, 255, .97) 0%, rgba(255, 255, 255, .91) 52%, rgba(255, 246, 251, .82) 100%),
+                        url('/assets/shared/branch-madurai-main.png') center / cover no-repeat;
         }
 
         .page :global(.chero-grid) {
@@ -425,7 +434,9 @@
                 align-items: center;
                 gap: 24px;
                 flex-wrap: wrap;
-                background: #fff;
+                background:
+                        linear-gradient(90deg, rgba(255, 255, 255, .96) 0%, rgba(255, 255, 255, .89) 100%),
+                        url('/assets/home/ourteam.png') center / cover no-repeat;
                 border: 1px solid var(--line);
                 border-radius: 24px;
                 padding: 34px;

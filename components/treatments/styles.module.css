@@ -7,6 +7,16 @@
   padding: clamp(76px, 8vw, 120px) 0;
 }
 
+.page :global(.thero + .section) {
+  background: url('/assets/overview.png') center / cover no-repeat;
+}
+
+.page :global(.cta-band) {
+  background:
+    linear-gradient(90deg, rgba(48, 57, 130, .94) 0%, rgba(48, 57, 130, .82) 100%),
+    url('/assets/shared/branch-madurai-main.png') center / cover no-repeat;
+}
+
 @media (max-width: 880px) {
   .page :global(.section) {
     padding: 52px 0 62px;
