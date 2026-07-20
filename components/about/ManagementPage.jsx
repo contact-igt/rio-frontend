@@ -22,7 +22,7 @@ const LEADERS = [
     name: "Mrs. Kavitha",
     role: "Executive Director",
     qual: "MCA",
-    image: "/assets/shared/Kavitha2.jpeg",
+    image: "/assets/shared/kavitha2.jpeg",
     desc: "Directs hospital operations, execution of administrative protocols, and oversees IT systems and quality management across all branches.",
   },
   {
@@ -36,7 +36,7 @@ const LEADERS = [
     name: "Mr. Dinesh Pandian",
     role: "Vice President : Legal & Projects",
     qual: "BE., LLB.,",
-    image: "/assets/shared/Dinesh pandian.jpeg",
+    image: "/assets/shared/Dinesh Pandian.jpeg",
     desc: "Directs legal regulatory compliance, project construction, expansion execution, and government liaison for the Rio Hospital Group.",
   }
 ];
