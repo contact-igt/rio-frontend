@@ -10,30 +10,30 @@ export const SITE_LINKS = {
 };
 
 export const NAV_TREATMENTS = [
+  { name: "NICU", slug: "nicu" },
+  { name: "PICU", slug: "picu" },
   { name: "High-Risk Pregnancy Care", slug: "high-risk-pregnancy" },
   { name: "Fetal Medicine", slug: "fetal-medicine" },
   { name: "Maternity Care", slug: "maternity" },
-  { name: "Fertility & IVF", slug: "fertility-ivf" },
-  { name: "NICU", slug: "nicu" },
-  { name: "PICU", slug: "picu" },
   { name: "Paediatric Emergency", slug: "emergency" },
   { name: "General Paediatrics", slug: "general-paediatrics" },
   { name: "Vaccination Services", slug: "vaccination" },
   { name: "Human Milk Bank", slug: "human-milk-bank" },
+  { name: "Fertility & IVF", slug: "fertility-ivf" },
 ];
 
 export const RIO_SERVICE_TYPES = [
+    "NICU",
+  "PICU",
   "High-Risk Pregnancy Care",
   "Fetal Medicine",
-  "NICU",
-  "PICU",
+  "Maternity Care",
   "Paediatric Emergency Care",
   "General Paediatrics",
-  "Paediatric Super Specialities",
   "Vaccination Services",
   "Human Milk Bank",
-  "Maternity Care",
   "Fertility & IVF",
+  "Paediatric Super Specialities",
   "General Enquiry",
 ];
 

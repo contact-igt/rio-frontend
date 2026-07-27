@@ -81,6 +81,7 @@ export default function ContactPage() {
   const router = useRouter();
   const [solid, setSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedBranch, setSelectedBranch] = useState(0);
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
@@ -118,6 +119,8 @@ export default function ContactPage() {
     }
   }
 
+  const selectedBranchData = BRANCHES[selectedBranch] ?? BRANCHES[0];
+
   const QUICK = [
     { icon: "phone", t: "Call us", v: "+91 77083 18222", href: SITE_LINKS.call, note: "24/7 emergency line" },
     { icon: "chat", t: "WhatsApp", v: "Chat with us", href: SITE_LINKS.whatsapp, note: "Quick enquiries & bookings" },
@@ -137,7 +140,7 @@ export default function ContactPage() {
           <NavManagement /><a href="/paediatric-super-specialities">Pediatric Super Specialities</a><NavTreatments /><a href="/facilities">Facilities</a><a href="/contact" className="active">Contact</a>
         </nav>
                 <div className="nav-cta">
-          <a className="btn btn-line btn-sm" href="/book-vaccine">Book Vaccine</a>
+          <a className="btn btn-line btn-sm" href={SITE_LINKS.call}>Call Us</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
@@ -246,21 +249,52 @@ export default function ContactPage() {
             <div className="bgrid">
               {BRANCHES.map((b, i) => (
                 <Reveal key={b.name} delay={i * 80}>
-                  <div className="bcard">
-                    <Img src={IMG[b.img]} alt={b.name} grad={i % 3} />
-                    <div className="bbody">
-                      <span className="btag">24/7 EMERGENCY</span>
-                      <h3>{b.name}</h3>
-                      <p>{b.addr}</p>
-                      <div className="bphones">{b.phones.map(([label, tel]) => <a key={tel} href={`tel:${tel}`}>📞 {label}</a>)}</div>
-                      <a className="bdir" href={mapsLink(b.addr)} target="_blank" rel="noreferrer">📍 Get Directions →</a>
+                  <div className={`bcard ${selectedBranch === i ? "active" : ""}`}>
+                    <div className="bmain">
+                      <Img src={IMG[b.img]} alt={b.name} grad={i % 3} />
+                      <div className="bbody">
+                        <span className="btag">24/7 EMERGENCY</span>
+                        <h3>{b.name}</h3>
+                        <p>{b.addr}</p>
+                        <div className="bphones">{b.phones.map(([label, tel]) => <a key={tel} href={`tel:${tel}`}>📞 {label}</a>)}</div>
+                        <div className="bactions">
+                          <button type="button" className="bmapbtn" onClick={() => setSelectedBranch(i)}>View Map</button>
+                          <a className="bdir" href={mapsLink(b.addr)} target="_blank" rel="noreferrer">📍 Get Directions →</a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </Reveal>
               ))}
             </div>
-            <Reveal className="mapwrap">
-              <iframe title="Rio Children's Hospital — Madurai Main" src={mapsEmbed(BRANCHES[0].addr)} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />
+            <Reveal className="branch-map-panel">
+              <div className="branch-map-copy">
+                <Eyebrow>Branch Map</Eyebrow>
+                <h3>{selectedBranchData.name}</h3>
+                <p>{selectedBranchData.addr}</p>
+                <div className="branch-map-tabs" role="tablist" aria-label="Select branch map">
+                  {BRANCHES.map((b, i) => (
+                    <button
+                      key={b.name}
+                      type="button"
+                      className={selectedBranch === i ? "active" : ""}
+                      onClick={() => setSelectedBranch(i)}
+                      aria-selected={selectedBranch === i}
+                    >
+                      {b.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="mapwrap large">
+                <iframe
+                  title={`Rio Children's Hospital - ${selectedBranchData.name}`}
+                  src={mapsEmbed(`${selectedBranchData.name}, ${selectedBranchData.addr}`)}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
             </Reveal>
           </div>
         </section>

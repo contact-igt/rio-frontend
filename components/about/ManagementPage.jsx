@@ -87,9 +87,7 @@ export default function ManagementPage() {
         <div className="nav-cta">
           <a
             className="btn btn-line btn-sm"
-            href="/book-vaccine">
-            Book Vaccine
-          </a>
+            href={SITE_LINKS.call}>Call Us</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">
             Book an Appointment
           </a>

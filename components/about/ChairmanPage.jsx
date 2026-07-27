@@ -76,9 +76,9 @@ const TIMELINE = [
 ];
 
 const AWARDS = [
-  { icon: "🏆", title: "CII Excellence Award", sub: "No. 1 Children's Hospital in Tamil Nadu", year: "2022 & 2025" },
-  { icon: "🎖️", title: "FICCI Healthcare Award", sub: "Best Hospital in South Tamil Nadu for Pediatric Care", year: "National" },
-  { icon: "📖", title: "India Book of Records", sub: "BLS training for maximum villagers in a single day", year: "Record" },
+  { image: "/assets/award1.JPG", icon: "award", title: "CII Excellence Award", sub: "No. 1 Children's Hospital in Tamil Nadu", year: "2022 & 2025" },
+  { image: "/assets/award2.JPG", icon: "award", title: "FICCI Healthcare Award", sub: "Best Hospital in South Tamil Nadu for Pediatric Care", year: "National" },
+  { image: "/assets/award3.jpeg", icon: "award", title: "India Book of Records", sub: "BLS training for maximum villagers in a single day", year: "Record" },
 ];
 
 const LINKS = {
@@ -130,7 +130,7 @@ export default function ChairmanPage() {
           <a href="/contact">Contact</a>
         </nav>
         <div className="nav-cta">
-          <a className="btn btn-line btn-sm" href="/book-vaccine">Book Vaccine</a>
+          <a className="btn btn-line btn-sm" href={SITE_LINKS.call}>Call Us</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
@@ -143,8 +143,9 @@ export default function ChairmanPage() {
       <main>
         {/* ── HERO ─────────────────────────────────────────── */}
         <section className="ch-hero">
-          {/* Giant background typography */}
-          <div className="ch-hero-bg-text">FOUNDER</div>
+          {/* Giant background typography commented out per request.
+          <div className="ch-hero-bg-text"><span>FOUNDER</span><span className="ch-hero-bg-amp">AND</span><span>CHAIRMAN</span></div>
+          */}
 
           {/* Animated floating background orbs */}
           <div className="ch-orb ch-orb-1" />
@@ -173,7 +174,7 @@ export default function ChairmanPage() {
                 MBBS., DCH., MRCP (UK)
               </div>
               <p className="ch-hero-role">
-                Pediatrician &amp; Neonatal Care Leader &nbsp;·&nbsp; Founder, Rio Children's Hospital
+                Pediatrician &amp; Neonatal Care Leader &nbsp;·&nbsp; Founder & Chairman, Rio Children's Hospital
               </p>
               <a href="#journey" className="ch-btn-glass">
                 <span>↗ Read His Journey</span>
@@ -254,21 +255,21 @@ export default function ChairmanPage() {
             <div className="ch-awards-grid">
               {AWARDS.map((a, i) => (
                 <Reveal key={i} delay={i * 120} className="ch-award-card">
-                  <span className="ch-award-icon">{a.icon}</span>
-                  <span className="ch-award-year">{a.year}</span>
-                  <div className="ch-award-title">{a.title}</div>
-                  <div className="ch-award-sub">{a.sub}</div>
+                  <div className="ch-award-media">
+                    {a.image ? <img src={a.image} alt={a.title} loading="lazy" /> : <span className="ch-award-icon">{a.icon}</span>}
+                  </div>
+                  <div className="ch-award-content">
+                    <span className="ch-award-year">{a.year}</span>
+                    <div className="ch-award-title">{a.title}</div>
+                    <div className="ch-award-sub">{a.sub}</div>
+                  </div>
                 </Reveal>
               ))}
             </div>
           </div>
         </section>
       </main>
-
       <SiteFooter />
     </div>
   );
-}
-
-
-
+};

@@ -7,7 +7,7 @@ import NavTreatments from "@/components/shared/NavTreatments";
 import MobileNav from "@/components/shared/MobileNav";
 import NavManagement from "@/components/shared/NavManagement";
 import TopStrip from "@/components/shared/TopStrip";
-import { APPOINTMENT_SERVICES, SITE_LINKS } from "@/data/site";
+import { SITE_LINKS } from "@/data/site";
 import styles from "./about-page/styles.module.css";
 /* ════════════════════════════════════════════════════════════════════════
    RIO CHILDREN'S HOSPITAL — ABOUT US PAGE
@@ -42,9 +42,9 @@ const IMG = {
 
 /* ---------- content ------------------------------------------------------ */
 const STATS = [
-  { n: "6 Lakh+", l: "Patients cared for" },
+  { n: "10 Lakh+", l: "Patients cared for" },
   { n: "100+", l: "Expert specialists" },
-  { n: "1 Lac+", l: "Families helped" },
+  { n: "2500+", l: "Newborn & paediatric surgery" },
   { n: "5,000+", l: "High-risk pregnancies" },
 ];
 const MISSION_PTS = [
@@ -56,7 +56,7 @@ const MISSION_PTS = [
 const VALUES = [
   {
     t: "Trust",
-    d: "Earned over 12 years through honest, transparent and dependable care.",
+    d: "Earned over 13 years through honest, transparent and dependable care.",
     icon: "shield",
   },
   {
@@ -104,6 +104,12 @@ const MILESTONES = [
     t: "12th anniversary, South Wing & Thanjavur",
     d: "South Wing inaugurated in Madurai, followed by the addition of the Thanjavur branch expanding Rio to four branches across Tamil Nadu.",
     icon: "location",
+  },
+  {
+    y: "2026",
+    t: "13th anniversary, Pediatric Super Speciality Unit inaugurated",
+    d: "Pediatric Neurology, Pediatric Dermatology, Pediatric Pulmonology, Pediatric Ophthalmology.",
+    icon: "star",
   }
 ];
 const TRUST_THEMES = [
@@ -154,7 +160,13 @@ const APPROACH = [
     d: "Neonatologists, paediatricians, fetal medicine specialists, intensivists and emergency experts, together.",
     icon: "stethoscope",
   },
+  {
+    t: "Paediatric Super Speciality",
+    d: "Child-focused cardiology, neurology, pulmonology, surgery and urology care coordinated under one roof.",
+    icon: "speciality",
+  },
 ];
+
 const BRANCHES = [
   {
     name: "Madurai (Main)",
@@ -166,15 +178,15 @@ const BRANCHES = [
   {
     name: "Southwing, Madurai",
     addr: "41, Madakulam Main Rd, Pasumpon Nagar, Palangantham, Madurai – 625003",
-    phone: "0452-4036444",
-    tel: "+9104524036444",
+    phone: "74186 61222",
+    tel: "+917418661222",
     img: "branch2",
   },
   {
     name: "Dindigul",
     addr: "10, Palani Rd, New Agraharam, Govindapuram, Dindigul – 624001",
-    phone: "0451-2424333",
-    tel: "+9104512424333",
+    phone: "78454 64333",
+    tel: "+917845464333",
     img: "branch3",
   },
   {
@@ -301,9 +313,11 @@ const ICONS = {
   pulse: <path d="M3 12h4l2-6 4 12 2-6h6" />,
   stethoscope: (
     <>
-      <path d="M4.5 2C3.7 2 3 2.7 3 3.5v2.3c0 .8.7 1.5 1.5 1.5S6 6.6 6 5.8V3.5C6 2.7 5.3 2 4.5 2z" />
-      <path d="M21 3.5c0-.8-.7-1.5-1.5-1.5S18 2.7 18 3.5v2.3c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5V3.5z" />
-      <path d="M4.5 7.3C4.5 11.6 8 15 12 15s7.5-3.4 7.5-7.7M12 15v3M12 18H9c-1.7 0-3 1.3-3 3" />
+      <path d="M6 4v4.5a6 6 0 0 0 12 0V4" />
+      <path d="M4.5 4h3" />
+      <path d="M16.5 4h3" />
+      <path d="M12 14.5v2.2a3.8 3.8 0 0 0 7.6 0V15" />
+      <circle cx="19.6" cy="13.5" r="1.9" />
     </>
   ),
   hospital: (
@@ -320,6 +334,15 @@ const ICONS = {
   ),
   shield: (
     <path d="M12 3.2 5.5 5.6v4.9c0 4.3 2.8 7.2 6.5 8.8 3.7-1.6 6.5-4.5 6.5-8.8V5.6L12 3.2Z" />
+  ),
+  speciality: (
+    <>
+      <path d="M12 4.2 5.6 6.5v4.8c0 4.1 2.7 6.8 6.4 8.4 3.7-1.6 6.4-4.3 6.4-8.4V6.5L12 4.2Z" />
+      <path d="M12 8.2v6.6" />
+      <path d="M8.7 11.5h6.6" />
+      <path d="M19.2 4.2h1.8" />
+      <path d="M20.1 3.3v1.8" />
+    </>
   ),
   heart: (
     <path d="M12 20 4.4 12.7a4.5 4.5 0 0 1 6.4-6.3l1.2 1.2 1.2-1.2a4.5 4.5 0 0 1 6.4 6.3z" />
@@ -417,9 +440,7 @@ export default function AboutPage() {
         <div className="nav-cta">
           <a
             className="btn btn-line btn-sm"
-           href="/book-vaccine">
-            Book Vaccine
-          </a>
+           href={SITE_LINKS.call}>Call Us</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">
             Book an Appointment
           </a>
@@ -448,7 +469,7 @@ export default function AboutPage() {
             <Reveal>
               <Eyebrow>About Rio</Eyebrow>
               <h1>
-                12 Years of Trusted Care for Tamil Nadu’s Mothers &amp;{" "}
+                13 Years of Trusted Care for Tamil Nadu’s Mothers &amp;{" "}
                 <span className="accent">Children</span>.
               </h1>
               <p className="lede">
@@ -468,7 +489,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={120} className="ahero-media">
               <div className="seal">
-                <strong>12</strong>
+                <strong>13</strong>
                 <span>YEARS</span>
               </div>
               <Img
@@ -607,7 +628,7 @@ export default function AboutPage() {
           <div className="wrap">
             <Reveal className="sec-head center">
               <Eyebrow>Our Journey</Eyebrow>
-              <h2>12 years of growth</h2>
+              <h2>13 years of growth</h2>
             </Reveal>
             <div className="tl">
               {MILESTONES.map((m, i) => (

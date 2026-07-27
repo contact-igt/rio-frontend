@@ -75,7 +75,7 @@ const PICU = {
     { icon: "bell", title: "Linked to 24/7 emergency", desc: "Seamlessly connected to our paediatric emergency for fast escalation when needed." },
     { icon: "power", title: "3-level power backup", desc: "Uninterrupted power for ventilators and monitors, 100% guaranteed." },
   ],
-  stat: { n: "12+", l: "Years of paediatric critical care" },
+  stat: { n: "13+", l: "Years of paediatric critical care" },
   faqs: [
     { q: "What conditions are treated in the PICU?", a: "Serious illnesses such as severe respiratory distress, asthma, shock, dehydration, dengue, seizures, meningitis, cardiac and metabolic problems, and more." },
     { q: "How is the PICU staffed?", a: "By a well-trained team of paediatric intensivists, doctors and nurses providing intensive care around the clock." },
@@ -161,7 +161,7 @@ function PicuPageContent({ service: s }) {
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a>
           <NavManagement /><a href="/paediatric-super-specialities">Pediatric Super Specialities</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
         <div className="nav-cta">
-          <a className="btn btn-line btn-sm" href="/book-vaccine">Book Vaccine</a>
+          <a className="btn btn-line btn-sm" href={LINKS.call}>Call Us</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
