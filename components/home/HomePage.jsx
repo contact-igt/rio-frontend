@@ -206,6 +206,11 @@ const WHY_EXT = [
     d: "Neonatologists, paediatricians, fetal medicine specialists, intensivists and emergency experts, together.",
     icon: "stethoscope",
   },
+  {
+    t: "Paediatric Super Speciality",
+    d: "Child-focused cardiology, neurology, pulmonology, surgery and urology care coordinated under one roof.",
+    icon: "speciality",
+  },
 ];
 const GALLERY = [
   { t: "Advanced NICU ward", img: "cc1" },
@@ -379,6 +384,14 @@ function Counter({ value, light = false }) {
 
 const ICONS = {
   pulse: <path d="M3 12h4l2-6 4 12 2-6h6" />,
+  patients: (
+    <>
+      <path d="M16 19c0-2.2-1.8-4-4-4s-4 1.8-4 4" />
+      <circle cx="12" cy="9" r="3.2" />
+      <path d="M18.6 17.8c-.4-1.8-1.6-3-3.2-3.6" />
+      <path d="M8.6 14.2c-1.6.6-2.8 1.8-3.2 3.6" />
+    </>
+  ),
   shield: (
     <path d="M12 3.2 5.5 5.6v4.9c0 4.3 2.8 7.2 6.5 8.8 3.7-1.6 6.5-4.5 6.5-8.8V5.6L12 3.2Z" />
   ),
@@ -390,29 +403,62 @@ const ICONS = {
   ),
   stethoscope: (
     <>
-      <path d="M4.5 2C3.7 2 3 2.7 3 3.5v2.3c0 .8.7 1.5 1.5 1.5S6 6.6 6 5.8V3.5C6 2.7 5.3 2 4.5 2z" />
-      <path d="M21 3.5c0-.8-.7-1.5-1.5-1.5S18 2.7 18 3.5v2.3c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5V3.5z" />
-      <path d="M4.5 7.3C4.5 11.6 8 15 12 15s7.5-3.4 7.5-7.7" />
-      <path d="M12 15v3" />
-      <path d="M12 18H9c-1.7 0-3 1.3-3 3" />
+      <path d="M6 4v4.5a6 6 0 0 0 12 0V4" />
+      <path d="M4.5 4h3" />
+      <path d="M16.5 4h3" />
+      <path d="M12 14.5v2.2a3.8 3.8 0 0 0 7.6 0V15" />
+      <circle cx="19.6" cy="13.5" r="1.9" />
+    </>
+  ),
+  branch: (
+    <>
+      <path d="M4.5 20V8.4L12 4l7.5 4.4V20" />
+      <path d="M8.5 20v-6h7v6" />
+      <path d="M9 10.5h.01M15 10.5h.01" />
+    </>
+  ),
+  speciality: (
+    <>
+      <path d="M12 4.2 5.6 6.5v4.8c0 4.1 2.7 6.8 6.4 8.4 3.7-1.6 6.4-4.3 6.4-8.4V6.5L12 4.2Z" />
+      <path d="M12 8.2v6.6" />
+      <path d="M8.7 11.5h6.6" />
+      <path d="M19.2 4.2h1.8" />
+      <path d="M20.1 3.3v1.8" />
+    </>
+  ),
+  bed: (
+    <>
+      <path d="M3.5 18.5v-9" />
+      <path d="M20.5 18.5v-5.2c0-1.5-1.2-2.8-2.8-2.8H10v8" />
+      <path d="M3.5 13.5H10" />
+      <path d="M5.2 10.5h2.4c.9 0 1.7.8 1.7 1.7v1.3H3.5v-1.3c0-.9.8-1.7 1.7-1.7Z" />
+      <path d="M3.5 18.5h17" />
     </>
   ),
 };
-function Icon({ name }) {
+function Icon({ name, className = "pillar-icon" }) {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="pillar-icon"
+      className={className}
       fill="none"
       stroke="currentColor"
       strokeWidth="1.7"
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
     >
       {ICONS[name]}
     </svg>
   );
 }
+
+const HERO_STATS = [
+  { value: "10 Lakhs+", label: "Patients", icon: "patients" },
+  { value: "100+", label: "Specialists", icon: "stethoscope" },
+  { value: "4", label: "Branches", icon: "branch" },
+  { value: "400", label: "Beds", icon: "bed" },
+];
 
 export default function HomePage() {
   const [navSolid, setNavSolid] = useState(false);
@@ -484,9 +530,7 @@ export default function HomePage() {
         <div className="nav-cta">
           <a
             className="btn btn-line btn-sm"
-           href="/book-vaccine">
-            Book Vaccine
-          </a>
+           href={SITE_LINKS.call}>Call Us</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">
             Book an Appointment
           </a>
@@ -526,12 +570,12 @@ export default function HomePage() {
           />
           <div className="hero-inner">
             <Reveal>
-              <Eyebrow>12 Years of Trusted Care</Eyebrow>
+              <Eyebrow>13 Years of Trusted Care</Eyebrow>
               <h1>
                 Trusted <span className="accent">Women</span> &amp; Children’s Hospital in South Tamil Nadu
               </h1>
               <p className="lede">
-                Home to South Tamil Nadu's only Level 3 NICU, offering
+                Home to South Tamil Nadu's only Level 3A NICU, offering
                 high-risk pregnancy care, fetal medicine, PICU, maternity
                 services and comprehensive paediatric super-speciality care
                 across four branches.
@@ -545,38 +589,14 @@ export default function HomePage() {
                 </a>
               </div>
               <div className="hero-badges">
-                <span>NABH Entry-Level Certified</span>
-                <span>Only Level 3 NICU in South TN</span>
+                <span className="hero-badge-nabh"><img src="/assets/home/nabh-logo.png" alt="" aria-hidden="true" />NABH Entry-Level Certified</span>
+                <span>Only Level 3A NICU in South TN</span>
               </div>
             </Reveal>
           </div>
-          <div className="hero-glass-wrap">
-            <div className="hero-glass-container">
-              <div className="hero-badges-glass">
-                <span>NABH Entry-Level Certified</span>
-                <span>Only Level 3 NICU in South TN</span>
-              </div>
-              <div className="hero-glass">
-                <div>
-                  <strong>
-                    <Counter value="6 Lacs+" />
-                  </strong>
-                  <span>Patients</span>
-                </div>
-                <div>
-                  <strong>
-                    <Counter value="100+" />
-                  </strong>
-                  <span>Specialists</span>
-                </div>
-                <div>
-                  <strong>
-                    <Counter value="4" />
-                  </strong>
-                  <span>Branches</span>
-                </div>
-              </div>
-            </div>
+          <div className="hero-certifications">
+            <span className="hero-badge-nabh"><img src="/assets/home/nabh-logo.png" alt="" aria-hidden="true" />NABH Entry-Level Certified</span>
+            <span>Only Level 3A NICU in South TN</span>
           </div>
           <div className="scrollcue">
             <span className="mouse" />
@@ -584,7 +604,21 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ───────── 4 pillars ───────── */}
+        <section className="home-stats-bar" aria-label="Hospital highlights">
+          <div className="home-stats-inner">
+            <div className="hero-glass">
+              {HERO_STATS.map((stat) => (
+                <div className="hero-stat" key={stat.label}>
+                  <Icon name={stat.icon} className="hero-stat-icon" />
+                  <strong>
+                    <Counter value={stat.value} />
+                  </strong>
+                  <span>{stat.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
         <section className={`section ${styles.whyChooseBackground}`}>
           <span
             className={`blob blob-coral ${styles.homeBlobThree}`}
@@ -636,7 +670,7 @@ export default function HomePage() {
               <div className={`hero-trust ${styles.heroTrustTight}`}>
                 <span className="ht-bar" />
                 <p>
-                  Trusted by <strong>1 Lac+ families</strong> across Tamil Nadu
+                  Trusted by <strong>10 Lakhs+ families</strong> across Tamil Nadu
                   for women &amp; child healthcare.
                 </p>
               </div>
@@ -659,7 +693,7 @@ export default function HomePage() {
               <h2>Specialised care, all under one roof</h2>
               <p className="sec-note">
                 From high-risk pregnancy through every stage of childhood. The
-                core services families turn to Rio for, every day.
+                core services families turn to Rio for every day.
               </p>
             </Reveal>
             <div className="svc-grid">
@@ -817,7 +851,7 @@ export default function HomePage() {
               </p>
               <div className="mbank-stats">
                 <div className="mbank-stat">
-                  <strong>300 L+</strong>
+                  <strong>300+ litres</strong>
                   <span>Donor milk collected</span>
                 </div>
                 <div className="mbank-stat">

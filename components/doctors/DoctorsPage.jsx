@@ -114,7 +114,7 @@ export default function DoctorsPage() {
           <a href="/contact">Contact</a>
         </nav>
                 <div className="nav-cta">
-          <a className="btn btn-line btn-sm" href="/book-vaccine">Book Vaccine</a>
+          <a className="btn btn-line btn-sm" href={SITE_LINKS.call}>Call Us</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
@@ -237,6 +237,7 @@ export default function DoctorsPage() {
                                 src={doc.image}
                                 alt={doc.name}
                                 loading="lazy"
+                                style={doc.objectPosition ? { objectPosition: doc.objectPosition } : undefined}
                                 onError={(e) => {
                                   e.target.style.display = "none";
                                   const fallback = e.target.nextSibling;

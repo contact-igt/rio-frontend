@@ -75,7 +75,7 @@ const HMB = {
     { icon: "bell", title: "Operational every day", desc: "The milk bank runs 365 days a year, ready whenever a baby needs it." },
     { icon: "scan", title: "Strict quality control", desc: "Rigorous protocols at every step, covering collection, screening, storage, and dispensing." },
   ],
-  stat: { n: "300 L+", l: "Donor milk collected and shared" },
+  stat: { n: "300+ L", l: "Donor milk collected and shared" },
   faqs: [
     { q: "Who can receive donor milk?", a: "Premature and critically ill newborns who cannot be breastfed by their own mothers, especially babies in the NICU who need safe early nutrition." },
     { q: "Is donor milk safe?", a: "Yes. All donor milk is screened and pasteurised under stringent quality-control protocols, with sterile storage and 24/7 power backup." },
@@ -161,7 +161,7 @@ function HumanMilkBankPageContent({ service: s }) {
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a>
           <NavManagement /><a href="/paediatric-super-specialities">Pediatric Super Specialities</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
         <div className="nav-cta">
-          <a className="btn btn-line btn-sm" href="/book-vaccine">Book Vaccine</a>
+          <a className="btn btn-line btn-sm" href={LINKS.call}>Call Us</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>

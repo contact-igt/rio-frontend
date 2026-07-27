@@ -51,6 +51,7 @@ const COVERS = [
   "Paediatric Pulmonology",
   "Paediatric Rheumatology",
   "Paediatric Dermatology",
+  "Paediatric Ophthalmology",
   "Paediatric ENT",
   "Paediatric Dentistry",
   "Developmental Paediatrics",
@@ -60,6 +61,11 @@ const COVERS = [
 ];
 
 const WHAT_YOU_GET = [
+  {
+    icon: "nicu",
+    title: "NICU & PICU support",
+    desc: "Advanced neonatal and paediatric intensive care is available when a child requires closer monitoring or critical support.",
+  },
   {
     icon: "specialists",
     title: "Multiple super-specialities",
@@ -74,11 +80,6 @@ const WHAT_YOU_GET = [
     icon: "child",
     title: "Child-focused treatment",
     desc: "Every care plan is designed around your child's age, medical needs, development and emotional comfort.",
-  },
-  {
-    icon: "nicu",
-    title: "NICU & PICU support",
-    desc: "Advanced neonatal and paediatric intensive care is available when a child requires closer monitoring or critical support.",
   },
   {
     icon: "scan",
@@ -360,7 +361,7 @@ export default function PaediatricSuperSpecialitiesPage() {
           <a href="/contact">Contact</a>
         </nav>
         <div className="nav-cta">
-          <a className="btn btn-line btn-sm" href="/book-vaccine">Book Vaccine</a>
+          <a className="btn btn-line btn-sm" href={LINKS.call}>Call Us</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}>
@@ -501,7 +502,7 @@ export default function PaediatricSuperSpecialitiesPage() {
         </section>
 
         {/* 6. STAT + CTA */}
-        <section className="section">
+        {/* <section className="section">
           <div className="wrap">
             <Reveal className="statband">
               <div>
@@ -514,7 +515,7 @@ export default function PaediatricSuperSpecialitiesPage() {
               </div>
             </Reveal>
           </div>
-        </section>
+        </section> */}
 
         {/* 7. FAQ */}
         <section className="section tint-pink">

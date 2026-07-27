@@ -363,9 +363,7 @@ export default function FacilitiesPage() {
           <a href="/contact">Contact</a>
         </nav>
         <div className="nav-cta">
-          <a className="btn btn-line btn-sm" href="/book-vaccine">
-            Book Vaccine
-          </a>
+          <a className="btn btn-line btn-sm" href={SITE_LINKS.call}>Call Us</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">
             Book an Appointment
           </a>

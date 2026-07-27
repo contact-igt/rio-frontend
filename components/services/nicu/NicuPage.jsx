@@ -50,17 +50,17 @@ const NAV_TREATMENTS = [
 const NICU = {
   slug: "nicu",
   gallery: [
-    { img: "Advanced-NICU", cap: "Level 3 NICU ward, offering 20+ beds" },
+    { img: "Advanced-NICU", cap: "Level 3A NICU ward, offering 20+ beds" },
     { img: "critical-care1", cap: "Incubator & radiant-warmer bay" },
     { img: "critical-care2", cap: "Neonatal monitoring station" },
     { img: "critical-care3", cap: "Intensive & isolation care bay" },
   ],
   eyebrow: "NICU",
-  title: "South Tamil Nadu’s Most Advanced Level 3 Newborn Intensive Care (NICU)",
-  lede: "Rio is home to South Tamil Nadu’s only Level 3 NICU, providing premature and critically ill newborns with advanced life-support technology, continuous monitoring and expert neonatology care around the clock.",
+  title: "South Tamil Nadu’s Most Advanced Level 3A Newborn Intensive Care (NICU)",
+  lede: "Rio is home to South Tamil Nadu’s only Level 3A NICU, providing premature and critically ill newborns with advanced life-support technology, continuous monitoring and expert neonatology care around the clock.",
   heroImg: "Advanced-NICU",
   intro: [
-    "Our Level 3 NICU is equipped to care for premature babies, low-birth-weight infants and critically ill newborns requiring advanced intensive care from the very first hours of life.",
+    "Our Level 3A NICU is equipped to care for premature babies, low-birth-weight infants and critically ill newborns requiring advanced intensive care from the very first hours of life.",
     "Care is led by experienced neonatologists and trained nurses, supported by advanced monitoring, ventilation and nutrition systems, along with a gentle, family-centred approach that keeps parents informed and involved.",
   ],
   covers: [
@@ -77,7 +77,7 @@ const NICU = {
     { icon: "bell", title: "Advanced neonatal nutrition", desc: "Total parenteral nutrition (TPN), central venous and umbilical lines for the tiniest babies." },
     { icon: "power", title: "3-level power backup", desc: "Uninterrupted power for incubators, ventilators and monitors, 100% guaranteed." },
   ],
-  stat: { n: "24/7", l: "Neonatology Team - Level 3 Intensive Care" },
+  stat: { n: "24/7", l: "Neonatology Team - Level 3A Intensive Care" },
   faqs: [
     { q: "Which babies need NICU care?", a: "Premature babies, low-birth-weight infants and newborns who are critically ill or need close monitoring and support in their first days." },
     { q: "Can parents visit their baby in the NICU?", a: "Yes. Rio follows a family-centred approach. Our team keeps you informed and involved in your baby's care." },
@@ -163,7 +163,7 @@ function NicuPageContent({ service: s }) {
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a>
           <NavManagement /><a href="/paediatric-super-specialities">Pediatric Super Specialities</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
         <div className="nav-cta">
-          <a className="btn btn-line btn-sm" href="/book-vaccine">Book Vaccine</a>
+          <a className="btn btn-line btn-sm" href={LINKS.call}>Call Us</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
