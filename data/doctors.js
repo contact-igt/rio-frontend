@@ -29,7 +29,7 @@ export const doctors = [
   { "department": "Obstetric and Gynecology", "name": "Dr. Mythily Prathibha", "qualifications": "MBBS, DNB (O&G), DRM (Germany), FMAS Dubai, Fellowship in Cosmetics & Gynaecology", "role": "Consultant - Obstetrics & Reproductive Medicine", "image": "/assets/doctors/Dr. Mythily Prathibha.jpg" },
 
   { "department": "Fetal Medicine", "name": "Dr. Raja Chella Sethupathy", "qualifications": "MBBS., DNB(OBG)., Fellowship in Fetal Medicine", "role": "Fetal Medicine", "image": "https://www.riochildrenshospital.com/images/doctors/raja chella sethupathy.webp" },
-  { "department": "Fetal Medicine", "name": "Dr. R. Madhu Maetha", "qualifications": "MBBS, MDRD, CCFRG, ACFRG, Fellowship in Fetal Medicine and Breast Imaging.", "role": "Consultant - Fetal Medicine Specialist", "image": "/assets/doctors/Dr. R. Madhu Maetha.png" },
+  { "department": "Fetal Medicine", "name": "Dr. R. Madhu Maetha", "qualifications": "MBBS, MDRD, CCFRG, ACFRG, Fellowship in Fetal Medicine and Breast Imaging.", "role": "Consultant - Fetal Medicine Specialist", "image": "/assets/doctors/Dr. R. Madhu Maetha2.jpeg" },
 
   { "department": "Paediatric Cardiology", "name": "Dr. L.K. Senthilkumar", "qualifications": "MD (Paed)., FNB", "role": "Paediatric Cardiology", "image": "https://www.riochildrenshospital.com/images/doctors/Senthil Kumar.webp" },
 
