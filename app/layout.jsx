@@ -16,6 +16,8 @@ export const metadata = {
     "paediatric emergency",
     "maternity hospital Dindigul Thanjavur",
   ],
+
+  
   openGraph: {
     title: "Rio Children's Hospital — Women, Newborns & Children",
     description:
