@@ -2,6 +2,9 @@ export const doctors = [
   { "department": "Neonatal Intensive Care Unit", "name": "Dr. M. Saravanan", "qualifications": "M.B.,B.S., DCH., MRCP (UK)", "role": "Neonatal and Paediatric Intensivist", "image": "https://www.riochildrenshospital.com/images/doctors/saravanan.webp" },
   { "department": "Neonatal Intensive Care Unit", "name": "Dr. D. Sathish Kumar", "qualifications": "M.B.,B.S, M.D., (PAEDIATRICS)", "role": "NICU, General Paediatrics", "image": "https://www.riochildrenshospital.com/images/doctors/sathish kumar.webp" },
   { "department": "Neonatal Intensive Care Unit", "name": "Dr. C. Vinodh", "qualifications": "M.B.,B.S., D.N.B (PEDIATRICS)., F.N.I.C.", "role": "NICU, General Paediatrics", "image": "https://www.riochildrenshospital.com/images/doctors/vinodh.webp" },
+  { "department": "Neonatal Intensive Care Unit", "name": "Dr. B. Saranya Devi", "qualifications": "MBBS, MD (Paed), DM (Neonatology)", "role": "Consultant - Neonatal Intensive Care Unit", "image": "/assets/doctors/Dr. B. Saranya Devi.jpg" },
+  { "department": "Neonatal Intensive Care Unit", "name": "Dr. M. Karthikeyan", "qualifications": "DNB (Paed), Fellowship in Neonatology (IAP)", "role": "Consultant - Neonatology", "image": "/assets/doctors/Dr. M. Karthikeyan.jpg" },
+  { "department": "Neonatal Intensive Care Unit", "name": "Dr. S. Balakrishnan", "qualifications": "MD, DM (Neonatal)", "role": "Consultant - Neonatal Intensive Care", "image": "/assets/doctors/Dr. S. Balakrishnan.jpg" },
 
   { "department": "Neonatal and Paediatric Surgery / Paediatric Urology", "name": "Dr. C. Vijay Anand", "qualifications": "M.B.,B.S., D.N.B., M.Ch.", "role": "Neonatal Paediatric Surgery", "image": "https://www.riochildrenshospital.com/images/doctors/vijay-anand.webp" },
 
@@ -23,8 +26,10 @@ export const doctors = [
   { "department": "Obstetric and Gynecology", "name": "Dr. Uma Brindha", "qualifications": "MBBS., MS(OG)., DNB (OG)", "role": "Consultant - Obstetrics and Gynaecology", "image": "https://www.riochildrenshospital.com/images/doctors/uma.webp" },
   { "department": "Obstetric and Gynecology", "name": "Dr. B. Steffi Kiran Pandian", "qualifications": "MBBS, MS(OG)", "role": "Consultant - Obstetrics and Gynaecology", "image": "https://www.riochildrenshospital.com/images/doctors/stiffi.webp" },
   { "department": "Obstetric and Gynecology", "name": "Dr. K. Supraja", "qualifications": "MBBS., DGO(OBG)", "role": "Consultant - Obstetrics and Gynaecology", "image": "https://www.riochildrenshospital.com/images/doctors/supraja.webp" },
+  { "department": "Obstetric and Gynecology", "name": "Dr. Mythily Prathibha", "qualifications": "MBBS, DNB (O&G), DRM (Germany), FMAS Dubai, Fellowship in Cosmetics & Gynaecology", "role": "Consultant - Obstetrics & Reproductive Medicine", "image": "/assets/doctors/Dr. Mythily Prathibha.jpg" },
 
   { "department": "Fetal Medicine", "name": "Dr. Raja Chella Sethupathy", "qualifications": "MBBS., DNB(OBG)., Fellowship in Fetal Medicine", "role": "Fetal Medicine", "image": "https://www.riochildrenshospital.com/images/doctors/raja chella sethupathy.webp" },
+  { "department": "Fetal Medicine", "name": "Dr. R. Madhu Maetha", "qualifications": "MBBS, MDRD, CCFRG, ACFRG, Fellowship in Fetal Medicine and Breast Imaging.", "role": "Consultant - Fetal Medicine Specialist", "image": "/assets/doctors/Dr. R. Madhu Maetha.png" },
 
   { "department": "Paediatric Cardiology", "name": "Dr. L.K. Senthilkumar", "qualifications": "MD (Paed)., FNB", "role": "Paediatric Cardiology", "image": "https://www.riochildrenshospital.com/images/doctors/Senthil Kumar.webp" },
 
