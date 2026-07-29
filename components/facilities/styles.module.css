@@ -464,7 +464,7 @@
 
 .page :global(.detail-eyebrow) {
   font-family: "Mulish", "Montserrat", sans-serif;
-  font-size: 12px;
+  font-size: 15.5px;
   font-weight: 800;
   color: var(--facility-pink);
   text-transform: uppercase;

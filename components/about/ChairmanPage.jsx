@@ -203,7 +203,7 @@ export default function ChairmanPage() {
             <h2 className="ch-section-title">His Story</h2>
             <div className="bio-body">
               <p className="bio-para">
-                Dr. Saravanan was born in a <span className="bio-hl">Tier-4 village in Ramanathapuram (Ramnad) District</span> into a poor family and was delivered by a traditional dai. He is the <span className="bio-hl">first doctor in his family</span>. Growing up with limited access to healthcare shaped his deep commitment to improving medical services for underserved communities.
+                Dr. Saravanan was born in a <span className="bio-hl">Tier-4 village in Ramanathapuram (Ramnad) District</span> and was delivered by a traditional dai. He is the <span className="bio-hl">first doctor in his family</span>. Growing up with limited access to healthcare shaped his deep commitment to improving medical services for underserved communities.
               </p>
               <p className="bio-para">
                 Initially aspiring to become an engineer, destiny led him to medicine. He completed his <span className="bio-hl">Diploma in Child Health (DCH) in Madurai</span> and later pursued <span className="bio-hl">MRCP in the United Kingdom</span>, where he practiced at Oxford and Radcliffe Hospitals and served as a Pediatrician at the Royal Hospital. Despite international exposure and opportunities, he chose to return to Madurai to serve his people.

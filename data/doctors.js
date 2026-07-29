@@ -25,13 +25,13 @@ export const doctors = [
   { "department": "Obstetric and Gynecology", "name": "Dr. Humaira Safrin", "qualifications": "MBBS., MS(OG)", "role": "Obstetric and Gynecology", "image": "https://www.riochildrenshospital.com/images/doctors/humaira safrin.webp" },
   { "department": "Obstetric and Gynecology", "name": "Dr. Mythily Prathibha", "qualifications": "MBBS, DNB (O&G), DRM (Germany), FMAS Dubai, Fellowship in Cosmetics & Gynaecology", "role": "Obstetrics & Reproductive Medicine", "image": "/assets/doctors/Dr. Mythily Prathibha.jpg" },
 
-  // { "department": "Obstetric and Gynecology", "name": "Dr. Uma Brindha", "qualifications": "MBBS., MS(OG)., DNB (OG)", "role": "Obstetrics and Gynaecology", "image": "https://www.riochildrenshospital.com/images/doctors/uma.webp" },
-  // { "department": "Obstetric and Gynecology", "name": "Dr. B. Steffi Kiran Pandian", "qualifications": "MBBS, MS(OG)", "role": "Obstetrics and Gynaecology", "image": "https://www.riochildrenshospital.com/images/doctors/stiffi.webp" },
-  // { "department": "Obstetric and Gynecology", "name": "Dr. K. Supraja", "qualifications": "MBBS., DGO(OBG)", "role": "Obstetrics and Gynaecology", "image": "https://www.riochildrenshospital.com/images/doctors/supraja.webp" },
+  { "department": "Obstetric and Gynecology", "name": "Dr. Uma Brindha", "qualifications": "MBBS., MS(OG)., DNB (OG)", "role": "Obstetrics and Gynaecology", "image": "/assets/doctors/uma.png" },
+  { "department": "Obstetric and Gynecology", "name": "Dr. B. Steffi Kiran Pandian", "qualifications": "MBBS, MS(OG)", "role": "Obstetrics and Gynaecology", "image": "/assets/doctors/steffi.png" },
+  { "department": "Obstetric and Gynecology", "name": "Dr. K. Supraja", "qualifications": "MBBS., DGO(OBG)", "role": "Obstetrics and Gynaecology", "image": "/assets/doctors/supraja.png" },
 
   // { "department": "Fetal Medicine", "name": "Dr. Raja Chella Sethupathy", "qualifications": "MBBS., DNB(OBG)., Fellowship in Fetal Medicine", "role": "Fetal Medicine", "image": "https://www.riochildrenshospital.com/images/doctors/raja chella sethupathy.webp" },
   { "department": "Fetal Medicine", "name": "Dr. R. Madhu Maetha", "qualifications": "MBBS, MDRD, CCFRG, ACFRG, Fellowship in Fetal Medicine and Breast Imaging.", "role": "Fetal Medicine Specialist", "image": "/assets/doctors/Dr. R. Madhu Maetha2.jpeg" },
-
+  { "department": "General Paediatric", "name": "Dr. Shanmugapriya", "qualifications": "MBBS, DCH", "role": "General Paediatric", "image": "/assets/doctors/shanmugapriya.png" },
   // { "department": "Paediatric Neurology", "name": "Dr. Sakthi Ravindran", "qualifications": "MD(Paed)., DM(Neuro)", "role": "Paediatric Neurology", "image": "/assets/doctors/placeholder.svg" },
   { "department": "Paediatric Neurology", "name": "Dr. S. M. Mohana Sundaram", "qualifications": "MBBS., MD (Paed)., DM (Paediatric Neurology)", "role": "Paediatric Neurology", "image": "/assets/doctors/mohana sundram.jpeg" },
   { "department": "Paediatric Cardiology", "name": "Dr. L.K. Senthilkumar", "qualifications": "MD(Paed)., FNB(Paed Cardiology).,", "role": "Paediatric Cardiology", "image": "https://www.riochildrenshospital.com/images/doctors/Senthil Kumar.webp" },

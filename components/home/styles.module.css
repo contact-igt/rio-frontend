@@ -46,7 +46,7 @@
 }
 
 .page .servicesBackground {
-  background: url("/assets/home/carebg.png") center / cover no-repeat;
+  background: url("/assets/home/carebg2.png") center / cover no-repeat;
 }
 
 .page .childHealthBackground {
@@ -130,6 +130,24 @@
 
 .page :global(.hero h1 .accent) {
   color: #FFA8C4
+}
+
+.page :global(.hero h1 .accent-children) {
+  color: #D2B4FF
+}
+
+.page :global(.nowrap) {
+  white-space: nowrap;
+}
+
+.page :global(.hero .eyebrow) {
+  font-size: clamp(16px, 2.2vw, 19px);
+  gap: 10px;
+}
+
+.page :global(.hero .eyebrow-dot) {
+  width: 8px;
+  height: 8px;
 }
 
 .page :global(.hero .lede) {
@@ -2700,4 +2718,15 @@
   .page :global(.home-stats-bar .hero-stat:nth-child(n + 3)) {
     border-top: 1px solid rgba(255, 255, 255, .12);
   }
+}
+
+.page .whyTitle {
+  color: var(--pink-deep);
+}
+
+.page .whySubtitle {
+  font-size: clamp(18px, 2.5vw, 22px);
+  color: var(--ink);
+  font-weight: 700;
+  margin-top: 12px;
 }
