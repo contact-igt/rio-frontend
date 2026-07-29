@@ -266,7 +266,7 @@ export default function GynaecologyPage() {
           <div className="shero-veil" />
           <div className="shero-in">
             <Reveal>
-              <Eyebrow light>Gynaecology Services</Eyebrow>
+              <Eyebrow light>Gynaecology </Eyebrow>
               <h1>Complete women&apos;s healthcare at every stage of life</h1>
               <p className="lede">
                 From adolescence to motherhood and menopause, Rio provides compassionate, evidence-based
