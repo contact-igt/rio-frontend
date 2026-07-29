@@ -244,6 +244,48 @@ const FAQS = [
     a: "Rio offers 24/7 paediatric emergency care with NICU support, ensuring immediate attention when your child needs it most.",
   },
 ];
+const CIRCLE_AWARDS = [
+  {
+    img: "/assets/shared/award1.png",
+    alt: "CII – No.1 Hospital in Tamilnadu",
+    title: "CII - No.1 Hospital\nin Tamilnadu",
+    tag: "2019",
+    tagColor: "pink",
+  },
+  {
+    img: "/assets/shared/award4.png",
+    alt: "Honours for Healthcare Excellence",
+    title: "Honours for\nHealthcare Excellence",
+    tag: "Pediatrics",
+    tagColor: "pink",
+  },
+  {
+    img: "/assets/shared/award2.png",
+    alt: "IBR - BLS trained for Maximum Villagers in a day",
+    title: "IBR - BLS trained for\nMaximum Villagers in a day",
+    showDash: true,
+  },
+  {
+    img: "/assets/shared/award3.png",
+    alt: "FICCI - Best Hospital in South Tamilnadu",
+    title: "FICCI - Best Hospital\nin South Tamilnadu",
+    showDash: true,
+  },
+];
+
+const FEATURED_AWARD = {
+  img: "/assets/home/award5.jpeg",
+  alt: "Awarded as No.1 Children's Hospital in Tamilnadu – 2025 (by CII)",
+  eyebrow: "CONFEDERATION OF INDIAN INDUSTRY (CII)",
+  title: "Awarded as No.1 Children's Hospital in Tamilnadu – 2025",
+  subtitle: "Highest national & state recognition for neonatal, paediatric, and high-risk maternity care excellence across South Tamil Nadu.",
+  badges: [
+    "Level 3A NICU Excellence",
+    "10 Lakhs+ Trusted Families",
+    "24/7 Emergency Care",
+  ],
+};
+
 const BRANCHES = [
   {
     name: "Madurai (Main)",
@@ -641,6 +683,73 @@ export default function HomePage() {
                 </Reveal>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ───────── AWARDS & RECOGNITIONS ───────── */}
+        <section className={`section ${styles.awardsSection}`} id="awards">
+          <div className="wrap">
+            <Reveal className={`sec-head center ${styles.awardsHead}`}>
+              <span className={styles.awardsHeartIcon} aria-hidden="true">♡</span>
+              <h2 className={styles.awardsTitle}>Awards &amp; Recognitions</h2>
+              <p className={styles.awardsSubtitle}>A Legacy of Trust. A Commitment to Excellence.</p>
+            </Reveal>
+
+            {/* 1. Top Row: 4 Circle Awards */}
+            <div className={styles.awardsRow4}>
+              {CIRCLE_AWARDS.map((award, i) => (
+                <Reveal key={i} delay={i * 80} className={styles.awardCircleItem}>
+                  <div className={styles.awardCircleWrap}>
+                    <img
+                      src={award.img}
+                      alt={award.alt}
+                      className={styles.awardCircleImg}
+                      loading="lazy"
+                    />
+                  </div>
+                  <p className={styles.awardTitle}>{award.title}</p>
+                  {award.tag && (
+                    <span className={styles.awardTag} data-color={award.tagColor}>
+                      {award.tag}
+                    </span>
+                  )}
+                  {award.showDash && <span className={styles.awardDash} />}
+                </Reveal>
+              ))}
+            </div>
+
+            {/* 2. Bottom Row: Standalone Featured Award Banner */}
+            <Reveal delay={320} className={styles.featuredAwardWrapper}>
+              <div className={styles.featuredAwardCard}>
+                <div className={styles.featuredTagPill}>
+                  <span className={styles.featuredStar}>★</span>
+                  <span>FLAGSHIP RECOGNITION – 2025</span>
+                </div>
+                <div className={styles.featuredInnerGrid}>
+                  <div className={styles.featuredMediaCol}>
+                    <img
+                      src={FEATURED_AWARD.img}
+                      alt={FEATURED_AWARD.alt}
+                      className={styles.featuredImg}
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className={styles.featuredContentCol}>
+                    <span className={styles.featuredEyebrow}>{FEATURED_AWARD.eyebrow}</span>
+                    <h3 className={styles.featuredTitle}>{FEATURED_AWARD.title}</h3>
+                    <p className={styles.featuredSubtitle}>{FEATURED_AWARD.subtitle}</p>
+                    <div className={styles.featuredBadgesRow}>
+                      {FEATURED_AWARD.badges.map((b, idx) => (
+                        <span key={idx} className={styles.featuredBadgeChip}>
+                          <i className={styles.checkIcon}>✓</i> {b}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+
           </div>
         </section>
 
