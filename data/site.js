@@ -15,6 +15,7 @@ export const NAV_TREATMENTS = [
   { name: "High-Risk Pregnancy Care", slug: "high-risk-pregnancy" },
   { name: "Fetal Medicine", slug: "fetal-medicine" },
   { name: "Maternity Care", slug: "maternity" },
+  { name: "Gynaecology", slug: "gynaecology" },
   { name: "Paediatric Emergency", slug: "emergency" },
   { name: "General Paediatrics", slug: "general-paediatrics" },
   { name: "Vaccination Services", slug: "vaccination" },
@@ -23,11 +24,12 @@ export const NAV_TREATMENTS = [
 ];
 
 export const RIO_SERVICE_TYPES = [
-    "NICU",
+  "NICU",
   "PICU",
   "High-Risk Pregnancy Care",
   "Fetal Medicine",
   "Maternity Care",
+  "Gynaecology",
   "Paediatric Emergency Care",
   "General Paediatrics",
   "Vaccination Services",

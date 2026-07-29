@@ -4,7 +4,7 @@ import SiteFooter from "@/components/shared/SiteFooter";
 import { useEffect, useRef, useState } from "react";
 import NavManagement from "@/components/shared/NavManagement";
 import MobileNav from "@/components/shared/MobileNav";
-import { APPOINTMENT_SERVICES as APPT_SERVICES } from "@/data/site";
+import { APPOINTMENT_SERVICES as APPT_SERVICES, BRANCH_NAMES } from "@/data/site";
 import styles from "./styles.module.css";
 
 /* ════════════════════════════════════════════════════════════════════════
@@ -36,6 +36,7 @@ const NAV_TREATMENTS = [
   { name: "High-Risk Pregnancy Care", slug: "high-risk-pregnancy" },
   { name: "Fetal Medicine", slug: "fetal-medicine" },
   { name: "Maternity Care", slug: "maternity" },
+  { name: "Gynaecology", slug: "gynaecology" },
   { name: "Fertility & IVF", slug: "fertility-ivf" },
   { name: "NICU", slug: "nicu" },
   { name: "PICU", slug: "picu" },
@@ -323,6 +324,10 @@ function PicuPageContent({ service: s }) {
                   <form onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
                     <input type="text" placeholder="Full name" required />
                     <input type="tel" placeholder="Phone number" required />
+                    <select required defaultValue="">
+                      <option value="" disabled>Preferred branch</option>
+                      {BRANCH_NAMES.map((b) => <option key={b}>{b}</option>)}
+                    </select>
                     <select required defaultValue={s.eyebrow}>{APPT_SERVICES.map((x) => <option key={x}>{x}</option>)}</select>
                     <button className={`btn btn-cta ${styles.fullButton}`} type="submit">Request a Call Back ↗</button>
                   </form>

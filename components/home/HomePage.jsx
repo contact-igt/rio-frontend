@@ -42,7 +42,7 @@ const IMG = {
   vaccine: "/assets/home/vaccine.png",
   specialists2: "/assets/home/specialist.png",
   cc1: "/assets/home/nicu-ward.png",
-  cc2: "/assets/home/ot.png",
+  cc2: "/assets/home/fetal2.png",
   cc3: "/assets/home/picu.png",
   cc4: "/assets/home/milkbank.png",
   branch1: "/assets/shared/branch-madurai-main.png",
@@ -59,17 +59,17 @@ const PILLARS = [
   },
   {
     t: "Advanced NICU, PICU & Preterm Care",
-    d: "Equipped intensive care for premature babies and critically ill children, monitored around the clock.",
+    d: "State of the art with equipped intensive care facility to manage extremely premature babies and critically ill children, around the clock.",
     icon: "shield",
   },
   {
-    t: "24/7 Emergency & Mother-Child Support",
-    d: "Round-the-clock emergency response for newborns, children and mothers because every minute matters.",
+    t: "24/7 Emergency & Women-Children Support",
+    d: "World class emergency services given for newborns, children and women.",
     icon: "clock",
   },
   {
     t: "Paediatric Super Specialities",
-    d: "Multidisciplinary child care under one roof, featuring cardiology, neurology, surgery, pulmonology & urology.",
+    d: "All Paediatric super specialities under one roof, Paed. cardiology, Paed. neurology, Paed. dermatology, Paed. surgery, Paed. urology, etc.",
     icon: "stethoscope",
   },
 ];
@@ -120,7 +120,7 @@ const TESTIMONIAL_SLIDER_SETTINGS = {
 const SERVICES = [
   {
     t: "NICU",
-    d: "Incubators, ventilators, TPN and continuous monitoring for premature and critically ill newborns.",
+    d: "Covering a 350 km radius, we are a leading Centre of Excellence and Referral Centre in Tamil Nadu, offering advanced neonatal intensive care for babies born as early as 23 weeks and weighing as little as 550 grams, giving the tiniest lives the best possible start.",
     img: "nicu",
     slug: "nicu",
   },
@@ -132,13 +132,13 @@ const SERVICES = [
   },
   {
     t: "High-Risk Pregnancy Care",
-    d: "Dedicated management for complex pregnancies, from early scans through to a safe delivery.",
+    d: "Dedicated care for complex pregnancies, from early fetal scans to safe delivery, with expert support for both mother and baby at every step.",
     img: "maternity",
     slug: "high-risk-pregnancy",
   },
   {
     t: "Fetal Medicine",
-    d: "Close monitoring of high-risk pregnancies to spot concerns early and plan safer deliveries.",
+    d: "We provide close monitoring of high-risk pregnancies to detect potential concerns early and plan safer deliveries. Equipped with advanced 4D ultrasound technology, our specialists offer detailed fetal assessments, personalized counselling, and timely interventions whenever required.",
     img: "cc2",
     slug: "fetal-medicine",
   },
@@ -521,7 +521,7 @@ export default function HomePage() {
           <a href="/">Home</a>
           <a href="/about">About</a>
           <NavManagement />
-          
+
           <a href="/paediatric-super-specialities">Pediatric Super Specialities</a>
           <NavTreatments />
           <a href="/facilities">Facilities</a>
@@ -530,7 +530,7 @@ export default function HomePage() {
         <div className="nav-cta">
           <a
             className="btn btn-line btn-sm"
-           href={SITE_LINKS.call}>Call Us</a>
+            href={SITE_LINKS.call}>Call Us</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">
             Book an Appointment
           </a>
@@ -572,12 +572,12 @@ export default function HomePage() {
             <Reveal>
               <Eyebrow>13 Years of Trusted Care</Eyebrow>
               <h1>
-                Trusted <span className="accent">Women</span> &amp; Children’s Hospital in South Tamil Nadu
+                Trusted <span className="accent">Women</span> &amp; <span className="accent-children">Children’s</span> Hospital in South Tamil Nadu
               </h1>
               <p className="lede">
-                Home to South Tamil Nadu's only Level 3A NICU, offering
-                high-risk pregnancy care, fetal medicine, PICU, maternity
-                services and comprehensive paediatric super-speciality care
+                Home to South Tamil Nadu's only Level 3A NICU, offering{" "}
+                <span className="nowrap">High-Risk Pregnancy Care</span>, Fetal Medicine, PICU, Maternity
+                services and comprehensive Paediatric Super-Speciality care
                 across four branches.
               </p>
               <div className="hero-cta">
@@ -589,13 +589,13 @@ export default function HomePage() {
                 </a>
               </div>
               <div className="hero-badges">
-                <span className="hero-badge-nabh"><img src="/assets/home/nabh-logo.png" alt="" aria-hidden="true" />NABH Entry-Level Certified</span>
+                <span className="hero-badge-nabh"><img src="/assets/home/nabh-logo.png" alt="" aria-hidden="true" />NABH Certified</span>
                 <span>Only Level 3A NICU in South TN</span>
               </div>
             </Reveal>
           </div>
           <div className="hero-certifications">
-            <span className="hero-badge-nabh"><img src="/assets/home/nabh-logo.png" alt="" aria-hidden="true" />NABH Entry-Level Certified</span>
+            <span className="hero-badge-nabh"><img src="/assets/home/nabh-logo.png" alt="" aria-hidden="true" />NABH Certified</span>
             <span>Only Level 3A NICU in South TN</span>
           </div>
           <div className="scrollcue">
@@ -609,7 +609,6 @@ export default function HomePage() {
             <div className="hero-glass">
               {HERO_STATS.map((stat) => (
                 <div className="hero-stat" key={stat.label}>
-                  <Icon name={stat.icon} className="hero-stat-icon" />
                   <strong>
                     <Counter value={stat.value} />
                   </strong>
@@ -626,8 +625,8 @@ export default function HomePage() {
           />
           <div className="wrap">
             <Reveal className="sec-head center">
-              <Eyebrow>Why Choose Rio</Eyebrow>
-              <h2>Four reasons families trust us</h2>
+              <h2 className={styles.whyTitle}>Why Choose Rio</h2>
+              <p className={styles.whySubtitle}>Four reasons families trust us</p>
             </Reveal>
             <div className="pillar-grid">
               {PILLARS.map((p, i) => (
@@ -663,8 +662,8 @@ export default function HomePage() {
                 When every minute matters, we're already ready.
               </h2>
               <p>
-                24/7 paediatric emergency, advanced NICU &amp; PICU, neonatal
-                transport and round-the-clock specialists  across all four
+                24/7 paediatric emergency, advanced NICU &amp; PICU, neonatal &amp;
+                pediatric transport and round-the-clock specialists  across all four
                 branches.
               </p>
               <div className={`hero-trust ${styles.heroTrustTight}`}>
@@ -718,8 +717,8 @@ export default function HomePage() {
           </div>
         </section>
 
-   
-      
+
+
 
         {/* ───────── pregnancy journey ───────── */}
         <section className="section tint-blush" id="pregnancy">
@@ -752,7 +751,7 @@ export default function HomePage() {
         </section>
 
 
-          <section className={`section ${styles.childHealthBackground}`}>
+        <section className={`section ${styles.childHealthBackground}`}>
           <div className="wrap split">
             <Reveal className={styles.childHealthContent}>
               <Eyebrow>Child Health</Eyebrow>
@@ -812,9 +811,9 @@ export default function HomePage() {
               <div className="mbank-card-stack">
                 <article className="mbank-card mbank-card-rose">
                   <Img
-                src={IMG.cc4}
-                alt="Rio's Human Milk Bank — screened, pasteurised donor milk"
-                grad={1}
+                    src={IMG.cc4}
+                    alt="Rio's Human Milk Bank — screened, pasteurised donor milk"
+                    grad={1}
                     className="mbank-card-image"
                     par="0.05"
                   />
@@ -1057,15 +1056,15 @@ export default function HomePage() {
               {TESTIMONIAL_SLIDES.map((t, i) => (
                 <div key={`${t.name}-${i}`} className="tst">
                   <article className="tst-card">
-                  <div className="tst-stars">{"★".repeat(t.stars)}</div>
-                  <p className="tst-text">"{t.text}"</p>
-                  <div className="tst-by">
-                    <span className="tst-av">{t.name[0]}</span>
-                    <div>
-                      <strong>{t.name}</strong>
-                      <span className="tst-loc">{t.loc}</span>
+                    <div className="tst-stars">{"★".repeat(t.stars)}</div>
+                    <p className="tst-text">"{t.text}"</p>
+                    <div className="tst-by">
+                      <span className="tst-av">{t.name[0]}</span>
+                      <div>
+                        <strong>{t.name}</strong>
+                        <span className="tst-loc">{t.loc}</span>
+                      </div>
                     </div>
-                  </div>
                   </article>
                 </div>
               ))}
