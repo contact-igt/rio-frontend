@@ -662,6 +662,14 @@
   transition: color .28s
 }
 
+.page :global(img.stethoscope-image) {
+  object-fit: contain;
+}
+
+.page :global(.pillar:hover img.stethoscope-image) {
+  content: url("/assets/home/stethoscope-white.png");
+}
+
 .page :global(.pillar:hover .pillar-icon) {
   color: #fff
 }
@@ -2544,13 +2552,24 @@
   --tst-tilt: -.9deg;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 561px) {
   .page :global(.testimonial-slider) {
     margin-inline: -4px;
   }
 
   .page :global(.testimonial-slider .slick-slide > div) {
     padding-inline: 8px;
+  }
+
+  .page :global(.testimonial-slider .slick-slide),
+  .page :global(.testimonial-slider .tst),
+  .page :global(.testimonial-slider .tst-card) {
+    min-width: 0;
+  }
+
+  .page :global(.testimonial-slider .tst-card) {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
