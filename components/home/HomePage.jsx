@@ -70,7 +70,7 @@ const PILLARS = [
   {
     t: "Paediatric Super Specialities",
     d: "All Paediatric super specialities under one roof, Paed. cardiology, Paed. neurology, Paed. dermatology, Paed. surgery, Paed. urology, etc.",
-    icon: "stethoscope",
+    icon: "stethoscopePink",
   },
 ];
 const TESTIMONIALS = [
@@ -102,19 +102,10 @@ const TESTIMONIAL_SLIDER_SETTINGS = {
   arrows: false,
   dots: false,
   infinite: true,
-  slidesToShow: 3,
   slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 0,
-  speed: 7000,
-  cssEase: "linear",
   pauseOnHover: false,
   pauseOnFocus: false,
   swipeToSlide: true,
-  responsive: [
-    { breakpoint: 881, settings: { slidesToShow: 2, speed: 6200 } },
-    { breakpoint: 561, settings: { slidesToShow: 1, speed: 5200 } },
-  ],
 };
 
 const SERVICES = [
@@ -204,7 +195,7 @@ const WHY_EXT = [
   {
     t: "Multidisciplinary Team",
     d: "Neonatologists, paediatricians, fetal medicine specialists, intensivists and emergency experts, together.",
-    icon: "stethoscope",
+    icon: "stethoscopeWhite",
   },
   {
     t: "Paediatric Super Speciality",
@@ -452,6 +443,15 @@ const ICONS = {
       <circle cx="19.6" cy="13.5" r="1.9" />
     </>
   ),
+  teamStethoscope: (
+    <>
+      <path d="M6 3.5v5a6 6 0 0 0 12 0v-5" />
+      <path d="M4.5 3.5H8" />
+      <path d="M16 3.5h3.5" />
+      <path d="M12 14.5V17a4 4 0 0 0 8 0v-1.2" />
+      <circle cx="20" cy="13.5" r="2" />
+    </>
+  ),
   branch: (
     <>
       <path d="M4.5 20V8.4L12 4l7.5 4.4V20" />
@@ -479,6 +479,17 @@ const ICONS = {
   ),
 };
 function Icon({ name, className = "pillar-icon" }) {
+  if (name === "stethoscopePink" || name === "stethoscopeWhite") {
+    return (
+      <img
+        src={`/assets/home/stethoscope-${name === "stethoscopePink" ? "pink" : "white"}.png`}
+        className={`${className} stethoscope-image`}
+        alt=""
+        aria-hidden="true"
+      />
+    );
+  }
+
   return (
     <svg
       viewBox="0 0 24 24"
@@ -507,7 +518,46 @@ export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState(0);
   const [sent, setSent] = useState(false);
+  // Start at one card so server and first client render are mobile-safe.
+  const [testimonialSlidesToShow, setTestimonialSlidesToShow] = useState(1);
   const progressRef = useRef(null);
+
+  useEffect(() => {
+    const mobileQuery = window.matchMedia("(max-width: 561px)");
+    const tabletQuery = window.matchMedia("(min-width: 562px) and (max-width: 881px)");
+    const updateSlideCount = () => {
+      const nextSlideCount = mobileQuery.matches ? 1 : tabletQuery.matches ? 2 : 3;
+      setTestimonialSlidesToShow((current) =>
+        current === nextSlideCount ? current : nextSlideCount,
+      );
+    };
+    const subscribe = (query) => {
+      if (typeof query.addEventListener === "function") {
+        query.addEventListener("change", updateSlideCount);
+        return () => query.removeEventListener("change", updateSlideCount);
+      }
+      query.addListener(updateSlideCount);
+      return () => query.removeListener(updateSlideCount);
+    };
+
+    updateSlideCount();
+    const unsubscribeMobile = subscribe(mobileQuery);
+    const unsubscribeTablet = subscribe(tabletQuery);
+    return () => {
+      unsubscribeMobile();
+      unsubscribeTablet();
+    };
+  }, []);
+
+  const testimonialSliderSettings = {
+    ...TESTIMONIAL_SLIDER_SETTINGS,
+    slidesToShow: testimonialSlidesToShow,
+    // Continuous motion makes narrow cards hard to read, so mobile stays still.
+    autoplay: testimonialSlidesToShow > 1,
+    autoplaySpeed: 0,
+    speed: testimonialSlidesToShow === 2 ? 6200 : 7000,
+    cssEase: "linear",
+  };
 
   /* parallax engine */
   useEffect(() => {
@@ -1161,7 +1211,7 @@ export default function HomePage() {
                 reviews on Google.
               </p>
             </Reveal>
-            <Slider className="testimonial-slider" {...TESTIMONIAL_SLIDER_SETTINGS}>
+            <Slider className="testimonial-slider" {...testimonialSliderSettings}>
               {TESTIMONIAL_SLIDES.map((t, i) => (
                 <div key={`${t.name}-${i}`} className="tst">
                   <article className="tst-card">
