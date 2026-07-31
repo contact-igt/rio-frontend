@@ -110,7 +110,7 @@ const MILESTONES = [
     t: "13th anniversary, Pediatric Super Speciality Unit inaugurated",
     d: "Pediatric Neurology, Pediatric Dermatology, Pediatric Pulmonology, Pediatric Ophthalmology.",
     icon: "star",
-  }
+  },
 ];
 const TRUST_THEMES = [
   "Cleanliness & sterilised equipment",
@@ -158,7 +158,7 @@ const APPROACH = [
   {
     t: "Multidisciplinary Team",
     d: "Neonatologists, paediatricians, fetal medicine specialists, intensivists and emergency experts, together.",
-    icon: "stethoscope",
+    icon: "stethoscopeWhite",
   },
   {
     t: "Paediatric Super Speciality",
@@ -273,7 +273,8 @@ function Counter({ value, light = false }) {
   const suffix = m ? value.slice(m.index + m[0].length) : "";
   const prefix = m ? value.slice(0, m.index) : "";
   const usesLakhUnit = /\b(?:lakh|lac)\b/i.test(value);
-  const target = baseTarget == null ? null : baseTarget * (usesLakhUnit ? 100000 : 1);
+  const target =
+    baseTarget == null ? null : baseTarget * (usesLakhUnit ? 100000 : 1);
   const [n, setN] = useState(target ? 0 : null);
   const ref = useRef(null);
   useEffect(() => {
@@ -361,6 +362,17 @@ const ICONS = {
   ),
 };
 function Icon({ name }) {
+  if (name === "stethoscopePink" || name === "stethoscopeWhite") {
+    return (
+      <img
+        src={`/assets/home/stethoscope-${name === "stethoscopePink" ? "pink" : "white"}.png`}
+        className="val-icon stethoscope-image"
+        alt=""
+        aria-hidden="true"
+      />
+    );
+  }
+
   return (
     <svg
       viewBox="0 0 24 24"
@@ -421,7 +433,6 @@ export default function AboutPage() {
 
   return (
     <div className={`rio about-page ${styles.page}`}>
-
       <div className="progress" ref={progressRef} />
       <TopStrip callHref={SITE_LINKS.call} />
 
@@ -429,18 +440,22 @@ export default function AboutPage() {
         <Logo />
         <nav className="nav-links">
           <a href="/">Home</a>
-          <a href="/about" className="active">About</a>
+          <a href="/about" className="active">
+            About
+          </a>
           <NavManagement />
-          
-          <a href="/paediatric-super-specialities">Pediatric Super Specialities</a>
+
+          <a href="/paediatric-super-specialities">
+            Pediatric Super Specialities
+          </a>
           <NavTreatments />
           <a href="/facilities">Facilities</a>
           <a href="/contact">Contact</a>
         </nav>
         <div className="nav-cta">
-          <a
-            className="btn btn-line btn-sm"
-           href={SITE_LINKS.call}>Call Us</a>
+          <a className="btn btn-line btn-sm" href={SITE_LINKS.call}>
+            Call Us
+          </a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">
             Book an Appointment
           </a>
@@ -646,13 +661,17 @@ export default function AboutPage() {
         </section>
 
         {/* trust themes */}
-        <section className={`section tint-blush ${styles.familyChooseBackground}`}>
+        <section
+          className={`section tint-blush ${styles.familyChooseBackground}`}
+        >
           <div className="wrap split">
             <Reveal>
               <Eyebrow>Why Families Choose Rio</Eyebrow>
               <h2>What patients value most</h2>
               <p className="sec-note">
-                Consistent feedback from the families we care for highlights the qualities that bring them back and inspire them to recommend Rio to others.
+                Consistent feedback from the families we care for highlights the
+                qualities that bring them back and inspire them to recommend Rio
+                to others.
               </p>
               <div className={`themes ${styles.themesSpace}`}>
                 {TRUST_THEMES.map((t) => (
@@ -706,7 +725,8 @@ export default function AboutPage() {
               <Eyebrow>Departments</Eyebrow>
               <h2>Super-speciality care, organised clearly</h2>
               <p className="sec-note">
-                From neonatal intensive care to genetic medicine. Find the right department, doctor and branch for your need.
+                From neonatal intensive care to genetic medicine. Find the right
+                department, doctor and branch for your need.
               </p>
             </Reveal>
             <div className="dept-grid">
@@ -731,7 +751,11 @@ export default function AboutPage() {
                 <Eyebrow>Our Team</Eyebrow>
                 <h2>Specialist-led, multidisciplinary care</h2>
                 <p className="sec-note">
-                  Experienced paediatricians, neonatologists, intensivists, gynaecologists, fetal medicine specialists, emergency physicians, and super-speciality consultants working together to provide coordinated care for women and children under one roof.
+                  Experienced paediatricians, neonatologists, intensivists,
+                  gynaecologists, fetal medicine specialists, emergency
+                  physicians, and super-speciality consultants working together
+                  to provide coordinated care for women and children under one
+                  roof.
                 </p>
                 <span className="spec-chip">
                   ★ 100+ specialists across 4 branches
