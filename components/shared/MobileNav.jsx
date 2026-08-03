@@ -1,4 +1,5 @@
 import { NAV_TREATMENTS } from "@/data/site";
+import { ArrowRight } from "lucide-react";
 
 const DEFAULT_CTA_BUTTONS = [
   { href: "/book-appointment", label: "Book an Appointment", className: "btn btn-cta" },
@@ -61,7 +62,7 @@ export default function MobileNav({
             </a>
           ))}
           <a className="mnav-sub mnav-all" href="/treatments" onClick={onClose}>
-            View all treatments →
+            View all treatments <ArrowRight size={14} style={{ display: "inline-block", verticalAlign: "middle" }} />
           </a>
         </div>
         <a className="mnav-link" href="/contact" onClick={onClose}>

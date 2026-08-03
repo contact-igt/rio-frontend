@@ -1,4 +1,5 @@
 import { NAV_TREATMENTS } from "@/data/site";
+import { ArrowRight } from "lucide-react";
 
 export default function NavTreatments({ active = false }) {
   return (
@@ -13,7 +14,7 @@ export default function NavTreatments({ active = false }) {
           </a>
         ))}
         <a className="nav-dd-all" href="/treatments">
-          View all treatments →
+          View all treatments <ArrowRight size={14} style={{ display: "inline-block", verticalAlign: "middle" }} />
         </a>
       </div>
     </div>

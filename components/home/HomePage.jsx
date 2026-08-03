@@ -1,6 +1,7 @@
 "use client";
 
 import SiteFooter from "@/components/shared/SiteFooter";
+import { Stethoscope, ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
 import Slider from "react-slick";
@@ -416,31 +417,36 @@ function Counter({ value, light = false }) {
 }
 
 const ICONS = {
-  pulse: <path d="M3 12h4l2-6 4 12 2-6h6" />,
+  pulse: <path d="M22 12h-4l-3 9L9 3l-3 9H2" />,
   patients: (
     <>
-      <path d="M16 19c0-2.2-1.8-4-4-4s-4 1.8-4 4" />
-      <circle cx="12" cy="9" r="3.2" />
-      <path d="M18.6 17.8c-.4-1.8-1.6-3-3.2-3.6" />
-      <path d="M8.6 14.2c-1.6.6-2.8 1.8-3.2 3.6" />
+      {/* Lucide Users (2 Users icon) */}
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
     </>
   ),
   shield: (
-    <path d="M12 3.2 5.5 5.6v4.9c0 4.3 2.8 7.2 6.5 8.8 3.7-1.6 6.5-4.5 6.5-8.8V5.6L12 3.2Z" />
+    <>
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+      <path d="m9 12 2 2 4-4" />
+    </>
   ),
   clock: (
     <>
-      <circle cx="12" cy="12" r="8.3" />
-      <path d="M12 7.5V12l3 1.8" />
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
     </>
   ),
   stethoscope: (
     <>
-      <path d="M6 4v4.5a6 6 0 0 0 12 0V4" />
-      <path d="M4.5 4h3" />
-      <path d="M16.5 4h3" />
-      <path d="M12 14.5v2.2a3.8 3.8 0 0 0 7.6 0V15" />
-      <circle cx="19.6" cy="13.5" r="1.9" />
+      {/* Lucide Stethoscope */}
+      <path d="M11 2v2" />
+      <path d="M5 2v2" />
+      <path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" />
+      <path d="M8 15a6 6 0 0 0 12 0v-3" />
+      <circle cx="20" cy="10" r="2" />
     </>
   ),
   teamStethoscope: (
@@ -454,27 +460,30 @@ const ICONS = {
   ),
   branch: (
     <>
-      <path d="M4.5 20V8.4L12 4l7.5 4.4V20" />
-      <path d="M8.5 20v-6h7v6" />
-      <path d="M9 10.5h.01M15 10.5h.01" />
+      {/* Lucide Building2 */}
+      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+      <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
+      <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
+      <path d="M10 6h4" />
+      <path d="M10 10h4" />
+      <path d="M10 14h4" />
+      <path d="M10 18h4" />
     </>
   ),
   speciality: (
     <>
-      <path d="M12 4.2 5.6 6.5v4.8c0 4.1 2.7 6.8 6.4 8.4 3.7-1.6 6.4-4.3 6.4-8.4V6.5L12 4.2Z" />
-      <path d="M12 8.2v6.6" />
-      <path d="M8.7 11.5h6.6" />
-      <path d="M19.2 4.2h1.8" />
-      <path d="M20.1 3.3v1.8" />
+      {/* Lucide HeartPulse */}
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+      <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" />
     </>
   ),
   bed: (
     <>
-      <path d="M3.5 18.5v-9" />
-      <path d="M20.5 18.5v-5.2c0-1.5-1.2-2.8-2.8-2.8H10v8" />
-      <path d="M3.5 13.5H10" />
-      <path d="M5.2 10.5h2.4c.9 0 1.7.8 1.7 1.7v1.3H3.5v-1.3c0-.9.8-1.7 1.7-1.7Z" />
-      <path d="M3.5 18.5h17" />
+      {/* Lucide Bed */}
+      <path d="M2 4v16" />
+      <path d="M2 8h18a2 2 0 0 1 2 2v10" />
+      <path d="M2 17h20" />
+      <path d="M6 8v9" />
     </>
   ),
 };
@@ -846,14 +855,23 @@ export default function HomePage() {
             data-par="0.1"
           />
           <div className="wrap">
-            <Reveal className="sec-head">
-              <Eyebrow>Our Treatments</Eyebrow>
-              <h2>Specialised care, all under one roof</h2>
-              <p className="sec-note">
-                From high-risk pregnancy through every stage of childhood. The
-                core services families turn to Rio for every day.
-              </p>
-            </Reveal>
+            <div className={styles.servicesHeaderFlex}>
+              <Reveal className="sec-head">
+                <Eyebrow>Our Treatments</Eyebrow>
+                <h2>Specialised care, all under one roof</h2>
+                <p className="sec-note">
+                  From high-risk pregnancy through every stage of childhood. The
+                  core services families turn to Rio for every day.
+                </p>
+              </Reveal>
+              <Reveal className={styles.servicesHeaderImgWrap}>
+                <Img
+                  src="/assets/home/treatment_1_new.png"
+                  alt="Specialised care at Rio Children's Hospital"
+                  className={styles.servicesHeaderImg}
+                />
+              </Reveal>
+            </div>
             <div className="svc-grid">
               {SERVICES.map((s, i) => (
                 <Reveal key={s.t} delay={i * 60}>
@@ -866,7 +884,8 @@ export default function HomePage() {
                       <h3>{s.t}</h3>
                       <p>{s.d}</p>
                       <span className="svc-more">
-                        {s.slug ? "Learn more →" : "View treatments →"}
+                        {s.slug ? "Learn more" : "View treatments"}
+                        <ArrowRight size={15} />
                       </span>
                     </div>
                   </a>
@@ -943,7 +962,8 @@ export default function HomePage() {
                 </li>
               </ul>
               <a className="btn btn-coral mt-28" href="/book-appointment">
-                Book a Paediatric Consultation ↗
+                Book a Paediatric Consultation
+                <ArrowRight size={18} />
               </a>
             </Reveal>
             <Reveal delay={120} className="rev">
@@ -1045,7 +1065,8 @@ export default function HomePage() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Become a Milk Donor ↗
+                  Become a Milk Donor
+                  <ArrowRight size={18} />
                 </a>
                 <a className="btn btn-line" href="/book-appointment">
                   Talk to a Lactation Specialist
@@ -1157,7 +1178,8 @@ export default function HomePage() {
                 </span>
                 <div className="mt-28">
                   <a className="btn btn-cta" href="/book-appointment">
-                    Speak to Our Care Team ↗
+                    Speak to Our Care Team
+                    <ArrowRight size={18} />
                   </a>
                 </div>
               </div>
@@ -1342,7 +1364,8 @@ export default function HomePage() {
                       className={`btn btn-coral ${styles.fullButton}`}
                       type="submit"
                     >
-                      Request a Call Back ↗
+                      Request a Call Back
+                      <ArrowRight size={18} />
                     </button>
                   </form>
                 )}
