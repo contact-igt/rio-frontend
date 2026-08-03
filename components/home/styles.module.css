@@ -46,7 +46,7 @@
 }
 
 .page .servicesBackground {
-  background: url("/assets/home/carebg2.png") center / cover no-repeat;
+  background: url("/assets/home/carebg_new.png") center / cover no-repeat;
 }
 
 .page .childHealthBackground {
@@ -2458,7 +2458,7 @@
   }
 
   .page :global(.section).servicesBackground {
-    background: url("/assets/home/carebg.png") center / cover no-repeat !important;
+    background: url("/assets/home/carebg_new.png") center / cover no-repeat !important;
   }
 
   .page :global(.section).childHealthBackground {
@@ -3071,3 +3071,61 @@
     height: 130px;
   }
 }
+/* Services Header Layout with Treatment Image */
+.servicesHeaderFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(28px, 4vw, 48px);
+  margin-bottom: clamp(36px, 4vw, 52px);
+}
+
+.servicesHeaderFlex :global(.sec-head) {
+  margin-bottom: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.servicesHeaderImgWrap {
+  flex: 0 0 auto;
+  width: clamp(380px, 48vw, 600px);
+  max-width: 100%;
+}
+
+.servicesHeaderImg {
+  border-radius: 0 !important;
+  overflow: visible !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: none !important;
+  width: 100%;
+  height: auto;
+}
+
+.servicesHeaderImg::after {
+  display: none !important;
+}
+
+.servicesHeaderImg :global(img) {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+@media (max-width: 768px) {
+  .servicesHeaderFlex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 36px;
+  }
+
+  .servicesHeaderImgWrap {
+    width: 100%;
+    margin-top: 4px;
+  }
+}
+
+

@@ -2,6 +2,7 @@
 
 import SiteFooter from "@/components/shared/SiteFooter";
 import { useEffect, useRef, useState } from "react";
+import { Stethoscope, ArrowRight } from "lucide-react";
 import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
 import MobileNav from "@/components/shared/MobileNav";
@@ -311,38 +312,48 @@ function Counter({ value, light = false }) {
   );
 }
 const ICONS = {
-  pulse: <path d="M3 12h4l2-6 4 12 2-6h6" />,
+  pulse: <path d="M22 12h-4l-3 9L9 3l-3 9H2" />,
   stethoscope: (
     <>
-      <path d="M6 4v4.5a6 6 0 0 0 12 0V4" />
-      <path d="M4.5 4h3" />
-      <path d="M16.5 4h3" />
-      <path d="M12 14.5v2.2a3.8 3.8 0 0 0 7.6 0V15" />
-      <circle cx="19.6" cy="13.5" r="1.9" />
+      {/* Lucide Stethoscope */}
+      <path d="M11 2v2" />
+      <path d="M5 2v2" />
+      <path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" />
+      <path d="M8 15a6 6 0 0 0 12 0v-3" />
+      <circle cx="20" cy="10" r="2" />
     </>
   ),
   hospital: (
     <>
-      <path d="M4 21V7l8-4 8 4v14" />
-      <path d="M9 21v-5h6v5M8 9h2m4 0h2m-8 4h2m4 0h2" />
+      {/* Lucide Building2 */}
+      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+      <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
+      <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
+      <path d="M10 6h4" />
+      <path d="M10 10h4" />
+      <path d="M10 14h4" />
+      <path d="M10 18h4" />
     </>
   ),
   location: (
     <>
-      <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" />
-      <circle cx="12" cy="10" r="2.5" />
+      {/* Lucide MapPin */}
+      <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+      <circle cx="12" cy="10" r="3" />
     </>
   ),
   shield: (
-    <path d="M12 3.2 5.5 5.6v4.9c0 4.3 2.8 7.2 6.5 8.8 3.7-1.6 6.5-4.5 6.5-8.8V5.6L12 3.2Z" />
+    <>
+      {/* Lucide ShieldCheck */}
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+      <path d="m9 12 2 2 4-4" />
+    </>
   ),
   speciality: (
     <>
-      <path d="M12 4.2 5.6 6.5v4.8c0 4.1 2.7 6.8 6.4 8.4 3.7-1.6 6.4-4.3 6.4-8.4V6.5L12 4.2Z" />
-      <path d="M12 8.2v6.6" />
-      <path d="M8.7 11.5h6.6" />
-      <path d="M19.2 4.2h1.8" />
-      <path d="M20.1 3.3v1.8" />
+      {/* Lucide HeartPulse */}
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+      <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" />
     </>
   ),
   heart: (
@@ -762,7 +773,8 @@ export default function AboutPage() {
                 </span>
                 <div className="mt-28">
                   <a className="btn btn-cta" href="/book-appointment">
-                    Speak to Our Care Team ↗
+                    Speak to Our Care Team
+                    <ArrowRight size={18} />
                   </a>
                 </div>
               </div>
