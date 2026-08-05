@@ -186,31 +186,6 @@
   color: #fff
 }
 
-.page :global(.hero-badges) {
-  display: none;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 18px
-}
-
-.page :global(.hero-badges span) {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  min-height: 44px;
-  box-sizing: border-box;
-  font-size: 12px;
-  line-height: 1.2;
-  font-weight: 700;
-  color: #E8EBF8;
-  background: rgba(255, 255, 255, .12);
-  border: 1px solid rgba(255, 255, 255, .24);
-  padding: 8px 15px;
-  border-radius: 999px
-}
-
-
 .page :global(.hero-badge-nabh) {
   display: inline-flex;
   align-items: center;
@@ -224,8 +199,8 @@
   object-fit: contain;
   flex: 0 0 auto;
   border-radius: 999px;
-  background: rgba(255, 255, 255, .94);
-  padding: 2px;
+  background: #ffffff;
+  padding: 1px;
 }
 
 .page :global(.hero-badges-glass .hero-badge-nabh) {
@@ -235,11 +210,6 @@
 .page :global(.hero-badges-glass .hero-badge-nabh img) {
   width: 28px;
   height: 28px;
-}
-@media (max-width:760px) {
-  .page :global(.hero-badges) {
-    display: flex
-  }
 }
 
 .page :global(.hero-trust .ht-bar) {
@@ -804,7 +774,27 @@
 
 .page :global(.svc-body p) {
   font-size: 14px;
-  flex: 1
+  flex: 1;
+}
+
+.page :global(.read-more-toggle) {
+  display: inline;
+  background: none;
+  border: none;
+  color: var(--coral-deep);
+  font-weight: 800;
+  font-size: 13.5px;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 6px;
+  text-decoration: none;
+  font-family: inherit;
+  transition: opacity 0.2s;
+}
+
+.page :global(.read-more-toggle:hover) {
+  opacity: 0.8;
+  text-decoration: underline;
 }
 
 .page :global(.svc-more) {
@@ -2574,35 +2564,44 @@
 }
 
 @media (max-width: 760px) {
-  .page :global(.hero-badges .hero-badge-nabh) {
-    justify-content: center;
+  .page :global(.hero-certifications) {
+    margin-top: 20px;
     gap: 10px;
-    padding: 7px 16px 7px 9px;
+    align-items: center;
+    width: 100%;
   }
 
-  .page :global(.hero-badges .hero-badge-nabh img) {
+  .page :global(.hero-certifications .hero-badge-nabh) {
+    justify-content: center;
+    gap: 8px;
+    padding: 4px 14px 4px 6px;
+  }
+
+  .page :global(.hero-certifications .hero-badge-nabh img) {
     width: 32px;
     height: 32px;
-    padding: 2px;
+    padding: 0;
+  }
+
+  .page :global(.hero-certifications span) {
+    min-height: 38px;
+    font-size: 11.5px;
+    padding: 4px 14px;
   }
 }
+
 /* Home hero stats: founder-page style bar below the banner. */
 .page :global(.hero-certifications) {
-  position: absolute;
-  right: clamp(32px, 8vw, 150px);
-  bottom: clamp(86px, 11vw, 150px);
-  z-index: 4;
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: max-content;
+  display: flex;
+  flex-direction: column;
   gap: 12px;
-  align-items: stretch;
-  pointer-events: auto;
+  align-items: flex-start;
+  margin-top: 34px;
 }
 
 .page :global(.hero-certifications span) {
   display: inline-flex;
-  min-height: 50px;
+  min-height: 44px;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
@@ -2611,10 +2610,10 @@
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, .3);
   background: linear-gradient(135deg, rgba(48, 53, 115, .84), rgba(67, 72, 139, .74));
-  padding: 8px 18px;
+  padding: 6px 18px;
   color: #fff;
   font-size: 13px;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.15;
   text-align: center;
   white-space: nowrap;
@@ -2623,13 +2622,14 @@
 }
 
 .page :global(.hero-certifications .hero-badge-nabh) {
-  padding-left: 8px;
+  padding-left: 5px;
+  padding-right: 16px;
 }
 
 .page :global(.hero-certifications .hero-badge-nabh img) {
-  width: 34px;
-  height: 34px;
-  padding: 2px;
+  width: 42px;
+  height: 42px;
+  padding: 0;
 }
 
 .page :global(.home-stats-bar) {
@@ -2703,15 +2703,10 @@
   color: rgba(238, 244, 255, .72);
   font-size: 12px;
   font-weight: 700;
-  line-height: 1.35;
   text-transform: uppercase;
 }
 
 @media (max-width: 760px) {
-  .page :global(.hero-certifications) {
-    display: none;
-  }
-
   .page :global(.home-stats-inner) {
     padding-inline: 16px;
   }

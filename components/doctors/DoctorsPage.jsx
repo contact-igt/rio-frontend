@@ -83,8 +83,8 @@ export default function DoctorsPage() {
     const query = searchQuery.toLowerCase().trim();
     const matchesSearch =
       query === "" ||
-      doc.name.toLowerCase().includes(query) ||
-      doc.role.toLowerCase().includes(query) ||
+      (doc.name && doc.name.toLowerCase().includes(query)) ||
+      (doc.role && doc.role.toLowerCase().includes(query)) ||
       (doc.qualifications && doc.qualifications.toLowerCase().includes(query));
 
     return matchesDept && matchesSearch;
