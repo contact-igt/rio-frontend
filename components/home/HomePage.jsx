@@ -50,6 +50,7 @@ const IMG = {
   branch2: "/assets/shared/branch-madurai-southwing.png",
   branch3: "/assets/shared/branch-dindigul.jpg",
   branch4: "/assets/shared/branch-thanjavur.jpg",
+  gynaecology: "/assets/home/gynaecology.png",
 };
 
 const PILLARS = [
@@ -147,16 +148,22 @@ const SERVICES = [
     slug: "maternity",
   },
   {
-    t: "Human Milk Bank",
-    d: "Safe, screened, pasteurised donor milk for premature babies who can't be breastfed by their mothers.",
-    img: "cc4",
-    slug: "human-milk-bank",
+    t: "Gynaecology",
+    d: "Comprehensive healthcare for women of all ages, from adolescent care and routine screenings to advanced laparoscopic surgery and menopause management.",
+    img: "gynaecology",
+    slug: "gynaecology",
   },
   {
     t: "Paediatric Emergency",
     d: "Round-the-clock casualty care for childhood accidents, injuries and sudden critical illness.",
     img: "emergency",
     slug: "emergency",
+  },
+  {
+    t: "Human Milk Bank",
+    d: "Safe, screened, pasteurised donor milk for premature babies who can't be breastfed by their mothers.",
+    img: "cc4",
+    slug: "human-milk-bank",
   },
   {
     t: "Vaccination Services",
@@ -527,6 +534,7 @@ export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState(0);
   const [sent, setSent] = useState(false);
+  const [expandedServices, setExpandedServices] = useState({});
   // Start at one card so server and first client render are mobile-safe.
   const [testimonialSlidesToShow, setTestimonialSlidesToShow] = useState(1);
   const progressRef = useRef(null);
@@ -689,15 +697,11 @@ export default function HomePage() {
                   Call Emergency Care
                 </a>
               </div>
-              <div className="hero-badges">
+              <div className="hero-certifications">
                 <span className="hero-badge-nabh"><img src="/assets/home/nabh-logo.png" alt="" aria-hidden="true" />NABH Certified</span>
-                <span>Only Level 3A NICU in South TN</span>
+                <span>The only hospital with Level 3A NICU in South TN</span>
               </div>
             </Reveal>
-          </div>
-          <div className="hero-certifications">
-            <span className="hero-badge-nabh"><img src="/assets/home/nabh-logo.png" alt="" aria-hidden="true" />NABH Certified</span>
-            <span>Only Level 3A NICU in South TN</span>
           </div>
           <div className="scrollcue">
             <span className="mouse" />
@@ -866,31 +870,53 @@ export default function HomePage() {
               </Reveal>
               <Reveal className={styles.servicesHeaderImgWrap}>
                 <Img
-                  src="/assets/home/treatment_1_new.png"
+                  src="/assets/home/treatments2.png"
                   alt="Specialised care at Rio Children's Hospital"
                   className={styles.servicesHeaderImg}
                 />
               </Reveal>
             </div>
             <div className="svc-grid">
-              {SERVICES.map((s, i) => (
-                <Reveal key={s.t} delay={i * 60}>
-                  <a
-                    className="svc"
-                    href={s.slug ? `/services/${s.slug}` : "/services"}
-                  >
-                    <Img src={IMG[s.img]} alt={s.t} grad={i % 3} />
-                    <div className="svc-body">
-                      <h3>{s.t}</h3>
-                      <p>{s.d}</p>
-                      <span className="svc-more">
-                        {s.slug ? "Learn more" : "View treatments"}
-                        <ArrowRight size={15} />
-                      </span>
-                    </div>
-                  </a>
-                </Reveal>
-              ))}
+              {SERVICES.map((s, i) => {
+                const isExpanded = !!expandedServices[i];
+                const showReadMore = s.d.length > 120;
+                const displayText = showReadMore && !isExpanded ? s.d.slice(0, 110) + "..." : s.d;
+                return (
+                  <Reveal key={s.t} delay={i * 60}>
+                    <a
+                      className="svc"
+                      href={s.slug ? `/services/${s.slug}` : "/services"}
+                    >
+                      <Img src={IMG[s.img]} alt={s.t} grad={i % 3} />
+                      <div className="svc-body">
+                        <h3>{s.t}</h3>
+                        <p>
+                          {displayText}
+                          {showReadMore && (
+                            <button
+                              className="read-more-toggle"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                setExpandedServices((prev) => ({
+                                  ...prev,
+                                  [i]: !prev[i],
+                                }));
+                              }}
+                            >
+                              {isExpanded ? " Read less" : " Read more"}
+                            </button>
+                          )}
+                        </p>
+                        <span className="svc-more">
+                          {s.slug ? "Learn more" : "View treatments"}
+                          <ArrowRight size={15} />
+                        </span>
+                      </div>
+                    </a>
+                  </Reveal>
+                );
+              })}
             </div>
           </div>
         </section>

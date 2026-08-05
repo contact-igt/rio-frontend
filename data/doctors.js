@@ -13,7 +13,7 @@ export const doctors = [
   { "department": "Paediatric Intensive Care Unit", "name": "Dr. Akila Devi", "qualifications": "MBBS., DNB(PAEDIATRICS)., FPEM", "role": "Paediatric Emergency Care Unit", "image": "https://www.riochildrenshospital.com/images/doctors/Akila devi.webp" },
   { "department": "Neonatal Intensive Care Unit", "name": "Dr. Sakthivel", "qualifications": "MD(Paed)., IAP Fellowship in Neonatology", "role": "Neonatal Intensive Care Unit", "image": "https://www.riochildrenshospital.com/images/doctors/sakthivel.webp" },
   { "department": "Paediatric Intensive Care Unit", "name": "Dr. Rajparath", "qualifications": "MD (Paed)., IAP Fellowship in Neonatology", "role": "NICU", "image": "https://www.riochildrenshospital.com/images/doctors/rajparath.webp" },
-  { "department": "Paediatric Intensive Care Unit", "name": "Dr. Ganesh Krishna", "qualifications": "MD DNB (Paediatrics)., IDPCCM", "role": "PICU", "image": "https://www.riochildrenshospital.com/images/doctors/ganesh-krishna.webp" },
+  { "department": "Paediatric Intensive Care Unit", "name": "Dr. Ganesh Krishna", "qualifications": "MD DNB (Paediatrics)., IDPCCM", "role": "PICU", "image": "https://www.riochildrenshospital.com/images/doctors/ganesh-krishna.webp", "objectPosition": "center 35%" },
 
   { "department": "Paediatric Super Specialities", "name": "Dr. Mani Ram Krishna Singaravelu", "qualifications": "MBBS, DNB, FPC", "role": "Paediatric Cardiologist", "image": "https://www.riochildrenshospital.com/images/doctors/mani-ram-krishna.webp" },
   // { "department": "Paediatric Super Specialities", "name": "Dr. Manoj Madhusudan", "qualifications": "MBBS, DNB Paediatrics, Fellowship in Paediatric Pulmonology and Sleep Medicine", "role": "Pulmonology and Sleep Medicine", "image": "https://www.riochildrenshospital.com/images/doctors/manoj-madhusudan.webp" },
@@ -59,14 +59,14 @@ export const doctors = [
 
   { "department": "Paediatric Urology", "name": "Dr. S. Ramesh Babu", "qualifications": "MBBS., MS., MCh., FRCS Glas., FRCS Edin., FRCS Paed., CCST(UK)", "role": "Paediatric Urology", "image": "https://www.riochildrenshospital.com/images/doctors/rajesh.webp" },
 
-  { "department": "Paediatric Metabolic Disorders", "name": "Dr. Anil B. Jalan", "qualifications": "MBBS., MD., DCH., MCPS", "image": "https://www.riochildrenshospital.com/images/doctors/Anil.webp" },
+  { "department": "Paediatric Metabolic Disorders", "name": "Dr. Anil B. Jalan", "qualifications": "MBBS., MD., DCH., MCPS", "role": "Paediatric Metabolic Disorders", "image": "https://www.riochildrenshospital.com/images/doctors/Anil.webp" },
 
   { "department": "Genetic Medicine", "name": "Dr. M. Pradeep Kumar", "qualifications": "MBBS., MD., DCH., FCG", "role": "Genetic Medicine", "image": "https://www.riochildrenshospital.com/images/doctors/Pradeep Kumar.webp" },
   { "department": "Genetic Medicine", "name": "Dr. Janani Dakshina Moorthy", "qualifications": "", "role": "Senior Genetic Counsellor", "image": "https://www.riochildrenshospital.com/images/doctors/janani dakshina moorthy.webp" },
 
   { "department": "Family Medicine", "name": "Dr. S. Waseemsha", "qualifications": "MBBS., MD(CM)., MMed(Family Medicine)., FCDiab", "role": "Family Physician", "image": "https://www.riochildrenshospital.com/images/doctors/Waseemsha.webp" },
 
-  { "department": "Developmental Paediatrics", "name": "Dr. Santhosh R Gopal", "qualifications": "MBBS., DCH., PGDDN (Developmental Paediatrician)", "role": "Developmental Paediatric", "image": "https://www.riochildrenshospital.com/images/doctors/santhosh.webp" },
+  { "department": "Developmental Paediatrics", "name": "Dr. Santhosh R Gopal", "qualifications": "MBBS., DCH., PGDDN (Developmental Paediatrician)", "role": "Developmental Paediatric", "image": "https://www.riochildrenshospital.com/images/doctors/santhosh.webp", "objectPosition": "center 55%" },
   { "department": "Developmental Paediatrics", "name": "Ms. Suganthi", "qualifications": "B.ASLP., P.G.D.E.I", "role": "Audiologist and Speech Therapist", "image": "https://www.riochildrenshospital.com/images/doctors/suganthi.webp" },
   { "department": "Developmental Paediatrics", "name": "Dr. Sangeetha S", "qualifications": "BPT.M.IAP., PG Dip in Yoga., PG Dip in Psychiatric Counselling", "role": "Developmental Therapy", "image": "https://www.riochildrenshospital.com/images/doctors/sangeetha.webp" },
   { "department": "Developmental Paediatrics", "name": "Dr. A. Rebecca", "qualifications": "B.O.T", "role": "Occupational Therapy", "image": "https://www.riochildrenshospital.com/images/doctors/Rebecca.webp" },

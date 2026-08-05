@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&display=swap');
+
 /* -- tokens -- */
 .page {
   --hero-h: min(92vh, 780px);
@@ -34,29 +36,22 @@
   inset: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding-left: max(calc((100vw - 1440px) / 2 + 40px), 40px);
-  font-family: 'Proxima Nova', 'Mulish', 'Montserrat', sans-serif;
-  font-size: clamp(82px, 8.7vw, 142px);
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: clamp(60px, 8vh, 110px);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(120px, 16vw, 320px);
   font-weight: 900;
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.075);
-  letter-spacing: 0;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   pointer-events: none;
   user-select: none;
   z-index: 0;
   white-space: nowrap;
-  line-height: .78;
-  gap: .02em;
-
-}
-
-.page :global(.ch-hero-bg-amp) {
-  font-size: 1em;
-  line-height: .78;
-  letter-spacing: 0.04em;
+  line-height: 1;
 }
 
 @keyframes floatBgText {
@@ -368,10 +363,11 @@
   }
 
   .page :global(.ch-hero-bg-text) {
-    align-items: flex-start;
-    padding-top: clamp(370px, 39vw, 290px);
-    font-size: clamp(38px, 11vw, 64px);
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.065);
+    align-items: center !important;
+    text-align: center;
+    padding-top: 150px;
+    font-size: clamp(54px, 14vw, 84px);
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.1);
   }
 
   .page :global(.ch-orb) {
@@ -943,14 +939,14 @@
     width: 28px;
   }
     .page :global(.ch-hero-bg-text) {
-    align-items: flex-start;
-    padding-top: clamp(380px, 39vw, 290px);
+      align-items: center !important;
+      padding-top: 160px;
     }
 }
 @media (max-width: 576px){
   .page :global(.ch-hero-bg-text) {
-    padding-top: clamp(380px, 39vw, 290px);
-    }
+    padding-top: 160px;
+  }
 }
 
 
@@ -1039,8 +1035,8 @@
 
 @media (max-width: 480px){
    .page :global(.ch-hero-bg-text) {
-    align-items: flex-start;
-    padding-top: clamp(350px, 39vw, 290px);
+    align-items: center !important;
+    padding-top: 150px;
    }
 }
 
@@ -1082,8 +1078,8 @@
     display: none;
   }
    .page :global(.ch-hero-bg-text) {
-    align-items: flex-start;
-    padding-top: clamp(335px, 39vw, 290px);
+    align-items: center !important;
+    padding-top: 140px;
    }
 }
 /* Mobile chairman wordmark: keep stacked text centered below the portrait. */
