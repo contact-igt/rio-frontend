@@ -1004,6 +1004,68 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ───────── VACCINATION ───────── */}
+        <section
+          className={`section tint-sage ${styles.vaccineSection}`}
+          id="vaccination"
+        >
+          <span
+            className={`blob blob-teal ${styles.homeBlobSeven}`}
+            data-par="0.1"
+          />
+          <div className="wrap split">
+            <Reveal className={styles.vaccineContent}>
+              <Eyebrow>Vaccination</Eyebrow>
+              <h2>Every vaccine, on schedule — never a missed dose</h2>
+              <p className="sec-note">
+                Rio follows the national immunisation schedule with cold-chain
+                protected vaccines and uninterrupted 3-level power backup. Enter
+                your child's date of birth and we'll build a personalised
+                vaccine chart — from birth through 10 years — with free SMS
+                reminders before every due date.
+              </p>
+              <ul className="split-list">
+                <li>
+                  <i>✓</i> National immunisation schedule
+                </li>
+                <li>
+                  <i>✓</i> Free SMS reminders
+                </li>
+                <li>
+                  <i>✓</i> Cold-chain protected vaccines
+                </li>
+                <li>
+                  <i>✓</i> 3-level uninterrupted power backup
+                </li>
+                <li>
+                  <i>✓</i> Personalised vaccine chart PDF
+                </li>
+                <li>
+                  <i>✓</i> Birth through 10 years of age
+                </li>
+              </ul>
+              <div className={styles.vaccineCta}>
+                <a className="btn btn-coral" href="/book-vaccine">
+                  Book a Vaccine
+                  <ArrowRight size={18} />
+                </a>
+                <a className="btn btn-line" href="/services/vaccination">
+                  View Vaccination Services
+                </a>
+              </div>
+            </Reveal>
+            <Reveal delay={120} className="rev">
+              <Img
+                src={IMG.vaccine}
+                alt="Child vaccination at Rio Children's Hospital"
+                grad={1}
+                className="frame"
+                par="0.06"
+              />
+            </Reveal>
+          </div>
+        </section>
+
         {/* ───────── HUMAN MILK BANK (dedicated div) ───────── */}
         <section className="section mbank" id="milkbank">
           <span
