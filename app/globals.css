@@ -1806,6 +1806,24 @@ body {
   }
 }
 
+@media (min-width: 1181px) and (max-width: 1360px) {
+  .rio .header {
+    gap: 18px;
+    padding-inline: 28px;
+  }
+
+  .rio .nav,
+  .rio .nav-links {
+    gap: 16px;
+    font-size: 13px;
+  }
+
+  .rio .nav-cta .btn {
+    padding-inline: 16px;
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 1180px) {
 
   .rio .nav,
