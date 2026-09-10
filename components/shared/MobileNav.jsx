@@ -31,8 +31,8 @@ export default function MobileNav({
         <a className="mnav-link" href="/about" onClick={onClose}>
           About
         </a>
-        <div className="mnav-group">
-          <span className="mnav-h">Management</span>
+        <details className="mnav-group">
+          <summary className="mnav-toggle">Management</summary>
           <a className="mnav-sub" href="/about/chairman" onClick={onClose}>
             Founder & Chairman
           </a>
@@ -44,7 +44,7 @@ export default function MobileNav({
               Our Doctors
             </a>
           ) : null}
-        </div>
+        </details>
         <a className="mnav-link" href="/paediatric-super-specialities" onClick={onClose}>
           Paediatric Super Specialities
         </a>
@@ -54,8 +54,8 @@ export default function MobileNav({
         <a className="mnav-link" href="/book-vaccine" onClick={onClose}>
           Book Vaccine
         </a>
-        <div className="mnav-group">
-          <span className="mnav-h">Treatments</span>
+        <details className="mnav-group">
+          <summary className="mnav-toggle">Treatments</summary>
           {NAV_TREATMENTS.map((t) => (
             <a key={t.slug} className="mnav-sub" href={`/services/${t.slug}`} onClick={onClose}>
               {t.name}
@@ -64,7 +64,7 @@ export default function MobileNav({
           <a className="mnav-sub mnav-all" href="/treatments" onClick={onClose}>
             View all treatments <ArrowRight size={14} style={{ display: "inline-block", verticalAlign: "middle" }} />
           </a>
-        </div>
+        </details>
         <a className="mnav-link" href="/contact" onClick={onClose}>
           Contact
         </a>
