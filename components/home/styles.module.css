@@ -2086,6 +2086,49 @@
   margin-top: 28px;
 }
 
+/* Vaccination section */
+.vaccineContent :global(.eyebrow) {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.vaccineContent :global(h2) {
+  margin: 0;
+}
+
+.vaccineContent :global(.sec-note) {
+  margin-top: 20px;
+}
+
+.vaccineContent :global(.split-list) {
+  margin-top: 28px;
+}
+
+.vaccineCta {
+  margin-top: 30px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .vaccineCta {
+    flex-direction: column;
+  }
+
+  .vaccineCta :global(.btn) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.homeBlobSeven {
+  width: 300px;
+  height: 300px;
+  bottom: 4%;
+  right: -8%;
+}
+
 /* Homepage hero placement: preserve clear space for the hospital image. */
 @media (min-width: 761px) {
   .page :global(.hero-bg) {
