@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
 import MobileNav from "@/components/shared/MobileNav";
 import NavManagement from "@/components/shared/NavManagement";
@@ -56,7 +56,18 @@ function safeFilename(name) {
 function loadLogo() {
   return new Promise((resolve, reject) => {
     const image = new Image();
-    image.onload = () => resolve(image);
+    image.onload = () => {
+      try {
+        const canvas = document.createElement("canvas");
+        canvas.width = 300;
+        canvas.height = Math.max(1, Math.round(300 * image.naturalHeight / image.naturalWidth));
+        const context = canvas.getContext("2d");
+        context.drawImage(image, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL("image/png"));
+      } catch (error) {
+        reject(error);
+      }
+    };
     image.onerror = reject;
     image.src = "/assets/shared/riologov2.png";
   });
@@ -69,6 +80,7 @@ export default function BookVaccinePage() {
   const [touched, setTouched] = useState({});
   const [generatedPatient, setGeneratedPatient] = useState(null);
   const [schedule, setSchedule] = useState([]);
+  const resultsRef = useRef(null);
   const [pdfState, setPdfState] = useState({ loading: false, error: "" });
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [calendarView, setCalendarView] = useState(() => new Date(new Date().getFullYear(), new Date().getMonth(), 1));
@@ -81,6 +93,12 @@ export default function BookVaccinePage() {
 
   const errors = useMemo(() => validateForm(form), [form]);
   const canGenerate = Object.keys(errors).length === 0;
+
+  useEffect(() => {
+    if (!schedule.length) return;
+    resultsRef.current?.focus({ preventScroll: true });
+    resultsRef.current?.scrollIntoView({ block: "start" });
+  }, [schedule]);
 
   useEffect(() => {
     if (!generatedPatient) return;
@@ -239,7 +257,7 @@ export default function BookVaccinePage() {
           <a href="/facilities">Facilities</a><a href="/contact">Contact</a>
         </nav>
         <div className="nav-cta">
-          <a className="btn btn-line btn-sm" href={SITE_LINKS.call}>Call Us</a>
+          <a className="btn btn-line btn-sm" href="/book-vaccine">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
         <button className="hamburger" aria-label="Open menu" onClick={() => setMenuOpen(true)}><span /><span /><span /></button>
@@ -297,13 +315,13 @@ export default function BookVaccinePage() {
                   {touched.gender && errors.gender && <em>{errors.gender}</em>}
                 </fieldset>
               </div>
-              <button className="btn btn-cta vaccine-submit" type="submit" disabled={!canGenerate}>Generate Vaccine Schedule</button>
+              <button className="btn btn-cta vaccine-submit" type="submit">Generate Vaccine Schedule</button>
             </form>
           </div>
         </section>
 
         {generatedPatient && schedule.length > 0 && (
-          <section className="section vaccine-results-section">
+          <section ref={resultsRef} tabIndex={-1} aria-label="Generated vaccination schedule" className="section vaccine-results-section">
             <div className="wrap">
               <div className="schedule-heading">
                 <div><span className="eyebrow"><i className="ey-dot" />Vaccination chart</span><h2>Your child&apos;s recommended schedule</h2></div>
