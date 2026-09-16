@@ -8,10 +8,11 @@ import NavTreatments from "@/components/shared/NavTreatments";
 import SiteFooter from "@/components/shared/SiteFooter";
 import TopStrip from "@/components/shared/TopStrip";
 import { SITE_LINKS } from "@/data/site";
+import { registerVaccineBooking } from "@/lib/vaccineRegistration";
 import { buildVaccineSchedule, formatDate, isFutureDate, parseLocalDate } from "./vaccineSchedule";
 import styles from "./styles.module.css";
 
-const EMPTY_FORM = { parentName: "", childName: "", phone: "", dob: "", gender: "" };
+const EMPTY_FORM = { registrationNumber: "", parentName: "", childName: "", phone: "", dob: "", gender: "" };
 const MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 function toDateInputValue(date) {
@@ -31,11 +32,14 @@ function getCalendarDays(viewDate) {
 
 function validateForm(values) {
   const errors = {};
+  const registrationNumber = values.registrationNumber.trim();
   const parentName = values.parentName.trim();
   const childName = values.childName.trim();
   const phone = values.phone.trim();
   const date = parseLocalDate(values.dob);
 
+  if (!registrationNumber) errors.registrationNumber = "Registration number is required.";
+  else if (!/^\d{8}$/.test(registrationNumber)) errors.registrationNumber = "Enter a valid 8-digit registration number.";
   if (!parentName) errors.parentName = "Parent name is required.";
   if (!childName) errors.childName = "Child name is required.";
   if (!phone) errors.phone = "Phone number is required.";
@@ -82,6 +86,7 @@ export default function BookVaccinePage() {
   const [schedule, setSchedule] = useState([]);
   const resultsRef = useRef(null);
   const [pdfState, setPdfState] = useState({ loading: false, error: "" });
+  const [bookingState, setBookingState] = useState({ loading: false, error: "", success: false });
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [calendarView, setCalendarView] = useState(() => new Date(new Date().getFullYear(), new Date().getMonth(), 1));
 
@@ -113,7 +118,12 @@ export default function BookVaccinePage() {
   }, [form.dob]);
 
   const updateField = (field, value) => {
-    const nextValue = field === "parentName" || field === "childName" ? value.replace(/^\s+/, "") : value;
+    const nextValue =
+      field === "registrationNumber"
+        ? value.replace(/\D/g, "").slice(0, 8)
+        : field === "parentName" || field === "childName"
+          ? value.replace(/^\s+/, "")
+          : value;
     setForm((current) => ({ ...current, [field]: nextValue }));
   };
 
@@ -139,14 +149,29 @@ export default function BookVaccinePage() {
 
   const handleGenerate = (event) => {
     event.preventDefault();
-    setTouched({ parentName: true, childName: true, phone: true, dob: true, gender: true });
+    setTouched({ registrationNumber: true, parentName: true, childName: true, phone: true, dob: true, gender: true });
     if (!canGenerate) return;
 
-    const patient = { ...form, parentName: form.parentName.trim(), childName: form.childName.trim(), phone: form.phone.trim() };
+    const patient = {
+      ...form,
+      registrationNumber: form.registrationNumber.trim(),
+      parentName: form.parentName.trim(),
+      childName: form.childName.trim(),
+      phone: form.phone.trim(),
+    };
     setForm(patient);
     setGeneratedPatient(patient);
     setSchedule(buildVaccineSchedule(parseLocalDate(patient.dob)));
     setPdfState({ loading: false, error: "" });
+
+    setBookingState({ loading: true, error: "", success: false });
+    const utmSource = new URLSearchParams(window.location.search).get("utm_source");
+    registerVaccineBooking({ ...patient, utm_source: utmSource })
+      .then(() => setBookingState({ loading: false, error: "", success: true }))
+      .catch((error) => {
+        const message = error instanceof Error ? error.message : "Unable to record your vaccine booking. Please try again.";
+        setBookingState({ loading: false, error: message, success: false });
+      });
   };
 
   const handlePdfDownload = async () => {
@@ -205,9 +230,9 @@ export default function BookVaccinePage() {
       autoTable(doc, {
         startY: 40,
         body: [
-          ["Parent Name", generatedPatient.parentName, "Child Name", generatedPatient.childName],
-          ["Phone Number", generatedPatient.phone, "Child Date of Birth", formatDate(parseLocalDate(generatedPatient.dob))],
-          ["Gender", generatedPatient.gender, "", ""],
+          ["Registration Number", generatedPatient.registrationNumber, "Parent Name", generatedPatient.parentName],
+          ["Child Name", generatedPatient.childName, "Phone Number", generatedPatient.phone],
+          ["Child Date of Birth", formatDate(parseLocalDate(generatedPatient.dob)), "Gender", generatedPatient.gender],
         ],
         theme: "grid",
         margin: { left: 15, right: 15 },
@@ -283,6 +308,21 @@ export default function BookVaccinePage() {
             </div>
             <form className="vaccine-form-card" noValidate onSubmit={handleGenerate}>
               <div className="vaccine-form-grid">
+                <label className="vaccine-field" key="registrationNumber">
+                  <span>Registration Number</span>
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    maxLength={8}
+                    value={form.registrationNumber}
+                    placeholder="8-digit registration number"
+                    onChange={(event) => updateField("registrationNumber", event.target.value)}
+                    onBlur={() => handleBlur("registrationNumber")}
+                    aria-invalid={Boolean(touched.registrationNumber && errors.registrationNumber)}
+                  />
+                  {touched.registrationNumber && errors.registrationNumber && <em>{errors.registrationNumber}</em>}
+                </label>
                 {[
                   ["parentName", "Parent Name", "text", "Parent or guardian name"],
                   ["childName", "Child Name", "text", "Child's full name"],
@@ -316,6 +356,8 @@ export default function BookVaccinePage() {
                 </fieldset>
               </div>
               <button className="btn btn-cta vaccine-submit" type="submit">Generate Vaccine Schedule</button>
+              {bookingState.error && <p className="pdf-error" role="alert">{bookingState.error}</p>}
+              {bookingState.success && <p className="booking-success">✓ Your details have been recorded.</p>}
             </form>
           </div>
         </section>
@@ -329,6 +371,7 @@ export default function BookVaccinePage() {
               </div>
               {pdfState.error && <p className="pdf-error" role="alert">{pdfState.error}</p>}
               <div className="patient-summary">
+                <div><span>Registration Number</span><strong>{generatedPatient.registrationNumber}</strong></div>
                 <div><span>Parent Name</span><strong>{generatedPatient.parentName}</strong></div>
                 <div><span>Child Name</span><strong>{generatedPatient.childName}</strong></div>
                 <div><span>Phone Number</span><strong>{generatedPatient.phone}</strong></div>

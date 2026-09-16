@@ -27,7 +27,7 @@ import styles from "./about-page/styles.module.css";
 
 const IMG = {
   logo: "/assets/shared/riologov2.png",
-  hero: "/assets/about/abouthero.png",
+  hero: "/assets/about/banner.png",
   newborn: "/assets/about/child-newborn.png",
   maternity: "/assets/about/women.png",
   specialists: "/assets/about/specialist.png",

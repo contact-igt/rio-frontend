@@ -239,6 +239,38 @@
   color: var(--blue);
 }
 
+/* --- sub-specialities styling under Paediatric Super Specialities --- */
+.page :global(.sub-specialities-container) {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.page :global(.sub-speciality-group) {
+  position: relative;
+}
+
+.page :global(.sub-speciality-title) {
+  font-size: clamp(16px, 2.2vw, 19px);
+  font-weight: 700;
+  color: var(--blue-deep, #1b2559);
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--line, #e2e8f0);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.page :global(.sub-speciality-title)::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--coral, #f3705a);
+}
+
 /* --- grid --- */
 .page :global(.doc-grid) {
   display: grid;
