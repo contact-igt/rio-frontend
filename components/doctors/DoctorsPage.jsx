@@ -20,7 +20,6 @@ const IMG = {
   logo: "/assets/shared/riologov2.png",
 };
 
-
 function Reveal({ children, delay = 0, className = "", as = "div" }) {
   const ref = useRef(null);
   const [v, setV] = useState(false);
@@ -85,7 +84,8 @@ export default function DoctorsPage() {
       query === "" ||
       (doc.name && doc.name.toLowerCase().includes(query)) ||
       (doc.role && doc.role.toLowerCase().includes(query)) ||
-      (doc.qualifications && doc.qualifications.toLowerCase().includes(query));
+      (doc.qualifications && doc.qualifications.toLowerCase().includes(query)) ||
+      (doc.subSpeciality && doc.subSpeciality.toLowerCase().includes(query));
 
     return matchesDept && matchesSearch;
   });
@@ -95,6 +95,60 @@ export default function DoctorsPage() {
       left: direction * 320,
       behavior: "smooth",
     });
+  };
+
+  const renderDocCard = (doc, index) => {
+    const cleanName = doc.name
+      .replace(/^(Dr\.|Ms\.|Mr\.|Mrs\.)\s*/i, "")
+      .trim();
+    const initials = cleanName
+      .split(" ")
+      .filter(Boolean)
+      .map((n) => n[0])
+      .slice(0, 2)
+      .join("")
+      .toUpperCase() || "DR";
+
+    return (
+      <Reveal key={`${activeDept}-${searchQuery}-${doc.name}`} delay={(index % 3) * 60}>
+        <div className="doc-card">
+          <div className="doc-photo-wrap">
+            {doc.image ? (
+              <>
+                <img
+                  className="doc-photo"
+                  src={doc.image}
+                  alt={doc.name}
+                  loading="lazy"
+                  style={doc.objectPosition ? { objectPosition: doc.objectPosition } : undefined}
+                  onError={(e) => {
+                    e.target.style.display = "none";
+                    const fallback = e.target.nextSibling;
+                    if (fallback) fallback.style.display = "flex";
+                  }}
+                />
+                <div className="doc-fb-avatar" style={{ display: "none" }}>
+                  {initials}
+                </div>
+              </>
+            ) : (
+              <div className="doc-fb-avatar">
+                {initials}
+              </div>
+            )}
+          </div>
+          
+          <h3 className="doc-name">{doc.name}</h3>
+          
+          {/* Omit empty qualifications line */}
+          {doc.qualifications && (
+            <div className="doc-qual">{doc.qualifications}</div>
+          )}
+          
+          <div className="doc-role">{doc.role}</div>
+        </div>
+      </Reveal>
+    );
   };
 
   return (
@@ -113,7 +167,7 @@ export default function DoctorsPage() {
           <a href="/facilities">Facilities</a>
           <a href="/contact">Contact</a>
         </nav>
-                <div className="nav-cta">
+        <div className="nav-cta">
           <a className="btn btn-line btn-sm" href="/book-vaccine">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
         </div>
@@ -124,7 +178,7 @@ export default function DoctorsPage() {
         </button>
       </header>
 
-      <MobileNav open={menuOpen} onClose={() => setMenuOpen(false)} />
+      <MobileNav isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
 
       <main>
         {/* Hero & Search Area */}
@@ -211,57 +265,35 @@ export default function DoctorsPage() {
               // Hide department header entirely if no matching doctors
               if (deptDocs.length === 0) return null;
 
+              const hasSubSpecialities = deptDocs.some((d) => d.subSpeciality);
+
               return (
                 <div key={dept} className="dept-section">
                   <Reveal className="dept-header">
                     <h2>{dept}</h2>
                   </Reveal>
                   
-                  <div className="doc-grid">
-                    {deptDocs.map((doc, index) => {
-                      // Handle fallback avatar initials
-                      const initials = doc.name
-                        .replace("Dr.", "")
-                        .trim()
-                        .split(" ")
-                        .map((n) => n[0])
-                        .slice(0, 2)
-                        .join("");
+                  {hasSubSpecialities ? (
+                    <div className="sub-specialities-container">
+                      {Array.from(new Set(deptDocs.map((d) => d.subSpeciality).filter(Boolean))).map((sub) => {
+                        const subDocs = deptDocs.filter((d) => d.subSpeciality === sub);
+                        if (subDocs.length === 0) return null;
 
-                      return (
-                        <Reveal key={`${activeDept}-${searchQuery}-${doc.name}`} delay={(index % 3) * 60}>
-                          <div className="doc-card">
-                            <div className="doc-photo-wrap">
-                              <img
-                                className="doc-photo"
-                                src={doc.image}
-                                alt={doc.name}
-                                loading="lazy"
-                                style={doc.objectPosition ? { objectPosition: doc.objectPosition } : undefined}
-                                onError={(e) => {
-                                  e.target.style.display = "none";
-                                  const fallback = e.target.nextSibling;
-                                  if (fallback) fallback.style.display = "flex";
-                                }}
-                              />
-                              <div className={`doc-fb-avatar ${styles.hidden}`}>
-                                {initials}
-                              </div>
+                        return (
+                          <div key={sub} className="sub-speciality-group">
+                            <h3 className="sub-speciality-title">{sub}</h3>
+                            <div className="doc-grid">
+                              {subDocs.map((doc, index) => renderDocCard(doc, index))}
                             </div>
-                            
-                            <h3 className="doc-name">{doc.name}</h3>
-                            
-                            {/* Omit empty qualifications line */}
-                            {doc.qualifications && (
-                              <div className="doc-qual">{doc.qualifications}</div>
-                            )}
-                            
-                            <div className="doc-role">{doc.role}</div>
                           </div>
-                        </Reveal>
-                      );
-                    })}
-                  </div>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <div className="doc-grid">
+                      {deptDocs.map((doc, index) => renderDocCard(doc, index))}
+                    </div>
+                  )}
                 </div>
               );
             })}
@@ -332,19 +364,3 @@ export default function DoctorsPage() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

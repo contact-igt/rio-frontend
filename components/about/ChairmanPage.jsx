@@ -155,7 +155,7 @@ export default function ChairmanPage() {
           {/* Centered transparent portrait of Dr. Saravanan.M */}
           <img
             src="/assets/shared/chairman.png"
-            alt="Dr. Saravanan M — Managing Director & Chairman, Rio Hospital"
+            alt="Dr. Saravanan M — & Chairman & Managing Director, Rio Hospital"
             className="ch-hero-photo"
           />
 
@@ -165,7 +165,7 @@ export default function ChairmanPage() {
           <div className="ch-hero-inner">
             <div className="ch-hero-content">
               <div className="ch-hero-badge">
-                Managing Director &amp; Chairman
+                Chairman &amp; Managing Director
               </div>
               <h1 className="ch-hero-name">
                 Dr. Saravanan M
@@ -174,7 +174,7 @@ export default function ChairmanPage() {
                 MBBS., DCH., MRCP (UK)
               </div>
               <p className="ch-hero-role">
-                Pediatrician &amp; Neonatal Care Leader &nbsp;·&nbsp; Managing Director & Chairman, Rio Children's Hospital
+                Pediatrician &amp; Neonatal Care Leader &nbsp;·&nbsp; Chairman & Managing Director, Rio Children's Hospital
               </p>
               <a href="#journey" className="ch-btn-glass">
                 <span>↗ Read His Journey</span>

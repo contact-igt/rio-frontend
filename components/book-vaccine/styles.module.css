@@ -60,7 +60,7 @@
 .page :global(.vaccine-results-section) { background: #f7f8ff; scroll-margin-top: 110px; }
 .page :global(.schedule-heading) { display: flex; align-items: end; justify-content: space-between; gap: 22px; margin-bottom: 32px; }
 .page :global(.schedule-heading .btn) { flex-shrink: 0; }
-.page :global(.patient-summary) { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--line); }
+.page :global(.patient-summary) { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--line); }
 .page :global(.patient-summary > div) { min-width: 0; padding: 18px; background: #fff; }
 .page :global(.patient-summary span) { display: block; margin-bottom: 5px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
 .page :global(.patient-summary strong) { display: block; overflow-wrap: anywhere; color: var(--blue); font-size: 14px; }
@@ -74,6 +74,7 @@
 .page :global(.schedule-table th:last-child), .page :global(.schedule-table td:last-child) { width: 170px; white-space: nowrap; font-weight: 700; }
 .page :global(.schedule-note), .page :global(.pdf-error) { margin-top: 18px; font-size: 13px; line-height: 1.65; }
 .page :global(.pdf-error) { color: #bc284a; font-weight: 700; }
+.page :global(.booking-success) { margin-top: 14px; font-size: 13px; font-weight: 700; color: var(--green-deep); text-align: center; }
 
 @media (max-width: 880px) { .page :global(.vaccine-layout) { grid-template-columns: 1fr; gap: 38px; } .page :global(.vaccine-form-copy) { padding-top: 0; } .page :global(.patient-summary) { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .page :global(.vaccine-hero) { min-height: 500px; align-items: flex-end; } .page :global(.vaccine-hero-image) { background-position: 60% center; } .page :global(.vaccine-hero-overlay) { background: linear-gradient(0deg, rgba(35, 39, 90, .98), rgba(35, 39, 90, .44)); } .page :global(.vaccine-hero-content) { padding: 60px 20px; } .page :global(.vaccine-hero p) { font-size: 16px; } .page :global(.vaccine-form-card) { padding: 22px 18px; border-radius: 20px; } .page :global(.vaccine-form-grid) { grid-template-columns: 1fr; gap: 16px; } .page :global(.vaccine-gender-field) { grid-column: auto; } .page :global(.gender-options) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); } .page :global(.gender-options label) { min-width: 0; justify-content: center; padding-inline: 10px; } .page :global(.date-picker-popover) { width: 100%; min-width: 0; } .page :global(.schedule-heading) { align-items: flex-start; flex-direction: column; margin-bottom: 24px; } .page :global(.schedule-heading .btn) { width: 100%; justify-content: center; } .page :global(.patient-summary) { grid-template-columns: 1fr; } }
