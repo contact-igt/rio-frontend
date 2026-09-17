@@ -1,59 +1,77 @@
-# Google Apps Script — lead sheets
+# Google Apps Script — Rio lead sheets
 
-These are edited and deployed from the Apps Script editor (script.google.com),
-not built by this repo — this folder just keeps the deployed source under
+Edited and deployed from the Apps Script editor (script.google.com), not
+built by this repo — this folder just keeps the deployed source under
 version control so changes are reviewable.
 
-## Code.gs — Contact / Book Appointment (unchanged)
+## RioSheetCode.gs — the single script (current)
 
-Bound to the existing shared spreadsheet's "Sheet1". Untouched — still backs
-the Contact page and Book Appointment forms exactly as before.
+One Apps Script, bound to **one spreadsheet**, with two tabs:
 
-## VaccineChartCode.gs — standalone Vaccine Chart spreadsheet
+| Tab | Fed by | Fields |
+|---|---|---|
+| `Sheet1` | Contact page + Book Appointment | Name, Phone, Branch, Service, Concern, Message, Submitted On, IP Address, UTM Source |
+| `Vaccine Chart` | Book Vaccine | Registration Number, Parent Name, Child Name, Phone, Child DOB, Gender, Submitted On, IP Address, UTM Source |
 
-A separate script for a **brand-new, dedicated spreadsheet** that mirrors
-Book Vaccine form submissions (registration number, parent/child details,
-phone, DOB, gender). Creates its own "Vaccine Chart" sheet automatically on
-first submission.
+Routing is by an explicit `form_type` field the caller sends
+(`"contact"` or `"vaccine_chart"`) — never guessed from which fields are
+present, so a partial payload can't land in the wrong tab. A missing
+`form_type` defaults to `"contact"` so nothing that used to work with the
+old `Code.gs` (which had no discriminator) breaks.
 
-**This is not the primary storage for vaccine bookings** — see below.
+### Deploying it
 
-## Primary storage: the Rio admin panel
+1. Open (or create) the spreadsheet you want both tabs to live in.
+2. Extensions → Apps Script, paste in `RioSheetCode.gs`.
+3. Deploy → New deployment → **Web app** → Execute as: Me, Who has access:
+   **Anyone**. Copy the `/exec` URL.
+4. Set that URL as `RIO_SHEET_WEBHOOK_URL` in `invictus_lead_backend`'s
+   `.env` (see below — **not** a frontend env var; the sync now runs
+   server-side). Restart the backend so `connect_mysql()` picks up the new
+   `sheet_sync_*` columns and the retry scheduler starts.
+5. (Optional) Run `intialSetup()` once from the Apps Script editor to record
+   the spreadsheet id in Script Properties.
 
-The Book Vaccine form's real source of truth is now the Rio admin panel
-(`invictus-admin-panel`), not a spreadsheet:
+## Primary storage is the Rio admin panel — the sheet is a server-side mirror
 
-- Backend: `invictus_lead_backend/src/modules/rioVaccineChart/` — a new
-  module (table `rio_vaccine_chart_leads`, mirroring the existing `rio`
-  module's pattern) exposing:
-  - `POST /api/v1/rio-vaccine-chart/register` — public, used by the website
-    (requires `X-Client-Key: rio`, same key as Contact/Appointment).
-  - `GET/POST/PATCH/DELETE /api/v1/rio-vaccine-chart[/:id]` — authenticated
-    admin CRUD.
-  - Mounted as a **flat, sibling path** (`/api/v1/rio-vaccine-chart`), not
-    nested under `/api/v1/rio` — the existing `rio.routes.js` has an
-    unconditional `router.use(authenticateToken)` with no path filter that
-    would otherwise swallow any nested sub-path before it reaches this
-    module, returning a bare 401 "Unauthorized".
-- Frontend admin: `invictus_lead_admin/src/config/clients.ts` — added a
-  second table entry under the existing `rio` client (`id: "vaccine-chart"`,
-  endpoint `/rio-vaccine-chart`). This uses the same generic `DynamicSection`
-  table component every other config-driven client table uses, so no new
-  React components were needed — it just shows up as a **"Vaccine Chart
-  Leads"** item under the Rio section in the sidebar automatically.
-- Website: `rio-frontend/lib/vaccineRegistration.js` posts JSON to
-  `${NEXT_PUBLIC_API_BASE_URL}/rio/vaccine-chart/register`, mirroring
-  `lib/rioRegistration.js`'s pattern exactly.
+For both forms, the **real source of truth is `invictus_lead_backend` /
+the Rio admin panel (`invictus-admin-panel`)**, not the spreadsheet:
 
-**Deployment note**: `invictus_lead_backend` calls `sequelize.sync()` on
-startup, which creates any missing tables from their model definitions —
-the new `rio_vaccine_chart_leads` table will be created automatically the
-next time that backend restarts/redeploys. No manual migration needed.
+- Contact / Book Appointment → `POST /api/v1/rio/register` → `rio_leads`
+  table → shown under **Rio → Rio Leads** in the admin panel.
+- Book Vaccine → `POST /api/v1/rio-vaccine-chart/register` →
+  `rio_vaccine_chart_leads` table → shown under **Rio → Vaccine Chart
+  Leads** in the admin panel.
 
-## Using VaccineChartCode.gs alongside the admin panel
+Both requests go through `resolvePublicTenantForModule("rio")`
+(`X-Client-Key: rio`), and both are mounted as separate flat routes in
+`invictus_lead_backend/src/app.js` (`/api/v1/rio`,
+`/api/v1/rio-vaccine-chart`). `rio-frontend` (`lib/rioRegistration.js`,
+`lib/vaccineRegistration.js`) only ever calls these two endpoints — it does
+**not** talk to Apps Script directly.
 
-If you *also* want every Book Vaccine submission mirrored into the
-standalone spreadsheet (e.g. for staff without admin panel access), deploy
-`VaccineChartCode.gs` to a new spreadsheet and add a second `fetch()` call
-in `lib/vaccineRegistration.js` pointing at its `/exec` URL — this isn't
-wired in by default. Ask for it if you want that dual-write added.
+The Google Sheet write happens **after** the DB save, from the backend,
+in `invictus_lead_backend/src/modules/rio/rioSheetSync.service.js`
+(same pattern as
+`invictus_lead_backend/src/modules/birthwave/birthwaveSheetSync.service.js`):
+
+- `createRioPublicLead` / `createVaccineChartPublicLead` create the DB row
+  first, then fire `attemptSheetSync(record, formType)` — non-blocking, so
+  the visitor's form response never waits on the sheet.
+- Every row is created exactly once (DB) and mirrored exactly once
+  (sheet) — the row is atomically claimed (`sheet_sync_status:
+  "pending" → "syncing"`) so the inline call and the retry worker can
+  never double-send it.
+- On failure it's retried at +1 min, then +5 min, then gives up (3
+  attempts), by a cron job (`startRioSheetSyncScheduler`, every 1 minute)
+  — same retry policy as Birthwave/Invictus.
+- If the sheet write fails outright (Apps Script down, wrong deployment
+  access), the lead is still saved and visible in the admin panel — it's
+  never lost, only the mirror is delayed/missing.
+
+## Deprecated
+
+`_deprecated_Code.gs.txt` and `_deprecated_VaccineChartCode.gs.txt` are the
+two scripts `RioSheetCode.gs` replaces (kept only for reference — they were
+two separate scripts on two separate spreadsheets). Do not deploy them;
+`RioSheetCode.gs` is the single script to use going forward.
