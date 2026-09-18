@@ -14,6 +14,16 @@ import styles from "./styles.module.css";
 
 const EMPTY_FORM = { registrationNumber: "", parentName: "", childName: "", phone: "", dob: "", gender: "" };
 const MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const VACCINATION_NOTES = [
+  "To prevent perinatal transmission, a birth dose of Hepatitis B vaccine within 12 hours is essential. BCG, OPV and Hepatitis B vaccines, when missed at birth, can be started at the completion of 6 weeks.",
+  "In addition to routine OPV doses, the recommended Pulse OPV doses are also mandatory during PPI campaigns.",
+  "Hepatitis B may also be given at 0, 6 and 14 weeks.",
+  "Combined DTaP vaccine can be given at 6, 10 and 14 weeks and 15-18 months.",
+  "Catch-up schedule of Hib (if the above recommendation is missed): from 6 to 12 months, 2 doses one month apart; above 1 year, 1 dose.",
+  "Apart from the earliest age recommended, MMR, Typhoid, Varicella and Hepatitis A vaccines can be given at any age, relevant to local epidemiology.",
+  "Td (tetanus/diphtheria toxoid) can be preferred to TT (Tetanus Toxoid) where available.",
+];
+const INFLUENZA_NOTE = "For children less than 9 years who have not previously been vaccinated, a second dose should be given after an interval of at least 4 weeks. Influenza vaccine needs to be given annually. Please seek your doctor's advice regarding newer vaccines.";
 
 function toDateInputValue(date) {
   const year = date.getFullYear();
@@ -261,6 +271,25 @@ export default function BookVaccinePage() {
         didDrawPage: ({ pageNumber }) => {
           if (pageNumber > 1) drawHeader();
           drawFooter(pageNumber);
+        },
+      });
+
+      doc.addPage();
+      autoTable(doc, {
+        startY: 34,
+        head: [[{ content: "Vaccination notes", colSpan: 2 }]],
+        body: [...VACCINATION_NOTES.map((note, index) => [`${index + 1}.`, note]), ["*", INFLUENZA_NOTE]],
+        theme: "grid",
+        margin: { top: 34, right: 15, bottom: 24, left: 15 },
+        styles: { font: "helvetica", fontSize: 8, cellPadding: 2.2, valign: "top", overflow: "linebreak", lineColor: [225, 227, 238], textColor: [82, 88, 113] },
+        headStyles: { fillColor: [48, 53, 115], textColor: 255, fontStyle: "bold" },
+        alternateRowStyles: { fillColor: [249, 249, 253] },
+        columnStyles: { 0: { cellWidth: 10, halign: "center", fontStyle: "bold", textColor: [48, 53, 115] } },
+        pageBreak: "avoid",
+        rowPageBreak: "avoid",
+        didDrawPage: () => {
+          drawHeader();
+          drawFooter(doc.internal.getCurrentPageInfo().pageNumber);
         },
       });
 
