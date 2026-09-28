@@ -16,7 +16,7 @@ const LEADERS = [
     role: "Chairman & Managing Director",
     qual: "MBBS., DCH., MRCP(UK).,",
     image: "/assets/doctors/chairman.png",
-    desc: "Provides overall strategic vision, co-founder leadership, and clinical direction for the hospital group, bringing decades of neonatal and paediatric intensive care experience.",
+    desc: "Provides overall strategic vision, founder leadership, and clinical direction for the hospital group, bringing decades of neonatal and paediatric intensive care experience.",
   },
   {
     name: "Mrs. Kavitha",
