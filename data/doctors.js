@@ -40,7 +40,7 @@ export const doctors = [
   { "department": "General Paediatric", "name": "Dr. Ranjeeth", "qualifications": "MD (Paed).,", "role": "Consultant - General Paediatrics", "image": "" },
   { "department": "General Paediatric", "name": "Dr. Jean", "qualifications": "MD., DNB (Paed)., FIPN (Medvarsity)", "role": "Consultant - General Paediatrics", "image": "" },
   { "department": "General Paediatric", "name": "Dr. Siva", "qualifications": "MD (Paed)", "role": "Consultant - General Paediatrics", "image": "/assets/doctors/Dr.Siva-new.png" },
-  { "department": "General Paediatric", "name": "Dr. Vishalakshi", "qualifications": "DCH., DNB (Paed), Fellowship in Neonatology", "role": "Consultant - General Paediatrics", "image": "/assets/doctors/Visalakshi-new.png", "imageScale": 0.85, "objectPosition": "center 23%", "imageTransformOrigin": "center bottom" },
+  { "department": "General Paediatric", "name": "Dr. Vishalakshi", "qualifications": "DCH., DNB (Paed), Fellowship in Neonatology", "role": "Consultant - General Paediatrics", "image": "/assets/doctors/Visalakshi-new.png", "imageScale": 0.85, "objectPosition": "center 23%", "mobileObjectPosition": "center 20%", "imageTransformOrigin": "center bottom" },
 
   { "department": "Paediatric Accident & Emergency Care", "name": "Dr. Akila Devi", "qualifications": "MBBS., DNB(PAEDIATRICS)., FPEM", "role": "Consultant - Paediatric Accident & Emergency Care", "image": "/assets/doctors/Dr.V. Akila Devi.png" },
 
@@ -59,11 +59,11 @@ export const doctors = [
 
   { "department": "Paediatric Super Specialities", "subSpeciality": "Paediatric Radiology", "name": "Dr. Supraja Laguduva Mohan", "qualifications": "MBBS., MD., DNB (Radiodiagnosis)., MICR., EDiR., FRCR., Fellowship in SPIN., Fellowship in Diagnostic and Interventional Pediatric Radiology at AIIMS, New Delhi", "role": "Consultant - Paediatric Radiology", "image": "/assets/doctors/Dr. Supraja Laguduva Mohan.png" },
 
-  { "department": "Paediatric Super Specialities", "subSpeciality": "Paediatric Cardiology", "name": "Dr. L.K. Senthilkumar", "qualifications": "MD(Paed)., FNB(Paed Cardiology).,", "role": "Consultant - Paediatric Cardiology", "image": "/assets/doctors/Dr.L.K.Senthil Kumar.png" },
+  { "department": "Paediatric Super Specialities", "subSpeciality": "Paediatric Cardiology", "name": "Dr. L.K. Senthilkumar", "qualifications": "MD(Paed)., FNB(Paed Cardiology).,", "role": "Consultant - Paediatric Cardiology", "image": "/assets/doctors/Dr.L.K.Senthil Kumar.png", "mobileObjectPosition": "center 30%" },
 
   { "department": "Paediatric Super Specialities", "subSpeciality": "Paediatric Orthopedic", "name": "Dr. R. Ashok Kumar", "qualifications": "MS(Ortho)., FIPO(Seoul)., International Fellowship in Paed Orthopaedics & Deformity Correction", "role": "Consultant - Paediatric Orthopedic", "image": "/assets/doctors/Dr.R.Ashok Kumar.png" },
 
-  { "department": "Paediatric Super Specialities", "subSpeciality": "Paediatric ENT", "name": "Dr. C. Maheshwaran", "qualifications": "MS., DLO", "role": "Consultant - Paediatric ENT", "image": "/assets/doctors/Dr.C.Maheshwaran.png" },
+  { "department": "Paediatric Super Specialities", "subSpeciality": "Paediatric ENT", "name": "Dr. C. Maheshwaran", "qualifications": "MS., DLO", "role": "Consultant - Paediatric ENT", "image": "/assets/doctors/Dr.C.Maheshwaran.png", "mobileObjectPosition": "center 3%" },
 
   { "department": "Paediatric Super Specialities", "subSpeciality": "Paediatric Dental", "name": "Dr. Vijayakumar", "qualifications": "MDS", "role": "Consultant - Paediatric Dental", "image": "/assets/doctors/Dr.R.Vijayakumar.png" },
 

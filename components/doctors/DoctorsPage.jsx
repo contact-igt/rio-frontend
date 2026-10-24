@@ -120,8 +120,9 @@ export default function DoctorsPage() {
                   src={doc.image}
                   alt={doc.name}
                   loading="lazy"
-                  style={doc.objectPosition || doc.imageScale || doc.imageTransformOrigin ? {
-                    objectPosition: doc.objectPosition,
+                  style={doc.objectPosition || doc.mobileObjectPosition || doc.imageScale || doc.imageTransformOrigin ? {
+                    "--doc-image-position": doc.objectPosition ?? "center top",
+                    "--doc-image-mobile-position": doc.mobileObjectPosition,
                     "--doc-image-scale": doc.imageScale ?? 1,
                     "--doc-image-origin": doc.imageTransformOrigin ?? "center top",
                   } : undefined}
