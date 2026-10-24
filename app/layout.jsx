@@ -4,8 +4,10 @@ import { SITE_LINKS } from "../data/site";
 import InternalLinkHandler from "../components/shared/InternalLinkHandler";
 import MobileCtaBar from "../components/shared/MobileCtaBar";
 import Script from "next/script";
+import { SITE_URL } from "@/lib/siteUrl";
 
 export const metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Rio Children's Hospital — Advanced Women & Child Care in Tamil Nadu",
   description:
     "Rio Children's Hospital provides 24/7 paediatric emergency, NICU, PICU, high-risk pregnancy, fetal medicine, maternity and complete women & child healthcare across 4 branches in Tamil Nadu.",

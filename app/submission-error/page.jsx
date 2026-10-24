@@ -1,6 +1,7 @@
 import SubmissionStatusPage from "@/components/submission-status/SubmissionStatusPage";
 
 export const metadata = {
+  robots: { index: false, follow: false },
   title: "Submission Error — Rio Children's Hospital",
   description: "We could not submit your request. Please try again or contact Rio directly.",
 };

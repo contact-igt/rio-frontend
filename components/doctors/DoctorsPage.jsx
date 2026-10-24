@@ -112,7 +112,7 @@ export default function DoctorsPage() {
     return (
       <Reveal key={`${activeDept}-${searchQuery}-${doc.name}`} delay={(index % 3) * 60}>
         <div className="doc-card">
-          <div className="doc-photo-wrap">
+          <div className={`doc-photo-wrap${doc.image ? " has-image" : ""}`}>
             {doc.image ? (
               <>
                 <img
@@ -120,7 +120,11 @@ export default function DoctorsPage() {
                   src={doc.image}
                   alt={doc.name}
                   loading="lazy"
-                  style={doc.objectPosition ? { objectPosition: doc.objectPosition } : undefined}
+                  style={doc.objectPosition || doc.imageScale || doc.imageTransformOrigin ? {
+                    objectPosition: doc.objectPosition,
+                    "--doc-image-scale": doc.imageScale ?? 1,
+                    "--doc-image-origin": doc.imageTransformOrigin ?? "center top",
+                  } : undefined}
                   onError={(e) => {
                     e.target.style.display = "none";
                     const fallback = e.target.nextSibling;

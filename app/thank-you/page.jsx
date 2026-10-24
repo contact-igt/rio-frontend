@@ -1,6 +1,7 @@
 import SubmissionStatusPage from "@/components/submission-status/SubmissionStatusPage";
 
 export const metadata = {
+  robots: { index: false, follow: false },
   title: "Thank You — Rio Children's Hospital",
   description: "Your request has been received by the Rio care team.",
 };
