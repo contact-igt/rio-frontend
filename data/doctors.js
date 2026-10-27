@@ -15,7 +15,7 @@ export const doctors = [
 
   { "department": "Paediatric Intensive Care Unit", "name": "Dr. R.M. Dinesh Babu", "qualifications": "MBBS., MD(Paed)., IDPCCM(PICU)", "role": "Consultant - Paediatric Intensive Care Unit", "image": "/assets/doctors/Dhinesh Babu.png" },
   { "department": "Paediatric Intensive Care Unit", "name": "Dr. Hariharan", "qualifications": "MD (Paed)., IFPCCM", "role": "Consultant - Paediatric Intensive Care Unit", "image": "/assets/doctors/Hari HAran.png" },
-  { "department": "Paediatric Intensive Care Unit", "name": "Dr. Pradeep", "qualifications": "MD, DNB (Paed), MGMCRI., Fellowship in IDPCCM (PICU)", "role": "Consultant - Paediatric Intensive Care Unit", "image": "/assets/doctors/Dr.Pradeep.jpeg" },
+  { "department": "Paediatric Intensive Care Unit", "name": "Dr. Pradeep", "qualifications": "MD, DNB (Paed), Fellowship in IDPCCM (PICU)", "role": "Consultant - Paediatric Intensive Care Unit", "image": "/assets/doctors/Dr.Pradeep.jpeg" },
   { "department": "Paediatric Intensive Care Unit", "name": "Dr. Ganesh Krishna", "qualifications": "MD., DNB (Paed)., IDPCCM (PICU).,", "role": "Consultant - Paediatric Intensive Care Unit", "image": "https://www.riochildrenshospital.com/images/doctors/ganesh-krishna.webp", "objectPosition": "center 35%" },
 
   { "department": "Obstetric and Gynecology", "name": "Dr. V. Jothi Lakshmi", "qualifications": "MBBS., MD (OG)., PDFEG., ART(Singapore)", "role": "Consultant - Gynec Endoscopic Surgeon and Infertility (ART - IVF) Specialist", "image": "/assets/doctors/Dr.V. Jothi Lakshmi.png" },
