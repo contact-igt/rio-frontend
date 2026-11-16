@@ -7,6 +7,7 @@ import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
 import MobileNav from "@/components/shared/MobileNav";
 import NavManagement from "@/components/shared/NavManagement";
+import NavDoctors from "@/components/shared/NavDoctors";
 import TopStrip from "@/components/shared/TopStrip";
 import { SITE_LINKS } from "@/data/site";
 import styles from "./about-page/styles.module.css";
@@ -455,6 +456,7 @@ export default function AboutPage() {
             About
           </a>
           <NavManagement />
+          <NavDoctors />
 
           <a href="/paediatric-super-specialities">
             Pediatric Super Specialities

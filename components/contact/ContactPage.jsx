@@ -7,6 +7,7 @@ import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
 import MobileNav from "@/components/shared/MobileNav";
 import NavManagement from "@/components/shared/NavManagement";
+import NavDoctors from "@/components/shared/NavDoctors";
 import TopStrip from "@/components/shared/TopStrip";
 import { APPOINTMENT_SERVICES_WITH_ENQUIRY, SITE_LINKS } from "@/data/site";
 import { registerRioLead } from "@/lib/rioRegistration";
@@ -137,7 +138,7 @@ export default function ContactPage() {
         <Logo />
         <nav className="nav">
           <a href="/">Home</a><a href="/about">About</a>
-          <NavManagement /><a href="/paediatric-super-specialities">Pediatric Super Specialities</a><NavTreatments /><a href="/facilities">Facilities</a><a href="/contact" className="active">Contact</a>
+          <NavManagement /><NavDoctors /><a href="/paediatric-super-specialities">Pediatric Super Specialities</a><NavTreatments /><a href="/facilities">Facilities</a><a href="/contact" className="active">Contact</a>
         </nav>
                 <div className="nav-cta">
           <a className="btn btn-line btn-sm" href="/book-vaccine">Book Vaccine</a>

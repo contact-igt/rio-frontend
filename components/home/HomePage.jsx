@@ -8,6 +8,7 @@ import Slider from "react-slick";
 import NavTreatments from "@/components/shared/NavTreatments";
 import MobileNav from "@/components/shared/MobileNav";
 import NavManagement from "@/components/shared/NavManagement";
+import NavDoctors from "@/components/shared/NavDoctors";
 import TopStrip from "@/components/shared/TopStrip";
 import { APPOINTMENT_SERVICES, SITE_LINKS } from "@/data/site";
 import styles from "./styles.module.css";
@@ -630,6 +631,7 @@ export default function HomePage() {
           <a href="/">Home</a>
           <a href="/about">About</a>
           <NavManagement />
+          <NavDoctors />
 
           <a href="/paediatric-super-specialities">Pediatric Super Specialities</a>
           <NavTreatments />

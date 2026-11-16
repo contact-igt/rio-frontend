@@ -6,6 +6,7 @@ import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
 import MobileNav from "@/components/shared/MobileNav";
 import NavManagement from "@/components/shared/NavManagement";
+import NavDoctors from "@/components/shared/NavDoctors";
 import TopStrip from "@/components/shared/TopStrip";
 import { FACILITIES } from "@/data/facilities";
 import { SITE_LINKS } from "@/data/site";
@@ -356,6 +357,7 @@ export default function FacilitiesPage() {
           <a href="/">Home</a>
           <a href="/about">About</a>
           <NavManagement />
+          <NavDoctors />
           
           <a href="/paediatric-super-specialities">Pediatric Super Specialities</a>
           <NavTreatments />

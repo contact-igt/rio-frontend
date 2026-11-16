@@ -3,6 +3,7 @@
 import SiteFooter from "@/components/shared/SiteFooter";
 import { useEffect, useRef, useState } from "react";
 import NavManagement from "@/components/shared/NavManagement";
+import NavDoctors from "@/components/shared/NavDoctors";
 import MobileNav from "@/components/shared/MobileNav";
 import { APPOINTMENT_SERVICES as APPT_SERVICES } from "@/data/site";
 import styles from "./styles.module.css";
@@ -240,6 +241,7 @@ export default function GynaecologyPage() {
           <a href="/">Home</a>
           <a href="/about">About</a>
           <NavManagement />
+          <NavDoctors />
           <a href="/paediatric-super-specialities">Paediatric Super Specialities</a>
           <NavTreatments />
           <a href="/facilities">Facilities</a>

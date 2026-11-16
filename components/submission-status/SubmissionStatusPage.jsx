@@ -4,6 +4,7 @@ import { useState } from "react";
 import SiteFooter from "@/components/shared/SiteFooter";
 import SiteLogo from "@/components/shared/SiteLogo";
 import NavManagement from "@/components/shared/NavManagement";
+import NavDoctors from "@/components/shared/NavDoctors";
 import NavTreatments from "@/components/shared/NavTreatments";
 import MobileNav from "@/components/shared/MobileNav";
 import TopStrip from "@/components/shared/TopStrip";
@@ -32,6 +33,7 @@ export default function SubmissionStatusPage({
           <a href="/">Home</a>
           <a href="/about">About</a>
           <NavManagement />
+          <NavDoctors />
           <a href="/paediatric-super-specialities">Pediatric Super Specialities</a>
           <NavTreatments />
           <a href="/facilities">Facilities</a>
