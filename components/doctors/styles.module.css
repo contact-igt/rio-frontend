@@ -372,9 +372,10 @@
 }
 
 .page :global(.doc-photo) {
-  width: 100%;
+  width: var(--doc-image-width, 100%);
+  margin-inline: auto;
   height: 100%;
-  object-fit: cover;
+  object-fit: var(--doc-image-fit, cover);
   object-position: var(--doc-image-position, center top);
   transform: scale(var(--doc-image-scale, 1));
   transform-origin: var(--doc-image-origin, center top);

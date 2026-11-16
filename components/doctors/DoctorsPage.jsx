@@ -121,7 +121,9 @@ export default function DoctorsPage() {
                   src={doc.image}
                   alt={doc.name}
                   loading="lazy"
-                  style={doc.objectPosition || doc.mobileObjectPosition || doc.imageScale || doc.imageTransformOrigin ? {
+                  style={doc.imageWidth || doc.imageFit || doc.objectPosition || doc.mobileObjectPosition || doc.imageScale || doc.imageTransformOrigin ? {
+                    "--doc-image-width": doc.imageWidth ?? "100%",
+                    "--doc-image-fit": doc.imageFit ?? "cover",
                     "--doc-image-position": doc.objectPosition ?? "center top",
                     "--doc-image-mobile-position": doc.mobileObjectPosition,
                     "--doc-image-scale": doc.imageScale ?? 1,
