@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
 import NavManagement from "@/components/shared/NavManagement";
+import NavDoctors from "@/components/shared/NavDoctors";
 import MobileNav from "@/components/shared/MobileNav";
 import TopStrip from "@/components/shared/TopStrip";
 import { SITE_LINKS } from "@/data/site";
@@ -78,6 +79,7 @@ export default function ManagementPage() {
           <a href="/">Home</a>
           <a href="/about">About</a>
           <NavManagement active={true} />
+          <NavDoctors />
 
           <a href="/paediatric-super-specialities">Pediatric Super Specialities</a>
           <NavTreatments />

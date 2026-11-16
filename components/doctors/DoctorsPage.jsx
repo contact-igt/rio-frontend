@@ -6,6 +6,7 @@ import Logo from "@/components/shared/SiteLogo";
 import NavTreatments from "@/components/shared/NavTreatments";
 import MobileNav from "@/components/shared/MobileNav";
 import NavManagement from "@/components/shared/NavManagement";
+import NavDoctors from "@/components/shared/NavDoctors";
 import TopStrip from "@/components/shared/TopStrip";
 import { APPOINTMENT_SERVICES, BRANCH_NAMES, SITE_LINKS } from "@/data/site";
 import { doctors } from "@/data/doctors";
@@ -167,6 +168,7 @@ export default function DoctorsPage() {
           <a href="/">Home</a>
           <a href="/about">About</a>
           <NavManagement />
+          <NavDoctors active />
           <a href="/paediatric-super-specialities">Pediatric Super Specialities</a>
           <NavTreatments />
           <a href="/facilities">Facilities</a>

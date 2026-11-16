@@ -7,8 +7,7 @@ export default function NavManagement({ active = false }) {
   const isActive =
     active ||
     pathname === "/about/chairman" ||
-    pathname === "/about/management" ||
-    pathname === "/doctors";
+    pathname === "/about/management";
 
   return (
     <div className="nav-dd">
@@ -21,7 +20,6 @@ export default function NavManagement({ active = false }) {
       <div className="nav-dd-menu">
         <a href="/about/chairman">Founder &amp; Chairman</a>
         <a href="/about/management">Management Team</a>
-        <a href="/doctors">Our Doctors</a>
       </div>
     </div>
   );

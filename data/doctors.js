@@ -10,10 +10,10 @@ export const doctors = [
   { "department": "Neonatal Intensive Care Unit", "name": "Dr. Nivetha", "qualifications": "MD (Paed)., FNNF (Fellowship in Neonatology)", "role": "Consultant - NICU and General Paediatrics", "image": "" },
   { "department": "Neonatal Intensive Care Unit", "name": "Dr. Abirami", "qualifications": "MBBS", "role": "Consultant - NICU and General Paediatrics", "image": "" },
   { "department": "Neonatal Intensive Care Unit", "name": "Dr. Anitha", "qualifications": "MBBS", "role": "Consultant - NICU and General Paediatrics", "image": "/assets/doctors/Dr. Anitha-new.png" },
-  { "department": "Neonatal Intensive Care Unit", "name": "Dr. Vivedha", "qualifications": "MD (Paed)., DM Neonatology", "role": "Consultant - NICU and General Paediatrics", "image": "" },
+  { "department": "Neonatal Intensive Care Unit", "name": "Dr. Vivetha", "qualifications": "MD, DM (Neonatology)", "role": "Consultant - NICU and General Paediatrics", "image": "/assets/doctors/Dr. Vivetha.jpeg" },
   { "department": "Neonatal Intensive Care Unit", "name": "Dr. Rajparath", "qualifications": "MD (Paed)., IAP Fellowship in Neonatology.,", "role": "Consultant - NICU and General Paediatrics", "image": "https://www.riochildrenshospital.com/images/doctors/rajparath.webp" },
 
-  { "department": "Paediatric Intensive Care Unit", "name": "Dr. R.M. Dinesh Babu", "qualifications": "MBBS., MD(Paed)., IDPCCM(PICU)", "role": "Consultant - Paediatric Intensive Care Unit", "image": "/assets/doctors/Dhinesh Babu.png" },
+  { "department": "Paediatric Intensive Care Unit", "name": "Dr. R.M. Dinesh Babu", "qualifications": "MD, DNB (Paed), IDPCCM (PICU), Fellowship in ECMO (ESOI), Fellowship in Paediatric Diabetes (ISPAED), MBA (Healthcare)", "role": "Consultant - Paediatric Intensive Care Unit · IAP-PICU Accredited Teacher", "image": "/assets/doctors/Dr R.M.DINESH BABU .jpeg" },
   { "department": "Paediatric Intensive Care Unit", "name": "Dr. Hariharan", "qualifications": "MD (Paed)., IFPCCM", "role": "Consultant - Paediatric Intensive Care Unit", "image": "/assets/doctors/Hari HAran.png" },
   { "department": "Paediatric Intensive Care Unit", "name": "Dr. Pradeep", "qualifications": "MD, DNB (Paed), Fellowship in IDPCCM (PICU)", "role": "Consultant - Paediatric Intensive Care Unit", "image": "/assets/doctors/Dr.Pradeep.jpeg" },
   { "department": "Paediatric Intensive Care Unit", "name": "Dr. Ganesh Krishna", "qualifications": "MD., DNB (Paed)., IDPCCM (PICU).,", "role": "Consultant - Paediatric Intensive Care Unit", "image": "https://www.riochildrenshospital.com/images/doctors/ganesh-krishna.webp", "objectPosition": "center 35%" },
@@ -28,8 +28,9 @@ export const doctors = [
   // { "department": "Fetal Medicine", "name": "Dr. Raja Chella Sethupathy", "qualifications": "MBBS., DNB(OBG)., Fellowship in Fetal Medicine", "role": "Consultant - Fetal Medicine", "image": "https://www.riochildrenshospital.com/images/doctors/raja chella sethupathy.webp" },
   { "department": "Fetal Medicine", "name": "Dr. R. Madhu Maetha", "qualifications": "MBBS, MDRD, CCFRG, ACFRG, Fellowship in Fetal Medicine and Breast Imaging.", "role": "Consultant - Fetal Medicine Specialist", "image": "/assets/doctors/Dr. R. Madhu Maetha2-new.png" },
 
-  { "department": "General Paediatric", "name": "Dr. Senthilkumar C S", "qualifications": "MD., DCH.,", "role": "Consultant - General Paediatrics", "image": "" },
+  { "department": "General Paediatric", "name": "Dr. C.S. Senthil Kumar", "qualifications": "MD, DCH", "role": "Consultant - General Paediatrics", "image": "/assets/doctors/Dr.C.S.SENTHIL KUMAR.jpeg" },
   { "department": "General Paediatric", "name": "Dr. Shanmugapriya", "qualifications": "MBBS, DCH", "role": "Consultant - General Paediatrics", "image": "/assets/doctors/shanmugapriya.png" },
+  { "department": "General Paediatric", "name": "Dr. Suresh Kumar", "qualifications": "MBBS, MD Paediatrics", "role": "Senior Resident - Paediatrics, Madurai", "image": "/assets/doctors/Suresh Kumar.jpeg" },
   { "department": "General Paediatric", "name": "Dr. Kalaiarasi", "qualifications": "MD (Paed).,", "role": "Consultant - General Paediatrics", "image": "" },
   { "department": "General Paediatric", "name": "Dr. Saranraj", "qualifications": "DCH.,", "role": "Consultant - General Paediatrics", "image": "" },
   { "department": "General Paediatric", "name": "Dr. Lavanya", "qualifications": "MBBS", "role": "Consultant - General Paediatrics", "image": "" },
@@ -78,7 +79,7 @@ export const doctors = [
   { "department": "Paediatric Super Specialities", "subSpeciality": "Paediatric Metabolic Disorders", "name": "Dr. Anil B. Jalan", "qualifications": "MBBS., MD., DCH., MCPS", "role": "Consultant - Paediatric Metabolic Disorders", "image": "/assets/doctors/Dr.Anil B Jalan.png" },
 
   { "department": "Paediatric Super Specialities", "subSpeciality": "Genetic Medicine", "name": "Dr. M. Pradeep Kumar", "qualifications": "MBBS., MD., DCH., FCG", "role": "Consultant - Genetic Medicine", "image": "/assets/doctors/Dr.M. Pradeep Kumar.png" },
-  { "department": "Paediatric Super Specialities", "subSpeciality": "Genetic Medicine", "name": "Dr. Vijay Prabhu", "qualifications": "MD., DCH., FCG.,", "role": "Consultant - Genetic Medicine", "image": "" },
+  { "department": "Paediatric Super Specialities", "subSpeciality": "Genetic Medicine", "name": "Dr. Vijay Prabhu", "qualifications": "MD., DCH., FCG.,", "role": "Consultant - Genetic Medicine", "image": "/assets/doctors/Dr.Vijay Prabhu.jpeg" },
   { "department": "Paediatric Super Specialities", "subSpeciality": "Genetic Medicine", "name": "Dr. Janani Dakshina Moorthy", "qualifications": "", "role": "Consultant - Senior Genetic Counsellor", "image": "/assets/doctors/Janani Dakshina moorthy.png" },
 
   { "department": "Paediatric Super Specialities", "subSpeciality": "Paediatric Rheumatology & Clinical Immunology", "name": "Dr. Gayathri", "qualifications": "", "role": "Consultant - Paediatric Rheumatology & Clinical Immunology", "image": "/assets/doctors/Gayathri.jpeg", "imageScale": 0.85, "objectPosition": "center 13%", "imageTransformOrigin": "center bottom" },
@@ -97,6 +98,8 @@ export const doctors = [
 
   { "department": "Multidisciplinary Team of Neuro Developmental Experts", "subSpeciality": "Speech and language Therapy", "name": "Ms. Suganthi", "qualifications": "B.ASLP., P.G.D.E.I", "role": "Consultant - Audiologist and Speech Therapist", "image": "/assets/doctors/Ms. Suganthi.png" },
 
+  { "department": "Multidisciplinary Team of Neuro Developmental Experts", "subSpeciality": "Psychology", "name": "Natasha Ann Mary Mathew", "qualifications": "MPhil Rehabilitation Psychology, MSc Clinical Psychology", "role": "RCI Licensed Psychologist", "image": "/assets/doctors/Natasha 02.jpeg" },
+
   { "department": "Multidisciplinary Team of Neuro Developmental Experts", "subSpeciality": "Occupational Therapy", "name": "Dr. A. Rebecca", "qualifications": "B.O.T", "role": "Consultant - Occupational Therapy", "image": "/assets/doctors/Dr.A.Rebecca.png" },
   { "department": "Multidisciplinary Team of Neuro Developmental Experts", "subSpeciality": "Occupational Therapy", "name": "Mariya Pushpam G", "qualifications": "B.O.T", "role": "Occupational Therapist", "image": "/assets/doctors/maria_pushpam-new.png", "imageScale": 0.9, "imageTransformOrigin": "center bottom" },
   { "department": "Multidisciplinary Team of Neuro Developmental Experts", "subSpeciality": "Occupational Therapy", "name": "Sweet Blessy V", "qualifications": "B.O.T", "role": "Occupational Therapist", "image": "/assets/doctors/sweet_blessy.png" },
@@ -106,10 +109,17 @@ export const doctors = [
   { "department": "Multidisciplinary Team of Neuro Developmental Experts", "subSpeciality": "Paediatric Psychiatrist", "name": "Dr. Vidhya", "qualifications": "MD., DNB (Psychiatry).,", "role": "Consultant - Paediatric Psychiatrist", "image": "" },
   { "department": "Multidisciplinary Team of Neuro Developmental Experts", "subSpeciality": "Paediatric Psychiatrist", "name": "Dr. Dhamodhara Pandian S.M.", "qualifications": "MBBS, MD Psychiatry, PDCC Child & Adolescent Psychiatry (JIPMER), DM Child & Adolescent Psychiatry (NIMHANS)", "role": "Consultant - Paediatric Psychiatrist", "image": "/assets/doctors/Dhamodhara_pandian.png" },
 
+  { "department": "Anaesthesiology", "name": "Dr. Bhuvaneshwar", "qualifications": "MBBS, MD - Anaesthesia", "role": "Junior Consultant - Anaesthesiology, Thanjavur", "image": "/assets/doctors/Bhuwaneshwar.jpeg" },
+  { "department": "Anaesthesiology", "name": "Dr. Raghavi", "qualifications": "MBBS, MD - Anaesthesia", "role": "Associate Consultant - Emergency Medicine, Madurai", "image": "/assets/doctors/Ragavi.jpeg" },
+  { "department": "Anaesthesiology", "name": "Dr. Ramya Ragul", "qualifications": "MBBS, MD - Anaesthesia", "role": "Senior Resident - Anaesthesiology, Thanjavur", "image": "/assets/doctors/Ramya.jpeg" },
+
+  { "department": "Hospital Administration", "name": "Sudhakar Kanmani", "qualifications": "B.Sc (UK), MBBS, MBA (UK)", "role": "Head - Operations, Thanjavur", "image": "/assets/doctors/Sudhakar.png" },
+
   // --- Adult Care Team ---
   { "department": "Adult Care Team", "subSpeciality": "General Medicine & Intensive Care Unit", "name": "Dr. M.S. Manoj", "qualifications": "MBBS., MD(Gen Med)., DrNB (Critical Care)", "role": "Consultant - General Medicine & Intensive Care Unit", "image": "/assets/doctors/Dr.M.S. Manoj.png" },
 
   { "department": "Adult Care Team", "subSpeciality": "Emergency Medicine & Critical Care Unit", "name": "Dr. Jamal Mohd Shaji", "qualifications": "MBBS., MEM(GWU-USA)", "role": "Consultant - Emergency Medicine & Critical Care Unit", "image": "/assets/doctors/Dr.Jamal Mohd Shaji.png" },
 
-  { "department": "Adult Care Team", "subSpeciality": "Family Medicine", "name": "Dr. S. Waseemsha", "qualifications": "MD (CM)., MMed (Family Medicine)., FCDiab., Family Medicine.,", "role": "Consultant - Family Physician", "image": "" }
+  { "department": "Adult Care Team", "subSpeciality": "Family Medicine", "name": "Dr. S. Waseemsha", "qualifications": "MD (CM)., MMed (Family Medicine)., FCDiab., Family Medicine.,", "role": "Consultant - Family Physician", "image": "" },
+  { "department": "Adult Care Team", "subSpeciality": "Family Medicine", "name": "Dr. Wasim", "qualifications": "Family Medicine", "role": "Consultant - Family Medicine", "image": "/assets/doctors/Dr.Wasim.jpeg" }
 ];

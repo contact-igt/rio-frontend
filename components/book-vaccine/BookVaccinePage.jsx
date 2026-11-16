@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
 import MobileNav from "@/components/shared/MobileNav";
 import NavManagement from "@/components/shared/NavManagement";
+import NavDoctors from "@/components/shared/NavDoctors";
 import NavTreatments from "@/components/shared/NavTreatments";
 import SiteFooter from "@/components/shared/SiteFooter";
 import TopStrip from "@/components/shared/TopStrip";
@@ -306,7 +307,7 @@ export default function BookVaccinePage() {
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
         <nav className="nav">
-          <a href="/">Home</a><a href="/about">About</a><NavManagement />
+          <a href="/">Home</a><a href="/about">About</a><NavManagement /><NavDoctors />
           <a href="/paediatric-super-specialities">Pediatric Super Specialities</a><NavTreatments />
           <a href="/facilities">Facilities</a><a href="/contact">Contact</a>
         </nav>

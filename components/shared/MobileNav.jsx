@@ -16,7 +16,6 @@ const DEFAULT_CTA_BUTTONS = [
 export default function MobileNav({
   open,
   onClose,
-  showDoctors = true,
   ctaButtons = DEFAULT_CTA_BUTTONS,
 }) {
   return (
@@ -31,6 +30,9 @@ export default function MobileNav({
         <a className="mnav-link" href="/about" onClick={onClose}>
           About
         </a>
+        <a className="mnav-link" href="/doctors" onClick={onClose}>
+          Doctors
+        </a>
         <details className="mnav-group">
           <summary className="mnav-toggle">Management</summary>
           <a className="mnav-sub" href="/about/chairman" onClick={onClose}>
@@ -39,11 +41,6 @@ export default function MobileNav({
           <a className="mnav-sub" href="/about/management" onClick={onClose}>
             Management Team
           </a>
-          {showDoctors ? (
-            <a className="mnav-sub" href="/doctors" onClick={onClose}>
-              Our Doctors
-            </a>
-          ) : null}
         </details>
         <a className="mnav-link" href="/paediatric-super-specialities" onClick={onClose}>
           Paediatric Super Specialities

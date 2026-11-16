@@ -3,6 +3,7 @@
 import SiteFooter from "@/components/shared/SiteFooter";
 import { useEffect, useRef, useState } from "react";
 import NavManagement from "@/components/shared/NavManagement";
+import NavDoctors from "@/components/shared/NavDoctors";
 import MobileNav from "@/components/shared/MobileNav";
 import { APPOINTMENT_SERVICES as APPT_SERVICES, BRANCH_NAMES } from "@/data/site";
 import styles from "./styles.module.css";
@@ -160,7 +161,7 @@ function PicuPageContent({ service: s }) {
       <header className={`header ${solid ? "solid" : ""}`}>
         <Logo />
         <nav className="nav"><a href="/">Home</a><a href="/about">About</a>
-          <NavManagement /><a href="/paediatric-super-specialities">Pediatric Super Specialities</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
+          <NavManagement /><NavDoctors /><a href="/paediatric-super-specialities">Pediatric Super Specialities</a><NavTreatments active /><a href="/facilities">Facilities</a><a href="/contact">Contact</a></nav>
         <div className="nav-cta">
           <a className="btn btn-line btn-sm" href="/book-vaccine">Book Vaccine</a>
           <a className="btn btn-coral btn-sm" href="/book-appointment">Book an Appointment</a>
