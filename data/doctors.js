@@ -34,7 +34,7 @@ export const doctors = [
   { "department": "General Paediatric", "name": "Dr. Kalaiarasi", "qualifications": "MD (Paed).,", "role": "Consultant - General Paediatrics", "image": "/assets/doctors/Dr. Kalaiarasi.png" },
   { "department": "General Paediatric", "name": "Dr. Saranraj", "qualifications": "DCH.,", "role": "Consultant - General Paediatrics", "image": "/assets/doctors/Dr. Saranraj.png",  "imageWidth" : "88%" },
   { "department": "General Paediatric", "name": "Dr. Lavanya", "qualifications": "MBBS", "role": "Consultant - General Paediatrics", "image": "" },
-  { "department": "General Paediatric", "name": "Dr. Chezhiyan", "qualifications": "MBBS", "role": "Consultant - General Paediatrics", "image": "/assets/doctors/Dr.Chezhiyan-new.png" },
+  // { "department": "General Paediatric", "name": "Dr. Chezhiyan", "qualifications": "MBBS", "role": "Consultant - General Paediatrics", "image": "/assets/doctors/Dr.Chezhiyan-new.png" },
   { "department": "General Paediatric", "name": "Dr. Aruna", "qualifications": "MBBS", "role": "Consultant - General Paediatrics", "image": "" },
   { "department": "General Paediatric", "name": "Dr. Keethana", "qualifications": "MBBS", "role": "Consultant - General Paediatrics", "image": "" },
   { "department": "General Paediatric", "name": "Dr. Ponmani", "qualifications": "MD.,", "role": "Consultant - General Paediatrics", "image": "" },
