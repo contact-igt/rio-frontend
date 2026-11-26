@@ -2792,6 +2792,58 @@
    AWARDS & RECOGNITIONS SECTION
    ═══════════════════════════════════════════════════ */
 
+.accreditations {
+  padding: clamp(70px, 8vw, 112px) 0;
+  background: linear-gradient(145deg, #fff9fa 0%, #f8f8fc 55%, #f1f7f3 100%);
+  color: #303573;
+}
+.accreditationsIntro { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 38px; }
+.accreditationsIntro > p { max-width: 350px; color: #666b83; line-height: 1.7; }
+.accreditations h2 { margin: 14px 0 0; font-size: clamp(36px, 4.5vw, 58px); line-height: 1.08; letter-spacing: -.035em; }
+.accreditations h2 em { color: #dc5687; font-style: normal; }
+.accreditationsEyebrow { display: flex; align-items: center; gap: 8px; color: #bb4675; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; font-size: 11px; }
+.accreditationsGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.accreditationsGrid article { display: flex; flex-direction: column; align-items: flex-start; padding: 32px; background: #fff; border: 1px solid #f0e8ee; border-radius: 22px; box-shadow: 0 16px 45px rgba(48,53,115,.06); }
+.accreditationIcon { display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: 28px; color: #cf5685; background: #fff0f5; border-radius: 16px; }
+.accreditationsGrid article:nth-child(2) .accreditationIcon { color: #8a6b36; background: #fcf4e5; }
+.accreditationsGrid article:nth-child(3) .accreditationIcon { color: #6e963d; background: #f0f7e9; }
+.accreditationsGrid span { color: #a05b7a; font-size: 11px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+.accreditationsGrid h3 { margin: 12px 0; font-size: 25px; }
+.accreditationsGrid h3 strong { display: block; font-weight: 700; }
+.accreditationsGrid p { color: #696d80; line-height: 1.65; font-size: 14px; }
+.accreditationsGrid a { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 24px; color: #bb4675; font-weight: 700; font-size: 13px; }
+.accreditationsMilestone { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 30px; margin-top: 24px; padding: 32px 38px; border-radius: 22px; background: #303573; color: white; }
+.accreditationsMilestone span { color: #ffb6cf; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+.accreditationsMilestone h3 { max-width: 430px; margin: 9px 0 0; font-size: clamp(21px, 2.4vw, 29px); line-height: 1.2; }
+.accreditationsMilestone p { margin: 0; padding-left: 30px; border-left: 1px solid rgba(255,255,255,.25); line-height: 1.8; color: #edeefa; }
+.accreditationsMilestone strong { color: #ffb6cf; }
+@media (max-width: 768px) { .accreditationsIntro { display: block; } .accreditationsIntro > p { margin-top: 18px; } .accreditationsGrid { grid-template-columns: 1fr; } .accreditationsGrid article { padding: 26px; } .accreditationIcon { margin-bottom: 20px; } .accreditationsMilestone { grid-template-columns: 1fr; padding: 28px; gap: 18px; } .accreditationsMilestone p { border-left: 0; border-top: 1px solid rgba(255,255,255,.25); padding: 18px 0 0; } }
+
+/* Accreditation section: compact rows keep each credential easy to scan. */
+.accreditations { background: #fffaf9; }
+.accreditationsIntro { align-items: center; margin-bottom: 32px; }
+.accreditationsIntro > p { color: #525b72; font-size: 16px; }
+.accreditationsGrid { display: flex; flex-direction: column; gap: 12px; }
+.accreditationsGrid article { display: grid; grid-template-columns: 56px minmax(175px, .8fr) minmax(240px, 1.5fr) auto; grid-template-rows: auto auto; align-items: center; column-gap: 24px; padding: 22px 28px; border-radius: 16px; box-shadow: 0 8px 28px rgba(48,53,115,.05); }
+.accreditationIcon { grid-column: 1; grid-row: 1 / 3; margin: 0; }
+.accreditationsGrid article > span { grid-column: 2; grid-row: 1; align-self: end; }
+.accreditationsGrid h3 { grid-column: 2; grid-row: 2; margin: 5px 0 0; align-self: start; color: #303573; font-size: 21px; line-height: 1.2; }
+.accreditationsGrid h3 strong { display: inline; }
+.accreditationsGrid p { grid-column: 3; grid-row: 1 / 3; margin: 0; color: #424a60; font-size: 15px; }
+.accreditationsGrid a { grid-column: 4; grid-row: 1 / 3; margin: 0; padding: 10px 0; white-space: nowrap; }
+.accreditationsMilestone { margin-top: 24px; background: #303573; }
+.page .accreditationsMilestone h3 { color: #fff; }
+.accreditationsMilestone p { color: #fff; font-size: 16px; }
+@media (max-width: 900px) {
+  .accreditationsGrid article { grid-template-columns: 52px 1fr; gap: 5px 18px; }
+  .accreditationIcon { grid-column: 1; grid-row: 1 / 4; align-self: start; }
+  .accreditationsGrid article > span { grid-column: 2; grid-row: 1; }
+  .accreditationsGrid h3 { grid-column: 2; grid-row: 2; }
+  .accreditationsGrid p { grid-column: 2; grid-row: 3; margin-top: 7px; }
+  .accreditationsGrid a { grid-column: 2; grid-row: 4; padding: 10px 0 0; }
+}
+@media (max-width: 768px) { .accreditationsIntro { display: block; } .accreditationsGrid article { padding: 22px; } .accreditationsMilestone { grid-template-columns: 1fr; } }
+
 .page .awardsSection {
   position: relative;
   background: url("/assets/home/awardbg.png") center / cover no-repeat;

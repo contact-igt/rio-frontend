@@ -1,7 +1,7 @@
 "use client";
 
 import SiteFooter from "@/components/shared/SiteFooter";
-import { Stethoscope, ArrowRight } from "lucide-react";
+import { Stethoscope, ArrowRight, Award, HeartPulse, ShieldCheck, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import Logo from "@/components/shared/SiteLogo";
 import Slider from "react-slick";
@@ -752,6 +752,22 @@ export default function HomePage() {
         </section>
 
         {/* ───────── AWARDS & RECOGNITIONS ───────── */}
+        <section className={styles.accreditations} aria-labelledby="accreditations-title">
+          <div className="wrap">
+            <div className={styles.accreditationsIntro}>
+              <div><p className={styles.accreditationsEyebrow}><Sparkles size={15} aria-hidden="true" /> Care you can trust</p>
+                <h2 id="accreditations-title">Excellence in care,<br /><em>recognised.</em></h2></div>
+              <p>Every recognition reflects our commitment to safer, compassionate care for women and children.</p>
+            </div>
+            <div className={styles.accreditationsGrid}>
+              <article><div className={styles.accreditationIcon}><HeartPulse aria-hidden="true" /></div><span>Neonatal intensive care</span><h3>NICU <strong>Level III A</strong></h3><p>Accredited by the National Neonatology Forum (NNF).</p><a href="/services/nicu">Explore NICU <ArrowRight size={16} /></a></article>
+              <article><div className={styles.accreditationIcon}><Award aria-hidden="true" /></div><span>Paediatric intensive care</span><h3>PICU <strong>Level III</strong></h3><p>Accredited by the Indian Academy of Paediatrics - Indian College of Paediatrics (IAP - ICP) as a non-teaching paediatric critical care medicine unit.</p><a href="/services/picu">Explore PICU <ArrowRight size={16} /></a></article>
+              <article><div className={styles.accreditationIcon}><ShieldCheck aria-hidden="true" /></div><span>Quality healthcare</span><h3>NABH <strong>Accredited</strong></h3><p>Recognised for our commitment to quality healthcare.</p></article>
+            </div>
+            <div className={styles.accreditationsMilestone}><div><span>A proud milestone</span><h3>Setting a new standard in paediatric critical care.</h3></div><p><strong>First &amp; only</strong> in Madurai and South Tamil Nadu<br /><strong>10th hospital</strong> in Tamil Nadu to receive Level III PICU accreditation.</p></div>
+          </div>
+        </section>
+
         <section className={`section ${styles.awardsSection}`} id="awards">
           <div className="wrap">
             <Reveal className={`sec-head center ${styles.awardsHead}`}>
