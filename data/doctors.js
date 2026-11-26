@@ -37,7 +37,7 @@ export const doctors = [
   // { "department": "General Paediatric", "name": "Dr. Chezhiyan", "qualifications": "MBBS", "role": "Consultant - General Paediatrics", "image": "/assets/doctors/Dr.Chezhiyan-new.png" },
   { "department": "General Paediatric", "name": "Dr. Aruna", "qualifications": "MBBS", "role": "Consultant - General Paediatrics", "image": "" },
   { "department": "General Paediatric", "name": "Dr. Keethana", "qualifications": "MBBS", "role": "Consultant - General Paediatrics", "image": "" },
-  { "department": "General Paediatric", "name": "Dr. Ponmani", "qualifications": "MD.,", "role": "Consultant - General Paediatrics", "image": "" },
+  { "department": "General Paediatric", "name": "Dr. Ponmani", "qualifications": "MD.,", "role": "Consultant - General Paediatrics", "image": "/assets/doctors/ponmani.jpeg", "imageFit": "cover", "objectPosition": "center 20%", "mobileObjectPosition": "center 20%" },
   { "department": "General Paediatric", "name": "Dr. Ranjeeth", "qualifications": "MD (Paed).,", "role": "Consultant - General Paediatrics", "image": "/assets/doctors/Dr.Ranjith-new.png" },
   { "department": "General Paediatric", "name": "Dr. Jean", "qualifications": "MD., DNB (Paed)., FIPN (Medvarsity)", "role": "Consultant - General Paediatrics", "image": "/assets/doctors/Dr.Jean Pradhish-new.png", "objectPosition": "center 20%", "mobileObjectPosition": "center 20%" },
   { "department": "General Paediatric", "name": "Dr. Siva", "qualifications": "MD (Paed)", "role": "Consultant - General Paediatrics", "image": "/assets/doctors/Dr.Siva-new.png" },
